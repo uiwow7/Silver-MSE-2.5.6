@@ -547,7 +547,7 @@ card style:
 			name: Beleren Bold
 			size: { (if is_map() then 12 else 13) - shrink_type() }
 			color: { if is_full_art() or is_puma() or is_shifted() or is_fnm() then "white" else "black"}
-			shadow color: {if is_full_art() or is_puma() or is_shifted() or is_fnm() then "black" else rgba(0,0,0,0)}
+			shadow color: {if is_full_art() or is_puma() or is_shifted() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
 			shadow displacement x: -1
 			shadow displacement y: 1
 			separator color: red
@@ -603,7 +603,7 @@ card style:
 			size: {if styling.font_cap != "" then to_number(styling.font_cap) else (if is_mutate() then 12 else 14)}
 			scale down to: 6
 			color: { if is_full_art() or is_fnm() then "white" else "black"}
-			shadow color: {if is_full_art() or is_fnm() then "black" else rgba(0,0,0,0)}
+			shadow color: {if is_full_art() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
 			shadow displacement x: -1
 			shadow displacement y: 1
 		symbol font:
@@ -639,7 +639,7 @@ card style:
 			size: {if styling.font_cap != "" then to_number(styling.font_cap) else 14}
 			scale down to: 6
 			color: { if is_full_art() or is_fnm() then "white" else "black"}
-			shadow color: {if is_full_art() or is_fnm() then "black" else rgba(0,0,0,0)}
+			shadow color: {if is_full_art() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
 			shadow displacement x: -1
 			shadow displacement y: 1
 		symbol font:
@@ -676,7 +676,7 @@ card style:
 			size: {if styling.font_cap != "" then to_number(styling.font_cap) else 14}
 			scale down to: 6
 			color: { if is_full_art() or is_fnm() then "white" else "black"}
-			shadow color: {if is_full_art() or is_fnm() then "black" else rgba(0,0,0,0)}
+			shadow color: {if is_full_art() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
 			shadow displacement x: -1
 			shadow displacement y: 1
 		symbol font:
@@ -704,7 +704,7 @@ card style:
 			size: {if styling.font_cap != "" then to_number(styling.font_cap) else 14}
 			scale down to: 6
 			color: { if is_full_art() or is_fnm() then "white" else "black"}
-			shadow color: {if is_full_art() or is_fnm() then "black" else rgba(0,0,0,0)}
+			shadow color: {if is_full_art() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
 			shadow displacement x: -1
 			shadow displacement y: 1
 		symbol font:
@@ -740,7 +740,7 @@ card style:
 			size: {if styling.font_cap != "" then to_number(styling.font_cap) else 14}
 			scale down to: 6
 			color: { if is_full_art() or is_fnm() then "white" else "black"}
-			shadow color: {if is_full_art() or is_fnm() then "black" else rgba(0,0,0,0)}
+			shadow color: {if is_full_art() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
 			shadow displacement x: -1
 			shadow displacement y: 1
 		symbol font:
@@ -776,7 +776,7 @@ card style:
 			size: {if styling.font_cap != "" then to_number(styling.font_cap) else 14}
 			scale down to: 6
 			color: { if is_full_art() or is_fnm() then "white" else "black"}
-			shadow color: {if is_full_art() or is_fnm() then "black" else rgba(0,0,0,0)}
+			shadow color: {if is_full_art() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
 			shadow displacement x: -1
 			shadow displacement y: 1
 		symbol font:
@@ -1467,7 +1467,7 @@ extra card style:
 			size: {mod_font_size()}
 			scale down to: 6
 			color: { if is_full_art() then "white" else "black"}
-			shadow color: {if is_full_art() then "black" else rgba(0,0,0,0)}
+			shadow color: {if is_full_art() then rgb(0,0,0) else rgba(0,0,0,0)}
 			shadow displacement x: -1
 			shadow displacement y: 1
 		alignment: "middle center"
@@ -1486,7 +1486,7 @@ extra card style:
 			size: {mod_font_size()}
 			scale down to: 6
 			color: { if is_full_art() then "white" else "black"}
-			shadow color: {if is_full_art() then "black" else rgba(0,0,0,0)}
+			shadow color: {if is_full_art() then rgb(0,0,0) else rgba(0,0,0,0)}
 			shadow displacement x: -1
 			shadow displacement y: 1
 		alignment: "middle center"
@@ -1505,7 +1505,7 @@ extra card style:
 			size: {mod_font_size()}
 			scale down to: 6
 			color: { if is_full_art() then "white" else "black"}
-			shadow color: {if is_full_art() then "black" else rgba(0,0,0,0)}
+			shadow color: {if is_full_art() then rgb(0,0,0) else rgba(0,0,0,0)}
 			shadow displacement x: -1
 			shadow displacement y: 1
 		alignment: "middle center"
@@ -1524,7 +1524,7 @@ extra card style:
 			size: {mod_font_size()}
 			scale down to: 6
 			color: { if is_full_art() then "white" else "black"}
-			shadow color: {if is_full_art() then "black" else rgba(0,0,0,0)}
+			shadow color: {if is_full_art() then rgb(0,0,0) else rgba(0,0,0,0)}
 			shadow displacement x: -1
 			shadow displacement y: 1
 		alignment: "middle center"
@@ -1543,7 +1543,7 @@ extra card style:
 			size: {mod_font_size()}
 			scale down to: 6
 			color: { if is_full_art() then "white" else "black"}
-			shadow color: {if is_full_art() then "black" else rgba(0,0,0,0)}
+			shadow color: {if is_full_art() then rgb(0,0,0) else rgba(0,0,0,0)}
 			shadow displacement x: -1
 			shadow displacement y: 1
 		alignment: "middle center"

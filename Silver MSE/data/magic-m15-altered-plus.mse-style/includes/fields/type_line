@@ -21,7 +21,7 @@ type:
 		name: Beleren Bold
 		size: { (if is_map() then 12 else if use_porthole() then 14 else 13) - shrink_type() }
 		color: {if white_type2() or is_fnm() or is_frontier() or is_paradox() then "white" else if black_type() or bevel_black_type() and not is_shifted() then "black" else if white_type() or is_full_art() or is_puma() or is_shifted() or black_type() or is_inverted() then "white" else "black"}
-		shadow color: {if is_full_art() or white_type2() or is_fnm() or is_puma() or is_shifted() and not black_type() or is_fnm() then "black" else if bevel_black_type() then "white" else if use_porthole() then rgb(222, 207, 171) else rgba(0,0,0,0)} 
+		shadow color: {if is_full_art() or white_type2() or is_fnm() or is_puma() or is_shifted() and not black_type() or is_fnm() then rgb(0,0,0) else if bevel_black_type() then "white" else if use_porthole() then rgb(222, 207, 171) else rgba(0,0,0,0)} 
 		shadow displacement x: -1
 		shadow displacement y: 1
 		shadow blur: 5
@@ -105,7 +105,7 @@ sub_type:
 		size: {if styling.font_cap != "" then to_number(styling.font_cap) else (if is_mutate() then 13 else 15)}
 		scale down to: 7
 		color: {"black"}
-		#####shadow color: {if is_full_art() or is_fnm() then "black" else rgba(0,0,0,0)}
+		#####shadow color: {if is_full_art() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
 		shadow displacement x: -1
 		shadow displacement y: 1
 	symbol font:
@@ -136,7 +136,7 @@ super_type:
 		name: Beleren Bold
 		size: { (if is_map() then 12 else 13) - shrink_type() }
 		color: {if white_type2() or is_fnm() then "white" else if black_type() or bevel_black_type() and not is_shifted() then "black" else if white_type() or is_full_art() or is_puma() or is_shifted() and not is_fnm() or is_inverted() or black_type() then "white" else "black"}
-		shadow color: {if is_full_art() or white_type2() or is_puma() or is_shifted() and not black_type() or is_fnm() then "black" else if bevel_black_type() then "white" else rgba(0,0,0,0)}
+		shadow color: {if is_full_art() or white_type2() or is_puma() or is_shifted() and not black_type() or is_fnm() then rgb(0,0,0) else if bevel_black_type() then "white" else rgba(0,0,0,0)}
 		shadow displacement x: -1
 		shadow displacement y: 1
 		shadow blur: 5

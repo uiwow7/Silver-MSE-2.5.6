@@ -74,7 +74,7 @@ flavor bar:
 	image: 
 		script:
 			if is_altcast() 
-			then "altflav.png"
+			then "modules/extras/altflav.png"
 			else if flavor_plate() 
 			then crop(
 				"flavorframe.png", 

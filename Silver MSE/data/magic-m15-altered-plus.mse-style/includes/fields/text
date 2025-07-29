@@ -9,7 +9,7 @@ text:
 		size: {if styling.font_cap != "" then to_number(styling.font_cap) else (if is_mutate() then 12 else 14)}
 		scale down to: 6
 		color: { if black_text() or bevel_black_text() then "black" else if is_full_art() or is_fnm() or is_inverted() or white_text() or white_text2() or is_fnm() and not black_text() then "white" else "black"}
-		shadow color: {if is_full_art() or is_fnm() then "black" else if white_text2() then "black" else if bevel_black_text() then "white" else if use_porthole() then rgb(222, 207, 171) else rgba(0,0,0,0)}
+		shadow color: {if is_full_art() or is_fnm() then rgb(0,0,0) else if white_text2() then "black" else if bevel_black_text() then "white" else if use_porthole() then rgb(222, 207, 171) else rgba(0,0,0,0)}
 		shadow displacement x: -1
 		shadow displacement y: 1
 	symbol font:

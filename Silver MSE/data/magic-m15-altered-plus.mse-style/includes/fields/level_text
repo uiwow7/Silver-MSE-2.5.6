@@ -9,7 +9,7 @@ level 1 text:
 		size: {if styling.font_cap != "" then to_number(styling.font_cap) else 14}
 		scale down to: 6
 		color: { if is_full_art() or is_fnm() or is_inverted() then "white" else "black"}
-		shadow color: {if is_full_art() or is_fnm() then "black" else rgba(0,0,0,0)}
+		shadow color: {if is_full_art() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
 		shadow displacement x: -1
 		shadow displacement y: 1
 	symbol font:
@@ -44,7 +44,7 @@ level 2 text:
 		size: {if styling.font_cap != "" then to_number(styling.font_cap) else 14}
 		scale down to: 6
 		color: { if is_full_art() or is_fnm() or is_inverted() then "white" else "black"}
-		shadow color: {if is_full_art() or is_fnm() then "black" else rgba(0,0,0,0)}
+		shadow color: {if is_full_art() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
 		shadow displacement x: -1
 		shadow displacement y: 1
 	symbol font:
@@ -79,7 +79,7 @@ level 3 text:
 		size: {if styling.font_cap != "" then to_number(styling.font_cap) else 14}
 		scale down to: 6
 		color: { if is_full_art() or is_fnm() or is_inverted() then "white" else "black"}
-		shadow color: {if is_full_art() or is_fnm() then "black" else rgba(0,0,0,0)}
+		shadow color: {if is_full_art() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
 		shadow displacement x: -1
 		shadow displacement y: 1
 	symbol font:
@@ -114,7 +114,7 @@ level 4 text:
 		size: {if styling.font_cap != "" then to_number(styling.font_cap) else 14}
 		scale down to: 6
 		color: { if is_full_art() or is_fnm() then "white" else "black"}
-		shadow color: {if is_full_art() or is_fnm() then "black" else rgba(0,0,0,0)}
+		shadow color: {if is_full_art() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
 		shadow displacement x: -1
 		shadow displacement y: 1
 	symbol font:

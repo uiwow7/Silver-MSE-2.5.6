@@ -17,7 +17,7 @@ smallbox text:
 		size: {if styling.font_cap != "" then to_number(styling.font_cap) else (if is_mutate() then 13 else 15)}
 		scale down to: 7
 		color: {"black"}
-		#####shadow color: {if is_full_art() or is_fnm() then "black" else rgba(0,0,0,0)}
+		#####shadow color: {if is_full_art() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
 		shadow displacement x: -1
 		shadow displacement y: 1
 	symbol font:

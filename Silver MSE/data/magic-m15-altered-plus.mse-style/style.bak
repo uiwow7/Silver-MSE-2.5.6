@@ -1018,7 +1018,7 @@ card style:
 			name: Beleren Bold
 			size: { (if is_map() then 12 else 13) - shrink_type() }
 			color: {if white_type2() or is_fnm() or is_frontier() then "white" else if black_type() or bevel_black_type() and not is_shifted() then "black" else if white_type() or is_full_art() or is_puma() or is_shifted() or black_type() or is_inverted() then "white" else "black"}
-			shadow color: {if is_full_art() or white_type2() or is_fnm() or is_puma() or is_shifted() and not black_type() or is_fnm() then "black" else if bevel_black_type() then "white" else rgba(0,0,0,0)}
+			shadow color: {if is_full_art() or white_type2() or is_fnm() or is_puma() or is_shifted() and not black_type() or is_fnm() then rgb(0,0,0) else if bevel_black_type() then "white" else rgba(0,0,0,0)}
 			shadow displacement x: -1
 			shadow displacement y: 1
 			shadow blur: 5
@@ -1102,7 +1102,7 @@ card style:
 			size: {if styling.font_cap != "" then to_number(styling.font_cap) else (if is_mutate() then 13 else 15)}
 			scale down to: 7
 			color: {"black"}
-			#####shadow color: {if is_full_art() or is_fnm() then "black" else rgba(0,0,0,0)}
+			#####shadow color: {if is_full_art() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
 			shadow displacement x: -1
 			shadow displacement y: 1
 		symbol font:
@@ -1133,7 +1133,7 @@ card style:
 			name: Beleren Bold
 			size: { (if is_map() then 12 else 13) - shrink_type() }
 			color: {if white_type2() or is_fnm() then "white" else if black_type() or bevel_black_type() and not is_shifted() then "black" else if white_type() or is_full_art() or is_puma() or is_shifted() and not is_fnm() or is_inverted() or black_type() then "white" else "black"}
-			shadow color: {if is_full_art() or white_type2() or is_puma() or is_shifted() and not black_type() or is_fnm() then "black" else if bevel_black_type() then "white" else rgba(0,0,0,0)}
+			shadow color: {if is_full_art() or white_type2() or is_puma() or is_shifted() and not black_type() or is_fnm() then rgb(0,0,0) else if bevel_black_type() then "white" else rgba(0,0,0,0)}
 			shadow displacement x: -1
 			shadow displacement y: 1
 			shadow blur: 5
@@ -1149,7 +1149,7 @@ card style:
 			size: {if styling.font_cap != "" then to_number(styling.font_cap) else (if is_mutate() then 12 else 14)}
 			scale down to: 6
 			color: { if black_text() or bevel_black_text() then "black" else if is_full_art() or is_fnm() or is_inverted() or white_text() or white_text2() or is_fnm() and not black_text() then "white" else "black"}
-			shadow color: {if is_full_art() or is_fnm() then "black" else if white_text2() then "black" else if bevel_black_text() then "white" else rgba(0,0,0,0)}
+			shadow color: {if is_full_art() or is_fnm() then rgb(0,0,0) else if white_text2() then "black" else if bevel_black_text() then "white" else rgba(0,0,0,0)}
 			shadow displacement x: -1
 			shadow displacement y: 1
 		symbol font:
@@ -1216,7 +1216,7 @@ card style:
 			size: {if styling.font_cap != "" then to_number(styling.font_cap) else 14}
 			scale down to: 6
 			color: { if is_full_art() or is_fnm() or is_inverted() then "white" else "black"}
-			shadow color: {if is_full_art() or is_fnm() then "black" else rgba(0,0,0,0)}
+			shadow color: {if is_full_art() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
 			shadow displacement x: -1
 			shadow displacement y: 1
 		symbol font:
@@ -1251,7 +1251,7 @@ card style:
 			size: {if styling.font_cap != "" then to_number(styling.font_cap) else 14}
 			scale down to: 6
 			color: { if is_full_art() or is_fnm() or is_inverted() then "white" else "black"}
-			shadow color: {if is_full_art() or is_fnm() then "black" else rgba(0,0,0,0)}
+			shadow color: {if is_full_art() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
 			shadow displacement x: -1
 			shadow displacement y: 1
 		symbol font:
@@ -1286,7 +1286,7 @@ card style:
 			size: {if styling.font_cap != "" then to_number(styling.font_cap) else 14}
 			scale down to: 6
 			color: { if is_full_art() or is_fnm() or is_inverted() then "white" else "black"}
-			shadow color: {if is_full_art() or is_fnm() then "black" else rgba(0,0,0,0)}
+			shadow color: {if is_full_art() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
 			shadow displacement x: -1
 			shadow displacement y: 1
 		symbol font:
@@ -1321,7 +1321,7 @@ card style:
 			size: {if styling.font_cap != "" then to_number(styling.font_cap) else 14}
 			scale down to: 6
 			color: { if is_full_art() or is_fnm() then "white" else "black"}
-			shadow color: {if is_full_art() or is_fnm() then "black" else rgba(0,0,0,0)}
+			shadow color: {if is_full_art() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
 			shadow displacement x: -1
 			shadow displacement y: 1
 		symbol font:
@@ -2817,7 +2817,7 @@ extra card style:
 		height: { if flavor_plate() then (484 - bar_equation()) else 1}
 		z index: 12
 		render style: image
-		image: {if is_altcast() then "altflav.png" else if flavor_plate() then crop("flavorframe.png", height: clamp(484 - bar_equation(), minimum: 1, maximum: 154), width:317, offset_x: 0, offset_y: 0) else "modules/extras/bar.png"}
+		image: {if is_altcast() then "modules/extras/altflav.png" else if flavor_plate() then crop("flavorframe.png", height: clamp(484 - bar_equation(), minimum: 1, maximum: 154), width:317, offset_x: 0, offset_y: 0) else "modules/extras/bar.png"}
 		visible: { card.rule_text != "" and remove_tags(card.flavor_text) != "" and set.use_flavor_bar }
 	tarot watermark:
 		left: { if is_map() then 40 else 19 }
@@ -3073,7 +3073,7 @@ extra card style:
 			size: {if styling.font_cap != "" then to_number(styling.font_cap) else (if is_mutate() then 13 else 15)}
 			scale down to: 7
 			color: {"black"}
-			#####shadow color: {if is_full_art() or is_fnm() then "black" else rgba(0,0,0,0)}
+			#####shadow color: {if is_full_art() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
 			shadow displacement x: -1
 			shadow displacement y: 1
 		symbol font:
