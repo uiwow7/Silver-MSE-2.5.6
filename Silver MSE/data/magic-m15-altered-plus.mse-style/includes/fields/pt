@@ -26,8 +26,8 @@ pt 2:
 		size: {if is_map() or is_prototype() then 14 else 16}
 		color: {if is_shifted() and not black_name() or is_fnm() or is_inverted() or is_familiar() or is_paradox() or is_prototype() then "white" else if is_vehicle() and (not is_legend() or chosen(styling.other_options, choice:"brown legendary vehicle pt")) then "white" else "black"}
 		separator color: red
-		shadow color: {if is_shifted() and not black_name() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
-		shadow displacement x: -1
+		shadow color: rgb(0,0,0)
+		shadow displacement x: 1
 		shadow displacement y: 1
 pt 3:
 	z index: 14

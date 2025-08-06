@@ -126,7 +126,7 @@ styling field:
 	choice: godzilla alias (both)
 	choice: evobar (front)
 	choice: evobar (back)
-	choice: bordless (both)
+	choice: borderless (both)
 	choice: normal back face
 styling field:
 	type: multiple choice
