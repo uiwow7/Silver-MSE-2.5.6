@@ -28,6 +28,7 @@ option field:
 	choice: png
 	choice: jpg
 	description: Image type
+	initial: jpg
 
 option field:
 	type: choice
