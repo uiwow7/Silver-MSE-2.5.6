@@ -942,6 +942,8 @@ color_combination := {
 # Specific types
 ########################################################################
 
+background := color_background@(base_hybrid: card_hybrid)
+
 card_background		:= { color_background(type:"card",		base_hybrid:card_hybrid)		}@(offset:0 )
 card_ptbox			:= { color_background(type:"pt",		base_hybrid:pt_hybrid)			}@(offset:0 )
 flip_ptbox			:= { color_background(type:"pt",		base_hybrid:flip_pt_hybrid)		}@(offset:0 )
