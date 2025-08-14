@@ -147,6 +147,7 @@ texture_background  := { color_background(type: "texture"        , base_hybrid: 
 saga_background     := { color_background(type: "saga"           , base_hybrid: card_hybrid) }
 bookmark_background := { color_background(type: "bookmark"       , base_hybrid: card_hybrid) }
 ocean_background 	:= { color_background(type: "ocean"			 , base_hybrid: card_hybrid) }
+old_background		:= { color_background(type:	"old"			 , base_hybrid:	card_hybrid )}
 
 main_background := { 
 	if is_clear() 
@@ -175,5 +176,7 @@ main_background := {
 		then ub_background() 
 	else if is_saga() 
 		then saga_background() 
+	else if is_old()
+		then old_background()
 	else card_background() 
 }

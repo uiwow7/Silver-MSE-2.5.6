@@ -41,6 +41,7 @@ styling field:
 	choice: map
 	choice: devoid
 	choice: clear
+	choice: old
 	choice: borderless art
 	choice: frameless art
 	choice: fullart
@@ -187,7 +188,7 @@ styling field:
 	choice: inverted d20
 	choice: edit card code
 	choice: flatstamp universes beyond
-	initial: auto nyx crowns, auto familiars, auto vehicles, auto snow, auto star crowns, auto space crowns, flatstamp universes beyond
+	initial: auto nyx crowns, auto familiars, auto vehicles, auto snow, auto star crowns, auto space crowns, flatstamp universes beyond, auto snow, auto saga
 styling field:
 	type: multiple choice
 	name: additional options

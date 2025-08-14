@@ -1,16 +1,16 @@
 pt:
 	z index: 15
 	left: {if is_leveler() and not lone_pt() then 291 else 286}
-	top: { if is_leveler() and not lone_pt() then (l1_center() - 14) else if is_halfart() or is_thbland() then 479 else if is_map() then 467 else if use_porthole() then 463 else 469}
+	top: { if is_leveler() and not lone_pt() then (l1_center() - 14) else if is_halfart() or is_thbland() then 479 else if is_map() then 467 else if use_porthole() then 463 else if is_old() then 476 else 469}
 	width: {if starting_loyalty() and not is_leveler() then 0 else 60}
 	height:	28
 	alignment: center middle shrink-overflow
 	font:
-		name: Beleren Bold
-		size: {if is_map() then 14 else 16}
-		color: {if is_shifted() and not black_name() or is_fnm() or is_inverted() or is_familiar() or is_familiarpt() or is_paradox() then "white" else if is_vehicle() and (not is_legend() or chosen(styling.other_options, choice:"brown legendary vehicle pt")) then "white" else if is_backdfc() then "white" else "black"}
+		name: { if is_old() then "MPlantin-Bold" else "Beleren Bold" }
+		size: {if is_map() then 14 else if is_old() then 18 else 16}
+		color: {if is_shifted() and not black_name() or is_fnm() or is_inverted() or is_familiar() or is_familiarpt() or is_paradox() then "white" else if is_vehicle() and (not is_legend() or chosen(styling.other_options, choice:"brown legendary vehicle pt")) then "white" else if is_backdfc() or is_old() then "white" else "black"}
 		separator color: red
-		shadow color: {if is_shifted() and not black_name() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
+		shadow color: {if is_shifted() and not black_name() or is_fnm() or is_old() then rgb(0,0,0) else rgba(0,0,0,0)}
 		shadow displacement x: -1
 		shadow displacement y: 1
 

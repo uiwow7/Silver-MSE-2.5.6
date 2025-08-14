@@ -10,7 +10,6 @@ base_template_prefix := [
     hands: "trims/hands/"
     voyager: "cards/voyager/"
     universesbeyond: "cards/universes-beyond/"
-    ubstamp: "cards/universes-beyond/stamps/"
     star: "trims/star/"
     space: "trims/space/"
     path: "trims/path/"
@@ -44,7 +43,6 @@ base_template_prefix := [
     arrow2: "modules/arrows/"
     arrow3: "modules/arrows/"
     season: "modules/season/"
-    stamp: "modules/stamp/"
     identity: "/magic-modules.mse-include/indicators/"
     texture: "/magic-modules.mse-include/trims/base/"
     backdfc: "cards/backdfc/"
@@ -68,6 +66,9 @@ base_template_prefix := [
     paradox: "cards/paradox/"
     paradoxpt: "cards/paradox/"
 	ocean: "cards/normal/"
+	old: "cards/old/"
+	stamp: "/magic-modules.mse-include/stamps/backs/375 round/"
+	ubstamp: "/magic-modules.mse-include/stamps/backs/375 ub/"
 ]
 
 shifted_template_prefix := [
@@ -81,7 +82,6 @@ shifted_template_prefix := [
     hands: "trims/hands/"
     voyager: "cards/voyager/"
     universesbeyond: "cards/universes-beyond/"
-    ubstamp: "cards/universes-beyond/modules/stamp/"
     star: "trims/star/"
     pins: "modules/pins/"
     space: "trims/space/"
@@ -115,7 +115,6 @@ shifted_template_prefix := [
     arrow2: "modules/arrows/"
     arrow3: "modules/arrows/"
     season: "modules/season/"
-    stamp: "modules/shifted/"
     identity: "/magic-modules.mse-include/indicators/"
     texture: "/magic-modules.mse-include/trims/base/"
     puma: "modules/puma/modules/shifted/"
@@ -129,6 +128,9 @@ shifted_template_prefix := [
     paradox: "cards/paradox/"
     paradoxpt: "cards/paradox/"
 	ocean: "cards/normal"
+	old: "cards/old/"
+	stamp: "/magic-modules.mse-include/stamps/backs/375 round/"
+	ubstamp: "/magic-modules.mse-include/stamps/backs/375 ub/"
 ]
 template_prefix := { 
     if type == "miracle" 
@@ -150,7 +152,6 @@ template_suffix := [
     snow:"card.jpg"
     snowtexture:"snow.png"
     nyx: "nyx.png"
-    ubstamp: "stamp.png"
     hands: "hands.png"
     voyager: "card.jpg"
     universesbeyond: "card.png"
@@ -180,7 +181,6 @@ template_suffix := [
     slide: "slide.png"
     slide2: "slide2.png"
     slide3: "slide3.png"
-    stamp: "stamp.jpg"
     arrow: "arrow.png"
     arrow2: "arrow2.png"
     arrow3: "arrow3.png"
@@ -210,6 +210,9 @@ template_suffix := [
     saga: "card.jpg"
     bookmark: "mark.png"
 	ocean: "card.jpg"
+	old: "old.jpg"
+	stamp: "stamp.png"
+	ubstamp: "stamp.png"
 ]
 dummy := {"dummy"}
 harder_script := [

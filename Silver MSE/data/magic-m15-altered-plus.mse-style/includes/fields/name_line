@@ -11,7 +11,7 @@ name:
 		name: { if is_map() then "Beleren Small Caps" else "Beleren Bold" }
 		size: { (if is_map() then 14.8 else 16) - shrink_name() }
 		color: {if white_name2() or is_fnm() or is_paradox() then "white" else if black_name() or bevel_black_name() and not is_shifted() then "black" else if white_name() or is_shifted() and not is_fnm() or is_inverted() or black_name() then "white" else "black"}
-		shadow color: {if is_shifted() and not is_fnm() then rgb(0,0,0) else if white_name2() then rgb(0,0,0) else if bevel_black_name() then "white" else if use_porthole() then rgb(222, 207, 171) else rgba(0,0,0,0)}
+		shadow color: {if is_shifted() and not is_fnm() then rgb(0,0,0) else if white_name2() then rgb(0,0,0) else if bevel_black_name() then rgb(255,0,0) else if use_porthole() then rgb(222, 207, 171) else rgba(0,0,0,0)}
 		shadow displacement x: -1
 		shadow displacement y: 1
 		shadow blur: 3
@@ -69,14 +69,3 @@ casting cost 2:
 	always symbol: true
 	z index: 16
 	padding top: 0
-card symbol:
-	left: {if card.card_symbol=="none" then 20 else 30}
-	top: {if card.card_symbol == "EX" then 27 else if card.card_symbol =="alchemy" then 30 else 29}
-	height: {if card.card_symbol == "EX" then 25 else 20}
-	width: {if card.card_symbol == "EX" then 21 else if card.card_symbol =="alchemy" then 20 else 14}
-	z index: 12
-	render style: image
-	choice images:
-		tombstone: modules/cardicons/tombstone.png
-		alchemy: modules/cardicons/alchemy.png
-		EX: modules/cardicons/ex.png

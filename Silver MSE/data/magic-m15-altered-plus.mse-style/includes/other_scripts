@@ -48,3 +48,31 @@ rarity_code := {
 	else if card.rarity == "basic land" then "L" 
 	else ""
 }
+
+
+## Stamp stuff
+
+tri_stamp := {
+	if is_map() or is_clear() or is_thbland()
+		then template_prefix["ubstamp"] + "_stamp.png"
+	else if is_devoid()
+		then template_prefix["ubstamp"] + "devoid.png"
+	else module_ubstamp()
+}
+round_stamp := {
+	if is_map() or is_clear() or is_thbland()
+		then template_prefix["stamp"] + "_stamp.png"
+	else if is_devoid()
+		then template_prefix["stamp"] + "devoid.png"
+	else module_stamp()
+}
+stamp_top := {
+	sh := stamp_shape()
+	if is_map() and sh == "triangle"
+		then 472
+	else if is_clear()
+		then (if sh == "triangle" then 472 else 473)
+	else if is_thbland()
+		then 472
+	else 471
+}

@@ -320,6 +320,7 @@ black_text := {chosen(styling.text_color, choice:"black")}
 center_name := { chosen(styling.additional_options, choice: "center name") or use_porthole()}
 use_jp := { chosen(styling.additional_options, choice: "JP symbols")}
 alt_rarity := {styling.alt_rarity_color != ""}
+is_old := { chosen(styling.frames, choice: "old") }
 alt_rarity_color := {
 	string := "83,67,53:177,150,131:0,0,0:0,0,0:0.07:"
 	if match(styling.alt_rarity_color, match:":$") then string := styling.alt_rarity_color

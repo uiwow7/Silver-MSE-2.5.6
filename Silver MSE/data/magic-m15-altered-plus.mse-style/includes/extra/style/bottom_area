@@ -60,7 +60,7 @@ pt box:
 				then 54 
 			else 42
 	z index: 14
-	visible: { card.pt != "" }
+	visible: { card.pt != "" and not is_old() }
 	render style: image
 	image: 
 		script: 
@@ -127,25 +127,15 @@ loyalty box:
 	choice images:
 		loyalty: modules/loyalty/loyalty.png
 	image: {"modules/loyalty/loyalty.png"}
-stamp:
-	left: 165
-	top: 472
-	width: 46
-	height: 26
+stamp backing:
+	left: { 159 }
+	top: { stamp_top() }
+	height: { 26 }
+	width: { 56 }
+	visible: { card.card_stamp != "none" }
+	render style:	image
+	image: { if stamp_shape() == "triangle" then tri_stamp() else round_stamp() }
 	z index: 12
-	visible: { is_rare() and styling.use_holofoil_stamps and (is_devoid() or is_devoid2() or not is_clear()) and not use_porthole() and use_altered_plus_holofoil() and not is_frontier() and not use_ocean() }
-	render style: image
-	image: { if is_map() then "cards/maps/holo_stamp.png" else if is_devoid() or is_devoid2() then "cards/devoid/stamp.png" else if is_ub() then ubstamp_background() else card_stamp() }
-	mask: { if is_ub() then "cards/universes-beyond/stamps/border_mask_new.png" else "imagemasks/stamp_mask.png"}
-foil stamp:
-	left:	165
-	top:	 { if is_ub() then 471 else 472 }
-	width:   46
-	height:  { if is_ub() then 44 else 26 }
-	z index: 13
-	visible: { ( is_rare() or universes_stamp() ) and styling.use_holofoil_stamps and use_altered_plus_holofoil() and not use_porthole() and not is_frontier() and not use_ocean() }
-	render style: image
-	image: { if is_ub() and is_rare() then "cards/universes-beyond/foil_stamp.png" else if is_ub() then "cards/universes-beyond/flat_stamp.png" else "foil_stamp.png" }
 foil layer:
 	left: 0
 	top : 0

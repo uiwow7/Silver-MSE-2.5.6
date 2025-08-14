@@ -11,10 +11,14 @@ card style:
 	include file: includes/fields/text
 	############################# leveler
 	include file: includes/fields/level_text
-	
 	############################# Levels
 	include file: includes/fields/level
 	############################# PT
 	include file: includes/fields/pt
 	############################# Other
 	include file: includes/fields/other
+
+############################# Modules
+include file: /magic-modules.mse-include/card-symbols/card_fields
+include file: /magic-modules.mse-include/stamps/card_fields
+include file: /magic-modules.mse-include/symbols/card_fields
