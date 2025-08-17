@@ -1,0 +1,142 @@
+indicator:
+	left: { (if is_map() then 18 else if is_season() then 43 else 31) + (if is_clear() then 2 else 0)}
+	top: { if is_clear() or is_map() then 298 else if is_thbland() or is_halfart() then 449 else if is_full_art() then 332 else 300 }
+	width: 17
+	height: 17
+	z index: 12
+	render style: image
+	visible: { has_identity() }
+	image: { card_identity() }
+type:
+	left: { if is_map() then 85 else if is_season() then (if styling.color_indicator_dot then 64 else 44)+(if is_clear() then 4 else 0) else if use_porthole() then 57 else (if styling.color_indicator_dot then 52 else 32) + (if is_clear() then 4 else 0) }
+	top: {typeline_top()}
+	width: { if use_box() and not any_box() then 0 else (if is_map() then 205 else (if styling.color_indicator_dot then "290" else "310") - (if card_style.rarity.width == 0 then 0 else if use_porthole() then 595 else max(22,card_style.rarity.content_width)) - (if is_season() then 12 else 0)) }
+	height: { if use_box() and not any_box() then 0 else if use_porthole() then 44 else ((if is_map() then 18 else 20) - shrink_type()) }
+	alignment: {if is_map() then "center top shrink-overflow" else "top shrink-overflow"}
+	z index: 15
+	padding top: 2
+	padding bottom: 0
+	padding right: 0
+	font:
+		name: Beleren Bold
+		size: { (if is_map() then 12 else if use_porthole() then 14 else 13) - shrink_type() }
+		color: {if white_type2() or is_fnm() or is_frontier() or is_paradox() then "white" else if black_type() or bevel_black_type() and not is_shifted() then "black" else if white_type() or is_full_art() or is_puma() or is_shifted() or black_type() or is_inverted() then "white" else "black"}
+		shadow color: {if is_full_art() or white_type2() or is_fnm() or is_puma() or is_shifted() and not black_type() or is_fnm() then rgb(0,0,0) else if bevel_black_type() then "white" else if use_porthole() then rgb(222, 207, 171) else rgba(0,0,0,0)} 
+		shadow displacement x: -1
+		shadow displacement y: 1
+		shadow blur: 5
+		separator color: red
+indicator 2:
+	left: {(if is_adventure2() then 165 else if is_focus2() then 158 else 0) + (if has_identity2() then 30 else 0)}
+	top: {355}
+	width: 15
+	height: 15
+	z index: 2
+	render style: image
+	visible: {has_identity2()}
+	image: {card_identity_2()}
+type 2:
+	left: {if is_adventure2() then 197 else if is_adventure() then 32 else if is_focus2() then 194 else if is_focus() then 32 else 0}
+	top: {(if is_adventure2() or is_adventure() then 352 else 358) + (shrink_type2())}
+	width: {(if is_altcast() then 155 else 0) - (if has_identity2() then 20 else 0)}
+	height: { 20 - shrink_type2() }
+	alignment: top shrink-overflow
+	z index: 16
+	padding top: 2
+	font:
+		name: Beleren Bold
+		size: { 11 - shrink_type2() }
+		color: white
+		separator color: red
+rarity:
+	right: { if is_map() then 199 else if is_scrolls() then 334 else if use_porthole() then 50 else if is_rem() then 202.5 else 344}
+	top: { (if is_map() then 53 else if is_clear() then 295 else if is_thbland() and not is_halfart() then 445 else if is_halfart() then 382 else if is_full_art() then 329 else if is_deck() then 700 else if is_rem() then 475 else if use_porthole() then 75 else if is_saga() then 444 else if use_styles() then 351 else 297) + textbox_size_adjusted() }
+	width: {if set.shorten_types_for_rarity then 44 else 0}
+	height: 22
+	z index: 15
+	render style: image
+	visible: {not is_backdfc() or is_rem()}
+	alignment: middle right
+	choice images:
+		# Images based on the set symbol
+		basic land:
+			script:
+				if use_main_rarity() then "/magic-mainframe-extras.mse-include/" + un_png(set.mainframe_rarity_name) + "c.png"
+				else if alt_rarity() then alt_symbol()
+				else if styling.inverted_common_symbol then symbol_variation(symbol: set.symbol, variation: "invertedcommon")
+				else symbol_variation(symbol: set.symbol, variation: "common")
+		common:
+			script:
+				if use_main_rarity() then "/magic-mainframe-extras.mse-include/" + un_png(set.mainframe_rarity_name) + "c.png"
+				else if alt_rarity() then alt_symbol()
+				else if styling.inverted_common_symbol then symbol_variation(symbol: set.symbol, variation: "invertedcommon")
+				else symbol_variation(symbol: set.symbol, variation: "common")
+		uncommon:
+			script:
+				if use_main_rarity() then "/magic-mainframe-extras.mse-include/" + un_png(set.mainframe_rarity_name) + "u.png"
+				else if alt_rarity() then alt_symbol()
+				else symbol_variation(symbol: set.symbol, variation: "uncommon")
+		rare:
+			script:
+				if use_main_rarity() then "/magic-mainframe-extras.mse-include/" + un_png(set.mainframe_rarity_name) + "r.png"
+				else if alt_rarity() then alt_symbol()
+				else symbol_variation(symbol: set.symbol, variation: "rare")
+		mythic rare:
+			script:
+				if use_main_rarity() then "/magic-mainframe-extras.mse-include/" + un_png(set.mainframe_rarity_name) + "m.png"
+				else if alt_rarity() then alt_symbol()
+				else symbol_variation(symbol: set.symbol, variation: "mythic rare")
+		special:
+			script:
+				if use_main_rarity() then "/magic-mainframe-extras.mse-include/" + un_png(set.mainframe_rarity_name) + "s.png"
+				else if alt_rarity() then alt_symbol()
+				else symbol_variation(symbol: set.symbol, variation: "special")
+		masterpiece:
+			script:
+				if use_main_rarity() then "/magic-mainframe-extras.mse-include/" + un_png(set.mainframe_rarity_name) + "mp.png"
+				else symbol_variation(symbol: set.masterpiece_symbol, variation: "mythic rare")
+sub_type:
+	left: {if use_box() and not any_box() then 33 else 0}
+	top: {if use_box() and not any_box() then 272 else 0}
+	width: { if use_box() and not any_box() then 220 else 0}
+	bottom: {if use_box() and not any_box() then 287 else 0}
+	font:
+		name: Beleren Bold
+		size: {if styling.font_cap != "" then to_number(styling.font_cap) else (if is_mutate() then 13 else 15)}
+		scale down to: 7
+		color: {"black"}
+		#####shadow color: {if is_full_art() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
+		shadow displacement x: -1
+		shadow displacement y: 1
+	symbol font:
+		name: { styling.text_box_mana_symbols }
+		size: {if styling.font_cap != "" then to_number(styling.font_cap) else (if is_mutate() then 13 else 15)}
+		scale down to: 7
+	####remember to check if this does anything
+	alignment: left shrink-overflow
+	z index: 14
+	padding left:   6
+	padding right:  4
+	line height hard: {if is_modal(card.rule_text) then 0.9 else 1.2 }
+	line height line: 1.0
+	line height soft: 0.9
+	line height hard max: {if is_modal(card.rule_text) then 1.0 else 1.3 }
+	line height line max: 1.6
+super_type:
+	left: { if is_map() then 85 else if is_season() then (if styling.color_indicator_dot then 64 else 44)+(if is_clear() then 4 else 0) else (if styling.color_indicator_dot then 52 else 32) + (if is_clear() then 4 else 0) }
+	top: { (if is_map() then 297.5 else if is_clear() then 294 else if is_thbland() then 444 else if is_halfart() then 382 else if is_full_art() then 329 else 296) + shrink_type() }
+	width: { if use_box() and not any_box() then (if is_map() then 205 else (if styling.color_indicator_dot then "290" else "310") - (if card_style.rarity.width == 0 then 0 else max(22,card_style.rarity.content_width)) - (if is_season() then 12 else 0)) else 0 }
+	height: { if use_box() and not any_box() then ((if is_map() then 18 else 20) - shrink_type()) else 0 }
+	alignment: {if is_map() then "center top shrink-overflow" else "top shrink-overflow"}
+	z index: 15
+	padding top: 2
+	padding bottom: 0
+	padding right: 0
+	font:
+		name: Beleren Bold
+		size: { (if is_map() then 12 else 13) - shrink_type() }
+		color: {if white_type2() or is_fnm() then "white" else if black_type() or bevel_black_type() and not is_shifted() then "black" else if white_type() or is_full_art() or is_puma() or is_shifted() and not is_fnm() or is_inverted() or black_type() then "white" else "black"}
+		shadow color: {if is_full_art() or white_type2() or is_puma() or is_shifted() and not black_type() or is_fnm() then rgb(0,0,0) else if bevel_black_type() then "white" else rgba(0,0,0,0)}
+		shadow displacement x: -1
+		shadow displacement y: 1
+		shadow blur: 5

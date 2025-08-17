@@ -1459,7 +1459,7 @@ keyword:
 	keyword: Foretell
 	match: Foretell <atom-param>cost</atom-param>
 	mode: expert
-	reminder: During your turn, you may pay [2] and exile this card from your hand face down. Cast it on a later turn for its foretell cost.
+	reminder: During your turn, you may pay [2] and exile this card from your hand face down. Play it on a later turn for its foretell cost.
 #Strixhaven
 keyword: 
 	keyword: Learn
@@ -1977,3 +1977,194 @@ keyword:
 	match: Exhaust — <atom-param>cost</atom-param>: <atom-param>action</atom-param>
 	mode: expert
 	reminder: Activate each exhaust ability only once.
+############################ Voyager Mechanics
+keyword:
+	keyword: Transcend
+	match: Transcend <atom-param>cost</atom-param>
+	mode: custom
+	reminder: At the beginning of combat, cast your chosen Erysite from outside the game by paying its Transcend cost and exiling a Dragon creature you control.
+keyword:
+	keyword: Embrace
+	match: embrace
+	mode: custom
+	rules: Exile it. You may play it on a later turn that a source you control that shares a creature type with it dealt damage to an opponent.
+keyword:
+	keyword: Liberate
+	match: liberate
+	mode: custom
+	reminder: Exile it if it isn't a Dragon. If it's exiled, its controller creates a colorless 3/2 Dragon creature token with its abilities.
+keyword:
+	keyword: Bisapience
+	match: Bisapience <atom-param>cost</atom-param>
+	mode: custom
+	reminder: Cast either half of this card. Pay bisapience once each turn as a sorcery to transform for that turn.
+keyword:
+	keyword: Heir
+	match: Heir—
+	mode: custom
+	reminder: If this card is your chosen heir in your sanctum, you may replace a draw with this card if you’ve met its condition.
+keyword:
+	keyword: Pathbound
+	match: Pathbound <atom-param>cost</atom-param>
+	mode: custom
+	reminder: As a sorcery, reveal this, then put this on top of your library from your sanctum by paying its pathbound cost.
+keyword:
+	keyword: Pursue Wonder
+	match: pursue Wonder
+	mode: custom
+	reminder: Reveal a basic land or Wonder card you own from your sanctum and put it into your hand.
+keyword:
+	keyword: Draft
+	match: draft a card from your <atom-param>one_word</atom-param>
+	mode: custom
+	reminder: Look at three random cards from your {param1}. Put one into your hand.
+keyword:
+	keyword: induct
+	match: Induct
+	mode: custom
+	reminder: Create a 0/1 Cleric creature token with “As a sorcery, sacrifice two other Clerics: Transform into a 4/4 God Horror that can’t block.”
+keyword:
+	keyword: Mirror
+	match: mirror
+	mode: custom
+	reminder: Create a token that’s a copy of a token you control.
+keyword:
+	keyword: Scar Boons
+	match: you get a scar
+	mode: custom
+	reminder: They’re boons with “When a creature you control dies, you may pay {1}. If you do, draw a card.”
+keyword:
+	keyword: Sift 
+	match: sift <atom-param>number</atom-param>
+	mode: custom
+	reminder: Look at the top {param1} cards of your library, then put any number of them into your sanctum and the rest on top of your library in any order.
+keyword:
+	keyword: Becomes Foretold
+	match: become<atom-param>*s</atom-param> foretold
+	mode: custom
+	reminder: Its foretell cost is its mana cost if it isn't already specified.
+keyword:
+	keyword: Forsake
+	match: forsake
+	mode: custom
+	reminder: To forsake, sacrifice creatures with total toughness 3 or more.
+keyword:
+	keyword: Blank
+	match: blank
+	mode: custom
+	reminder: It loses all abilities.
+keyword:
+	keyword: Restructure
+	match: Restructure <atom-param>cost</atom-param>
+	mode: custom
+	reminder: If you cast this for its restructure cost, it's a kindred artifact until you pay its mana cost as a sorcery.
+keyword:
+	keyword: Astral
+	match: Astral
+	mode: custom 
+	reminder: After this spell resolves, create a trace of it into your hand with a specified mana cost and size. It loses astral.
+keyword:
+	keyword: Ploy
+	match: Ploy—<atom-param>action</atom-param>
+	mode: custom
+	reminder: When this creature attacks, you may trigger its ploy. If you do, sacrifice it at the next end step.
+keyword:
+	keyword: Healing
+	match: Healing <atom-param>number</atom-param>
+	mode: custom
+	reminder: Damage dealt by this creature also causes you to gain {param1} life.
+keyword:
+	keyword: Syncophant
+	match: Syncophant
+	mode: custom
+	reminder: Whenever this permanent deals damage to a player or planeswalker, the next spell you cast this turn costs [1] less to cast.
+keyword:
+	keyword: Ominous
+	match: Ominous <atom-param>cost</atom-param>
+	mode: custom
+	reminder: {param1}, Exile this card from your hand as a sorcery: Draw a card. During your next turn, you may play this card from exile.
+keyword:
+	keyword: Deception
+	match: Deception <atom-param>cost</atom-param>
+	mode: custom
+	reminder: {param1}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.
+keyword: 
+	keyword: Retopology
+	match: Retopology <atom-param>cost</atom-param>
+	mode: custom
+	reminder: Cast a copy of this from your graveyard by exiling it and paying its retopology cost. Spend only mana from differently named sources this way.
+keyword:
+	keyword: Impetus
+	match: Impetus <atom-param>cost</atom-param>
+	mode: custom
+	reminder: You may cast this from your graveyard as a sorcery with only the text in square brackets for its impetus cost. Then exile it.
+keyword:
+	keyword: Materialize
+	match: Materialize <atom-param>number</atom-param>
+	mode: custom
+	reminder: Tap one or more other enchantments you control with total mana value {param1} or more: This also becomes an Icon creature until end of turn.
+keyword:
+	keyword: Reflect
+	match: Reflect <atom-param>cost</atom-param>
+	mode: custom
+	reminder: {cost}: Create a token copy of this creature, except it's a 1/1 Wonder {card.sub_type} without reflect. Reflect only as a sorcery, and only once.
+keyword:
+	keyword: Reserves
+	match: in your reserves
+	mode: custom
+	reminder: [3]: Put up to three tokens from your reserves onto the battlefield. Activate only as a sorcery.
+keyword:
+	keyword: Complexity
+	match: complexity
+	mode: custom
+	reminder: Your complexity is the number of spells you've cast and nonland abilities you've activated this turn.
+keyword:
+	keyword: Realm
+	match: in your realm
+	mode: custom
+	reminder: Your realm consists of up to one land of each of the basic land types.
+keyword:
+	keyword: Deep Dwelling
+	match: Deep Dwelling
+	mode: pseudo
+	rules: Your main library contains a number of cards less than or equal to half your starting deck size.
+keyword:
+	keyword: Luminous
+	match: Luminous
+	mode: custom
+	reminder: For each color, if you control four or more permanents of that color, illuminate that color for the rest of the game.
+keyword:
+	keyword: Fracture
+	match: Fracture
+	mode: pseudo
+	rules: You’ve cast a noncreature spell this turn
+keyword:
+	keyword: Augmented
+	match: Augmented
+	mode: pseudo
+	rules: You’ve spent [WUBRG] to cast spells this turn
+keyword:
+	keyword: Iterate 
+	match: Iterate
+	mode: custom
+	reminder: When this enters, conjure a colorless [6] 4/4 artifact creature version of it without iterate into your hand.
+keyword:
+	keyword: Bake
+	match: Bake
+	mode: custom
+	reminder: When this enters, up to one target permanent gains its abilities until end of turn.
+keyword:
+	keyword: Pact
+	match: Pact
+	mode: custom
+	reminder: At the beginning of your end step, put a pact counter on a creature you control if you haven't this turn, then sacrifice it if it has two or more.
+keyword:
+	keyword: Unrelenting
+	match: Unrelenting
+	mode: custom
+	reminder: When this creature dies, if it wasn't a token, you may discard a card to create a token that's a copy of it with haste.
+keyword:
+	keyword: Bloom
+	match: Bloom
+	mode: custom
+	reminder: Whenever you cast a spell that targets this permanent, you may pay that spell's mana cost. If you do, copy that spell. You may choose new targets for the copy.

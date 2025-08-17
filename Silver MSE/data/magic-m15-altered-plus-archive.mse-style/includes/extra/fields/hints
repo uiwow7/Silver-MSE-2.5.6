@@ -1,0 +1,24 @@
+extra card field:
+	type: text
+	name: back type hint
+	script: value
+	save value: true
+	editable: true
+extra card field:
+	type: text
+	name: back color hint
+	script: value
+	save value: true
+	editable: true
+extra card field:
+	type: text
+	name: front type hint
+	script: value
+	save value: true
+	editable: true
+extra card field:
+	type: text
+	name: front color hint
+	script: value
+	save value: true
+	editable: true

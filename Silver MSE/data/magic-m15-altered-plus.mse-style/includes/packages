@@ -25,4 +25,8 @@ depends on:
 depends on:
 	package: magic-blends.mse-include
 	version: 2015-05-23
+depends on:
+	package: magic-identity-new.mse-include
+	version: 2015-05-23
+	
 include file: includes/foils

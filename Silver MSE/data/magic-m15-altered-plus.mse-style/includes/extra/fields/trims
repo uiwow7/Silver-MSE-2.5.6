@@ -27,13 +27,6 @@ extra card field:
 	script: card.card_color
 extra card field:
 	type: choice
-	name: voyager overlay
-	choice: voyager
-	save value: false
-	editable: false
-	script: card.card_color
-extra card field:
-	type: choice
 	name: star overlay
 	choice: star
 	save value: false

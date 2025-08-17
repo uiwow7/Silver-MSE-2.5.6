@@ -1,0 +1,30 @@
+extra card field:
+	type: choice
+	name: evobar
+	choice: evo
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: evobar tip
+	choice: evo
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: evobar start
+	choice: evo
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: alias bar
+	script: card.card_color
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: alias bar 2
+	script: card.card_color
+	save value: false
+	editable: false

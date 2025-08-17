@@ -1,0 +1,56 @@
+## Paradox
+include file: includes/extra/fields/paradox
+extra card field:
+	type: choice
+	name: vehicle overlay
+	choice: car door
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: clear frame
+	script: card.card_color
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: gold frame
+	script: card.card_color
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: porthole frame
+	script: card.card_color
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: ocean frame
+	script: card.card_color
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: ocean frame color
+	script: card.card_color
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: styles frame
+	script: card.card_color
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: mirror frame
+	script: card.card_color
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: map frame
+	script: card.card_color
+	save value: false
+	editable: false

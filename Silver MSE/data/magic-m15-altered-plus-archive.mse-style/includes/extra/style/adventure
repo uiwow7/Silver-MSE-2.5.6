@@ -1,0 +1,58 @@
+adventure overlay:
+	left: 0
+	top: 0
+	width: 375
+	height: 523
+	render style: image
+	popup style: in place
+	image: {adventure_colors()}
+	z index: 10
+	visible: {is_adventure()}
+adventure overlay2:
+	left: 20
+	top: 327
+	width: {if is_adventure() then 169 else 0}
+	height: 155
+	render style: image
+	popup style: in place
+	image: {adventure2_colors()}
+	z index: 11
+	visible: {is_adventure()}
+adventure overlay3:
+	left: 0
+	top: 0
+	width: 375
+	height: 523
+	render style: image
+	popup style: in place
+	image: {adventure3_colors()}
+	z index: 10
+	visible: {is_adventure2()}
+adventure overlay4:
+	left: 187
+	top: 327
+	width: {if is_adventure2() then 169 else 0}
+	height: 155
+	render style: image
+	popup style: in place
+	image: {adventure4_colors()}
+	z index: 11
+	visible: {is_adventure2()}
+focus overlay:
+	left: 27
+	top: 326
+	width: {if is_focus() then 163 else 0}
+	height: 157
+	render style: image
+	image: {focus_colors()}
+	z index: 11
+	visible: {is_focus()}
+focus overlay2:
+	left: 185
+	top: 326
+	width: {if is_focus2() then 163 else 0}
+	height: 157
+	render style: image
+	image: {focus2_colors()}
+	z index: 11
+	visible: {is_focus2()}

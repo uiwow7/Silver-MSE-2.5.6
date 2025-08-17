@@ -1,0 +1,50 @@
+extra card field:
+	type: choice
+	name: typeline overlay
+	choice: nyx
+	save value: false
+	editable: false
+	script: card.card_color
+extra card field:
+	type: choice
+	name: textbox top
+	choice: null 
+	save value: false
+	editable: false
+	script: card.card_color
+extra card field:
+	type: choice
+	name: textbox middle
+	choice: null 
+	save value: false
+	editable: false
+	script: card.card_color
+extra card field:
+	type: choice
+	name: textbox bottom
+	choice: null 
+	save value: false
+	editable: false
+	script: card.card_color
+extra card field:
+	type: choice
+	name: texture
+	choice: null 
+	save value: false
+	editable: false
+	script: card.card_color
+extra card field:
+	type: choice
+	name: right image edge
+	choice: null 
+	save value: false
+	editable: false
+	script: 
+		card.card_color
+extra card field:
+	type: choice
+	name: left image edge
+	choice: null 
+	save value: false
+	editable: false
+	script: card.card_color

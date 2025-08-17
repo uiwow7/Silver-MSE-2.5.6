@@ -1,0 +1,71 @@
+name:
+	left: { if center_map() then 55 else if is_map() then (if use_node() then 65 else 60) else if use_node() then 58 else if card.card_symbol=="none" then 32 else 50 }
+	top: { if is_map() then 27 else if is_devoid() or is_devoid2() then 30 else if is_clear() or clear_tops() then 31 else 30 }
+	right:  {if center_map() then 320 else (if is_map() then 320 else 341) - card_style.casting_cost.content_width }
+	height: {23 - (0.5 * shrink_name()) }
+	alignment: {if center_map() or center_name() then "center bottom shrink-overflow" else "left bottom shrink-overflow" }
+	padding bottom: 0
+	padding top: 0
+	z index: 13
+	font:
+		name: { if is_map() then "Beleren Small Caps" else "Beleren Bold" }
+		size: { (if is_map() then 14.8 else 16) - shrink_name() }
+		color: {if white_name2() or is_fnm() or is_paradox() then "white" else if black_name() or bevel_black_name() and not is_shifted() then "black" else if white_name() or is_shifted() and not is_fnm() or is_inverted() or black_name() then "white" else "black"}
+		shadow color: {if is_shifted() and not is_fnm() then rgb(0,0,0) else if white_name2() then rgb(0,0,0) else if bevel_black_name() then rgb(255,0,0) else if use_porthole() then rgb(222, 207, 171) else rgba(0,0,0,0)}
+		shadow displacement x: -1
+		shadow displacement y: 1
+		shadow blur: 3
+name 2:
+	left: { if is_adventure2() then 197 else if is_focus2() then 192 else if is_adventure() then 32 else if is_focus() then 31 else 0}
+	top: {if is_adventure2() or is_adventure() then 328 else 333}
+	right: {if is_adventure2() then (28 - card_style.casting_cost_2.content_width) else if is_adventure() then (178 - card_style.casting_cost_2.content_width) else if is_focus2() then (88 - card_style.casting_cost_2.content_width) else if is_focus() then (177 - card_style.casting_cost_2.content_width)  else 0}
+	height: { 20 - shrink_name2() }
+	alignment: bottom shrink-overflow
+	z index: 15
+	font:
+		name: Beleren Bold
+		size: {12 - shrink_name2() }
+		color: white
+alias:
+	left: {if is_skinned() then 45 else if is_map() then 15 else 30}
+	top: {if is_map() then 58 else 53}
+	width: {if is_skinned() then 285 else if use_evobar() then max(100, card_style.alias.content_width) else 0}
+	height: 20
+	alignment: { (if is_skinned() then "center" else "") + "bottom shrink-overflow"}
+	padding bottom: 0
+	z index: 23
+	font:
+		name: {if use_evobar() then "Matrix" else "MPlantin-Italic"}
+		size: {if use_evobar() then 10 else 9}
+		style: {if use_evobar() then "italic" else "bold"}
+		weight: {if use_evobar() then "italic" else "bold"}
+		color: {if use_evobar() then "black" else "white"}
+casting cost:
+	right: { if is_map() then 327 else 346}
+	top: { if is_map() then 27 else 29}
+	width: {max(30, card_style.casting_cost.content_width) + 5}
+	height: 23
+	alignment: "middle right"
+	font:
+		name: MPlantin
+		size: { if is_map() then 14 else 15}
+	symbol font:
+		name: {if use_jp() then "magic-mana-small-strixhaven-jp" else "magic-mana-large"}
+		size: { if is_map() then 14 else 15}
+		alignment: "middle right"
+	always symbol: true
+	z index: 13
+	padding top: 0
+casting cost 2:
+	right: {if is_adventure2() then 345 else if is_adventure() then 180 else if is_focus2() then 341 else if is_focus() then 183 else if is_prototype() then 342 else 0}
+	top: {if is_adventure2() or is_adventure() then 328 else if is_prototype() and not is_mutate() then 329.5 else if is_mutate() and is_prototype() then 397.7 else 333.5}
+	width: { if is_altcast() then (max(30, card_style.casting_cost_2.content_width) + 5) else if is_prototype() then (max(45, card_style.casting_cost_2.content_width) + 4) else 0}
+	height: 20
+	alignment: middle right
+	symbol font:
+		name: magic-mana-large
+		size: 12
+		alignment: middle center
+	always symbol: true
+	z index: 16
+	padding top: 0

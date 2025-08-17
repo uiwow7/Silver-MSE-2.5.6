@@ -200,6 +200,7 @@ choice:
 	choice: seekers of carmot
 	choice: the thran
 	choice: foretell
+	choice: foretell2
 	choice:
 		name: judge academy
 		line below: true

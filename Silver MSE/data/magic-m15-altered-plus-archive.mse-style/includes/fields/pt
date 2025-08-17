@@ -1,0 +1,72 @@
+pt:
+	z index: 15
+	left: {if is_leveler() and not lone_pt() then 291 else 286}
+	top: { if is_leveler() and not lone_pt() then (l1_center() - 14) else if is_halfart() or is_thbland() then 479 else if is_map() then 467 else if use_porthole() then 463 else if is_old() then 476 else 469}
+	width: {if starting_loyalty() and not is_leveler() then 0 else 60}
+	height:	28
+	alignment: center middle shrink-overflow
+	font:
+		name: { if is_old() then "MPlantin-Bold" else "Beleren Bold" }
+		size: {if is_map() then 14 else if is_old() then 18 else 16}
+		color: {if is_shifted() and not black_name() or is_fnm() or is_inverted() or is_familiar() or is_familiarpt() or is_paradox() then "white" else if is_vehicle() and (not is_legend() or chosen(styling.other_options, choice:"brown legendary vehicle pt")) then "white" else if is_backdfc() or is_old() then "white" else "black"}
+		separator color: red
+		shadow color: {if is_shifted() and not black_name() or is_fnm() or is_old() then rgb(0,0,0) else rgba(0,0,0,0)}
+		shadow displacement x: -1
+		shadow displacement y: 1
+
+pt 2:
+	z index: 16
+	left: 291
+	top: {if is_prototype() and not is_mutate() then 355 else if is_prototype() and is_mutate() then 422.2 else (l2_center() - 12)}
+	width: {if is_leveler() and not lone_pt() or card.pt_2 != "" then 60 else if is_prototype() then 60 else 0}
+	height: 28
+	alignment: center middle shrink-overflow
+	font:
+		name: Beleren Bold
+		size: {if is_map() or is_prototype() then 14 else 16}
+		color: {if is_shifted() and not black_name() or is_fnm() or is_inverted() or is_familiar() or is_paradox() or is_prototype() then "white" else if is_vehicle() and (not is_legend() or chosen(styling.other_options, choice:"brown legendary vehicle pt")) then "white" else "black"}
+		separator color: red
+		shadow color: rgb(0,0,0)
+		shadow displacement x: 1
+		shadow displacement y: 1
+pt 3:
+	z index: 14
+	left: 291
+	top: {(l3_center() - 12)}
+	width: {if is_leveler() and not lone_pt() or card.pt_3 != "" then 60 else 0}
+	height: 28
+	alignment: center middle shrink-overflow
+	font:
+		name: Beleren Bold
+		size: {if is_map() then 14 else 16}
+		color: {if is_shifted() and not black_name() or is_fnm() or is_inverted() or is_familiar() or is_paradox() then "white" else if is_vehicle() and (not is_legend() or chosen(styling.other_options, choice:"brown legendary vehicle pt")) then "white" else "black"}
+		separator color: red
+		shadow color: {if is_shifted() and not black_name() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
+		shadow displacement x: -1
+		shadow displacement y: 1
+pt 7:
+	z index: 14
+	left: 291
+	top: {(l4_center() - 12)}
+	width: {if is_leveler() and not lone_pt() or card.pt_7 != "" then 60 else 0}
+	height: {if card_style.level_4_text.height < 10 and card.pt_7 == "" then 0 else 28}
+	alignment: center middle shrink-overflow
+	font:
+		name: Beleren Bold
+		size: {if is_map() then 14 else 16}
+		color: {if is_shifted() and not black_name() or is_fnm() or is_familiar() then "white" else if is_vehicle() and (not is_legend() or chosen(styling.other_options, choice:"brown legendary vehicle pt")) then "white" else "black"}
+		separator color: red
+		shadow color: {if is_shifted() and not black_name() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
+		shadow displacement x: -1
+		shadow displacement y: 1
+loyalty:
+	z index: 17
+	left: 326
+	top: 468
+	width: {if starting_loyalty() then 13.16 else 0}
+	height:	34.63
+	alignment: center middle
+	font:
+		name: Beleren Bold
+		size: 14
+		color: white

@@ -1,0 +1,18 @@
+extra card field:
+	type: choice
+	name: prototype pt
+	script: card.card_color_2
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: prototype cost
+	script: card.card_color_2
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: prototype overlay
+	script: card.card_color_2
+	save value: false
+	editable: false

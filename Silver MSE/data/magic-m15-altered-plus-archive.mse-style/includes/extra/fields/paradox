@@ -1,0 +1,14 @@
+extra card field:
+	type: choice
+	name: paradox overlay
+	choice: paradox
+	save value: false
+	editable: false
+	script: card.card_color
+extra card field:
+	type: choice
+	name: paradox pt
+	choice: paradox
+	save value: false
+	editable: false
+	script: card.card_color

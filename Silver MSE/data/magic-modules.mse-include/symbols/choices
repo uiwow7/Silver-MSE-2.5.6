@@ -15,6 +15,9 @@ choice:
 	choice: multicolor
 	choice: colorless
 	choice: artifact
+choice:
+	name: voyager
+	choice: erysite
 	line below: true
 
 choice: back triangle

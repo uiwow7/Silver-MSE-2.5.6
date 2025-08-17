@@ -118,6 +118,184 @@ card field:
 	include file: /magic-modules.mse-include/corners/choices
 	default: stylesheet; corners_default(value, margin_code: "corners3")
 
+############################################################## Altered plus stuff
+card field:
+	type: multiple choice
+	name: card trim
+	description: The trim of the card, such as nyx.
+	show statistics: false
+	card list visible: false
+	card list name: trims
+	card list column: 1630
+	card list width: 150
+	choice: 
+		name: borderless art
+		type: radio
+	choice: 
+		name: frameless art
+		type: radio
+		line below: true
+	choice: fullart
+	choice: 
+		name: puma
+		line below: true
+	choice: clear
+	choice: devoid
+	choice: paradox
+	choice: universes beyond
+	choice: inverted
+	choice: planeshifted
+	choice: fnm promo
+	choice: map
+	choice: 
+		name: foil
+		choice:
+			type: radio
+			name: normal
+		choice:
+			type: radio
+			name: fracture
+		choice:
+			type: radio
+			name: ghost
+		choice:
+			type: radio
+			name: holes
+		choice:
+			type: radio
+			name: jss
+		choice:
+			type: radio
+			name: oil
+		choice:
+			type: radio
+			name: old
+		choice:
+			type: radio
+			name: oldfeed
+		choice:
+			type: radio
+			name: parallel
+		choice:
+			type: radio
+			name: polishedstone
+		choice:
+			type: radio
+			name: ripples
+		line below: true
+	choice: snow
+	choice: vehicle
+	choice: legend
+	choice: conspiracy
+	choice: draft matters
+	choice: miracle
+	choice: 
+		name: nyx
+		line below: true
+	choice: mutate
+	choice: prototype
+	choice: 
+		name: adventure
+		choice: 
+			type: radio
+			name: normal
+		choice:
+			type: radio
+			name: focus
+			line below: true
+		choice: reversed
+
+	choice: season
+	choice: leveler
+	empty choice: none 
+	default: stylesheet; card_trim_default(card_type: card.super_type, card_sub_type: card.sub_type,card_text: card.rule_text, sub_type_2: card.sub_type_2, type_2: card.type_2)
+	script: card_trim_filter(value)
+
+card field:
+	type: multiple choice
+	name: card trim plus
+	description: The altered plus trim of the card, such as star.
+	show statistics: false
+	card list visible: false
+	card list name: trims
+	card list column: 1631
+	card list width: 150
+	choice: star
+	choice: space
+	choice: sky
+	choice: frontier
+	choice: path
+	choice: lush
+	choice: familiar
+	choice: norm
+	choice: 
+		name: hands
+		line below: true
+	choice: framed
+	choice: Yugioh Frame
+	choice: backdfc
+	choice: front flag
+	choice: back flag
+	choice: arcun overlay
+	empty choice: none
+	default: stylesheet; card_trim_plus_default(card_type: card.super_type, card_sub_type: card.sub_type,card_text: card.rule_text, lv_1: card.level_1_text)
+
+card field:
+	type: multiple choice
+	name: crown type
+	description: The type of legend crown. For the custom option, go to the style tab and find 'custom crown location'
+	show statistics: false
+	card list visible: false
+	card list name: crown type
+	card list column: 1631
+	card list width: 150
+	choice: 
+		name: normal
+		type: radio
+	choice: 
+		name: companion
+		type: radio
+	choice: 
+		name: brawl
+		type: radio
+	choice: 
+		name: star
+		type: radio
+	choice: 
+		name: space
+		type: radio
+	choice: 
+		name: nyx
+		type: radio
+	choice: 
+		name: custom
+		type: radio
+	empty choice: none
+	default: stylesheet; crown_type_default(card_type: card.super_type, card_sub_type: card.sub_type, card_text: card.rule_text, trim: card.card_trim, trim_plus: card.card_trim_plus)
+	script: crown_type_filter(value)
+
+card field:
+	type: multiple choice
+	name: alias type
+	show statistics: false
+	card list visible: false
+	card list name: alias type
+	card list column: 1631
+	card list width: 150
+	description: The type of alias used on the card.
+	choice: 
+		type: radio
+		name: none
+	choice: 
+		type: radio
+		name: godzilla
+	choice: 
+		type: radio
+		name: starts in sanctum
+	empty choice: dummy
+	script: alias_type_filter(value)
+	default: stylesheet; alias_type_default(card_type: card.super_type, card_sub_type: card.sub_type, card_text: card.rule_text, trim: card.card_trim, trim_plus: card.card_trim_plus)
+
 ############################################################## Card color
 card field:
 	type: multiple choice
@@ -454,7 +632,6 @@ card field:
 	card list column: 0023
 	card list width: 150
 	default: stylesheet; name_default(value, margin_code: "name4")
-
 card field:
 	type: text
 	name: alias
@@ -463,6 +640,7 @@ card field:
 	card list name: Alias
 	card list column: 0030
 	card list width: 150
+	default: alias_default(value, alias_type: card.alias_type)
 card field:
 	type: text
 	name: alias 2
@@ -625,7 +803,7 @@ card field:
 	card list column: 0940
 	card list width: 100
 	include file: /magic-modules.mse-include/symbols/choices
-	default: stylesheet; transform_symbol_default(value, margin_code:"transform1")
+	default: stylesheet; transform_symbol_default(value, margin_code:"transform1", type: card.super_type, sub_type: card.sub_type)
 card field:
 	type: choice
 	name: transformation 2
@@ -635,7 +813,7 @@ card field:
 	card list column: 0941
 	card list width: 100
 	include file: /magic-modules.mse-include/symbols/choices
-	default: stylesheet; transform_symbol_default(value, margin_code:"transform2")
+	default: stylesheet; transform_symbol_default(value, margin_code:"transform2", type: card.super_type, sub_type: card.sub_type)
 card field:
 	type: choice
 	name: transformation 3
@@ -645,7 +823,7 @@ card field:
 	card list column: 0942
 	card list width: 100
 	include file: /magic-modules.mse-include/symbols/choices
-	default: stylesheet; transform_symbol_default(value, margin_code:"transform3")
+	default: stylesheet; transform_symbol_default(value, margin_code:"transform3", type: card.super_type, sub_type: card.sub_type)
 
 ############################################################## Future Sight type symbols
 card field:
@@ -973,7 +1151,7 @@ card field:
 			separator: language().type_separator,
 			field2: card.sub_type,
 			soft_before_empty: true,
-			hide_when_empty:   true
+			hide_when_empty:	 true
 		)
 card field:
 	type: text
@@ -1000,7 +1178,7 @@ card field:
 			separator: language().type_separator,
 			field2: card.sub_type_2,
 			soft_before_empty: true,
-			hide_when_empty:   true
+			hide_when_empty:	 true
 		)
 card field:
 	type: text
@@ -1052,7 +1230,7 @@ card field:
 			separator: language().type_separator,
 			field2: card.sub_type_4,
 			soft_before_empty: true,
-			hide_when_empty:   true
+			hide_when_empty:	 true
 		)
 
 ############################################################## Rarity
@@ -1364,6 +1542,7 @@ card field:
 	card list column: 0900
 	card list width: 110
 	include file: /magic-modules.mse-include/watermarks/choices
+	default: stylesheet; watermark_default(type: card.super_type, sub_type: card.sub_type, text: card.rule_text)
 card field:
 	type: choice
 	name: watermark 2
@@ -2273,7 +2452,7 @@ card field:
 			separator: language().pt_separator,
 			field2: card.toughness,
 			soft_before_empty: true,
-			hide_when_empty:   true
+			hide_when_empty:	 true
 		)
 card field:
 	type: text
@@ -2299,7 +2478,7 @@ card field:
 			separator: language().pt_separator,
 			field2: card.toughness_2,
 			soft_before_empty: true,
-			hide_when_empty:   true
+			hide_when_empty:	 true
 		)
 card field:
 	type: text
@@ -2325,7 +2504,7 @@ card field:
 			separator: language().pt_separator,
 			field2: card.toughness_3,
 			soft_before_empty: true,
-			hide_when_empty:   true
+			hide_when_empty:	 true
 		)
 card field:
 	type: text
@@ -2351,7 +2530,7 @@ card field:
 			separator: language().pt_separator,
 			field2: card.toughness_4,
 			soft_before_empty: true,
-			hide_when_empty:   true
+			hide_when_empty:	 true
 		)
 card field:
 	type: text
@@ -2377,7 +2556,7 @@ card field:
 			separator: language().pt_separator,
 			field2: card.toughness_5,
 			soft_before_empty: true,
-			hide_when_empty:   true
+			hide_when_empty:	 true
 		)
 card field:
 	type: text
@@ -2403,7 +2582,7 @@ card field:
 			separator: language().pt_separator,
 			field2: card.toughness_6,
 			soft_before_empty: true,
-			hide_when_empty:   true
+			hide_when_empty:	 true
 		)
 card field:
 	type: text
@@ -2429,7 +2608,7 @@ card field:
 			separator: language().pt_separator,
 			field2: card.toughness_7,
 			soft_before_empty: true,
-			hide_when_empty:   true
+			hide_when_empty:	 true
 		)
 card field:
 	type: text
@@ -2455,7 +2634,7 @@ card field:
 			separator: language().pt_separator,
 			field2: card.toughness_8,
 			soft_before_empty: true,
-			hide_when_empty:   true
+			hide_when_empty:	 true
 		)
 
 ############################################################## Separators
