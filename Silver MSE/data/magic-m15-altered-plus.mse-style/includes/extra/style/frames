@@ -5,9 +5,9 @@ frontier overlay:
 	height: 523
 	render style: image
 	image: {frontier_background()}
-	z index: 11
+	z index: 12
 	visible: {is_frontier()}
-	mask: {if is_puma() then "imagemasks/pumamask.png" else if is_oldYGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "maskfrontier.png")}
+	mask: {if is_puma() then "imagemasks/frontierpumamask.png" else if is_mutate() then "imagemasks/maskmutatefrontier.png" else if is_YGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "maskfrontier.png")}
 clear frame:
 	left: 0
 	top: 0
