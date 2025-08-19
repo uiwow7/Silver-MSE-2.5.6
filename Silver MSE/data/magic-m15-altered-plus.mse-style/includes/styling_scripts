@@ -50,10 +50,7 @@ is_unsorted := {
 	styling.remove_from_autocount
 }
 is_devoid := { 
-	chosen(
-		styling.frames,
-		choice: "devoid"
-	) 
+	has_trim("devoid")
 	and not is_map()
 }
 is_devoid2 := { 
@@ -69,10 +66,7 @@ is_nopopout := {
 	)
 }
 is_rem := { 
-	chosen(
-		styling.additional_options, 
-		choice: "framed"
-	)
+	has_trim("framed")
 }
 is_deck := { 
 	chosen(
@@ -81,158 +75,92 @@ is_deck := {
 	)
 }
 is_clear := { 
-	(
-		chosen(
-			styling.frames, 
-			choice: "clear"
-		) 
-		or is_devoid() 
-		or is_devoid2()
-	) 
+	has_trim("clear")
 	and not is_map()
 }
 is_puma := { 
-	chosen(
-		styling.frames, choice: "puma"
-	) 
-		and not is_map() 
-		and not is_clear() 
-		and not contains(
-			styling.frames, match:"less art"
-		) 
+	has_trim("puma")
+	and not is_map() 
+	and not is_clear() 
 	and not is_full_art() 
 }
 is_mutate := { 
 	not is_full_art() 
-	and chosen(
-		styling.frames, 
-		choice: "mutate"
-	) 
+	and has_trim("mutate")
 	and not is_map()
 }
 is_miracle := { 
-	chosen(
-		styling.frames, choice: "miracle"
-	) 
+	has_trim("miracle") 
 	and not is_map() 
 	and not is_expanded_art() 
 	and not is_cons() 
 	and not is_fnm() 
 	and not is_inverted()
 }
+adventure_type := {
+	if has_trim("adventure focus")
+		then "focus"
+	else "normal"
+}
+has_adventure := {
+	contains(card.card_trim, match: "adventure")
+}
+is_reversed := {
+	has_trim("adventure reversed")
+}
 is_adventure := {
-	chosen(
-		styling.frames, 
-		choice: "adventure"
-	) 
-	and chosen(
-		styling.adventure_type, 
-		choice: "normal"
-	)
+	adventure_type() == "normal" and has_adventure() and not is_reversed()
 }
 is_adventure2 := {
-	chosen(
-		styling.frames, 
-		choice: "adventure"
-	) 
-	and chosen(
-		styling.adventure_type, 
-		choice: "reversed"
-	)
+	adventure_type() == "normal" and has_adventure() and is_reversed()
 }
 is_focus := {
-	chosen(styling.frames, 
-	choice: "adventure"
-	) 
-	and chosen(styling.adventure_type, 
-	choice: "focus"
-	)
+	adventure_type() == "focus" and has_adventure() and not is_reversed()
 }
 is_hands := { 
-	chosen(
-		styling.altered_plus_frames, 
-		choice: "hands"
-	) 
+	has_trim("hands")
 }
-is_voyager := { 
-	chosen(
-		styling.altered_plus_frames, 
-		choice: "voyager"
-	) 
-}
+
 is_ub := { 
-	chosen(
-		styling.frames, 
-		choice: "universes beyond"
-	) 
+	has_trim("universes beyond")
 }
 is_focus2 := {
-	chosen(
-		styling.frames, 
-		choice: "adventure"
-	) 
-	and chosen(
-		styling.adventure_type, 
-		choice: "reversed focus"
-	)
+	adventure_type() == "focus" and has_adventure() and is_reversed()
 }
 is_nyx := {
-	chosen(
-		styling.frames, choice: "nyx"
-	) 
-	or(
-		lang_setting(
-			"is_enchantment"
-		)(
-			card.super_type
-		) 
-		and set.auto_nyx 
-		and not(
-			lang_setting(
-				"is_creature"
-			)(
-				card.super_type
-			) 
-			and set.auto_star
-		)
-	)
+	has_trim("nyx") 
 }
 is_star := {
-	chosen(styling.altered_plus_frames, choice:"star")
-	or (lang_setting("is_enchantment")(card.super_type) and set.auto_star and (lang_setting("is_creature")(card.super_type) and set.auto_nyx))
+	has_trim("star")
 }
-is_sky := { chosen(styling.altered_plus_frames, choice: "sky") and not is_map() }
-is_frontier := { chosen(styling.altered_plus_frames, choice: "frontier") and not is_map() }
-is_frontier := { chosen(styling.altered_plus_frames, choice: "frontier") and not is_map() }
-is_revelation := match@(match: "(?i)Revelation")
-is_paradox := { ( chosen(styling.frames, choice: "paradox") or is_revelation(card.type) ) and not is_map() }
-is_space := { chosen(styling.altered_plus_frames, choice: "space") and not is_map() }
-match_anima := match@(match: "(?i)anima")
-match_path := match@(match: "(?i)pathbound")
-auto_path := { match_path(card.special_text) or match_anima(card.type) }
-is_path := { chosen(styling.altered_plus_frames, choice: "path") or auto_path() and not is_map() }
-is_norm := { chosen(styling.altered_plus_frames, choice: "norm") and not is_map() }
-is_backdfc := { chosen(styling.altered_plus_frames, choice: "backdfc") and not is_map() }
-is_lush := { chosen(styling.altered_plus_frames, choice: "lush") and not is_map() }
-is_prototype := { chosen(styling.frames, choice: "prototype") and not is_map() }
-is_vehicle := { (chosen(styling.frames, choice: "vehicle") or (chosen(styling.other_options, choice:"auto vehicles") and match_vehicle(card.sub_type))) and not is_map()}
-
-is_familiar := { (chosen(styling.altered_plus_frames, choice: "familiar") or (chosen(styling.other_options, choice:"auto familiars") and contains(card.sub_type, match:"Entity"))) and not is_map()}
-is_arcun := { (chosen(styling.altered_plus_frames, choice: "arcun overlay")) }
-is_snow := { (chosen(styling.frames, choice: "snow") or (chosen(styling.other_options, choice:"auto snow") and match_snow(card.super_type))) and not is_map()}
-is_cons := { chosen(styling.frames, choice: "draft matters") or chosen(styling.frames, choice: "conspiracy") and not is_map() }
-is_scrolls := { chosen(styling.frames, choice: "conspiracy") and not is_map()}
-is_shifted := { chosen(styling.frames, choice: "planeshifted") and not is_map() and not is_full_art() and not is_fnm()}
-is_fnm := {chosen(styling.frames, choice:"fnm promo") and not is_clear() and not is_full_art() and not is_map()}
-is_inverted := {chosen(styling.frames, choice:"inverted") and not is_clear() and not is_full_art() and not is_fnm() and not is_map()}
-is_map := { chosen(styling.frames, choice: "map") }
-use_node := { chosen(styling.frames, choice: "lesson") }
-is_season := { chosen(styling.frames, choice: "season") and not is_map() }
-is_legend := {not is_map() and (chosen(styling.frames, choice: "legend") or (set.auto_legends and contains(card.super_type, match:"Legendary"))) }
-is_full_art := {chosen(styling.frames, choice:"fullart") and not is_map() and not is_clear()}
-is_expanded_art := {not is_map() and not is_clear() and contains(styling.frames, match:"less art")}
-is_borderless := {not is_map() and not is_clear() and chosen(styling.frames, choice:"borderless art")}
-is_thbland := {chosen(styling.frames, choice:"frameless art") and not is_leveler() and remove_tags(card.text) == "\n"}
+is_sky 			:= { has_trim("sky") 	 and not is_map() }
+is_frontier 	:= { has_trim("frontier") and not is_map() }
+is_frontier 	:= { has_trim("frontier") and not is_map() }
+is_paradox 		:= { has_trim("paradox") and not is_map() }
+is_space 		:= { has_trim("space") and not is_map() }
+is_path := { has_trim("path") and not is_map() }
+is_norm := { has_trim("norm") and not is_map() }
+is_backdfc := { has_trim("backdfc") and not is_map() }
+is_lush := { has_trim("lush") and not is_map() }
+is_prototype := { has_trim("prototype") and not is_map() }
+is_vehicle := { has_trim("vehicle") }
+is_familiar := { has_trim("familiar") and not is_map()}
+is_arcun := { has_trim("arcun overlay") }
+is_snow := { has_trim("snow") }
+is_cons := { has_trim("draft matters") or has_trim("conspiracy") and not is_map() }
+is_scrolls := { has_trim("conspiracy") and not is_map()}
+is_shifted := { has_trim("planeshifted") and not is_map() and not is_full_art() and not is_fnm()}
+is_fnm := {has_trim("fnm promo") and not is_clear() and not is_full_art() and not is_map()}
+is_inverted := {has_trim("inverted") and not is_clear() and not is_full_art() and not is_fnm() and not is_map()}
+is_map := { has_trim("map") }
+use_node := { card.transformation != "none" }
+is_season := { has_trim("season") and not is_map() }
+is_legend := {not is_map() and has_trim("legend")  }
+is_full_art := {has_trim("fullart") and not is_map() and not is_clear()}
+is_expanded_art := {not is_map() and not is_clear() and (is_borderless() or is_frameless())}
+is_borderless := {not is_map() and not is_clear() and has_trim("borderless art")}
+is_thbland := {has_trim("frameless art") and not is_leveler() and remove_tags(card.text) == "\n"}
+is_frameless := {has_trim("frameless art")}
 is_halfart := {chosen(styling.additional_options, choice:"half frameless art") and not is_leveler()}
 expanded_mask := { "bigimagemasks/" + (if is_full_art() then "dka_" else "") + (if is_borderless() then (if is_stamped() then "rare_" else "") + "borderless_" else "") + "frameless.png"}
 is_curtains := { chosen(styling.additional_options, choice: "curtain")}
@@ -287,15 +215,28 @@ invert_rolls := {if chosen(styling.other_options, choice:"inverted d20") then 1 
 text_filter := text_filter + override_clear + d20_filter + {if chosen(styling.other_options, choice:"override-style text") then override_filter(input) else input}
 # This lets you break down how many mana symbols are in the cost of a card
 
+foil_type := {
+	if has_trim("foil normal") then "normal"
+	else if has_trim("foil fracture") then "fracture"
+	else if has_trim("foil ghost") then "ghost"
+	else if has_trim("foil holes") then "holes"
+	else if has_trim("foil jss") then "jss"
+	else if has_trim("foil oil") then "oil"
+	else if has_trim("foil old") then "old"
+	else if has_trim("foil oldfeed") then "oldfeed"
+	else if has_trim("foil parallel") then "parallel"
+	else if has_trim("foil ripples") then "ripples"
+	else if has_trim("foil polishedstone") then "polishedstone"
+	else "normal"
+} 
 
 center_map := {is_map() and (card.casting_cost == "" or chosen(styling.other_options, choice:"always center map names"))}
-use_evobar := {chosen(styling.other_options, choice:"pokemon evobar")}
-is_token := { chosen(styling.altered_plus_frames, choice: "token")}
-is_altcast := {chosen(styling.frames, choice:"adventure")}
-is_reversed := {chosen(styling.frames, choice: "adventure") and (chosen(styling.adventure_type, choice: "reversed") or (chosen(styling.adventure_type, choice: "reversed focus")))}
-is_oldYGO := {chosen(styling.altered_plus_frames, choice:"small YGO")}
+use_evobar := {chosen(card.alias_type, choice: "starts in sanctum")}
+is_token := {has_trim("token")}
+is_altcast := {has_trim("adventure normal") or has_trim("adventure focus")}
+is_oldYGO := {chosen(styling.additional_options, choice: "small ygo")}
 is_YGO_gold := { chosen(styling.additional_options, choice: "ygogold")}
-is_YGO := {chosen(styling.altered_plus_frames, choice:"Yugioh Frame")}
+is_YGO := { has_trim("Yugioh Frame") }
 use_gold := { chosen(styling.additional_options, choice: "goldframe")}
 use_porthole := { contains(card.notes, match:"!porthole") }
 use_ocean := { contains(card.notes, match:"!ocean") }
@@ -320,6 +261,7 @@ black_text := {chosen(styling.text_color, choice:"black")}
 center_name := { chosen(styling.additional_options, choice: "center name") or use_porthole()}
 use_jp := { chosen(styling.additional_options, choice: "JP symbols")}
 alt_rarity := {styling.alt_rarity_color != ""}
+is_old := { has_trim("old") }
 alt_rarity_color := {
 	string := "83,67,53:177,150,131:0,0,0:0,0,0:0.07:"
 	if match(styling.alt_rarity_color, match:":$") then string := styling.alt_rarity_color
@@ -369,16 +311,13 @@ alt_symbol := {
 	)
 }
 is_skinned := {
-	chosen(
-		styling.other_options, 
-		choice:"godzilla style alias"
-	)
+	chosen(card.alias_type, choice: "godzilla")
 }
 use_vorthos := {((not is_leveler() or lone_pt()) and card.pt != "") or chosen(styling.other_options, choice:"vorthos box")}
 clear_tops := {chosen(styling.other_options, choice:"clear tops") and not is_puma()}
 is_tarot := {chosen(styling.other_options, choice:"text watermarks")}
 pure_snow := {is_snow() and not is_fnm() and not is_inverted() and not is_paradox() and not is_full_art() and not is_leveler() and not is_shifted()}
-is_leveler := {chosen(styling.frames, choice:"leveler")}
+is_leveler := {has_trim("leveler")}
 box_leveler := {styling.level_containers == "pt boxes"}
 loy_leveler := {styling.level_containers == "loyalty boxes"}
 aug_leveler := {box_leveler() and center_label(input)}

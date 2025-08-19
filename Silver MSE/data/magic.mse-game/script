@@ -2681,6 +2681,7 @@ watermark_scripts :=
 	"other magic symbols color pie":                      { watermark_blend(h:500, l:500, wm_directory + "other/colorpie.png", face:face) }
 	"other magic symbols judge academy":                  { watermark_blend(h:500, l:500, wm_directory + "promo/judge_academy.png", face:face) }
 	"other magic symbols foretell":                       { watermark_blend(h:460, l:500, wm_directory + "other/foretell.png", face:face) }
+	"other magic symbols foretell2":                      { watermark_blend(h:460, l:500, wm_directory + "other/foretell2.png", face:face) }
 	"other magic symbols jace consortium":                { watermark_blend(h:500, l:500, wm_directory + "other/jace-consortium.png", face:face) }
 	"other magic symbols seekers of carmot":              { watermark_blend(h:500, l:500, wm_directory + "other/seekersofcarmot.png", face:face) }
 	"other magic symbols desparked":                      { watermark_blend(h:500, l:500, wm_directory + "other/desparked.png", face:face) }
@@ -3238,10 +3239,12 @@ typesymbol_for :=
 	}
 typesymbol_type := { typesymbol_for(type) }
 ############################################################## Transform/Lesson symbols
+match_erysite := match@(match: "(?i)Erysite")
 transform_symbol_default :=
 {
 	stylesheet
-	if		margin_code == "transform1" then	"none"
+	if (match_erysite(sub_type)) then "voyager erysite"
+	else if	margin_code == "transform1" then	"none"
 	else if	margin_code == "transform2" then	"none"
 	else										"none"
 }
@@ -3280,6 +3283,7 @@ clean_transform_symbol_shape :=
 	replace@(match: "modal front ", replace: "modalfront/") +
 	replace@(match: "modal back ", replace: "modalback/") +
 	replace@(match: "sparker [(]colored[)] ", replace: "sparker/") +
+	replace@(match: "voyager ", replace: "voyager/") +
 	replace@(match: "extra |non standard ", replace: "")
 flip_transform_symbol_shape :=
 	replace@(match: "modalfront/", replace: "modalfrontflipped/") +
@@ -5687,7 +5691,147 @@ hash_nest := {
 	value
 }@(key_chain:[], func:hash_update, update:true)
 
+has_trim := {
+	chosen(card.card_trim, choice: input) or chosen(card.card_trim, choice: input + " ") or
+	chosen(card.card_trim_plus, choice: input) or chosen(card.card_trim_plus, choice: input + " ")
+}
 
+check_trim := {
+	chosen(ccard_trim, choice: input) or chosen(card_trim, choice: input + " ") or
+	chosen(ccard_trim_plus, choice: input) or chosen(card_trim_plus, choice: input + " ")
+}
+
+
+
+check_nyx_trim := {
+	lang_setting(
+		"is_enchantment"
+	)(
+		card_type
+	) 
+	and set.auto_nyx 
+	and not(
+		lang_setting(
+			"is_creature"
+		)(
+			card_type
+		) 
+		and set.auto_star
+	)
+}
+
+check_star_trim2 := {
+	lang_setting(
+		"is_enchantment"
+	)(
+		card_type
+	) 
+	and set.auto_star 
+	and (
+		lang_setting(
+			"is_creature"
+		)(
+			card_type
+		) 
+		and set.auto_nyx
+	)
+}
+
+is_type := {
+	lang_setting("is_{input}")(type)
+}
+
+match_anima 		:= match@(match: "(?i)anima")
+match_path 			:= match@(match: "(?i)pathbound")
+match_revelation	:= match@(match: "(?i)Revelation")
+match_entity		:= match@(match: "(?i)Entity")
+match_wonder		:= match@(match: "(?i)Wonder")
+match_frontier		:= match@(match: "(?i)Frontier")
+match_realm			:= match@(match: "(?i)Realm")
+match_focus			:= match@(match: "(?i)Focus")
+match_vertex		:= match@(match: "(?i)Vertex")
+match_kindred		:= match@(match: "(?i)Kindred")
+match_foretell		:= match@(match: "(?i)Foretell ")
+
+
+check_star_trim := {
+	true
+}
+
+check_sanctum := {
+	match_wonder(card_sub_type) or match_frontier(card_sub_type)
+}
+
+card_trim_default := {
+	""
+	+ (if check_nyx_trim() then "nyx")
+	+ (if is_type("vehicle", type: card_sub_type) then ", vehicle")
+	+ (if is_type("snow", type: card_type) then ", snow")
+	+ (if match_revelation(card_sub_type) then ", paradox")
+	+ (if is_type("legendary", type: card_type) and set.auto_legends then ", legend")
+	+ (if match_erysite(card_sub_type) then ", frameless art")
+	+ (if match_focus(sub_type_2) then ", adventure focus")
+	+ (if match_vertex(type_2) then ", adventure reversed")
+}
+
+card_trim_plus_default := {
+	""
+	+ (if check_star_trim2() then ", star")
+	+ (if match_anima(card_sub_type) or match_path(lv_1) then ", path")
+	+ (if match_entity(card_sub_type) then ", familiar")
+	+ (if check_sanctum() then ", frontier")
+	+ (if match_kindred(card_type) then ", hands")
+}
+
+card_trim_filter := {
+	if (chosen(choice: "fullart")) then
+		input := require_choice(choices: "frameless art, borderless art")
+	if (chosen(choice: "borderless art") and chosen(choice: "frameless art")) then
+		input := require_exclusive_choice(choices: "frameless art, borderless art")
+	if (contains(match: "foil")) then
+		input := require_exclusive_choice(choices: "foil normal, foil fracture, foil ghost, foil holes, foil jss, foil oil, foil old, foil oldfeed, foil parallel, foil polishedstone, foil ripples")
+	if (contains(match: "adventure")) then
+		input := require_exclusive_choice(choices: "adventure normal, adventure focus")
+
+	input
+}
+
+crown_type_default := {
+	if has_trim("space") 
+		then "space"
+	else if has_trim("nyx") 
+		then "nyx"
+	else if has_trim("star") 
+		then "star"
+	else 
+		"normal"
+}
+
+crown_type_filter := {
+	require_exclusive_choice(choices: "normal, companion, brawl, star, space, nyx, custom")
+}
+
+watermark_default := {
+	"" +
+	(if match_foretell(text) then "other magic symbols foretell2")
+}
+
+alias_type_default := {
+	if (
+		match_frontier(card_sub_type) or
+		match_realm(card_sub_type)
+	) then "starts in sanctum" else "none"
+}
+
+alias_type_filter := {
+	require_exclusive_choice(choices: "none, godzilla, starts in sanctum")
+}
+
+alias_default := {
+	if chosen(alias_type, choice: "starts in sanctum") 
+		then "This card can start in your sanctum.                             " 
+	else input
+}
 
 #### load the user overwrites here, doing it in game overwrites this file instead
 include file: custom_script

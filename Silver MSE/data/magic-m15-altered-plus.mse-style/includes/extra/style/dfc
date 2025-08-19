@@ -11,22 +11,22 @@ backdfc:
 front modal flag:
 	left: 14
 	top: 468
-	width: {if chosen(styling.altered_plus_frames, choice: "back flag" )then 160 else 0}
+	width: {if has_trim("back flag") then 160 else 0}
 	height: 20
 	render style: image
 	image: {front_flag_image()}
 	z index: 15
-	visible: {chosen(styling.altered_plus_frames, choice: "back flag") }
+	visible: {has_trim("back flag")  }
 
 back modal flag:
 	left: 14
 	top: 468
-	width: {if chosen(styling.altered_plus_frames, choice: "front flag" )then 160 else 0}
+	width: {if has_trim("front flag") then 160 else 0}
 	height: 20
 	render style: image
 	image: {back_flag_image()}
 	z index: 15
-	visible: {chosen(styling.altered_plus_frames, choice: "front flag") }
+	visible: {has_trim("front flag")  }
 corner:
 	left: { if is_map() then 22 else 19}
 	top: 25

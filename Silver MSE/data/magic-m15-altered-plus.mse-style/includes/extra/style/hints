@@ -1,10 +1,10 @@
 back type hint:
 	left: 28
 	top: 471
-	width: {if chosen(styling.altered_plus_frames, choice: "back flag" )then 80 else 0}
+	width: {if has_trim("back flag") then 80 else 0}
 	height: 12
 	z index: 17
-	visible: {chosen(styling.altered_plus_frames, choice: "back flag") }
+	visible: {has_trim("back flag")  }
 	font:
 		name: Beleren Bold
 		size: 9
@@ -12,10 +12,10 @@ back type hint:
 back color hint:
 	right: 161
 	top: 471
-	width: {if chosen(styling.altered_plus_frames, choice: "back flag" )then 80 else 0}
+	width: {if has_trim("back flag") then 80 else 0}
 	height: 14
 	z index: 18
-	visible: {chosen(styling.altered_plus_frames, choice: "back flag") }
+	visible: {has_trim("back flag")  }
 	font:
 		name: MPlantin
 		size: 10
@@ -28,10 +28,10 @@ back color hint:
 front type hint:
 	left: { if mainframe_walkerb() then 24 else 28}
 	top: 471
-	width: {if chosen(styling.altered_plus_frames, choice: "front flag" )then 80 else 0}
+	width: {if has_trim("front flag") then 80 else 0}
 	height: 12
 	z index: 18
-	visible: {chosen(styling.altered_plus_frames, choice: "front flag") }
+	visible: {has_trim("front flag")  }
 	font:
 		name: Beleren Bold
 		size: 9
@@ -39,10 +39,10 @@ front type hint:
 front color hint:
 	right: 161
 	top: 471
-	width: {if chosen(styling.altered_plus_frames, choice: "front flag" )then 80 else 0}
+	width: {if has_trim("front flag") then 80 else 0}
 	height: 14
 	z index: 17
-	visible: {chosen(styling.altered_plus_frames, choice: "front flag") }
+	visible: {has_trim("front flag")  }
 	font:
 		name: MPlantin
 		size: 10

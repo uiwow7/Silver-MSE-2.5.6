@@ -1,0 +1,34 @@
+border color:
+	left: 0
+	top : 0
+	width:	{if is_borderless() then 0 else 375}
+	height:	523
+	radius: 18
+	left width:   17
+	right width:  17
+	top width:	17
+	bottom width: 18
+	z index: 14
+	mask: { "imagemasks/" + (if is_puma() then "puma_" else "") + (if is_legend() and not use_porthole() then "crown_border" else "border_mask") + (if card.border_color == rgb(200,200,200) then "_silver" else "") + ".png" }
+card color:
+	left:	0
+	top:	0
+	width:	375
+	height:	523
+	z index: 10
+	render style: image
+	popup style: in place
+	image: { main_background() }
+	mask: { if is_sized() then "imagemasks/sized_mask.png" else "" }
+	visible: { not is_sized() }
+card color 2:
+	left:	0
+	top:	0
+	width:	375
+	height:	523
+	z index: 9
+	render style: image
+	popup style: in place
+	image: { main_background() }
+	mask: { if is_sized() then "imagemasks/sized_mask.png" else "" }
+	visible: { is_sized() }

@@ -140,9 +140,9 @@ foil overlay:
 	width: 375
 	height: 523
 	z index: 80
-	visible: { chosen(styling.frames, choice:"foil") }
+	visible: { contains(card.card_trim, match: "foil") }
 	render style: image
-	image: {"/magic-overlay-foil-" + styling.foil_type + ".mse-include/overlay.png"}
+	image: {"/magic-overlay-foil-" + foil_type() + ".mse-include/overlay.png"}
 promo label:
 	left: 40
 	top: { if is_full_art() then 295 else 262 }

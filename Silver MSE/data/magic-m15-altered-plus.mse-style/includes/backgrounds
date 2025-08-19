@@ -2,7 +2,7 @@ crown_lead := {
 	if input != "crown" 
 	then ""
 	else if (
-		styling.legend_crown == "custom" 
+		card.crown_type == "custom" 
 		and styling.custom_crown_location != ""
 	)
 		then "/magic-mainframe-extras.mse-include/" 
@@ -12,32 +12,13 @@ crown_lead := {
 crown_follow := {
 	if input != "crown" 
 		then ""
-	else if styling.legend_crown == "nyx" or (
-		is_nyx()
-		and chosen(
-		styling.other_options, choice:"auto nyx crowns"
-	)
-	)
+	else if card.crown_type == "nyx"
 		then "nyx"
-	else if styling.legend_crown == "star" 
-	or (
-		is_star() 
-	and chosen(
-		styling.other_options, 
-	choice:"auto star crowns"
-	)
-	)
+	else if card.crown_type == "star"
 		then "star"
-	else if styling.legend_crown == "space" 
-	or (
-		is_space()
-		and chosen(
-		styling.other_options, 
-	choice:"auto space crowns"
-	)
-	)
+	else if card.crown_type == "space" 
 		then "space"
-	else if styling.legend_crown == "companion"
+	else if card.crown_type == "companion"
 		then "com"
 	else ""
 }
@@ -147,6 +128,12 @@ texture_background  := { color_background(type: "texture"        , base_hybrid: 
 saga_background     := { color_background(type: "saga"           , base_hybrid: card_hybrid) }
 bookmark_background := { color_background(type: "bookmark"       , base_hybrid: card_hybrid) }
 ocean_background 	:= { color_background(type: "ocean"			 , base_hybrid: card_hybrid) }
+old_background		:= { color_background(type:	"old"			 , base_hybrid:	card_hybrid )}
+
+crown_preview := {
+	crown_follow := {crown}
+	crown_background()
+}
 
 main_background := { 
 	if is_clear() 
@@ -169,11 +156,11 @@ main_background := {
 		then adventure_colors() 
 	else if is_adventure2() 
 		then adventure2_colors() 
-	else if is_voyager() 
-		then voyager_background() 
 	else if is_ub() 
 		then ub_background() 
 	else if is_saga() 
 		then saga_background() 
+	else if is_old()
+		then old_background()
 	else card_background() 
 }

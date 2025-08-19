@@ -1,0 +1,35 @@
+extra card style:
+	#### Template includes
+	## Card code, artist arrow, pt boxes, stamp, copyright
+	include file: includes/extra/style/bottom_area
+	## Card frames
+	include file: includes/extra/style/frames
+	## Trims (nyx, star, space, snow, etc.)
+	include file: includes/extra/style/trims
+	## Adventures/focus
+	include file: includes/extra/style/adventure
+	## Prototype
+	include file: includes/extra/style/prototype
+	## Backdfc, flags, icons
+	include file: includes/extra/style/dfc
+	## Frame overlays
+	include file: includes/extra/style/frame_overlays
+	## Pins
+	include file: includes/extra/style/pins
+	## Alias
+	include file: includes/extra/style/alias
+	## Leveler
+	include file: includes/extra/style/level
+	## Smallbox
+	include file: includes/extra/style/smallbox
+	## Hints
+	include file: includes/extra/style/hints
+	## Textbox sizing
+	include file: includes/extra/style/sizing
+	## Sagas
+	include file: includes/extra/style/saga
+	## Everything else
+	include file: includes/extra/style/other
+	#### Modules
+	## Pride Pins
+	include file: /magic-pride.mse-include/extra_card_style

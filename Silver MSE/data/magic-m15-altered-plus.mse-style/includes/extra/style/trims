@@ -8,6 +8,16 @@ nyx overlay:
 	z index: 11
 	visible: {is_nyx()}
 	mask: {if is_puma() then "imagemasks/pumamask.png" else if is_oldYGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "mask.png")}
+frontier overlay:
+	left: 0
+	top: 0
+	width: 375
+	height: 523
+	render style: image
+	image: {frontier_background()}
+	z index: 12
+	visible: {is_frontier()}
+	mask: {if is_puma() then "imagemasks/pumamask.png" else if is_oldYGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "maskfrontier.png")}
 hands overlay:
 	left: 0
 	top: 0
@@ -18,16 +28,6 @@ hands overlay:
 	z index: 11
 	visible: {is_hands()}
 	mask: {if is_puma() then "imagemasks/pumamask.png" else if is_oldYGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "mask.png")}
-voyager overlay:
-	left: 0
-	top: 0
-	width: 375
-	height: 523
-	render style: image
-	image: {voyager_background()}
-	z index: 11
-	visible: {is_voyager()}
-	mask: "cards/voyager/voyagermask.png"
 star overlay:
 	left: 0
 	top: 0

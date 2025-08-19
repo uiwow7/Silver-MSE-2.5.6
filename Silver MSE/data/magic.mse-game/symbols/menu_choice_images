@@ -15,6 +15,9 @@ choice images:
 	back triangle:					/magic.mse-game/symbols/triangle inverted.png
 	aetherprint:					/magic.mse-game/symbols/aetherprint.png
 	sparker:						/magic.mse-game/symbols/sparker.png
+
+	voyager: 						/magic.mse-game/symbols/voyager.png
+	voyager erysite: 				/magic.mse-game/symbols/voyager/erysite.png
 	
 	sparker (colored) default:		/magic.mse-game/symbols/sparker.png
 	sparker (colored) white:		/magic.mse-game/symbols/sparker/white.png

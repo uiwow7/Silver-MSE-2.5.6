@@ -7,6 +7,12 @@ extra card field:
 	script: card.card_color
 extra card field:
 	type: choice
+	name: frontier overlay
+	script: card.card_color
+	save value: false
+	editable: false
+extra card field:
+	type: choice
 	name: nyx overlay
 	choice: nyx
 	save value: false
@@ -16,13 +22,6 @@ extra card field:
 	type: choice
 	name: hands overlay
 	choice: hands
-	save value: false
-	editable: false
-	script: card.card_color
-extra card field:
-	type: choice
-	name: voyager overlay
-	choice: voyager
 	save value: false
 	editable: false
 	script: card.card_color
