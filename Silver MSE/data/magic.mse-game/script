@@ -5759,7 +5759,7 @@ check_star_trim := {
 }
 
 check_sanctum := {
-	match_wonder(card_sub_type) or match_frontier(card_sub_type)
+	match_wonder(card_sub_type) or match_frontier(card_sub_type) or match_path(lv_1) or match_realm(card_sub_type)
 }
 
 card_trim_default := {
@@ -5772,15 +5772,16 @@ card_trim_default := {
 	+ (if match_erysite(card_sub_type) then ", frameless art")
 	+ (if match_focus(sub_type_2) then ", adventure focus")
 	+ (if match_vertex(type_2) then ", adventure reversed")
+	+ (if match_path(lv_1) then ", mutate")
 }
 
 card_trim_plus_default := {
 	""
 	+ (if check_star_trim2() then ", star")
-	+ (if match_anima(card_sub_type) or match_path(lv_1) then ", path")
+	# + (if match_anima(card_sub_type) or match_path(lv_1) then ", path")
 	+ (if match_entity(card_sub_type) then ", familiar")
 	+ (if check_sanctum() then ", frontier")
-	+ (if match_kindred(card_type) then ", hands")
+	+ (if match_kindred(card_type) and not has_trim("nyx") and not has_trim("star") then ", hands")
 }
 
 card_trim_filter := {
@@ -5817,10 +5818,9 @@ watermark_default := {
 }
 
 alias_type_default := {
-	if (
-		match_frontier(card_sub_type) or
-		match_realm(card_sub_type)
-	) then "starts in sanctum" else "none"
+	if match_frontier(card_sub_type) or match_realm(card_sub_type)
+		then "starts in sanctum" 
+	else "none"
 }
 
 alias_type_filter := {

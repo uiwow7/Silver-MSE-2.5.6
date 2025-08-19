@@ -293,8 +293,3 @@ styling style:
 	other options:
 		render style: checklist
 		direction: vertical
-	main style:
-		render style: both
-		choice images:
-			normal: {card_background("colorless")}
-			saga: {saga_background("colorless")}

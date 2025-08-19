@@ -208,7 +208,7 @@ card field:
 	choice: season
 	choice: leveler
 	empty choice: none 
-	default: stylesheet; card_trim_default(card_type: card.super_type, card_sub_type: card.sub_type,card_text: card.rule_text, sub_type_2: card.sub_type_2, type_2: card.type_2)
+	default: stylesheet; card_trim_default(card_type: card.super_type, card_sub_type: card.sub_type,card_text: card.rule_text, sub_type_2: card.sub_type_2, type_2: card.type_2, lv_1: card.level_1_text, card_color: card.card_color)
 	script: card_trim_filter(value)
 
 card field:
