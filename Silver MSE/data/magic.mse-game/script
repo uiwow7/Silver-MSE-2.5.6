@@ -5785,14 +5785,15 @@ card_trim_plus_default := {
 }
 
 card_trim_filter := {
+	input := exclusive_choice(choices: "frameless art, borderless art, special guest")
 	if (chosen(choice: "fullart")) then
 		input := require_choice(choices: "frameless art, borderless art")
-	if (chosen(choice: "borderless art") and chosen(choice: "frameless art")) then
-		input := require_exclusive_choice(choices: "frameless art, borderless art")
 	if (contains(match: "foil")) then
 		input := require_exclusive_choice(choices: "foil normal, foil fracture, foil ghost, foil holes, foil jss, foil oil, foil old, foil oldfeed, foil parallel, foil polishedstone, foil ripples")
 	if (contains(match: "adventure")) then
 		input := require_exclusive_choice(choices: "adventure normal, adventure focus")
+	if (chosen(choice: "special guest")) then
+		input := require_choice(choice: "inverted")
 
 	input
 }

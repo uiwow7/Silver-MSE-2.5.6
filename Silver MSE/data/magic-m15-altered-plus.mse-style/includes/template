@@ -133,6 +133,7 @@ shifted_template_prefix := [
 	ubstamp: "/magic-modules.mse-include/stamps/backs/375 ub/"
 ]
 template_prefix := { 
+	type := type or else ""
     if type == "miracle" 
     and pure_snow() 
         then [

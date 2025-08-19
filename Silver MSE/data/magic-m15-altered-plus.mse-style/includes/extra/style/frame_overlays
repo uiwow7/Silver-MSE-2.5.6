@@ -47,3 +47,12 @@ season flag:
 	image: { season_background() }
 	visible: { is_season() }
 	mask: {if is_expanded_art() then "season/full_mask.png" else ""}
+special guest overlay:
+	left: 0
+	top: 0
+	width: 375
+	height: 523
+	z index: 12
+	render style: image
+	image: modules/extras/specialguest_overlay.png
+	visible: {is_specialguest()}

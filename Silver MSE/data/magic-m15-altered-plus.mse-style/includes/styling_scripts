@@ -157,12 +157,13 @@ use_node := { card.transformation != "none" }
 is_season := { has_trim("season") and not is_map() }
 is_legend := {not is_map() and has_trim("legend")  }
 is_full_art := {has_trim("fullart") and not is_map() and not is_clear()}
-is_expanded_art := {not is_map() and not is_clear() and (is_borderless() or is_frameless())}
+is_expanded_art := {not is_map() and not is_clear() and (is_borderless() or is_frameless() or is_specialguest())}
 is_borderless := {not is_map() and not is_clear() and has_trim("borderless art")}
+is_specialguest := {not is_map() and not is_clear() and has_trim("special guest")}
 is_thbland := {has_trim("frameless art") and not is_leveler() and remove_tags(card.text) == "\n"}
 is_frameless := {has_trim("frameless art")}
 is_halfart := {chosen(styling.additional_options, choice:"half frameless art") and not is_leveler()}
-expanded_mask := { "bigimagemasks/" + (if is_full_art() then "dka_" else "") + (if is_borderless() then (if is_stamped() then "rare_" else "") + "borderless_" else "") + "frameless.png"}
+expanded_mask := { "bigimagemasks/" + (if is_full_art() then "dka_" else "") + (if is_borderless() then (if is_stamped() then "rare_" else "") + "borderless_" else "") + (if is_specialguest() then "specialguest_" else "") + "frameless.png"}
 is_curtains := { chosen(styling.additional_options, choice: "curtain")}
 is_pinned := {chosen(styling.other_options, choice:"pride pinlines")}
 is_sized := { not chosen(styling.textbox_size, choice:"normal") or styling.textbox_offset != "" }

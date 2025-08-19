@@ -2107,7 +2107,7 @@ keyword:
 	keyword: Reflect
 	match: Reflect <atom-param>cost</atom-param>
 	mode: custom
-	reminder: {cost}: Create a token copy of this creature, except it's a 1/1 Wonder {card.sub_type} without reflect. Reflect only as a sorcery, and only once.
+	reminder: {param1}: Create a token copy of this creature, except it's a 1/1 Wonder {card.sub_type} without reflect. Reflect only as a sorcery, and only once.
 keyword:
 	keyword: Reserves
 	match: in your reserves

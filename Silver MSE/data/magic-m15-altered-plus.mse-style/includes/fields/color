@@ -1,7 +1,7 @@
 border color:
 	left: 0
 	top : 0
-	width:	{if is_borderless() then 0 else 375}
+	width:	{if is_borderless() or is_specialguest() then 0 else 375}
 	height:	523
 	radius: 18
 	left width:   17

@@ -8,7 +8,7 @@ level 1 text:
 		italic name: MPlantin-Italic
 		size: {if styling.font_cap != "" then to_number(styling.font_cap) else 14}
 		scale down to: 6
-		color: { if is_full_art() or is_fnm() or is_inverted() then "white" else "black"}
+		color: { if is_full_art() or is_fnm() or is_inverted() or is_specialguest() then "white" else "black"}
 		shadow color: {if is_full_art() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
 		shadow displacement x: -1
 		shadow displacement y: 1

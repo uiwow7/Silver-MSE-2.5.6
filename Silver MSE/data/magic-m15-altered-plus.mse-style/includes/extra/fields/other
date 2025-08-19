@@ -81,3 +81,11 @@ extra card field:
 	editable: false
 	save value: false
 	show statistics: false
+## SPG Overlay
+extra card field:
+	type: choice
+	name: special guest overlay
+	choice: t 
+	editable: false
+	save value: false
+	show statistics: false

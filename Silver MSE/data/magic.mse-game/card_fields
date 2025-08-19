@@ -131,6 +131,9 @@ card field:
 	choice: 
 		name: borderless art
 		type: radio
+	choice:
+		name: special guest
+		type: radio
 	choice: 
 		name: frameless art
 		type: radio
@@ -189,6 +192,7 @@ card field:
 	choice: conspiracy
 	choice: draft matters
 	choice: miracle
+	choice: token
 	choice: 
 		name: nyx
 		line below: true
