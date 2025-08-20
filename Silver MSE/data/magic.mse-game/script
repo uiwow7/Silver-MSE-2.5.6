@@ -5759,7 +5759,11 @@ check_star_trim := {
 }
 
 check_sanctum := {
-	match_wonder(card_sub_type) or match_frontier(card_sub_type) or match_path(lv_1) or match_realm(card_sub_type)
+	match_wonder(card_sub_type) or match_frontier(card_sub_type) or match_realm(card_sub_type) 
+}
+
+check_path := {
+	match_path(lv_1) or match_anima(card_sub_type)
 }
 
 card_trim_default := {
@@ -5778,10 +5782,10 @@ card_trim_default := {
 card_trim_plus_default := {
 	""
 	+ (if check_star_trim2() then ", star")
-	# + (if match_anima(card_sub_type) or match_path(lv_1) then ", path")
+	+ (if check_path() then ", path")
 	+ (if match_entity(card_sub_type) then ", familiar")
 	+ (if check_sanctum() then ", frontier")
-	+ (if match_kindred(card_type) and not has_trim("nyx") and not has_trim("star") then ", hands")
+	+ (if match_kindred(card_type) and not has_trim("nyx") and not has_trim("star") and not match_revelation(card_sub_type) then ", hands")
 }
 
 card_trim_filter := {

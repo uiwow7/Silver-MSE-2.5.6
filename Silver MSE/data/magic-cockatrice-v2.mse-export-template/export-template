@@ -90,6 +90,7 @@ script:
 		replace@(match:";", replace:"")+ #remove semicolons
 		replace@(match:"\n", replace:"")+ #remove linebreaks
 		replace@(match:"\\.", replace:"")+ #remove periods
+		replace@(match:"\\/", replace:"")+ #remove slashes
 		remove_tags
 
 	# escape special xml characters
@@ -221,13 +222,21 @@ script:
 		if is_token() then "tokens" else setcode
 	}
 
+	card_file_name := {
+		card_number() + "_" + strip_card_name(card_name())
+	}
+
+	card_file_name_2 := {
+		card_number() + "_" + strip_card_name(card.name_2)
+	}
+
 	#write a normal cards XML text
 	write_normal := {
 		"\n    "+"\<card>"
 		# Name
 		+"\n      "+"\<name>"+xml_escape(options.append_String_To_Names+strip_card_name(card_name()))+"\</name>"
 		# Set
-		+"\n      "+"\<set rarity="
+		+"\n      "+"\<set num=\"{card_number()}\" rarity="
 			+(if contains(card.rarity,match:"uncommon") then "\"uncommon\""
 			else if contains(card.rarity,match:"common") then "\"common\""
 			else if contains(card.rarity,match:"mythic") then "\"mythic\""
@@ -277,7 +286,7 @@ script:
 		# Name
 		+"\n      "+"\<name>"+xml_escape(strip_card_name(card_name())+(if true then " " + setcode else ""))+"\</name>"
 		# Set
-		+"\n      "+"\<set>"+setcode+"\</set>"
+		+"\n      "+"\<set num=\""+card_number()+"\">"+setcode+"\</set>"
 		+"\n      "+"\<prop>"
 		# Color
 		+"\n        "+"\<colors>"
@@ -317,7 +326,7 @@ script:
 		#+" // "+strip_card_name(card.name_2)
 		+"\</name>"
 		# Set
-		+"\n      "+"\<set rarity="
+		+"\n      "+"\<set num=\"{card_number()}\" rarity="
 			+(if contains(card.rarity,match:"uncommon") then "\"uncommon\""
 			else if contains(card.rarity,match:"common") then "\"common\""
 			else if contains(card.rarity,match:"mythic") then "\"mythic\""
@@ -392,7 +401,7 @@ script:
 		#+" | ("+strip_card_name(card.name_2)+")"
 		+"\</name>"
 		# Set
-		+"\n      "+"\<set rarity="
+		+"\n      "+"\<set num=\"{card_number()}\" rarity="
 			+(if contains(card.rarity,match:"uncommon") then "\"uncommon\""
 			else if contains(card.rarity,match:"common") then "\"common\""
 			else if contains(card.rarity,match:"mythic") then "\"mythic\""
@@ -441,7 +450,7 @@ script:
 		+xml_escape(strip_card_name(card.name_2))
 		+"\</name>"
 		# Set II
-		+"\n      "+"\<set rarity="
+		+"\n      "+"\<set num=\"{card_number()}\" rarity="
 			+(if contains(card.rarity,match:"uncommon") then "\"uncommon\""
 			else if contains(card.rarity,match:"common") then "\"common\""
 			else if contains(card.rarity,match:"mythic") then "\"mythic\""
@@ -496,7 +505,7 @@ script:
 		# Name
 		+"\n      "+"\<name>"+xml_escape(options.append_String_To_Names+strip_card_name(card_name()))+"\</name>"
 		# Set
-		+"\n      "+"\<set rarity="
+		+"\n      "+"\<set num=\"{card_number()}\" rarity="
 			+(if contains(card.rarity,match:"uncommon") then "\"uncommon\""
 			else if contains(card.rarity,match:"common") then "\"common\""
 			else if contains(card.rarity,match:"mythic") then "\"mythic\""
@@ -557,7 +566,7 @@ script:
 		#+" | ("+strip_card_name(card.name_2)+")"
 		+"\</name>"
 		# Set
-		+"\n      "+"\<set rarity="
+		+"\n      "+"\<set num=\"{card_number()}\" rarity="
 			+(if contains(card.rarity,match:"uncommon") then "\"uncommon\""
 			else if contains(card.rarity,match:"common") then "\"common\""
 			else if contains(card.rarity,match:"mythic") then "\"mythic\""
@@ -614,7 +623,7 @@ script:
 		#+strip_card_name(card_name())+") | "
 		+xml_escape(strip_card_name(card.name_2))+"\</name>"
 		# Set II
-		+"\n      "+"\<set rarity="
+		+"\n      "+"\<set num=\"{card_number()}\" rarity="
 			+(if contains(card.rarity,match:"uncommon") then "\"uncommon\""
 			else if contains(card.rarity,match:"common") then "\"common\""
 			else if contains(card.rarity,match:"mythic") then "\"mythic\""
@@ -672,7 +681,7 @@ script:
 		#+" | ("+strip_card_name(card.name_2)+")"
 		+"\</name>"
 		# Set
-		+"\n      "+"\<set rarity="
+		+"\n      "+"\<set num=\"{card_number()}\" rarity="
 			+(if contains(card.rarity,match:"uncommon") then "\"uncommon\""
 			else if contains(card.rarity,match:"common") then "\"common\""
 			else if contains(card.rarity,match:"mythic") then "\"mythic\""
@@ -714,7 +723,7 @@ script:
 		#+strip_card_name(card_name())+") | "
 		+xml_escape(strip_card_name(card.name_2))+"\</name>"
 		# Set II
-		+"\n      "+"\<set rarity="
+		+"\n      "+"\<set num=\"{card_number()}\" rarity="
 			+(if contains(card.rarity,match:"uncommon") then "\"uncommon\""
 			else if contains(card.rarity,match:"common") then "\"common\""
 			else if contains(card.rarity,match:"mythic") then "\"mythic\""
@@ -772,7 +781,7 @@ script:
 		#+" | ("+strip_card_name(card.name_2)+")"
 		+"\</name>"
 		# Set
-		+"\n      "+"\<set rarity="
+		+"\n      "+"\<set num=\"{card_number()}\" rarity="
 			+(if contains(card.rarity,match:"uncommon") then "\"uncommon\""
 			else if contains(card.rarity,match:"common") then "\"common\""
 			else if contains(card.rarity,match:"mythic") then "\"mythic\""
@@ -830,7 +839,7 @@ script:
 		+xml_escape(strip_card_name(card.name_2))
 		+"\</name>"
 		# Set II
-		+"\n      "+"\<set rarity="
+		+"\n      "+"\<set num=\"{card_number()}\" rarity="
 			+(if contains(card.rarity,match:"uncommon") then "\"uncommon\""
 			else if contains(card.rarity,match:"common") then "\"common\""
 			else if contains(card.rarity,match:"mythic") then "\"mythic\""
@@ -871,7 +880,7 @@ script:
 		# Name
 		+"\n      "+"\<name>"+xml_escape(options.append_String_To_Names+strip_card_name(card_name()))+"\</name>"
 		# Set
-		+"\n      "+"\<set rarity="
+		+"\n      "+"\<set num=\"{card_number()}\" rarity="
 			+(if contains(card.rarity,match:"uncommon") then "\"uncommon\""
 			else if contains(card.rarity,match:"common") then "\"common\""
 			else if contains(card.rarity,match:"mythic") then "\"mythic\""
@@ -953,7 +962,7 @@ script:
 		write_image_file(
 			card,
 			directory: set.set_code,
-			file: format_file_name(strip_card_name(card_name())),
+			file: format_file_name(card_file_name()),
 			width: (if contains(card.shape, match:"split") then 752 else 375),
 			height: 523
 		)
@@ -964,12 +973,12 @@ script:
 			region_name := crop_data.keys[i][0]
 			region_image := crop_data.values[i][0]
 			face_name := if region_name == "front" or region_name == "minifront"
-							then strip_card_name(card_name())
+							then card_file_name()
 						else if region_name == "back" or region_name == "meldpair"
-							then strip_card_name(card.name_2)
+							then card_file_name_2()
 						else if region_name == "meld" or region_name == "meldback" or region_name == "thirdcard"
 							then strip_card_name(card.name_3)
-						else strip_card_name(card_name()) + "_" + region_name
+						else card_file_name() + "_" + region_name
 			write_image_file(
 				region_image,
 				directory: set.set_code,
