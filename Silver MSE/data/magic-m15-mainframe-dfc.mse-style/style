@@ -446,7 +446,7 @@ init script:
 	normal_size := { not chosen(styling.other_options, choice:"wider planeswalker images") }
 	front_normal_size := {mainframe_walker() and normal_size()}
 	back_normal_size := {mainframe_walkerb() and normal_size()}
-	match_realm := { match@(match: "(?i)Realm") }
+	# match_realm := { match@(match: "(?i)Realm") }
 	is_realm := { match@(match: "(?i)Realm")(card.type) }
 	is_evobar := { chosen(styling.other_options, choice: "pokemon evobar")}
 	use_evobar := {is_evobar() and not chosen(styling.other_options, choice:"godzilla style alias")}

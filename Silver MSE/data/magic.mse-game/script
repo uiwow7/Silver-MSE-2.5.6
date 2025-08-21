@@ -5741,17 +5741,19 @@ is_type := {
 	lang_setting("is_{input}")(type)
 }
 
-match_anima 		:= match@(match: "(?i)anima")
-match_path 			:= match@(match: "(?i)pathbound")
-match_revelation	:= match@(match: "(?i)Revelation")
-match_entity		:= match@(match: "(?i)Entity")
-match_wonder		:= match@(match: "(?i)Wonder")
-match_frontier		:= match@(match: "(?i)Frontier")
-match_realm			:= match@(match: "(?i)Realm")
-match_focus			:= match@(match: "(?i)Focus")
-match_vertex		:= match@(match: "(?i)Vertex")
-match_kindred		:= match@(match: "(?i)Kindred")
-match_foretell		:= match@(match: "(?i)Foretell ")
+match_anima 		:= contains@(match: "anima")
+match_path 			:= contains@(match: "pathbound")
+match_revelation	:= contains@(match: "Revelation")
+match_entity		:= contains@(match: "Entity")
+match_wonder		:= contains@(match: "Wonder")
+match_frontier		:= contains@(match: "Frontier")
+match_realm			:= contains@(match: "Realm")
+match_focus			:= contains@(match: "Focus")
+match_vertex		:= contains@(match: "Vertex")
+match_kindred		:= contains@(match: "Kindred")
+match_foretell		:= contains@(match: "Foretell")
+match_skill			:= contains@(match: "Skill")
+match_token			:= contains@(match: "Token")
 
 
 check_star_trim := {
@@ -5759,7 +5761,11 @@ check_star_trim := {
 }
 
 check_sanctum := {
-	match_wonder(card_sub_type) or match_frontier(card_sub_type) or match_realm(card_sub_type) 
+	# false
+	# true
+	match_wonder(card_sub_type) 
+	or match_frontier(card_sub_type) 
+	or match_realm(card_sub_type) 
 }
 
 check_path := {
@@ -5773,7 +5779,7 @@ card_trim_default := {
 	+ (if is_type("snow", type: card_type) then ", snow")
 	+ (if match_revelation(card_sub_type) then ", paradox")
 	+ (if is_type("legendary", type: card_type) and set.auto_legends then ", legend")
-	+ (if match_erysite(card_sub_type) then ", frameless art")
+	+ (if match_erysite(card_sub_type) or match_skill(card_type) or match_token(card_type) then ", frameless art")
 	+ (if match_focus(sub_type_2) then ", adventure focus")
 	+ (if match_vertex(type_2) then ", adventure reversed")
 	+ (if match_path(lv_1) then ", mutate")

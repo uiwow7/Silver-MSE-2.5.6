@@ -54,16 +54,16 @@ rarity_code := {
 
 tri_stamp := {
 	if is_map() or is_clear() or is_thbland()
-		then template_prefix()["ubstamp"] + "_stamp.png"
+		then template_prefix(type:"normal")["ubstamp"] + "_stamp.png"
 	else if is_devoid()
-		then template_prefix()["ubstamp"] + "devoid.png"
+		then template_prefix(type:"normal")["ubstamp"] + "devoid.png"
 	else module_ubstamp()
 }
 round_stamp := {
 	if is_map() or is_clear() or is_thbland()
-		then template_prefix()["stamp"] + "_stamp.png"
+		then template_prefix(type:"normal")["stamp"] + "_stamp.png"
 	else if is_devoid()
-		then template_prefix()["stamp"] + "devoid.png"
+		then template_prefix(type:"normal")["stamp"] + "devoid.png"
 	else module_stamp()
 }
 stamp_top := {
