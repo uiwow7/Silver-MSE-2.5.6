@@ -5741,7 +5741,7 @@ is_type := {
 	lang_setting("is_{input}")(type)
 }
 
-match_anima 		:= contains@(match: "anima")
+match_anima 		:= contains@(match: "Anima")
 match_path 			:= contains@(match: "pathbound")
 match_revelation	:= contains@(match: "Revelation")
 match_entity		:= contains@(match: "Entity")
@@ -5774,7 +5774,7 @@ check_path := {
 
 card_trim_default := {
 	""
-	+ (if check_nyx_trim() then "nyx")
+	+ (if check_nyx_trim() and set.alternate_nyx == "" then "nyx")
 	+ (if is_type("vehicle", type: card_sub_type) then ", vehicle")
 	+ (if is_type("snow", type: card_type) then ", snow")
 	+ (if match_revelation(card_sub_type) then ", paradox")
@@ -5792,6 +5792,7 @@ card_trim_plus_default := {
 	+ (if match_entity(card_sub_type) then ", familiar")
 	+ (if check_sanctum() then ", frontier")
 	+ (if match_kindred(card_type) and not has_trim("nyx") and not has_trim("star") and not match_revelation(card_sub_type) then ", hands")
+	+ (if check_nyx_trim() and set.alternate_nyx != "" then ", " + set.alternate_nyx)
 }
 
 card_trim_filter := {

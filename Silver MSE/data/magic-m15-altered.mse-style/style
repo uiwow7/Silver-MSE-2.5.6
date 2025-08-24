@@ -796,7 +796,7 @@ init script:
 		else if input == "four" then lv_4_height()
 		else 0
 	}
-	### Customize fonts
+	## Customize fonts
 	## redefine these since Maps make them annoying
 	swap_fonts_name_default := [
 		name: {if is_map() then "Beleren Small Caps" else "Beleren Bold"},
@@ -2013,6 +2013,7 @@ extra card style:
 		popup style: in place
 		image: /magic-modules.mse-include/cards/375 m15 simple/xcard.png
 		mask: { if is_dka() then "frame_masks/clear_tops_dka_mask2.png" }
+		visible: false
 	evobar:
 		left: {if is_map() then 15 else 27}
 		top: {if is_map() then 62 else 57}
