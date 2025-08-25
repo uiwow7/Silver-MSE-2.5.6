@@ -957,6 +957,7 @@ card_identity		:= { color_background(type:"identity",	base_hybrid:identity_hybri
 card_identity_2		:= { color_background(type:"identity2",	base_hybrid:identity_hybrid)	}@(offset:0 )
 card_stamp			:= { color_background(type:"stamp",		base_hybrid:stamp_hybrid)		}@(offset:0 )
 card_stamp2			:= { color_background(type:"stamp2",	base_hybrid:stamp_hybrid)		}@(offset:0 )
+module_crown		:= { color_background(type:"crown",		base_hybrid:card_hybrid)		}@(offset:0 )
 
 module_stamp			:= { color_background(type:"stamp",		base_hybrid:stamp_hybrid)		}@(offset:0 )
 module_ubstamp			:= { color_background(type:"ubstamp",	base_hybrid:stamp_hybrid)		}@(offset:0 )

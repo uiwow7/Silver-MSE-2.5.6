@@ -105,7 +105,6 @@ mappt_background    := { color_background(type: "mappt",           base_hybrid: 
 arrow_background    := { color_background(type: "arrow",           base_hybrid: pt_hybrid  ) }
 arrow_background_2  := { color_background(type: "arrow2",          base_hybrid: pt_hybrid  ) }
 arrow_background_3  := { color_background(type: "arrow3",          base_hybrid: pt_hybrid  ) }
-crown_background    := { color_background(type: "crown"          , base_hybrid: card_hybrid) }
 curtain_background  := { color_background(type: "curtain"        , base_hybrid: card_hybrid) }
 cons_background     := { color_background(type: "cons"           , base_hybrid: card_hybrid) }
 background_slide    := { color_background(type: "slide"          , base_hybrid: card_hybrid) }
@@ -164,3 +163,12 @@ main_background := {
 		then old_background()
 	else card_background() 
 }
+
+module_crown_patch := {
+	module_crown_template(override: card.crown_type)
+}
+crown_background := module_crown	
+
+harder_script := [
+	crown: module_crown_patch
+]

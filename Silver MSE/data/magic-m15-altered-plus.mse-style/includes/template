@@ -216,9 +216,7 @@ template_suffix := [
 	ubstamp: "stamp.png"
 ]
 dummy := {"dummy"}
-harder_script := [
-	dummy: dummy
-]
+
 template_normal      := { 
     crown_lead(
         type
