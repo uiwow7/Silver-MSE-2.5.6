@@ -1986,7 +1986,7 @@ keyword:
 keyword:
 	keyword: Embrace
 	match: embrace
-	mode: custom
+	mode: pseudo
 	rules: Exile it. You may play it on a later turn that a source you control that shares a creature type with it dealt damage to an opponent.
 keyword:
 	keyword: Liberate
