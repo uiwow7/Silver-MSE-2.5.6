@@ -8,7 +8,7 @@ pt:
 	font:
 		name: { if is_old() then "MPlantin-Bold" else "Beleren Bold" }
 		size: {if is_map() then 14 else if is_old() then 18 else 16}
-		color: {if is_shifted() and not black_name() or is_fnm() or is_inverted() or is_familiar() or is_familiarpt() or is_paradox() then "white" else if is_vehicle() and (not is_legend() or chosen(styling.other_options, choice:"brown legendary vehicle pt")) then "white" else if is_backdfc() or is_old() then "white" else "black"}
+		color: {if is_shifted() and not black_name() or is_fnm() or is_inverted() or space_leveler() or is_familiar() or is_familiarpt() or is_paradox() then "white" else if is_vehicle() and (not is_legend() or chosen(styling.other_options, choice:"brown legendary vehicle pt")) then "white" else if is_backdfc() or is_old() then "white" else "black"}
 		separator color: red
 		shadow color: {if is_shifted() and not black_name() or is_fnm() or is_old() then rgb(0,0,0) else rgba(0,0,0,0)}
 		shadow displacement x: -1
@@ -24,9 +24,9 @@ pt 2:
 	font:
 		name: Beleren Bold
 		size: {if is_map() or is_prototype() then 14 else 16}
-		color: {if is_shifted() and not black_name() or is_fnm() or is_inverted() or is_familiar() or is_paradox() or is_prototype() then "white" else if is_vehicle() and (not is_legend() or chosen(styling.other_options, choice:"brown legendary vehicle pt")) then "white" else "black"}
+		color: {if is_shifted() and not black_name() or is_fnm() or is_inverted() or space_leveler() or is_familiar() or is_paradox() or is_prototype() then "white" else if is_vehicle() and (not is_legend() or chosen(styling.other_options, choice:"brown legendary vehicle pt")) then "white" else "black"}
 		separator color: red
-		shadow color: rgb(0,0,0)
+		shadow color: {if is_prototype() then rgb(0,0,0) else rgba(0,0,0,0)}
 		shadow displacement x: 1
 		shadow displacement y: 1
 pt 3:
@@ -39,7 +39,7 @@ pt 3:
 	font:
 		name: Beleren Bold
 		size: {if is_map() then 14 else 16}
-		color: {if is_shifted() and not black_name() or is_fnm() or is_inverted() or is_familiar() or is_paradox() then "white" else if is_vehicle() and (not is_legend() or chosen(styling.other_options, choice:"brown legendary vehicle pt")) then "white" else "black"}
+		color: {if is_shifted() and not black_name() or is_fnm() or is_inverted() or space_leveler() or is_familiar() or is_paradox() then "white" else if is_vehicle() and (not is_legend() or chosen(styling.other_options, choice:"brown legendary vehicle pt")) then "white" else "black"}
 		separator color: red
 		shadow color: {if is_shifted() and not black_name() or is_fnm() then rgb(0,0,0) else rgba(0,0,0,0)}
 		shadow displacement x: -1

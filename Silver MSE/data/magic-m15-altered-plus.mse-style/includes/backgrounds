@@ -127,7 +127,9 @@ texture_background  := { color_background(type: "texture"        , base_hybrid: 
 saga_background     := { color_background(type: "saga"           , base_hybrid: card_hybrid) }
 bookmark_background := { color_background(type: "bookmark"       , base_hybrid: card_hybrid) }
 ocean_background 	:= { color_background(type: "ocean"			 , base_hybrid: card_hybrid) }
-old_background		:= { color_background(type:	"old"			 , base_hybrid:	card_hybrid )}
+old_background		:= { color_background(type:	"old"			 , base_hybrid:	card_hybrid) }
+circle_background	:= { color_background(type: "spacecraft"	 , base_hybrid: card_hybrid) }
+station_ptbox		:= { color_background(type: "spacecraftpt"	 , base_hybrid: card_hybrid) }
 
 crown_preview := {
 	crown_follow := {crown}

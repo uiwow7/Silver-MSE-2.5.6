@@ -321,6 +321,7 @@ pure_snow := {is_snow() and not is_fnm() and not is_inverted() and not is_parado
 is_leveler := {has_trim("leveler")}
 box_leveler := {styling.level_containers == "pt boxes"}
 loy_leveler := {styling.level_containers == "loyalty boxes"}
+space_leveler := {styling.level_containers == "spacecraft"}
 aug_leveler := {box_leveler() and center_label(input)}
 level_label := {if styling.level_label == "" then "level" else pull_comma_array(styling.level_label, end:false, cell:input, default:styling.level_label)}
 center_label := {loy_leveler() or level_label(input) == " "}
@@ -346,9 +347,9 @@ choose_ptbox := {if is_fnm() then fnm_ptbox() else if is_inverted() then inverte
 lv_2_ptbox := { if is_vehicle() then "trims/vehicle/vpt.png" else if is_familiar() then "trims/familiar/fmpt.png" else if is_clear() then "cards/normal/cpt.png" else if is_fnm() then fnm_ptbox() else if is_inverted() then inverted_ptbox() else if is_paradox() then paradox_ptbox() else leveler_ptbox2() }
 lv_3_ptbox := { if is_vehicle() then "trims/vehicle/vpt.png" else if is_familiar() then "trims/familiar/fmpt.png" else if is_clear() then "cards/normal/cpt.png" else if is_fnm() then fnm_ptbox() else if is_inverted() then inverted_ptbox() else if is_paradox() then paradox_ptbox() else leveler_ptbox3() }
 lv_4_ptbox := { if is_vehicle() then "trims/vehicle/vpt.png" else if is_familiar() then "trims/familiar/fmpt.png" else if is_clear() then "cards/normal/cpt.png" else if is_fnm() then fnm_ptbox() else if is_inverted() then inverted_ptbox() else if is_paradox() then paradox_ptbox() else color_background(type:"pt", base_hybrid:leveler_pt_hybrid3) }
-arrow_left := {if box_leveler() then -3 else if loy_leveler() then 10 else 18}
-arrow_width := {if box_leveler() then 84 else if loy_leveler() then 42 else 56}
-arrow_height := {if aug_leveler(input) then 42 else if box_leveler() then 50 else if loy_leveler() then 40 else 40}
+arrow_left := {if box_leveler() then -3 else if loy_leveler() then 10 else if space_leveler() then 12 else 18}
+arrow_width := {if box_leveler() then 84 else if loy_leveler() then 42 else if space_leveler() then 30 else 56}
+arrow_height := {if aug_leveler(input) then 42 else if box_leveler() then 50 else if loy_leveler() then 40 else if space_leveler() then 30 else 40}
 arrow_offset := {
 	to_number(pull_comma_array(styling.arrow_or_bullet_offsets, cell:input, end: 0))
 	+ (if box_leveler() then -5 else 0)

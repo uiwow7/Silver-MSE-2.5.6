@@ -204,6 +204,7 @@ styling field:
 	choice: arrows
 	choice: pt boxes
 	choice: loyalty boxes
+	choice: spacecraft
 styling field:
 	type: info
 	name: rarity options

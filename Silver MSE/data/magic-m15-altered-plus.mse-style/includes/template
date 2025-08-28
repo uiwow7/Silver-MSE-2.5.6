@@ -69,6 +69,8 @@ base_template_prefix := [
 	old: "cards/old/"
 	stamp: "/magic-modules.mse-include/stamps/backs/375 round/"
 	ubstamp: "/magic-modules.mse-include/stamps/backs/375 ub/"
+	spacecraft: "modules/spacecraft/"
+	spacecraftpt: "modules/spacecraft/"
 ]
 
 shifted_template_prefix := [
@@ -131,6 +133,8 @@ shifted_template_prefix := [
 	old: "cards/old/"
 	stamp: "/magic-modules.mse-include/stamps/backs/375 round/"
 	ubstamp: "/magic-modules.mse-include/stamps/backs/375 ub/"
+	spacecraft: "modules/spacecraft/"
+	spacecraftpt: "modules/spacecraft/"
 ]
 template_prefix := { 
 	type := type or else ""
@@ -214,6 +218,8 @@ template_suffix := [
 	old: "old.jpg"
 	stamp: "stamp.png"
 	ubstamp: "stamp.png"
+	spacecraft: "circle.png"
+	spacecraftpt: "pt.png"
 ]
 dummy := {"dummy"}
 
@@ -301,5 +307,7 @@ landless := {
     or input == "nyxcrown"
     or input == "starcrown"
     or input == "spacecrown"
+    or input == "spacecraft"
+    or input == "spacecraftpt"
         then true else false
 }

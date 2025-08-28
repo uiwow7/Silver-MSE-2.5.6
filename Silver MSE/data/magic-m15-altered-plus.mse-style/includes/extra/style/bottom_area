@@ -46,7 +46,9 @@ pt box:
 	image: 
 		script: 
 			if is_map() 
-				then mappt_background() 
+				then mappt_background()
+			else if space_leveler() 
+				then station_ptbox()
 			else if is_vehicle() 
 			and (
 				not is_legend() 
@@ -78,7 +80,7 @@ pt box 2:
 	z index: 13
 	visible: { card.pt_2 != "" and not is_prototype() }
 	render style: image
-	image: {if is_map() then mappt_background() else combine_blend(image1: lv_2_ptbox(), image2: "modules/extras/ptbox_multiply_1.png", combine: "multiply")}
+	image: {if is_map() then mappt_background() else if space_leveler() then station_ptbox() else combine_blend(image1: lv_2_ptbox(), image2: "modules/extras/ptbox_multiply_1.png", combine: "multiply")}
 pt box 3:
 	left: 278
 	top: { l3_center() - (if is_map() then 26 else 15)}
@@ -87,7 +89,7 @@ pt box 3:
 	z index: 13
 	visible: { card.pt_3 != "" }
 	render style: image
-	image: {if is_map() then mappt_background() else combine_blend(image1: lv_3_ptbox(), image2: "modules/extras/ptbox_multiply_2.png", combine: "multiply")}
+	image: {if is_map() then mappt_background() else if space_leveler() then station_ptbox() else combine_blend(image1: lv_3_ptbox(), image2: "modules/extras/ptbox_multiply_2.png", combine: "multiply")}
 pt box 4:
 	left: 278
 	top: { l4_center() - (if is_map() then 26 else 15)}
@@ -96,7 +98,7 @@ pt box 4:
 	z index: 13
 	visible: { card.pt_7 != "" }
 	render style: image
-	image: {if is_map() then mappt_background() else combine_blend(image1: lv_4_ptbox(), image2: "modules/extras/ptbox_multiply_3.png", combine: "multiply")}
+	image: {if is_map() then mappt_background() else if space_leveler() then station_ptbox() else combine_blend(image1: lv_4_ptbox(), image2: "modules/extras/ptbox_multiply_3.png", combine: "multiply")}
 loyalty box:
 	right: 362
 	top: 466
