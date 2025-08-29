@@ -163,7 +163,7 @@ is_specialguest := {not is_map() and not is_clear() and has_trim("special guest"
 is_thbland := {has_trim("frameless art") and not is_leveler() and remove_tags(card.text) == "\n"}
 is_frameless := {has_trim("frameless art")}
 is_halfart := {chosen(styling.additional_options, choice:"half frameless art") and not is_leveler()}
-expanded_mask := { "bigimagemasks/" + (if is_full_art() then "dka_" else "") + (if is_borderless() then (if is_stamped() then "rare_" else "") + "borderless_" else "") + (if is_specialguest() then "specialguest_" else "") + "frameless.png"}
+expanded_mask := { "bigimagemasks/" + (if is_full_art() then "dka_" else "") + (if is_borderless() then (if is_stamped() then "rare_" else "") + "borderless_" else "") + (if is_specialguest() then "specialguest_" else "") + (if space_leveler() then "pinline_" else "") + "frameless.png"}
 is_curtains := { chosen(styling.additional_options, choice: "curtain")}
 is_pinned := {chosen(styling.other_options, choice:"pride pinlines")}
 is_sized := { not chosen(styling.textbox_size, choice:"normal") or styling.textbox_offset != "" }
@@ -368,7 +368,7 @@ leveler_ptbox_left := {
 }
 
 leveler_pt_left := {
-	if space_leveler() then 300 else 291
+	if space_leveler() then 301 else 291
 }
 
 leveler_pt_height := {
