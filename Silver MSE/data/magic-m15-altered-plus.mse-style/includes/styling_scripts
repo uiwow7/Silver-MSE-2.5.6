@@ -350,6 +350,43 @@ lv_4_ptbox := { if is_vehicle() then "trims/vehicle/vpt.png" else if is_familiar
 arrow_left := {if box_leveler() then -3 else if loy_leveler() then 10 else if space_leveler() then 12 else 18}
 arrow_width := {if box_leveler() then 84 else if loy_leveler() then 42 else if space_leveler() then 30 else 56}
 arrow_height := {if aug_leveler(input) then 42 else if box_leveler() then 50 else if loy_leveler() then 40 else if space_leveler() then 30 else 40}
+
+leveler_ptbox_height := {
+	42 / space_leveler_ratio()
+}
+
+leveler_ptbox_width := {
+	81 / space_leveler_ratio()
+}
+
+space_leveler_ratio := {
+	if space_leveler() then 1.3 else 1
+}
+
+leveler_ptbox_left := {
+	if space_leveler() then 294 else 278
+}
+
+leveler_pt_left := {
+	if space_leveler() then 300 else 291
+}
+
+leveler_pt_height := {
+	28 / space_leveler_ratio()
+}
+
+leveler_pt_width := {
+	if space_leveler() then 52 else 60
+}
+
+leveler_ptbox_top_offset := {
+	if space_leveler() then 6 else 0
+}
+
+leveler_pt_top_offset := {
+	if space_leveler() then 4 else 0
+}
+
 arrow_offset := {
 	to_number(pull_comma_array(styling.arrow_or_bullet_offsets, cell:input, end: 0))
 	+ (if box_leveler() then -5 else 0)
