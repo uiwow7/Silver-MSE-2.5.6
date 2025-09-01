@@ -1,28 +1,28 @@
 base_template_prefix := [
-    card: "cards/normal/"
+    card: "/magic-modules.mse-include/cards/375 m15 simple/"
     alias: "modules/alias/"
     alias2: "modules/alias2/"
-    snow:"cards/snow/"
-    snowtexture:"cards/snow/"
+    snow:"/magic-modules.mse-include/cards/375 m15 simple/snow/"
+    snowtexture:"/magic-modules.mse-include/trims/snow/"
     devoid: "cards/devoid/"
     devoid2:"cards/devoid2/"
-    nyx: "trims/nyx/"
-    hands: "trims/hands/"
+    nyx: "/magic-modules.mse-include/trims/nyx/"
+    hands: "/magic-modules.mse-include/trims/hands/"
     voyager: "cards/voyager/"
-    universesbeyond: "cards/universes-beyond/"
-    star: "trims/star/"
-    space: "trims/space/"
-    path: "trims/path/"
-    norm: "trims/norm/"
-    lush: "trims/lush/"
+    universesbeyond: "/magic-modules.mse-include/cards/375 m15 simple/beyond/"
+    star: "/magic-modules.mse-include/trims/star/"
+    space: "/magic-modules.mse-include/trims/space/"
+    path: "/magic-modules.mse-include/trims/path/"
+    norm: "/magic-modules.mse-include/trims/norm/"
+    lush: "/magic-modules.mse-include/trims/lush/"
     smallbox: "modules/smallbox/"
-    sky: "trims/sky/"
-    frontier: "cards/frontier/"
-    miracle: "modules/miracles/"
+    sky: "/magic-modules.mse-include/trims/sky/"
+    frontier: "/magic-modules.mse-include/cards/altered plus/frontier/"
+    miracle: "/magic-modules.mse-include/trims/miracle/"
     node:"modules/nodes/"
     promo: "modules/promo/"
-    crown: "modules/legend/" 
-    cons:"trims/conspiracy/"
+    crown: "/magic-modules.mse-include/crowns/375/" 
+    cons:"/magic-modules.mse-include/trims/draft/"
     saga: "cards/saga/"
     bookmark: "cards/saga/bookmark/"
     curtain: "modules/curtains/"
@@ -30,12 +30,12 @@ base_template_prefix := [
     fnmpt: "cards/paradox/"
     inverted: "cards/inverted/"
     invertedpt: "cards/inverted/"
-    map: "cards/maps/"
+    map: "/magic-modules.mse-include/cards/746 maps/"
     energy: "cards/fullart/"
     halfart: "cards/fullart/"
-    mappt: "cards/maps/" 
-    pt: "cards/normal/"
-    pt2: "cards/normal/"
+    mappt: "/magic-modules.mse-include/cards/746 maps/" 
+    pt: "/magic-modules.mse-include/pts/375 m15/"
+    pt2: "/magic-modules.mse-include/pts/375 m15/inverted/"
     slide: "modules/slides/"
     slide2: "modules/slides/"
     slide3: "modules/slides/"
@@ -74,41 +74,41 @@ base_template_prefix := [
 ]
 
 shifted_template_prefix := [
-    card: "modules/shifted/"
+    card: "/magic-modules.mse-include/cards/375 m15 simple/shifted/"
     alias: "modules/shifted/"
     snow:"cards/snow/"
-    snowtexture:"cards/snow/"
+    snowtexture:"/magic-modules.mse-include/trims/snow/"
     devoid:"cards/devoid/"
     devoid2: "cards/devoid2/"
-    nyx: "trims/nyx/"
-    hands: "trims/hands/"
+    nyx: "/magic-modules.mse-include/trims/nyx/"
+    hands: "/magic-modules.mse-include/trims/hands/"
     voyager: "cards/voyager/"
-    universesbeyond: "cards/universes-beyond/"
-    star: "trims/star/"
+    universesbeyond: "/magic-modules.mse-include/cards/375 m15 simple/beyond/"
+    star: "/magic-modules.mse-include/trims/star/"
     pins: "modules/pins/"
-    space: "trims/space/"
+    space: "/magic-modules.mse-include/trims/space/"
     saga: "cards/saga/"
     bookmark: "cards/saga/bookmark/"
-    path: "trims/path/"
-    lush: "trims/lush/"
-    norm: "trims/norm/"
+    path: "/magic-modules.mse-include/trims/path/"
+    lush: "/magic-modules.mse-include/trims/lush/"
+    norm: "/magic-modules.mse-include/trims/norm/"
     smallbox:"modules/smallbox/"
-    sky:"trims/sky/"
-    frontier: "cards/frontier/"
-    miracle: "modules/shifted/"
+    sky:"/magic-modules.mse-include/trims/sky/"
+    frontier: "/magic-modules.mse-include/cards/altered plus/frontier/"
+    miracle: "/magic-modules.mse-include/trims/miracle/shifted"
     node:"modules/shifted/"
     promo: "modules/promo/"
-    crown: "modules/shifted/"
-    cons:"trims/conspiracy/"
+    crown: "/magic-modules.mse-include/crowns/shifted/"
+    cons:"/magic-modules.mse-include/trims/draft/"
     curtain: "modules/curtains/"
     fnm:"cards/fnm/"
     fnmpt: "cards/paradox/"
     inverted: "cards/inverted/"
     invertedpt: "cards/inverted/"
-    map: "cards/maps/"
+    map: "/magic-modules.mse-include/cards/746 maps/"
     energy: "cards/fullart/"
     halfart: "cards/fullart/"
-    mappt: "cards/maps/"
+    mappt: "/magic-modules.mse-include/cards/746 maps/"
     pt: "modules/shifted/"
     slide: "modules/shifted/"
     slide2: "modules/shifted/"
@@ -182,7 +182,7 @@ template_suffix := [
     halfart: "card1.png"
     mappt: "pt.png"
     pt: "pt.png"
-    pt2: "pt2.png"
+    pt2: "pt.png"
     slide: "slide.png"
     slide2: "slide2.png"
     slide3: "slide3.png"
@@ -227,10 +227,11 @@ template_normal      := {
     crown_lead(
         type
     ) 
-    + template_prefix()[type] 
-    + input + crown_follow(
+    + template_prefix()[type]
+	+ crown_follow(
         type
     ) 
+	+ input
     + template_suffix[type] 
 }
 template := { 
@@ -243,6 +244,9 @@ land_template := {
         type
     ) 
     + template_prefix()[type] 
+	+ crown_follow(
+        type
+    ) 
     + (
         if input == "a" 
         then "c" 
@@ -254,9 +258,6 @@ land_template := {
         ) 
         then "" 
         else "l"
-    ) 
-    + crown_follow(
-        type
     ) 
     + template_suffix[type] 
 }

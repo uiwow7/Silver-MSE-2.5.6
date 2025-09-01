@@ -13,13 +13,13 @@ crown_follow := {
 	if input != "crown" 
 		then ""
 	else if card.crown_type == "nyx"
-		then "nyx"
+		then "nyx/"
 	else if card.crown_type == "star"
-		then "star"
+		then "star/"
 	else if card.crown_type == "space" 
-		then "space"
+		then "space/"
 	else if card.crown_type == "companion"
-		then "com"
+		then "companion/"
 	else ""
 }
 
