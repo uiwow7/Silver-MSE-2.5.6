@@ -40,7 +40,8 @@ init script:
 		beyond:"/magic-modules.mse-include/trims/beyond/",
 		crown:"/magic-modules.mse-include/crowns/375/",
 		star: "/magic-modules.mse-include/trims/star/",
-		identity: "/magic-modules.mse-include/indicators/"
+		identity: "/magic-modules.mse-include/indicators/",
+		token: "token/"
 	]
 	template_suffix := [
 		card: "card.jpg"
@@ -53,6 +54,7 @@ init script:
 		crown:"crown.png"
 		star: "star.png"
 		identity: "identity.png"
+		token: "card2.png"
 	]
 	template := { 
 		if type_name(harder_script[type] or else nil) != type_name(nil)
@@ -96,7 +98,7 @@ init script:
 		else                                     "loyalty naught"
 	}
 	
-	card_shape := { if contains(styling.other_options, match: "class") then "class" else "saga" }
+	card_shape := { (if is_token() then "token ") + (if contains(styling.other_options, match: "class") then "class" else "saga") }
 	
 	# Is the card a promo card?
 	is_promo := { styling.promo }
@@ -230,6 +232,9 @@ init script:
 	is_vehicle :=	{ auto_vehicle()	or contains(styling.other_options, match:"vehicle") }
 	is_nyx :=		{ auto_nyx()		or contains(styling.other_options, match:"nyx") }
 	is_snow :=		{ auto_snow()		or contains(styling.other_options, match:"snow") }
+	is_token :=		{ contains(styling.other_options, match:"token") }
+	is_frameless := {is_token()}
+	frameless_mask := {"frameless_mask" + (if is_saga() then "" else "_reversed") + ".png"}
 	auto_legend :=	{ set.auto_legends									and lang_setting("is_legendary")(card.super_type) }
 	auto_vehicle := { contains(styling.auto_frames, match:"vehicle")	and lang_setting("is_vehicle")(card.sub_type) }
 	auto_nyx :=		{ 
@@ -252,6 +257,7 @@ init script:
 	bookmark_background := { color_background(type:"mark",     base_hybrid:card_hybrid) }
 	beyond_background := { color_background(type:"beyond",     base_hybrid:card_hybrid, folder:template_prefix["beyond"]) }
 	crown_background := { color_background(type:"crown", base_hybrid: card_hybrid)}
+	token_background := {color_background(type: "token", base_hybrid: card_hybrid)}
 	custom_border_blend := { color_background(type:"custom_border",     base_hybrid:card_hybrid) }
 	alt_loc := { if styling.replacement_chapter_location != "" then styling.replacement_chapter_location else "no"}
 	alt_chapters := { (if match(styling.replacement_chapter_location, match:"/$") then "/magic-mainframe-extras.mse-include/" + styling.replacement_chapter_location else "") + "chapter" + input + ".png"}
@@ -381,6 +387,7 @@ styling field:
 	choice: snow
 	choice: class
 	choice: case
+	choice: token
 	choice: universes beyond
 	choice: custom border
 	choice: use starting loyalty
@@ -566,7 +573,7 @@ card style:
 		font:
 			name: Beleren Bold
 			size: {16 - shrink_name()}
-			color: black
+			color: {if is_token() and not chosen(card.card_color, choice:"white") then "white" else "black"}
 	casting cost:
 		right: 346
 		top: 29
@@ -676,10 +683,11 @@ card style:
 		image:				{ card_symbol_image(face: 1) }
 	############################# Image
 	image:
-		left: {if is_saga() then 188 else 29}
-		top: 59
-		width: 157
-		height:	379
+		left: {if is_frameless() then 0 else if is_saga() then 188 else 29}
+		top: {if is_frameless() then 0 else 59}
+		width: {if is_frameless() then 375 else 157}
+		height:	{if is_frameless() then 523 else 379}
+		mask: {if is_frameless() then frameless_mask() else ""}
 		z index: 200
 	mainframe image:
 		left: {if comma_count(styling.popout_image_style) == ",,,," then split_text(match:",", styling.popout_image_style).0 else "0"}
@@ -1114,6 +1122,13 @@ extra card field:
 	script: card.card_color
 extra card field:
 	type: choice
+	name: token overlay
+	choice: nyx
+	save value: false
+	editable: false
+	script: card.card_color
+extra card field:
+	type: choice
 	name: crown
 	script: card.card_color
 	editable: false
@@ -1342,8 +1357,17 @@ extra card style:
 		render style: image
 		image: {module_nyx()}
 		z index: 330
-		visible: {is_nyx()}
+		visible: {is_nyx() and not is_frameless()}
 		mask: {"trim_masks/" + (if is_vehicle() or is_snow() then "double_") + "mask.png"}
+	token overlay:
+		left: 0
+		top: 0
+		width: 375
+		height: 523
+		render style: image
+		image: {token_background()}
+		z index: 330
+		visible: {is_token()}
 	custom overlay:
 		left: 0
 		top: 0

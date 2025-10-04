@@ -375,7 +375,7 @@ has_identity_general := {
 		default_from_card_color := if chosen(color_field, choice:"colorless")
 				then ""							## colorless
 			else if default_from_casting_cost == "" and chosen(color_field, choice:"land")
-				then ""							## land
+				then ""	## land
 			else if chosen(color_field, choice:"multicolor") and culled_color == ""
 				then default_from_casting_cost	## 3+ multicolor
 			else culled_color					## normal color

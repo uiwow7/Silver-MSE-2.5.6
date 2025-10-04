@@ -1983,11 +1983,11 @@ keyword:
 	match: Transcend <atom-param>cost</atom-param>
 	mode: custom
 	reminder: At the beginning of combat, cast your chosen Erysite from outside the game by paying its Transcend cost and exiling a Dragon creature you control.
-keyword:
-	keyword: Embrace
-	match: embrace
-	mode: pseudo
-	rules: Exile it. You may play it on a later turn that a source you control that shares a creature type with it dealt damage to an opponent.
+# keyword:
+# 	keyword: Embrace
+# 	match: embrace
+# 	mode: custom
+# 	rules: Exile it. You may play it on a later turn that a source you control that shares a creature type with it dealt damage to an opponent.
 keyword:
 	keyword: Liberate
 	match: liberate
