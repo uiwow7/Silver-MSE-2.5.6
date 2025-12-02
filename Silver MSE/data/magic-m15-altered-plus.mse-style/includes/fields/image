@@ -51,7 +51,7 @@ image:
 			) + ".png" 
 				else if is_mutate() 
 				and not clear_tops() 
-				then "imagemasks/mutate_mask.png" 
+				then "imagemasks/mutate_mask.png"
 				else ""
 
 mainframe image:

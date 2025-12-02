@@ -7,7 +7,7 @@ nyx overlay:
 	image: {nyx_background()}
 	z index: 11
 	visible: {is_nyx()}
-	mask: {if is_puma() then "imagemasks/pumamask.png" else if is_oldYGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "mask.png")}
+	mask: {if is_puma() then "imagemasks/pumamask.png" else if is_YGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "mask.png")}
 frontier overlay:
 	left: 0
 	top: 0
@@ -17,7 +17,7 @@ frontier overlay:
 	image: {frontier_background()}
 	z index: 12
 	visible: {is_frontier()}
-	mask: {if is_puma() then "imagemasks/pumamask.png" else if is_oldYGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "maskfrontier.png")}
+	mask: {if is_puma() then "imagemasks/pumamask.png" else if is_YGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "maskfrontier.png")}
 hands overlay:
 	left: 0
 	top: 0
@@ -27,7 +27,7 @@ hands overlay:
 	image: {hands_background()}
 	z index: 11
 	visible: {is_hands()}
-	mask: {if is_puma() then "imagemasks/pumamask.png" else if is_oldYGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "mask.png")}
+	mask: {if is_puma() then "imagemasks/pumamask.png" else if is_YGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "mask.png")}
 star overlay:
 	left: 0
 	top: 0
@@ -37,7 +37,7 @@ star overlay:
 	image: {star_background()}
 	z index: 11
 	visible: {is_star()}
-	mask: {if is_rem() then "imagemasks/remstar_mask.png" else if is_puma() then "imagemasks/pumamask.png" else if is_oldYGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "mask.png")}
+	mask: {if is_rem() then "imagemasks/remstar_mask.png" else if is_puma() then "imagemasks/pumamask.png" else if is_YGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "mask.png")}
 space overlay:
 	left: 0
 	top: 0
@@ -47,7 +47,7 @@ space overlay:
 	image: {space_background()}
 	z index: 11
 	visible: {is_space()}
-	mask: {if is_rem() then "imagemasks/remstar_mask.png" else if is_puma() then "imagemasks/pumamask.png" else if is_oldYGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "mask.png")}
+	mask: {if is_rem() then "imagemasks/remstar_mask.png" else if is_puma() then "imagemasks/pumamask.png" else if is_YGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "mask.png")}
 path overlay:
 	left: 0
 	top: 0
@@ -57,7 +57,7 @@ path overlay:
 	image: {path_background()}
 	z index: 11
 	visible: {is_path()}
-	mask: {if is_rem() then "imagemasks/remstar_mask.png" else if clear_tops() then "imagemasks/ctopmask.png" else if is_puma() then "imagemasks/pumamask.png" else if is_oldYGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "mask.png")}
+	mask: {if is_rem() then "imagemasks/remstar_mask.png" else if clear_tops() then "imagemasks/ctopmask.png" else if is_puma() then "imagemasks/pumamask.png" else if is_YGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "mask.png")}
 norm overlay:
 	left: 0
 	top: {if is_clear() or is_devoid() or is_devoid2() then -1 else 0}
@@ -67,7 +67,7 @@ norm overlay:
 	image: {norm_overlay()}
 	z index: 13
 	visible: {is_norm()}
-	mask: {if is_puma() then "imagemasks/pumamask.png" else if is_oldYGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "mask.png")}
+	mask: {if is_puma() then "imagemasks/pumamask.png" else if is_YGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "mask.png")}
 lush overlay:
 	left: 0
 	top: 0
@@ -77,7 +77,7 @@ lush overlay:
 	image: {lush_background()}
 	z index: 11
 	visible: {is_lush()}
-	mask: {if is_rem() then "imagemasks/remstar_mask.png" else if is_puma() then "imagemasks/pumamask.png" else if is_oldYGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "mask.png")}
+	mask: {if is_rem() then "imagemasks/remstar_mask.png" else if is_puma() then "imagemasks/pumamask.png" else if is_YGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "mask.png")}
 sky overlay:
 	left: 0
 	top: 0
@@ -87,7 +87,7 @@ sky overlay:
 	image: {sky_background()}
 	z index: 11
 	visible: {is_sky()}
-	mask: {if is_puma() then "imagemasks/pumamask.png" else if is_oldYGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "masksky.png")}
+	mask: {if is_puma() then "imagemasks/pumamask.png" else if is_YGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "masksky.png")}
 snow overlay:
 	left: 0
 	top: 0
