@@ -73,7 +73,7 @@ card trim:
 		snow: {snow_background(card.card_color)}
 		vehicle: trims/vehicle/voverlay_full.png
 		legend: {crown_background(card.card_color)}
-		conspiracy: trims/conspiracy/full_consscrolls.png
+		conspiracy: /magic-modules.mse-include/trims/conspiracy/full_consscrolls.png
 		draft matters: {cons_background(card.card_color)}
 		miracle: {miracle_background(card.card_color)}
 		nyx: {nyx_background(card.card_color)}
