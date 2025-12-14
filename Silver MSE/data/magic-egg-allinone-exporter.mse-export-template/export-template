@@ -47,6 +47,7 @@ option field:
 	choice: cube
 	choice: none
 	description: Format for this sets draft format
+	initial: play booster
 
 option field:
 	type: text

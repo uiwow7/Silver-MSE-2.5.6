@@ -328,7 +328,7 @@ init script:
 	front_normal_size := {mainframe_walker() and normal_size()}
 	back_normal_size := {mainframe_walkerb() and normal_size()}
 	front_evobar := { chosen(styling.official_frames, choice: "evobar (front)") and not front_skinned() }
-	back_evobar := { chosen(styling.official_frames, choice: "evobar (back)") and not back_skinned() }
+	back_evobar := { chosen(styling.official_frames, choice: "evobar (back)") or front_evobar() and not back_skinned() }
 	shrink_type := {if styling.shrink_typeline_text != "" then to_number(styling.shrink_typeline_text) else 0 }
 	shrink_name := {if styling.shrink_name_text != "" then to_number(styling.shrink_name_text) else 0 }
 	shrink_type2 := {if styling.shrink_back_typeline_text != "" then to_number(styling.shrink_back_typeline_text) else 0 }

@@ -502,28 +502,6 @@ card field:
 ############################################################## Card name
 card field:
 	type: text
-	name: full name
-	description: The full name of the card.
-	show statistics: false
-	save value: false
-	editable: false
-	card list visible: true
-	card list name: Name
-	card list column: 0010
-	localized card list name:
-		ch-s: 名称
-		ch-t: 名稱
-		de: Name
-		es: Nombre
-		fr: Nom
-		it: Nome
-		jp: 名前
-		pt-br: Nome
-	card list width: 280
-	default: stylesheet; card_full_name_default()
-	script: card_full_name()
-card field:
-	type: text
 	name: name
 	description: The name of the card.
 	show statistics: false
@@ -3373,22 +3351,6 @@ card field:
 	card list width: 50
 	script: custom_index()
 
-############################################################## Card fields
-############################################################## Automated fields
-############################################################## Card shape
-card field:
-	type: text
-	name: shape
-	description: The overall shape of the card.
-	show statistics: false
-	save value: false
-	editable: false
-	card list name: Shape
-	card list column: 1610
-	card list width: 110
-	script:
-		stylesheet		### updates when the style changes
-		card_shape()	### determined by the style, by override
 
 ############################################################## Special text
 #### This is given to exporters to handle complicated rules text
@@ -3412,3 +3374,38 @@ card field:
 	card list column: 0781
 	card list width: 150
 	script: special_text2()
+
+############################################################## Card shape
+card field:
+	type: text
+	name: shape
+	description: The overall shape of the card.
+	show statistics: false
+	save value: false
+	editable: false
+	card list name: Shape
+	card list column: 1610
+	card list width: 110
+	script: stylesheet; card_shape()	
+card field:
+	type: text
+	name: full name
+	description: The full name of the card.
+	show statistics: false
+	save value: false
+	editable: false
+	card list visible: true
+	card list name: Name
+	card list column: 0010
+	localized card list name:
+		ch-s: 名称
+		ch-t: 名稱
+		de: Name
+		es: Nombre
+		fr: Nom
+		it: Nome
+		jp: 名前
+		pt-br: Nome
+	card list width: 280
+	default: stylesheet; card_full_name_default()
+	script: card_full_name()
