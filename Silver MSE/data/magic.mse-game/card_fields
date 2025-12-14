@@ -3373,6 +3373,22 @@ card field:
 	card list width: 50
 	script: custom_index()
 
+############################################################## Card fields
+############################################################## Automated fields
+############################################################## Card shape
+card field:
+	type: text
+	name: shape
+	description: The overall shape of the card.
+	show statistics: false
+	save value: false
+	editable: false
+	card list name: Shape
+	card list column: 1610
+	card list width: 110
+	script:
+		stylesheet		### updates when the style changes
+		card_shape()	### determined by the style, by override
 
 ############################################################## Special text
 #### This is given to exporters to handle complicated rules text
@@ -3396,16 +3412,3 @@ card field:
 	card list column: 0781
 	card list width: 150
 	script: special_text2()
-
-############################################################## Card shape
-card field:
-	type: text
-	name: shape
-	description: The overall shape of the card.
-	show statistics: false
-	save value: false
-	editable: false
-	card list name: Shape
-	card list column: 1610
-	card list width: 110
-	script: stylesheet; card_shape()	
