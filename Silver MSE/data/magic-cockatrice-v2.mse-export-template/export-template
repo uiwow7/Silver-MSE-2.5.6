@@ -51,6 +51,11 @@ option field:
 	choice: token
 	choice: masterpiece
 	initial: common, uncommon, rare, mythic rare, basic land, special, token, masterpiece
+option field:
+	type: choice
+	name: portable Mode
+	choice: yes
+	chpice: no
 option style:
 	rarities to export:
 		render style: checklist
@@ -61,6 +66,7 @@ option style:
 			no: {built_in_image("bool_no")}
 			JPG: {built_in_image("bool_yes")}
 			PNG: {built_in_image("bool_yes")}
+
 script:
 	splitter_name := {false} ## experimental future thing for splitting dfc images
 	#determine if the card is a type that is a "token" i.e. it should be batched with tokens instead of with other cards
@@ -223,11 +229,11 @@ script:
 	}
 
 	card_file_name := {
-		card_number() + "_" + strip_card_name(card_name())
+		(if options.portable_mode == "yes" then card_number() + "_" else "") + strip_card_name(card_name())
 	}
 
 	card_file_name_2 := {
-		card_number() + "_" + strip_card_name(card.name_2)
+		(if options.portable_mode == "yes" then card_number() + "_" else "") + strip_card_name(card.name_2)
 	}
 
 	#write a normal cards XML text
