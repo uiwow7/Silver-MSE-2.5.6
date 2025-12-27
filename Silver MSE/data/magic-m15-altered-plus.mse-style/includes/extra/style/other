@@ -118,13 +118,22 @@ arcun overlay:
 	visible: {is_arcun()}
 Bevel overlay:
 	left: {if is_YGO() then 71 else 87}
-	top: {if is_skinned() then 78.5 else if is_YGO() then 58 else 74.5}
+	top: {if is_skinned() then 78.5 else if is_halfart() and is_YGO() then 105 else if is_YGO() and not is_halfart() then 58 else 74.5}
 	width: {if is_YGO() then 233 else 200}
 	height: {if is_YGO() then 233 else 204}
 	render style: image
 	image: {if is_YGO() then "modules/bevel/ycanbevel.png" else "modules/bevel/bevel.png"}
 	z index: 11
 	visible: {is_oldYGO() or is_YGO() and not is_nopopout()}
+Chain:
+	left: {if is_chain() then 27 else if is_chain2() then 192 else 0}
+	top: 326
+	width: {if is_focus() then 163 else 0}
+	height: 50
+	render style: image
+	image: {"cards/focus/chain.png"}
+	z index: 11
+	visible: {has_chain()}
 Gold Bevel overlay:
 	left: 0
 	top: 0

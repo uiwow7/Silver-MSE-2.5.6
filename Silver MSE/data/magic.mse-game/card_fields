@@ -169,6 +169,8 @@ card field:
 		choice:
 			type: radio
 			name: focus
+		choice:
+			name: chain
 			line below: true
 		choice: reversed
 

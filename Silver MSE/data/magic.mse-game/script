@@ -5749,6 +5749,7 @@ match_wonder		:= contains@(match: "Wonder")
 match_frontier		:= contains@(match: "Frontier")
 match_realm			:= contains@(match: "Realm")
 match_focus			:= contains@(match: "Focus")
+match_chain			:= contains@(match: "Chain")
 match_vertex		:= contains@(match: "Vertex")
 match_kindred		:= contains@(match: "Kindred")
 match_foretell		:= contains@(match: "Foretell")
@@ -5781,6 +5782,7 @@ card_trim_default := {
 	+ (if is_type("legendary", type: card_type) and set.auto_legends then ", legend")
 	+ (if match_erysite(card_sub_type) or match_skill(card_type) or match_token(card_type) then ", frameless art")
 	+ (if match_focus(sub_type_2) then ", adventure focus")
+	+ (if match_chain(sub_type_2) then ", adventure chain")
 	+ (if match_vertex(type_2) then ", adventure reversed")
 	+ (if match_path(lv_1) then ", mutate")
 }
@@ -5801,10 +5803,12 @@ card_trim_filter := {
 		input := require_choice(choices: "frameless art, borderless art")
 	if (contains(match: "foil")) then
 		input := require_exclusive_choice(choices: "foil normal, foil fracture, foil ghost, foil holes, foil jss, foil oil, foil old, foil oldfeed, foil parallel, foil polishedstone, foil ripples")
-	if (contains(match: "adventure")) then
-		input := require_exclusive_choice(choices: "adventure normal, adventure focus")
 	if (chosen(choice: "special guest")) then
 		input := require_choice(choice: "inverted")
+	if (chosen(choice: "adventure chain")) then
+		input:= require_choice(choice: "adventure focus")
+	if (contains(match: "adventure")) then
+		input := require_exclusive_choice(choices: "adventure normal, adventure focus")
 
 	input
 }

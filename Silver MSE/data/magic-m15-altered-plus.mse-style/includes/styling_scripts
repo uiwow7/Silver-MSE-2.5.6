@@ -108,6 +108,9 @@ has_adventure := {
 is_reversed := {
 	has_trim("adventure reversed")
 }
+has_chain := {
+	has_trim("adventure chain")
+}
 is_adventure := {
 	adventure_type() == "normal" and has_adventure() and not is_reversed()
 }
@@ -116,6 +119,9 @@ is_adventure2 := {
 }
 is_focus := {
 	adventure_type() == "focus" and has_adventure() and not is_reversed()
+}
+is_chain := {
+	has_chain() and not is_reversed()
 }
 is_hands := { 
 	has_trim("hands")
@@ -127,6 +133,11 @@ is_ub := {
 is_focus2 := {
 	adventure_type() == "focus" and has_adventure() and is_reversed()
 }
+
+is_chain2 := {
+	has_chain() and is_reversed()
+}
+
 is_nyx := {
 	has_trim("nyx") 
 }

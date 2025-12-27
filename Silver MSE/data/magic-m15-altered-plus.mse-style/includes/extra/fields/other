@@ -20,6 +20,12 @@ extra card field:
 	editable: false
 extra card field:
 	type: choice
+	name: Chain
+	choice: card door
+	save value: false
+	editable: false
+extra card field:
+	type: choice
 	name: Gold Bevel overlay
 	choice: car door
 	save value: false
