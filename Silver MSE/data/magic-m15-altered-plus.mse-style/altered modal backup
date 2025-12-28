@@ -75,23 +75,23 @@ init script:
 		else ""
 	}
 	transfer_levels := {if is_mutate() then false else true}
-	nyx_background := { color_background(type:"nyx",     base_hybrid:card_hybrid) }
-	fnm_background := { color_background(type:"fnm",     base_hybrid:card_hybrid) }
-	miracle_background := { color_background(type:"miracle",     base_hybrid:card_hybrid) }
-	map_background := { color_background(type:"map",     base_hybrid:card_hybrid) }
-	energy_background := { color_background(type:"energy",     base_hybrid:card_hybrid) }
-	promo_background := { color_background(type:"promo",     base_hybrid:card_hybrid) }
-	fnm_ptbox := { color_background(type:"fnmpt",     base_hybrid:pt_hybrid) }
-	mappt_background := { color_background(type:"mappt",     base_hybrid:pt_hybrid) }
-	arrow_background := { color_background(type:"arrow",     base_hybrid:pt_hybrid) }
-	arrow_background_2 := { color_background(type:"arrow2",     base_hybrid:pt_hybrid) }
-	arrow_background_3 := { color_background(type:"arrow3",     base_hybrid:pt_hybrid) }
-	crown_background := { color_background(type:"crown", base_hybrid: card_hybrid)}
-	curtain_background := { color_background(type:"curtain", base_hybrid: card_hybrid)}
-	cons_background := { color_background(type:"cons", base_hybrid: card_hybrid)}
-	background_slide := { color_background(type:"slide", base_hybrid: card_hybrid)}
-	background_slide_2 := { color_background(type:"slide2", base_hybrid: card_hybrid)}
-	season_background := { color_background(type:"season",     base_hybrid:card_hybrid) }
+	nyx_background := { color_background_plus(type:"nyx",     base_hybrid:card_hybrid) }
+	fnm_background := { color_background_plus(type:"fnm",     base_hybrid:card_hybrid) }
+	miracle_background := { color_background_plus(type:"miracle",     base_hybrid:card_hybrid) }
+	map_background := { color_background_plus(type:"map",     base_hybrid:card_hybrid) }
+	energy_background := { color_background_plus(type:"energy",     base_hybrid:card_hybrid) }
+	promo_background := { color_background_plus(type:"promo",     base_hybrid:card_hybrid) }
+	fnm_ptbox := { color_background_plus(type:"fnmpt",     base_hybrid:pt_hybrid) }
+	mappt_background := { color_background_plus(type:"mappt",     base_hybrid:pt_hybrid) }
+	arrow_background := { color_background_plus(type:"arrow",     base_hybrid:pt_hybrid) }
+	arrow_background_2 := { color_background_plus(type:"arrow2",     base_hybrid:pt_hybrid) }
+	arrow_background_3 := { color_background_plus(type:"arrow3",     base_hybrid:pt_hybrid) }
+	crown_background := { color_background_plus(type:"crown", base_hybrid: card_hybrid)}
+	curtain_background := { color_background_plus(type:"curtain", base_hybrid: card_hybrid)}
+	cons_background := { color_background_plus(type:"cons", base_hybrid: card_hybrid)}
+	background_slide := { color_background_plus(type:"slide", base_hybrid: card_hybrid)}
+	background_slide_2 := { color_background_plus(type:"slide2", base_hybrid: card_hybrid)}
+	season_background := { color_background_plus(type:"season",     base_hybrid:card_hybrid) }
 	# Use the normal tap symbol
 	mana_t := {
 		if      styling.tap_symbol == "old"        then "old"

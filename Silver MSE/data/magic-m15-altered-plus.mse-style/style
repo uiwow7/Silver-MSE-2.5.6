@@ -31,7 +31,7 @@ init script:
 	include file: /magic-default-image.mse-include/scripts
 	include file: /magic-pride.mse-include/scripts
 	#### Load scripts that are redefined from the blends package
-	include file: blends/new-blends
+	include file: /magic-blends.mse-include/new-blends
 	#### Load include scripts
 	# Various utility scripts
 	include file: includes/other_scripts

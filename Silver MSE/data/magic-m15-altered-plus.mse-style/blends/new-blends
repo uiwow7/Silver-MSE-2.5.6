@@ -944,24 +944,6 @@ color_combination := {
 
 background := color_background@(base_hybrid: card_hybrid)
 
-card_background		:= { color_background(type:"card",		base_hybrid:card_hybrid)		}@(offset:0 )
-card_ptbox			:= { color_background(type:"pt",		base_hybrid:pt_hybrid)			}@(offset:0 )
-flip_ptbox			:= { color_background(type:"pt",		base_hybrid:flip_pt_hybrid)		}@(offset:0 )
-flip_ptbox2			:= { color_background(type:"pt2",		base_hybrid:flip_pt_hybrid2)	}@(offset:0 )
-leveler_ptbox		:= { color_background(type:"pt",		base_hybrid:leveler_pt_hybrid)	}@(offset:0 )
-leveler_ptbox2		:= { color_background(type:"pt",		base_hybrid:leveler_pt_hybrid2)	}@(offset:0 )
-leveler_ptbox3		:= { color_background(type:"pt",		base_hybrid:leveler_pt_hybrid3)	}@(offset:0 )
-card_textbox		:= { color_background(type:"textbox",	base_hybrid:textbox_hybrid)		}@(offset:0 )
-card_typeline		:= { color_background(type:"typeline",	base_hybrid:typeline_hybrid)	}@(offset:0 )
-card_identity		:= { color_background(type:"identity",	base_hybrid:identity_hybrid)	}@(offset:0 )
-card_identity_2		:= { color_background(type:"identity2",	base_hybrid:identity_hybrid)	}@(offset:0 )
-card_stamp			:= { color_background(type:"stamp",		base_hybrid:stamp_hybrid)		}@(offset:0 )
-card_stamp2			:= { color_background(type:"stamp2",	base_hybrid:stamp_hybrid)		}@(offset:0 )
-module_crown		:= { color_background(type:"crown",		base_hybrid:card_hybrid)		}@(offset:0 )
-
-module_stamp			:= { color_background(type:"stamp",		base_hybrid:stamp_hybrid)		}@(offset:0 )
-module_ubstamp			:= { color_background(type:"ubstamp",	base_hybrid:stamp_hybrid)		}@(offset:0 )
-
 flip_background := {
 	linear_blend(
 		image1:		card_background(top)

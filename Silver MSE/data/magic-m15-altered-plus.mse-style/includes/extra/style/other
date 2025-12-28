@@ -129,9 +129,9 @@ Chain:
 	left: {if is_chain() then 27 else if is_chain2() then 192 else 0}
 	top: 326
 	width: {if is_focus() then 163 else 0}
-	height: 50
+	height: 163
 	render style: image
-	image: {"cards/focus/chain.png"}
+	image: {set_alpha(watermark_blend("cards/focus/chain-blend2.png", face:2), alpha: 180)}
 	z index: 11
 	visible: {has_chain()}
 Gold Bevel overlay:

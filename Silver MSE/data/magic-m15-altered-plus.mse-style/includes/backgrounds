@@ -1,3 +1,5 @@
+color_background_plus := color_background@(masks_folder:"imagemasks/")
+
 crown_lead := {
 	if input != "crown" 
 	then ""
@@ -37,26 +39,26 @@ number_of_symbols := {
 
 prototype_cost := {
 		if number_of_symbols() < 2 
-			then color_background(
+			then color_background_plus(
 				type:"cpop1",
 				base_hybrid:pt_hybrid
 			) 
 		else if number_of_symbols() == 2 
-			then color_background(
+			then color_background_plus(
 				type:"cpop2",
 				base_hybrid:pt_hybrid
 			) 
 		else if number_of_symbols() == 3 
-			then color_background(
+			then color_background_plus(
 				type:"cpop3",
 				base_hybrid:pt_hybrid
 			) 
 		else if number_of_symbols() == 4 
-			then color_background(
+			then color_background_plus(
 				type:"cpop4",
 				base_hybrid:pt_hybrid
 			) 
-		else color_background(
+		else color_background_plus(
 			type:"cpop5",
 			base_hybrid:pt_hybrid
 		)
@@ -68,68 +70,86 @@ transfer_levels     := {
 	else true
 }
 
-node_background     := { color_background(type: "node"           , base_hybrid: card_hybrid) }
-nyx_background      := { color_background(type: "nyx"            , base_hybrid: card_hybrid) }
-hands_background    := { color_background(type: "hands"          , base_hybrid: card_hybrid) }
-ub_background       := { color_background(type: "universesbeyond", base_hybrid: card_hybrid) }
-ubstamp_background  := { color_background(type: "ubstamp"        , base_hybrid: card_hybrid) }
-voyager_background  := { color_background(type: "voyager"        , base_hybrid: card_hybrid) }
-sky_background      := { color_background(type: "sky"            , base_hybrid: card_hybrid) }
-frontier_background := { color_background(type: "frontier"       , base_hybrid: card_hybrid) }
-star_background     := { color_background(type: "star"           , base_hybrid: card_hybrid) }
-space_background    := { color_background(type: "space"          , base_hybrid: card_hybrid) }
-path_background     := { color_background(type: "path"           , base_hybrid: card_hybrid) }
-norm_overlay        := { color_background(type: "norm"           , base_hybrid: card_hybrid) }
-backdfc_background  := { color_background(type: "backdfc"        , base_hybrid: card_hybrid) }
-lush_background     := { color_background(type: "lush"           , base_hybrid: card_hybrid) }
-devoid_background   := { color_background(type: "devoid"         , base_hybrid: card_hybrid) }
-devoid2_background  := { color_background(type: "devoid2"        , base_hybrid: card_hybrid) }
-paradox_background  := { color_background(type: "paradox"        , base_hybrid: card_hybrid) }
-paradox_ptbox       := { color_background(type: "paradoxpt"      , base_hybrid: card_hybrid) }
-snow_background     := { color_background(type: "snow"           , base_hybrid: card_hybrid) }
-snow_texture        := { color_background(type: "snowtexture"    , base_hybrid: card_hybrid) }
-puma_bar            := { color_background(type: "puma"           , base_hybrid: card_hybrid) }
-fnm_background      := { color_background(type: "fnm"            , base_hybrid: card_hybrid) }
-inverted_background := { color_background(type: "inverted"       , base_hybrid: card_hybrid) }
-alias_bar           := { color_background(type: "alias"          , base_hybrid: card_hybrid) }
-alias2_bar          := { color_background(type: "alias2"         , base_hybrid: card_hybrid) }
-miracle_background  := { color_background(type: "miracle"        , base_hybrid: card_hybrid) }
-map_background      := { color_background(type: "map"            , base_hybrid: card_hybrid) }
-energy_background   := { color_background(type: "energy"         , base_hybrid: card_hybrid) }
-halfart_background  := { color_background(type: "halfart"        , base_hybrid: card_hybrid) }
-promo_background    := { color_background(type: "promo"          , base_hybrid: card_hybrid) }
-fnm_ptbox           := { color_background(type: "fnmpt",           base_hybrid: pt_hybrid  ) }
-inverted_ptbox      := { color_background(type: "invertedpt",      base_hybrid: pt_hybrid  ) }
-pt2                 := { color_background(type: "pt2",             base_hybrid: pt_hybrid  ) }
-mappt_background    := { color_background(type: "mappt",           base_hybrid: pt_hybrid  ) }
-arrow_background    := { color_background(type: "arrow",           base_hybrid: pt_hybrid  ) }
-arrow_background_2  := { color_background(type: "arrow2",          base_hybrid: pt_hybrid  ) }
-arrow_background_3  := { color_background(type: "arrow3",          base_hybrid: pt_hybrid  ) }
-curtain_background  := { color_background(type: "curtain"        , base_hybrid: card_hybrid) }
-cons_background     := { color_background(type: "cons"           , base_hybrid: card_hybrid) }
-background_slide    := { color_background(type: "slide"          , base_hybrid: card_hybrid) }
-background_slide_2  := { color_background(type: "slide2"         , base_hybrid: card_hybrid) }
-background_slide_3  := { color_background(type: "slide3"         , base_hybrid: card_hybrid) }
-season_background   := { color_background(type: "season"         , base_hybrid: card_hybrid) }
-smallbox_colors     := { color_background(type: "smallbox"       , base_hybrid: card_hybrid) }
-adventure_colors    := { color_background(type: "adventure"      , base_hybrid: card_hybrid) }
-adventure2_colors   := { color_background(type: "adventure2"     , base_hybrid: card_hybrid) }
-adventure3_colors   := { color_background(type: "adventure3"     , base_hybrid: card_hybrid) }
-adventure4_colors   := { color_background(type: "adventure4"     , base_hybrid: card_hybrid) }
-focus_colors        := { color_background(type: "focus"          , base_hybrid: card_hybrid) }
-focus2_colors       := { color_background(type: "focus2"         , base_hybrid: card_hybrid) }
-prototype_pt        := { color_background(type: "pop"  	         , base_hybrid: card_hybrid) }
-prototype_colors    := { color_background(type: "pro"  	         , base_hybrid: card_hybrid) }
-front_flag_image    := { color_background(type: "front"          , base_hybrid: card_hybrid) }
-back_flag_image     := { color_background(type: "back"           , base_hybrid: card_hybrid) }
-pins_image          := { color_background(type: "pins"           , base_hybrid: card_hybrid) }
-texture_background  := { color_background(type: "texture"        , base_hybrid: card_hybrid) }
-saga_background     := { color_background(type: "saga"           , base_hybrid: card_hybrid) }
-bookmark_background := { color_background(type: "bookmark"       , base_hybrid: card_hybrid) }
-ocean_background 	:= { color_background(type: "ocean"			 , base_hybrid: card_hybrid) }
-old_background		:= { color_background(type:	"old"			 , base_hybrid:	card_hybrid) }
-circle_background	:= { color_background(type: "spacecraft"	 , base_hybrid: card_hybrid) }
-station_ptbox		:= { color_background(type: "spacecraftpt"	 , base_hybrid: card_hybrid) }
+node_background     := { color_background_plus(type: "node"           , base_hybrid: card_hybrid) }
+nyx_background      := { color_background_plus(type: "nyx"            , base_hybrid: card_hybrid) }
+hands_background    := { color_background_plus(type: "hands"          , base_hybrid: card_hybrid) }
+ub_background       := { color_background_plus(type: "universesbeyond", base_hybrid: card_hybrid) }
+ubstamp_background  := { color_background_plus(type: "ubstamp"        , base_hybrid: card_hybrid) }
+voyager_background  := { color_background_plus(type: "voyager"        , base_hybrid: card_hybrid) }
+sky_background      := { color_background_plus(type: "sky"            , base_hybrid: card_hybrid) }
+frontier_background := { color_background_plus(type: "frontier"       , base_hybrid: card_hybrid) }
+star_background     := { color_background_plus(type: "star"           , base_hybrid: card_hybrid) }
+space_background    := { color_background_plus(type: "space"          , base_hybrid: card_hybrid) }
+path_background     := { color_background_plus(type: "path"           , base_hybrid: card_hybrid) }
+norm_overlay        := { color_background_plus(type: "norm"           , base_hybrid: card_hybrid) }
+backdfc_background  := { color_background_plus(type: "backdfc"        , base_hybrid: card_hybrid) }
+lush_background     := { color_background_plus(type: "lush"           , base_hybrid: card_hybrid) }
+devoid_background   := { color_background_plus(type: "devoid"         , base_hybrid: card_hybrid) }
+devoid2_background  := { color_background_plus(type: "devoid2"        , base_hybrid: card_hybrid) }
+paradox_background  := { color_background_plus(type: "paradox"        , base_hybrid: card_hybrid) }
+paradox_ptbox       := { color_background_plus(type: "paradoxpt"      , base_hybrid: card_hybrid) }
+snow_background     := { color_background_plus(type: "snow"           , base_hybrid: card_hybrid) }
+snow_texture        := { color_background_plus(type: "snowtexture"    , base_hybrid: card_hybrid) }
+puma_bar            := { color_background_plus(type: "puma"           , base_hybrid: card_hybrid) }
+fnm_background      := { color_background_plus(type: "fnm"            , base_hybrid: card_hybrid) }
+inverted_background := { color_background_plus(type: "inverted"       , base_hybrid: card_hybrid) }
+alias_bar           := { color_background_plus(type: "alias"          , base_hybrid: card_hybrid) }
+alias2_bar          := { color_background_plus(type: "alias2"         , base_hybrid: card_hybrid) }
+miracle_background  := { color_background_plus(type: "miracle"        , base_hybrid: card_hybrid) }
+map_background      := { color_background_plus(type: "map"            , base_hybrid: card_hybrid) }
+energy_background   := { color_background_plus(type: "energy"         , base_hybrid: card_hybrid) }
+halfart_background  := { color_background_plus(type: "halfart"        , base_hybrid: card_hybrid) }
+promo_background    := { color_background_plus(type: "promo"          , base_hybrid: card_hybrid) }
+fnm_ptbox           := { color_background_plus(type: "fnmpt",           base_hybrid: pt_hybrid  ) }
+inverted_ptbox      := { color_background_plus(type: "invertedpt",      base_hybrid: pt_hybrid  ) }
+pt2                 := { color_background_plus(type: "pt2",             base_hybrid: pt_hybrid  ) }
+mappt_background    := { color_background_plus(type: "mappt",           base_hybrid: pt_hybrid  ) }
+arrow_background    := { color_background_plus(type: "arrow",           base_hybrid: pt_hybrid  ) }
+arrow_background_2  := { color_background_plus(type: "arrow2",          base_hybrid: pt_hybrid  ) }
+arrow_background_3  := { color_background_plus(type: "arrow3",          base_hybrid: pt_hybrid  ) }
+curtain_background  := { color_background_plus(type: "curtain"        , base_hybrid: card_hybrid) }
+cons_background     := { color_background_plus(type: "cons"           , base_hybrid: card_hybrid) }
+background_slide    := { color_background_plus(type: "slide"          , base_hybrid: card_hybrid) }
+background_slide_2  := { color_background_plus(type: "slide2"         , base_hybrid: card_hybrid) }
+background_slide_3  := { color_background_plus(type: "slide3"         , base_hybrid: card_hybrid) }
+season_background   := { color_background_plus(type: "season"         , base_hybrid: card_hybrid) }
+smallbox_colors     := { color_background_plus(type: "smallbox"       , base_hybrid: card_hybrid) }
+adventure_colors    := { color_background_plus(type: "adventure"      , base_hybrid: card_hybrid) }
+adventure2_colors   := { color_background_plus(type: "adventure2"     , base_hybrid: card_hybrid) }
+adventure3_colors   := { color_background_plus(type: "adventure3"     , base_hybrid: card_hybrid) }
+adventure4_colors   := { color_background_plus(type: "adventure4"     , base_hybrid: card_hybrid) }
+focus_colors        := { color_background_plus(type: "focus"          , base_hybrid: card_hybrid) }
+focus2_colors       := { color_background_plus(type: "focus2"         , base_hybrid: card_hybrid) }
+prototype_pt        := { color_background_plus(type: "pop"  	         , base_hybrid: card_hybrid) }
+prototype_colors    := { color_background_plus(type: "pro"  	         , base_hybrid: card_hybrid) }
+front_flag_image    := { color_background_plus(type: "front"          , base_hybrid: card_hybrid) }
+back_flag_image     := { color_background_plus(type: "back"           , base_hybrid: card_hybrid) }
+pins_image          := { color_background_plus(type: "pins"           , base_hybrid: card_hybrid) }
+texture_background  := { color_background_plus(type: "texture"        , base_hybrid: card_hybrid) }
+saga_background     := { color_background_plus(type: "saga"           , base_hybrid: card_hybrid) }
+bookmark_background := { color_background_plus(type: "bookmark"       , base_hybrid: card_hybrid) }
+ocean_background 	:= { color_background_plus(type: "ocean"			 , base_hybrid: card_hybrid) }
+old_background		:= { color_background_plus(type:	"old"			 , base_hybrid:	card_hybrid) }
+circle_background	:= { color_background_plus(type: "spacecraft"	 , base_hybrid: card_hybrid) }
+station_ptbox		:= { color_background_plus(type: "spacecraftpt"	 , base_hybrid: card_hybrid) }
+
+card_background		:= { color_background_plus(type:"card",		base_hybrid:card_hybrid)		}@(offset:0 )
+card_ptbox			:= { color_background_plus(type:"pt",		base_hybrid:pt_hybrid)			}@(offset:0 )
+flip_ptbox			:= { color_background_plus(type:"pt",		base_hybrid:flip_pt_hybrid)		}@(offset:0 )
+flip_ptbox2			:= { color_background_plus(type:"pt2",		base_hybrid:flip_pt_hybrid2)	}@(offset:0 )
+leveler_ptbox		:= { color_background_plus(type:"pt",		base_hybrid:leveler_pt_hybrid)	}@(offset:0 )
+leveler_ptbox2		:= { color_background_plus(type:"pt",		base_hybrid:leveler_pt_hybrid2)	}@(offset:0 )
+leveler_ptbox3		:= { color_background_plus(type:"pt",		base_hybrid:leveler_pt_hybrid3)	}@(offset:0 )
+card_textbox		:= { color_background_plus(type:"textbox",	base_hybrid:textbox_hybrid)		}@(offset:0 )
+card_typeline		:= { color_background_plus(type:"typeline",	base_hybrid:typeline_hybrid)	}@(offset:0 )
+card_identity		:= { color_background_plus(type:"identity",	base_hybrid:identity_hybrid)	}@(offset:0 )
+card_identity_2		:= { color_background_plus(type:"identity2",	base_hybrid:identity_hybrid)	}@(offset:0 )
+card_stamp			:= { color_background_plus(type:"stamp",		base_hybrid:stamp_hybrid)		}@(offset:0 )
+card_stamp2			:= { color_background_plus(type:"stamp2",	base_hybrid:stamp_hybrid)		}@(offset:0 )
+module_crown		:= { color_background_plus(type:"crown",		base_hybrid:card_hybrid)		}@(offset:0 )
+
+module_stamp			:= { color_background_plus(type:"stamp",		base_hybrid:stamp_hybrid)		}@(offset:0 )
+module_ubstamp			:= { color_background_plus(type:"ubstamp",	base_hybrid:stamp_hybrid)		}@(offset:0 )
 
 crown_preview := {
 	crown_follow := {crown}
