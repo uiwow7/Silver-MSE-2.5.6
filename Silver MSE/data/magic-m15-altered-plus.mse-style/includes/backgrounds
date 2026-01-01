@@ -77,6 +77,7 @@ ub_background       := { color_background_plus(type: "universesbeyond", base_hyb
 ubstamp_background  := { color_background_plus(type: "ubstamp"        , base_hybrid: card_hybrid) }
 voyager_background  := { color_background_plus(type: "voyager"        , base_hybrid: card_hybrid) }
 sky_background      := { color_background_plus(type: "sky"            , base_hybrid: card_hybrid) }
+glitch_background   := { color_background_plus(type: "glitch"         , base_hybrid: card_hybrid) }
 frontier_background := { color_background_plus(type: "frontier"       , base_hybrid: card_hybrid) }
 star_background     := { color_background_plus(type: "star"           , base_hybrid: card_hybrid) }
 space_background    := { color_background_plus(type: "space"          , base_hybrid: card_hybrid) }
@@ -163,6 +164,8 @@ main_background := {
 		or use_styles() 
 		or use_ocean()
 			then "" 
+	else if is_glitch() 
+		then glitch_background()
 	else if is_fnm() 
 		then fnm_background() 
 	else if is_inverted() 
