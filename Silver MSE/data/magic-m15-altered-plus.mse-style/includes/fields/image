@@ -9,6 +9,8 @@ image:
 		script:
 				if is_sized() 
 				then "" 
+				else if is_glitch() 
+				then "imagemasks/glitch_mask.png"
 				else if is_devoid() 
 				or is_devoid2() 
 				then "imagemasks/image_mask_devoid.png" 

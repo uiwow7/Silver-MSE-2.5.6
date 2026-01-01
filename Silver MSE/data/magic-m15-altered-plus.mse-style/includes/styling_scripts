@@ -153,6 +153,7 @@ is_path := { has_trim("path") and not is_map() }
 is_norm := { has_trim("norm") and not is_map() }
 is_backdfc := { has_trim("backdfc") and not is_map() }
 is_lush := { has_trim("lush") and not is_map() }
+is_glitch := { has_trim("glitch") and not is_map() }
 is_prototype := { has_trim("prototype") and not is_map() }
 is_vehicle := { has_trim("vehicle") }
 is_familiar := { has_trim("familiar") and not is_map()}

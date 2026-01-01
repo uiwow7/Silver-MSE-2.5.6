@@ -195,6 +195,7 @@ card field:
 	choice: frontier
 	choice: path
 	choice: lush
+	choice: glitch
 	choice: familiar
 	choice: norm
 	choice: 
