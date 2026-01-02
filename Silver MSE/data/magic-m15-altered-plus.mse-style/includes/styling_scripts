@@ -253,6 +253,7 @@ is_YGO := { has_trim("Yugioh Frame") }
 use_gold := { chosen(styling.additional_options, choice: "goldframe")}
 use_porthole := { contains(card.notes, match:"!porthole") }
 use_ocean := { contains(card.notes, match:"!ocean") }
+use_gilded := { contains(card.notes, match:"!gilded") }
 use_styles := { contains(card.notes, match:"!styles") }
 flavor_plate := { chosen(styling.additional_options, choice:"flavor plate")}
 is_familiarpt := { chosen(styling.additional_options, choice: "familiarpt")}

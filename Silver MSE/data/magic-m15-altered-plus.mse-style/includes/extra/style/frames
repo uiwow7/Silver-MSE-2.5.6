@@ -32,8 +32,8 @@ ocean frame:
 	height: 523
 	z index: 11
 	render style: image
-	image: {if use_ocean() then "cards/voyager/seafoam-2.png"}
-	visible: { use_ocean()}
+	image: {if use_ocean() then "cards/voyager/seafoam-2.png" else if use_gilded() then "cards/voyager/gilded.png" else ""}
+	visible: { use_ocean() or use_gilded()}
 ocean frame color:
 	left: 0
 	top: 0
@@ -42,8 +42,8 @@ ocean frame color:
 	z index: 11
 	render style: image
 	image: {card_background()}
-	visible: { use_ocean()}
-	mask: imagemasks/voyager_card_color.png
+	visible: { use_ocean() or use_gilded()}
+	mask: {if use_ocean() then "imagemasks/voyager_card_color.png" else if use_gilded() then "imagemasks/pinlineframe.png" else ""}
 styles frame:
 	left: 0
 	top: 0
