@@ -53,9 +53,9 @@ option field:
 	initial: common, uncommon, rare, mythic rare, basic land, special, token, masterpiece
 option field:
 	type: choice
-	name: portable Mode
+	name: portable mode
 	choice: yes
-	chpice: no
+	choice: no
 	initial: no
 option style:
 	rarities to export:
@@ -230,11 +230,11 @@ script:
 	}
 
 	card_file_name := {
-		(if options.portable_mode == "yes" then card_number() + "_" else "") + strip_card_name(card_name())
+		(if options.portable_mode == "yes" then (card_number() + "_") else "") + strip_card_name(card_name())
 	}
 
 	card_file_name_2 := {
-		(if options.portable_mode == "yes" then card_number() + "_" else "") + strip_card_name(card.name_2)
+		(if options.portable_mode == "yes" then (card_number() + "_") else "") + strip_card_name(card.name_2)
 	}
 
 	#write a normal cards XML text
