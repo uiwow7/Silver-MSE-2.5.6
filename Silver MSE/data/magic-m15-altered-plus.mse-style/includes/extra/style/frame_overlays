@@ -56,3 +56,12 @@ special guest overlay:
 	render style: image
 	image: modules/extras/specialguest_overlay.png
 	visible: {is_specialguest()}
+readable overlay:
+	left: 0
+	top: 0
+	width: 375
+	height: 523
+	z index: 12
+	render style: image
+	image: modules/extras/readable_overlay.png
+	visible: {is_readable()}

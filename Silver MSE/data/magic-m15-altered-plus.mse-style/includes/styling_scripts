@@ -163,7 +163,7 @@ is_cons := { has_trim("draft matters") or has_trim("conspiracy") and not is_map(
 is_scrolls := { has_trim("conspiracy") and not is_map()}
 is_shifted := { has_trim("planeshifted") and not is_map() and not is_full_art() and not is_fnm()}
 is_fnm := {has_trim("fnm promo") and not is_clear() and not is_full_art() and not is_map()}
-is_inverted := {has_trim("inverted") and not is_clear() and not is_full_art() and not is_fnm() and not is_map()}
+is_inverted := { (has_trim("inverted") or is_glitch() ) and not is_clear() and not is_full_art() and not is_fnm() and not is_map()}
 is_map := { has_trim("map") }
 use_node := { card.transformation != "none" }
 is_season := { has_trim("season") and not is_map() }
@@ -350,9 +350,9 @@ l2_center := {327 + lv_2_coordinate() + 0.5*lv_2_height()}
 l3_center := {327 + lv_3_coordinate() + 0.5*lv_3_height()}
 l4_center := {327 + lv_4_coordinate() + 0.5*lv_4_height()}
 is_readable := { chosen(styling.additional_options, choice: "readable")}
-overlay1 := {if is_d20() and not is_rem() then "modules/extras/d20slice.png" else if is_d20() or is_readable() and is_rem() then "modules/extras/d20slice2.png" else slice_crop(background_slide(), height: lv_2_height(), width:314, distance:(152-lv_2_coordinate()))}
-overlay2 := {if is_d20() and not is_rem() then "modules/extras/d20slice.png" else if is_d20() or is_readable() and is_rem() then "modules/extras/d20slice2.png" else slice_crop(background_slide_2(), height: lv_3_height(), width:314, distance:lv_3_height())}
-overlay3 := {if is_d20() and not is_rem() then "modules/extras/d20slice.png" else if is_d20() or is_readable() and is_rem() then "modules/extras/d20slice2.png" else slice_crop(background_slide_3(), height: lv_4_height(), width:314, distance:lv_4_height())}
+overlay1 := {if is_d20() and not is_rem() then "modules/extras/d20slice.png" else if is_d20() and is_rem() then "modules/extras/d20slice2.png" else slice_crop(background_slide(), height: lv_2_height(), width:314, distance:(152-lv_2_coordinate()))}
+overlay2 := {if is_d20() and not is_rem() then "modules/extras/d20slice.png" else if is_d20() and is_rem() then "modules/extras/d20slice2.png" else slice_crop(background_slide_2(), height: lv_3_height(), width:314, distance:lv_3_height())}
+overlay3 := {if is_d20() and not is_rem() then "modules/extras/d20slice.png" else if is_d20() and is_rem() then "modules/extras/d20slice2.png" else slice_crop(background_slide_3(), height: lv_4_height(), width:314, distance:lv_4_height())}
 mask_height := {if input == "one" then lv_1_height() else if input == "two" then lv_2_height() else if input == "three" then lv_3_height() else if input == "four" then lv_4_height() else 0}
 lone_pt := {chosen(styling.other_options, choice:"regular pt on levelers") and not starting_loyalty()}
 starting_loyalty := {chosen(styling.other_options, choice:"use starting loyalty")}

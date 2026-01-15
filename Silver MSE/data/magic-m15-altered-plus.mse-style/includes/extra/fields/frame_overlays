@@ -48,3 +48,9 @@ extra card field:
 	editable: false
 	choice: loyalty
 	save value: false
+extra card field:
+	type: choice
+	name: readable overlay
+	editable: false
+	choice: no reading
+	save value: false

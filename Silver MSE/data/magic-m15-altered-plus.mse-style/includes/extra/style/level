@@ -52,26 +52,26 @@ lvl label 3:
 	visible: {card.level_3 != ""  and not space_leveler()}
 level 2 overlay:
 	left: 29
-	top: { if is_readable() then top_of_textbox() else if is_d20() then top_of_para(rolls_start(card.text)) else 329 + lv_2_coordinate()}
-	height: {if is_readable() then bottom_of_textbox() else if is_d20() then height_of_para(rolls_start(card.text)) else lv_2_height()}
+	top: { if is_d20() then top_of_para(rolls_start(card.text)) else 329 + lv_2_coordinate()}
+	height: {if is_d20() then height_of_para(rolls_start(card.text)) else lv_2_height()}
 	width: 314
 	z index: 12
 	render style: image
 	image: {overlay1()}
-	visible: {(is_readable() and (card.rule_text != "")) or (is_d20() and number_of_rolls(card.text) > 0) or (is_leveler() and not is_static())}
+	visible: {(is_d20() and number_of_rolls(card.text) > 0) or (is_leveler() and not is_static())}
 level 3 overlay:
 	left: 29
-	top: { if is_readable() then 30 else if is_d20() then top_of_para(rolls_start(card.text)+2) else 329 + lv_3_coordinate()}
-	height: {if is_readable() then 23 else if is_d20() then height_of_para(rolls_start(card.text)+2) else lv_3_height()}
-	width: {if is_readable() then 319 else 314}
+	top: { if is_d20() then top_of_para(rolls_start(card.text)+2) else 329 + lv_3_coordinate()}
+	height: {if is_d20() then height_of_para(rolls_start(card.text)+2) else lv_3_height()}
+	width: 314
 	z index: 12
 	render style: image
 	image: {overlay2()}
-	visible: {(is_readable() and (card.name != "")) or (is_d20() and number_of_rolls(card.text)-no_roll(card.text) > 2) or (is_leveler() and not is_static())}
+	visible: {(is_d20() and number_of_rolls(card.text)-no_roll(card.text) > 2) or (is_leveler() and not is_static())}
 level 4 overlay:
 	left: 29
-	top: { if is_readable() and not is_deck() then 298 else if is_d20() then top_of_para(rolls_start(card.text)+4) else 329 + lv_4_coordinate()}
-	height: {if is_readable() then 21 else if is_d20() then height_of_para(rolls_start(card.text)+4) else lv_4_height()}
+	top: { if is_d20() then top_of_para(rolls_start(card.text)+4) else 329 + lv_4_coordinate()}
+	height: {if is_d20() then height_of_para(rolls_start(card.text)+4) else lv_4_height()}
 	width: 314
 	z index: 12
 	render style: image
@@ -79,23 +79,19 @@ level 4 overlay:
 	visible:
 		script:
 			(
-				is_readable() 
-				and (to_text(card.type) != "")
-			) 
-				or (
-					is_d20() 
-					and number_of_rolls(
-						card.text
-					)
-					-no_roll(
-						card.text
-					) 
-					> 4
-				) 
-				or (
-					is_leveler() 
-					is_static()
+				is_d20() 
+				and number_of_rolls(
+					card.text
 				)
+				-no_roll(
+					card.text
+				) 
+				> 4
+			) 
+			or (
+				is_leveler() 
+				is_static()
+			)
 arrow 1:
 	z index: 15
 	left: {arrow_left()}
