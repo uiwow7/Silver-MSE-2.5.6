@@ -2037,7 +2037,11 @@ keyword:
 	keyword: Sift 
 	match: sift <atom-param>number</atom-param>
 	mode: custom
-	reminder: { handle_action_rt(to:"sift {param1}", "Look")} at the top {if param1.value=="1" then "card of your library. You may put that card into your sanctum." else "{english_number(param1)} cards of your library, then put any number of them into your sanctum."}
+	reminder: 
+		{handle_action_rt(to:"sift {param1}", "Look")} at the top {
+		 if param1.value=="1" then "card of your library. You may put it into your sanctum."
+		 else "{english_number(param1)} cards of your library, then put any number of them into your sanctum and the rest on top of your library in any order."
+		}
 keyword:
 	keyword: Becomes Foretold
 	match: become<atom-param>*s</atom-param> foretold

@@ -5820,12 +5820,14 @@ crown_type_default := {
 		then "nyx"
 	else if has_trim("star") 
 		then "star"
+	else if (has_trim("borderless art") or has_trim("frameless art") or has_trim("special guest"))
+		then "borderless"
 	else 
 		"normal"
 }
 
 crown_type_filter := {
-	require_exclusive_choice(choices: "normal, companion, brawl, star, space, nyx, custom")
+	require_exclusive_choice(choices: "normal, companion, brawl, star, space, nyx, borderless, custom")
 }
 
 watermark_default := {

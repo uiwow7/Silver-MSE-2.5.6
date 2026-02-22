@@ -238,6 +238,9 @@ card field:
 		name: nyx
 		type: radio
 	choice: 
+		name: borderless
+		type: radio
+	choice: 
 		name: custom
 		type: radio
 	empty choice: none
