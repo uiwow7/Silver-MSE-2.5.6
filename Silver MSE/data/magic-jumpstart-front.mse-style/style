@@ -127,17 +127,17 @@ card style:
 			color: rgb(255,255,255)
 		always symbol: true
 	casting cost:
-		right: 347
-		top: 475
-		width: 50
-		height: 22
-		alignment: middle right
+		top: 417
+		width: 328
+		height: 28
+		left: 22
+		alignment: middle center
 		font:
 			name: MPlantin
-			size: 21
+			size: 26
 		symbol font:
-			name: magic-mana-large
-			size: 21
+			name: magic-mana-small
+			size: 26
 			alignment: middle right
 		always symbol: true
 		z index: 2
