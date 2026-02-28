@@ -1977,6 +1977,95 @@ keyword:
 	match: Exhaust — <atom-param>cost</atom-param>: <atom-param>action</atom-param>
 	mode: expert
 	reminder: Activate each exhaust ability only once.
+#Tarkir: Dragonstorm
+keyword:
+	keyword: Endure
+	match: Endure <atom-param>number</atom-param>
+	mode: action
+	reminder: {handle_action_rt(to:"have a creature endure", "Put")} {english_number_a(param1)} +1/+1 counter(s) on it or create a {param1}/{param1} white Spirit creature token.
+keyword:
+	keyword: Endures
+	match: endures <atom-param>number</atom-param>
+	mode: action
+	reminder: {handle_action_rt(to:"have a creature endure", "Put")} {english_number_a(param1)} +1/+1 counter(s) on it or create a {param1}/{param1} white Spirit creature token.
+keyword:
+	keyword: Flurry
+	match: Flurry
+	mode: pseudo
+	rules: Flurry — Whenever you cast your second spell each turn, [effect].
+keyword:
+	keyword: Renew
+	match: Renew
+	mode: pseudo
+	rules: Renew — <atom-param>cost</atom-param>, Exile this card from your graveyard: [effect]. Activate only as a sorcery.
+keyword:
+	keyword: Mobilize
+	match: Mobilize <atom-param>number</atom-param>
+	mode: expert
+	reminder: Whenever {this_or_that("creature")} attacks, create {english_number_a(param1)} tapped and attacking 1/1 red Warrior creature token(s). Sacrifice { if param1.value=="1" then "it" else "them" } at the beginning of the next end step.
+keyword:
+	keyword: Harmonize
+	match: Harmonize <atom-param>cost</atom-param>
+	mode: expert
+	reminder: You may cast this card from your graveyard for its harmonize cost. You may tap a creature you control to reduce that cost by [X], where X is its power. Then exile this spell.
+keyword:
+	keyword: Behold
+	match: Behold a <atom-param>one_word</atom-param>
+	mode: action
+	reminder: {handle_action_rt(to:"behold a {param1}", "Choose")} a {param1} you control or reveal a {param1} card from your hand.
+keyword:
+	keyword: Behold
+	match: Behold an <atom-param>one_word</atom-param>
+	mode: action
+	reminder: {handle_action_rt(to:"behold an {param1}", "Choose")} a {param1} you control or reveal a {param1} card from your hand.
+#Final Fantasy
+keyword:
+	keyword: Job select
+	match: Job select
+	mode: expert
+	reminder: When this Equipment enters, create a 1/1 colorless Hero creature token, then attach this to it.
+keyword:
+	keyword: Tiered
+	match: Tiered
+	mode: expert
+	reminder: Choose one additional cost.
+#Edge of Eternities
+keyword:
+	keyword: Lander token
+	match: Lander toke<atom-param>*s</atom-param>
+	mode: expert
+	reminder: {handle_merged_rt(if param1.value == "ns" then "They’re artifacts" else "It’s an artifact", moved:"A Lander token is an artifact")} with "2, T, Sacrifice this token: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle."
+keyword:
+	keyword: Warp
+	match: Warp <atom-param>cost</atom-param>
+	mode: expert
+	reminder: You may cast this card from your hand for its warp cost. Exile {this_or_that("type", upper:false)} at the beginning of the next end step, then you may cast it from exile on a later turn.
+keyword:
+	keyword: Void
+	match: Void
+	mode: pseudo
+	rules: Void — [effect] if a nonland permanent left the battlefield this turn or a spell was warped this turn.
+keyword:
+	keyword: Station
+	match: Station
+	mode: expert
+	reminder: Tap another creature you control: Put charge counters equal to its power on {if contains(card.sub_type, match:"Planet") then "this Planet" else if contains(card.sub_type, match:"Spacecraft") then "this Spacecraft" else this_or_that("type", upper:false)}. Station only as a sorcery. It's an artifact creature at STATION+.
+keyword:
+	keyword: Munitions token
+	match: Munitions toke<atom-param>*s</atom-param>
+	mode: expert
+	reminder: {handle_merged_rt(if param1.value == "ns" then "They’re artifacts" else "It’s an artifact", moved:"A Munitions token is an artifact")} with "When this token leaves the battlefield, it deals 2 damage to any target."
+#Marvel's Spider-Man
+keyword:
+	keyword: Web-slinging
+	match: Web-slinging<atom-param>cost</atom-param>
+	mode: expert
+	reminder: You may cast a spell for its web-slinging cost if you also return a tapped creature you control to its owner’s hand.
+keyword:
+	keyword: Mayhem
+	match: Mayhem <atom-param>cost</atom-param>
+	mode: expert
+	reminder: You may cast this card from your graveyard for {param1} if you discarded it this turn. Timing rules still apply.
 ############################ Voyager Mechanics
 keyword:
 	keyword: Transcend
