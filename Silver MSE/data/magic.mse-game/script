@@ -5747,6 +5747,7 @@ match_revelation	:= contains@(match: "Revelation")
 match_entity		:= contains@(match: "Entity")
 match_wonder		:= contains@(match: "Wonder")
 match_frontier		:= contains@(match: "Frontier")
+match_celestial		:= contains@(match: "Celestial")
 match_realm			:= contains@(match: "Realm")
 match_focus			:= contains@(match: "Focus")
 match_chain			:= contains@(match: "Chain")
@@ -5766,6 +5767,7 @@ check_sanctum := {
 	# true
 	match_wonder(card_sub_type) 
 	or match_frontier(card_sub_type) 
+	or match_celestial(card_sub_type) 
 	or match_realm(card_sub_type) 
 }
 
@@ -5836,7 +5838,7 @@ watermark_default := {
 }
 
 alias_type_default := {
-	if match_frontier(card_sub_type) or match_realm(card_sub_type)
+	if match_frontier(card_sub_type) or match_realm(card_sub_type) or match_celestial(card_sub_type)
 		then "starts in sanctum" 
 	else "none"
 }
