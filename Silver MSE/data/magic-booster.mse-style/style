@@ -148,6 +148,19 @@ styling field:
 	default: "black"
 	description: The font color for the age text
 styling field:
+	type: multiple choice
+	name: shadowed text
+	description: shadowed text?
+	choice: title
+	choice: card count
+	choice: age
+	choice: artist
+styling field:
+	type: boolean
+	name: 
+	description: 
+	initial: no
+styling field:
 	type: boolean
 	name: small text over title
 	description: add a small textbox over the big title. set false to move it under
@@ -205,6 +218,10 @@ styling field:
 	name: inverted common symbol
 	description: Should the common rarity symbol be inverted, like in Coldsnap?
 	initial: no
+styling style:
+	shadowed text:
+		render style: checklist
+		direction: vertical
 ############################################################## Card fields
 card style:
 	############################# Name line
@@ -221,6 +238,10 @@ card style:
 			name: Beleren Bold
 			size: {title_font_size()}
 			color: {font_color()}
+			shadow color: { if chosen(styling.shadowed_text, choice:"title") then "black" else "rgba(0,0,0,0)"}
+			shadow blur: 2
+			shadow displacement x: -3
+			shadow displacement y: 3
 	############################# Image
 	image:
 		left: {if color_fringe() then 11 else 0}
@@ -317,6 +338,10 @@ card style:
 			name: Beleren Small Caps Bold
 			size: 15
 			color: {styling.artist_color}
+			shadow color: { if chosen(styling.shadowed_text, choice:"artist") then "black" else "rgba(0,0,0,0)"}
+			shadow blur: 2
+			shadow displacement x: -3
+			shadow displacement y: 3
 ############################################################## Extra card fields
 extra card field:
 	type: choice
@@ -424,6 +449,10 @@ extra card style:
 			name: Beleren Small Caps Bold
 			size: {subtitle_font_size()}
 			color: {font_color()}
+			shadow color: { if chosen(styling.shadowed_text, choice:"title") then "black" else "rgba(0,0,0,0)"}
+			shadow blur: 2
+			shadow displacement x: -3
+			shadow displacement y: 3
 	count:
 		left: {if count_deets().0 != "" then count_deets().0 else 15}
 		top: {if count_deets().1 != "" then count_deets().1 else 940}
@@ -437,6 +466,10 @@ extra card style:
 			name: Beleren Small Caps Bold
 			size: {count_font_size()}
 			color: {styling.card_count_color}
+			shadow color: { if chosen(styling.shadowed_text, choice:"card count") then "black" else "rgba(0,0,0,0)"}
+			shadow blur: 2
+			shadow displacement x: -3
+			shadow displacement y: 3
 	age:
 		left: {if age_deets().0 != "" then age_deets().0 else 480}
 		top: {if age_deets().1 != "" then age_deets().1 else 123}
@@ -450,3 +483,7 @@ extra card style:
 			name: Beleren Small Caps Bold
 			size: {age_font_size()}
 			color: {styling.age_color}
+			shadow color: { if chosen(styling.shadowed_text, choice:"age") then "black" else "rgba(0,0,0,0)"}
+			shadow blur: 2
+			shadow displacement x: -3
+			shadow displacement y: 3
