@@ -23,8 +23,8 @@ porthole frame:
 	height: 523
 	z index: 11
 	render style: image
-	image: {if use_porthole() then "cards/voyager/porthole.png"}
-	visible: { use_porthole()}
+	image: {if use_porthole() then "cards/voyager/porthole.png" else if use_wave() then "cards/voyager/wave.png"}
+	visible: { use_porthole() or use_wave()}
 ocean frame:
 	left: 0
 	top: 0

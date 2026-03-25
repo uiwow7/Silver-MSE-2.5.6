@@ -163,7 +163,7 @@ is_cons := { has_trim("draft matters") or has_trim("conspiracy") and not is_map(
 is_scrolls := { has_trim("conspiracy") and not is_map()}
 is_shifted := { has_trim("planeshifted") and not is_map() and not is_full_art() and not is_fnm()}
 is_fnm := {has_trim("fnm promo") and not is_clear() and not is_full_art() and not is_map()}
-is_inverted := { (has_trim("inverted") or is_glitch() ) and not is_clear() and not is_full_art() and not is_fnm() and not is_map()}
+is_inverted := { (has_trim("inverted") or is_glitch() or use_wave() ) and not is_clear() and not is_full_art() and not is_fnm() and not is_map()}
 is_map := { has_trim("map") }
 use_node := { card.transformation != "none" }
 is_season := { has_trim("season") and not is_map() }
@@ -254,6 +254,7 @@ use_gold := { chosen(styling.additional_options, choice: "goldframe")}
 use_porthole := { contains(card.notes, match:"!porthole") }
 use_ocean := { contains(card.notes, match:"!ocean") }
 use_gilded := { contains(card.notes, match:"!gilded") }
+use_wave := { contains(card.notes, match:"!wave") }
 use_styles := { contains(card.notes, match:"!styles") }
 flavor_plate := { chosen(styling.additional_options, choice:"flavor plate")}
 is_familiarpt := { chosen(styling.additional_options, choice: "familiarpt")}
