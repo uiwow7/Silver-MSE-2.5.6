@@ -713,6 +713,9 @@ symbol:
 	code: 2/G
 	image: mana_2g.png
 symbol:
+	code: 2/I
+	image: mana_2i.png
+symbol:
 	code: 2/C
 	image: mana_2c.png
 symbol:
