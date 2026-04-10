@@ -2096,12 +2096,12 @@ keyword:
 	keyword: Pathbound
 	match: Pathbound <atom-param>cost</atom-param>
 	mode: custom
-	reminder: As a sorcery, reveal this, then put this on top of your library from your sanctum by paying its pathbound cost.
+	reminder: {param1}, {if contains(param1, match:",") then "r" else "R"}eveal this card from your sanctum as a sorcery: Put this card on top of your library.
 keyword:
 	keyword: Pursue Wonder
 	match: pursue Wonder
 	mode: custom
-	reminder: Reveal a basic land or Wonder card you own from your sanctum and put it into your hand.
+	reminder: Reveal a basic land or Wonder card from your sanctum and put it into your hand.
 keyword:
 	keyword: Draft
 	match: draft a card from your <atom-param>one_word</atom-param>

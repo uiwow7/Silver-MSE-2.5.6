@@ -64,6 +64,7 @@ base_template_prefix := [
     adventure4: "cards/adventure/"
     focus: "cards/focus/"
     focus2: "cards/focus/"
+    double_omen: "/magic-modules.mse-include/pages/double_omen/"
     paradox: "cards/paradox/"
     paradoxpt: "cards/paradox/"
 	ocean: "cards/normal/"
@@ -136,6 +137,7 @@ shifted_template_prefix := [
 	ubstamp: "/magic-modules.mse-include/stamps/backs/375 ub/"
 	spacecraft: "modules/spacecraft/"
 	spacecraftpt: "modules/spacecraft/"
+    double_omen: "/magic-modules.mse-include/pages/double_omen/"
 ]
 template_prefix := { 
 	type := type or else ""
@@ -211,6 +213,7 @@ template_suffix := [
     adventure4:"card4.png"
     focus:"focus.png"
     focus2:"focus2.png"
+    double_omen: "omen.png"
     paradox: "card.png"
     paradoxpt: "pt.png"
     texture: "texture.png"

@@ -5742,7 +5742,7 @@ is_type := {
 }
 
 match_anima 		:= contains@(match: "Anima")
-match_path 			:= contains@(match: "pathbound")
+match_path 			:= contains@(match: "Pathbound")
 match_revelation	:= contains@(match: "Revelation")
 match_entity		:= contains@(match: "Entity")
 match_wonder		:= contains@(match: "Wonder")
@@ -5810,7 +5810,7 @@ card_trim_filter := {
 	if (chosen(choice: "adventure chain")) then
 		input:= require_choice(choice: "adventure focus")
 	if (contains(match: "adventure")) then
-		input := require_exclusive_choice(choices: "adventure normal, adventure focus")
+		input := require_exclusive_choice(choices: "adventure normal, adventure focus, adventure omen")
 
 	input
 }

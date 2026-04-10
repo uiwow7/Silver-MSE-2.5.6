@@ -170,6 +170,9 @@ card field:
 			type: radio
 			name: focus
 		choice:
+			type: radio
+			name: omen
+		choice:
 			name: chain
 			line below: true
 		choice: reversed

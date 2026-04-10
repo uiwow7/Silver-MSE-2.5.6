@@ -35,9 +35,9 @@ text:
 	line height line max: 1.6
 	# visible: { not is_saga() }
 text 2:
-	left: {if is_adventure2() then 190 else if is_adventure() then 29 else if is_focus2() then 188 else if is_focus() then 30 else 0}
+	left: {if is_adventure2() then 190 else if is_adventure() then 29 else if is_focus2() then 188 else if is_omen2() then 186 else if is_focus() then 30 else if is_omen() then 32 else 0}
 	top: 381
-	width: {if is_adventure2() or is_adventure() then 157 else if is_focus2() or is_focus() then 158 else 0}
+	width: {if is_adventure2() or is_adventure() then 157 else if is_focus2() or is_focus() then 158 else if is_omen2() or is_omen() then 150 else 0}
 	bottom: 481
 	font:
 		name: MPlantin

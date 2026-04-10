@@ -56,3 +56,21 @@ focus overlay2:
 	image: {focus2_colors()}
 	z index: 11
 	visible: {is_focus2()}
+omen overlay:
+	left: 23
+	top: 326
+	width: {if is_omen() then 163 else 0}
+	height: 157
+	render style: image
+	image: {omen_colors()}
+	z index: 11
+	visible: {is_omen()}
+omen overlay2:
+	left: 185
+	top: 326
+	width: {if is_omen2() then 163 else 0}
+	height: 157
+	render style: image
+	image: {omen2_colors()}
+	z index: 11
+	visible: {is_omen2()}

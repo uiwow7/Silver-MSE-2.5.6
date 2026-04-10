@@ -5,8 +5,8 @@ unchopped_top_of_textbox := { base_top_of_textbox() + textbox_size_adjusted() }
 top_of_textbox := { unchopped_top_of_textbox() + to_int(chop_top()) }
 unchopped_bottom_of_textbox := { if is_map() then 475 else if use_porthole() then 470 else if is_saga() then 0 else 481 }
 bottom_of_textbox := { unchopped_bottom_of_textbox() - to_int(chop_bot()) }
-left_of_textbox := { if (card.level_0 != "" or card.level_1 != "" or card.level_2 != "") then 75 else if is_map() then 40 else if is_focus2() or is_adventure2() then 27 else if is_focus() then 190 else if is_adventure() then 200 else if use_porthole() then 54 else 29 }
-width_of_textbox := { if is_leveler() then 0 else (if(card.level_0 != "" or card.level_1 != "" or card.level_2 != "") then -46 else 0) + if is_map() then 287 else if is_focus2() or is_focus() then 154 else if is_adventure2() then 157 else if is_adventure() then 143 else if use_porthole() then 286 else 314 }
+left_of_textbox := { if (card.level_0 != "" or card.level_1 != "" or card.level_2 != "") then 75 else if is_map() then 40 else if is_focus2() or is_adventure2() or is_omen2() then 27 else if is_focus() then 190 else if is_omen() then 187 else if is_adventure() then 200 else if use_porthole() then 54 else 29 }
+width_of_textbox := { if is_leveler() then 0 else (if(card.level_0 != "" or card.level_1 != "" or card.level_2 != "") then -46 else 0) + if is_map() then 287 else if is_focus2() or is_focus() then 154 else if is_omen2() or is_omen() then 156 else if is_adventure2() then 157 else if is_adventure() then 143 else if use_porthole() then 286 else 314 }
 height_of_textbox := { unchopped_bottom_of_textbox() - base_top_of_textbox() }
 
 typeline_top := { (if is_map() then 297.5 else if is_glitch() then 299 else if is_halfart() then 382 else if is_clear() then 294 else if is_thbland() or is_saga() then 444 else if is_full_art() then 329 else if is_deck() then 700 else if use_porthole() then 290 else if use_styles() then 350 else 296) + ( shrink_type() + textbox_size_adjusted() ) }

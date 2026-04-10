@@ -100,6 +100,8 @@ is_miracle := {
 adventure_type := {
 	if has_trim("adventure focus")
 		then "focus"
+	else if has_trim("adventure omen")
+		then "omen"
 	else "normal"
 }
 has_adventure := {
@@ -133,6 +135,14 @@ is_ub := {
 is_focus2 := {
 	adventure_type() == "focus" and has_adventure() and is_reversed()
 }
+
+is_omen := {
+	adventure_type() == "omen" and has_adventure() and not is_reversed()
+}
+is_omen2 := {
+	adventure_type() == "omen" and has_adventure() and is_reversed()
+}
+
 
 is_chain2 := {
 	has_chain() and is_reversed()
@@ -246,7 +256,7 @@ foil_type := {
 center_map := {is_map() and (card.casting_cost == "" or chosen(styling.other_options, choice:"always center map names"))}
 use_evobar := {chosen(card.alias_type, choice: "starts in sanctum")}
 is_token := {has_trim("token")}
-is_altcast := {has_trim("adventure normal") or has_trim("adventure focus")}
+is_altcast := {has_trim("adventure normal") or has_trim("adventure focus") or has_trim("adventure omen")}
 is_oldYGO := {chosen(styling.additional_options, choice: "small ygo")}
 is_YGO_gold := { chosen(styling.additional_options, choice: "ygogold")}
 is_YGO := { has_trim("Yugioh Frame") }

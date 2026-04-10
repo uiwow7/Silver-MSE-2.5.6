@@ -16,9 +16,9 @@ name:
 		shadow displacement y: 1
 		shadow blur: 3
 name 2:
-	left: { if is_adventure2() then 197 else if is_focus2() then 192 else if is_adventure() then 32 else if is_focus() then 31 else 0}
-	top: {if is_adventure2() or is_adventure() then 328 else 333}
-	right: {if is_adventure2() then (28 - card_style.casting_cost_2.content_width) else if is_adventure() then (178 - card_style.casting_cost_2.content_width) else if is_focus2() then (88 - card_style.casting_cost_2.content_width) else if is_focus() then (177 - card_style.casting_cost_2.content_width)  else 0}
+	left: { if is_adventure2() then 197 else if is_focus2() then 192 else if is_adventure() then 32 else if is_focus() then 31 else if is_omen() then 33 else 0}
+	top: {if is_adventure2() or is_adventure() then 328 else if is_omen() then 329 else 333}
+	right: {if is_adventure2() then (28 - card_style.casting_cost_2.content_width) else if is_adventure() then (178 - card_style.casting_cost_2.content_width) else if is_focus2() then (88 - card_style.casting_cost_2.content_width) else if is_focus() then (177 - card_style.casting_cost_2.content_width) else if is_omen() then (177 - card_style.casting_cost_2.content_width)  else 0}
 	height: { 20 - shrink_name2() }
 	alignment: bottom shrink-overflow
 	z index: 15
@@ -57,8 +57,8 @@ casting cost:
 	z index: 13
 	padding top: 0
 casting cost 2:
-	right: {if is_adventure2() then 345 else if is_adventure() then 180 else if is_focus2() then 341 else if is_focus() then 183 else if is_prototype() then 342 else 0}
-	top: {if is_adventure2() or is_adventure() then 328 else if is_prototype() and not is_mutate() then 329.5 else if is_mutate() and is_prototype() then 397.7 else 333.5}
+	right: {if is_adventure2() then 345 else if is_adventure() then 180 else if is_focus2() then 341 else if is_focus() then 183 else if is_omen() then 181 else if is_prototype() then 342 else 0}
+	top: {if is_adventure2() or is_adventure() then 328 else if is_omen() then 330 else if is_prototype() and not is_mutate() then 329.5 else if is_mutate() and is_prototype() then 397.7 else 333.5}
 	width: { if is_altcast() then (max(30, card_style.casting_cost_2.content_width) + 5) else if is_prototype() then (max(45, card_style.casting_cost_2.content_width) + 4) else 0}
 	height: 20
 	alignment: middle right
