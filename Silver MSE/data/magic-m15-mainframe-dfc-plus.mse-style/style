@@ -101,6 +101,38 @@ init script:
 
 	path_type := { if chosen(styling.frame_options, choice:"alternate path") then "path2" else "path" }
 
+	alt_mp_symbol := {
+		symbol_variation(
+			symbol:set.masterpiece_symbol, 
+			border_radius: alt_rarity_color().12, 
+			fill_type: "linear gradient", 
+			fill_color_1: rgb(
+				alt_rarity_color().0, 
+				alt_rarity_color().1, 
+				alt_rarity_color().2
+			), 
+			fill_color_2: rgb(
+				alt_rarity_color().3, 
+				alt_rarity_color().4, 
+				alt_rarity_color().5
+			), 
+			border_color_1: rgb(
+				alt_rarity_color().6, 
+				alt_rarity_color().7, 
+				alt_rarity_color().8
+			), 
+			border_color_2: rgb(
+				alt_rarity_color().9, 
+				alt_rarity_color().10, 
+				alt_rarity_color().11
+			), 
+			center_x:0.5, 
+			center_y:0.5, 
+			end_x:1, 
+			end_y:1
+		)
+	}
+
 	nyx_background        :=  { color_background(type:"nyx",       base_hybrid: card_hybrid, masks_folder: "image_masks/") }
 	nyx_background_2      :=  { color_background(type:"nyx",       base_hybrid: card_hybrid, masks_folder: "image_masks/") }
 	star_background       :=  { color_background(type:"star",      base_hybrid: card_hybrid, masks_folder: "image_masks/") }

@@ -165,10 +165,10 @@ card style:
 			size: 14
 			color: black
 	watermark:
-		left: 162
-		top : 414
-		width: 54
-		height: 54
+		left: {if card.watermark == "mana symbol silver" then 162 else 162}
+		top : {if card.watermark == "mana symbol silver" then 412 else 414}
+		width: {if card.watermark == "mana symbol silver" then 51 else 54}
+		height: {if card.watermark == "mana symbol silver" then 51 else 54}
 		z index: 1
 		render style: image
 		alignment: middle center

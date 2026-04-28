@@ -258,7 +258,7 @@ init script:
 	beyond_background := { color_background(type:"beyond",     base_hybrid:card_hybrid, folder:template_prefix["beyond"]) }
 	crown_background := { color_background(type:"crown", base_hybrid: card_hybrid)}
 	token_background := {color_background(type: "token", base_hybrid: card_hybrid)}
-	custom_border_blend := { color_background(type:"custom_border",     base_hybrid:card_hybrid) }
+	custom_border_blend := { color_background(type:"custom_border",     base_hybrid:card_hybrid, multicolor_blend:"black", hybrid_blend:"white", artifact_blend:"black") }
 	alt_loc := { if styling.replacement_chapter_location != "" then styling.replacement_chapter_location else "no"}
 	alt_chapters := { (if match(styling.replacement_chapter_location, match:"/$") then "/magic-mainframe-extras.mse-include/" + styling.replacement_chapter_location else "") + "chapter" + input + ".png"}
 	

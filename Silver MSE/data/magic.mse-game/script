@@ -5217,6 +5217,19 @@ alt_symbol := {
 		center_x:0.5, center_y:0.5, end_x:1, end_y:1
 	)
 }
+alt_mp_symbol := {
+	alt_array := alt_rarity_color()
+	symbol_variation(
+		symbol:set.masterpiece_symbol,
+		border_radius: alt_array.12,
+		fill_type: "linear gradient",
+		fill_color_1: rgb(alt_array.0, alt_array.1, alt_array.2),
+		fill_color_2: rgb(alt_array.3, alt_array.4, alt_array.5),
+		border_color_1: rgb(alt_array.6, alt_array.7, alt_array.8),
+		border_color_2: rgb(alt_array.9, alt_array.10, alt_array.11),
+		center_x:0.5, center_y:0.5, end_x:1, end_y:1
+	)
+}
 ############################################################## Other customizable stuff
 split_custom_directory := {
 	fn := filter_text(input, match:"[^./]+.png")
