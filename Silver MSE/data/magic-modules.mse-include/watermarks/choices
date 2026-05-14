@@ -11,6 +11,7 @@ choice:
 	choice: black
 	choice: red
 	choice: green
+	choice: silver
 	choice: colorless
 	choice:
 		name: snow
