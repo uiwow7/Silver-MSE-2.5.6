@@ -36,7 +36,7 @@ text:
 	# visible: { not is_saga() }
 text 2:
 	left: {if is_adventure2() then 190 else if is_adventure() then 29 else if is_focus2() then 188 else if is_omen2() then 186 else if is_focus() then 30 else if is_omen() then 32 else 0}
-	top: {top_of_textbox() + 45}
+	top: {top_of_textbox() + 50}
 	width: {if is_adventure2() or is_adventure() then 157 else if is_focus2() or is_focus() then 158 else if is_omen2() or is_omen() then 150 else 0}
 	bottom: {bottom_of_textbox()}
 	font:
@@ -44,7 +44,7 @@ text 2:
 		italic name: MPlantin-Italic
 		size: 15
 		scale down to: 6
-		color: black
+		color: { if black_text() or bevel_black_text() then "black" else if white_text() or white_text2() and not black_text() then "white" else "black"}
 	symbol font:
 		name: { styling.text_box_mana_symbols }
 		size: 15
