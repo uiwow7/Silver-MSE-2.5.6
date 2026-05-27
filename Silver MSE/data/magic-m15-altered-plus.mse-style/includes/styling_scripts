@@ -154,6 +154,8 @@ is_nyx := {
 is_star := {
 	has_trim("star")
 }
+is_pocket		:= { contains(card.notes, match:"!pocket") }
+is_forge		:= { has_trim("forge") }
 is_sky 			:= { has_trim("sky") 	 and not is_map() }
 is_frontier 	:= { has_trim("frontier") and not is_map() }
 is_frontier 	:= { has_trim("frontier") and not is_map() }

@@ -17,6 +17,8 @@ base_template_prefix := [
     lush: "/magic-modules.mse-include/trims/lush/"
     smallbox: "modules/smallbox/"
     sky: "/magic-modules.mse-include/trims/sky/"
+    pocket:"/magic-modules.mse-include/trims/pocket/"
+    forge:"/magic-modules.mse-include/trims/forge/"
     glitch: "cards/glitch/"
     frontier: "/magic-modules.mse-include/cards/altered plus/frontier/"
     miracle: "/magic-modules.mse-include/trims/miracle/"
@@ -96,6 +98,8 @@ shifted_template_prefix := [
     norm: "/magic-modules.mse-include/trims/norm/"
     smallbox:"modules/smallbox/"
     sky:"/magic-modules.mse-include/trims/sky/"
+    pocket:"/magic-modules.mse-include/trims/pocket/"
+    forge:"/magic-modules.mse-include/trims/forge/"
     frontier: "/magic-modules.mse-include/cards/altered plus/frontier/"
     miracle: "/magic-modules.mse-include/trims/miracle/shifted"
     node:"modules/shifted/"
@@ -170,6 +174,8 @@ template_suffix := [
     lush: "lush.png"
     smallbox: "smallbox.png"
     sky: "sky.png"
+    pocket: "pocket.png"
+    forge: "forge.png"
     glitch: "card.png"
     frontier: "frontier.png"
     miracle: "miracle.png"
@@ -316,5 +322,6 @@ landless := {
     or input == "spacecrown"
     or input == "spacecraft"
     or input == "spacecraftpt"
+    or input == "double_omen"
         then true else false
 }

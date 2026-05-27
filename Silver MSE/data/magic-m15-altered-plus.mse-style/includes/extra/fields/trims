@@ -72,3 +72,15 @@ extra card field:
 	script: card.card_color
 	save value: false
 	editable: false
+extra card field:
+	type: choice
+	name: pocket overlay
+	script: card.card_color
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: forge overlay
+	script: card.card_color
+	save value: false
+	editable: false

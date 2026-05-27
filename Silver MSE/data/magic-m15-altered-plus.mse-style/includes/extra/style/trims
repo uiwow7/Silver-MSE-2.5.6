@@ -88,6 +88,26 @@ sky overlay:
 	z index: 11
 	visible: {is_sky()}
 	mask: {if is_puma() then "imagemasks/pumamask.png" else if is_YGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "masksky.png")}
+pocket overlay:
+	left: 0
+	top: 0
+	width: 375
+	height: 523
+	render style: image
+	image: {pocket_background()}
+	z index: 11
+	visible: {is_pocket()}
+	mask: {if is_puma() then "imagemasks/pumamask.png" else if is_YGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "masksky.png")}
+forge overlay:
+	left: 0
+	top: 0
+	width: 375
+	height: 523
+	render style: image
+	image: {forge_background()}
+	z index: 11
+	visible: {is_forge()}
+	mask: {if is_puma() then "imagemasks/pumamask.png" else if is_YGO() then "imagemasks/YGOmask.png" else ("imagemasks/" + (if is_vehicle() then "v_" else "") + (if is_familiar() then "f_" else "") + (if is_full_art() then "full" else "") + "masksky.png")}
 snow overlay:
 	left: 0
 	top: 0

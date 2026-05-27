@@ -218,7 +218,7 @@ script:
 		+ (if contains(card.type, match:"Swamp") then "B" else "")
 		+ (if contains(card.type, match:"Mountain") then "R" else "")
 		+ (if contains(card.type, match:"Forest") then "G" else "")
-		+ (if contains(card.type, match:"Fault" then "I" else ""))
+		+ (if contains(card.type, match:"Fault") then "I" else "")
 	}
 	merge_ci := {
 		base := input

@@ -101,6 +101,7 @@ card trim plus:
 		star:         {star_background(card.card_color)}
 		space:       {space_background(card.card_color)}
 		sky:           {sky_background(card.card_color)}
+		forge:           {forge_background(card.card_color)}
 		frontier: {frontier_background(card.card_color)}
 		path:         {path_background(card.card_color)}
 		lush:         {lush_background(card.card_color)}

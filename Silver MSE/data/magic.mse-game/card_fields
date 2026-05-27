@@ -195,6 +195,7 @@ card field:
 	choice: star
 	choice: space
 	choice: sky
+	choice: forge
 	choice: frontier
 	choice: path
 	choice: lush

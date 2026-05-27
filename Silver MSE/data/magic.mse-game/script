@@ -5500,19 +5500,23 @@ skeleton_runner := {
 #### outside to make singleton scripts easier
 blank_list_5 := ["","","","",""]
 blank_list_10 := ["","","","","","","","","",""]
+blank_list_15 := blank_list_5 + blank_list_10
 mana_list_ally := ["WU","UB","BR","RG","GW"]
 mana_list_enemy := ["WB","UR","BG","RW","GU"]
+mana_list_silver := ["IW","IU","IB","IR","IG"]
 mana_list_shard := ["WUB","UBR","BRG","RGW","GWU"]
 mana_list_wedge := ["WBG","URW","BGU","RWB","GUR"]
+mana_list_silver_3c := ["IWU","IUB","IBR","IRG","IGW","IWB","IUR","IBG","IRW","IGU"]
 skeleton_script := {
 	cards := [];
+	mana_list_2c := mana_list_ally+mana_list_enemy+mana_list_silver;
 	cards := cards + skeleton_runner(count:skeleton_commons);
 	cards := cards + skeleton_runner(count:skeleton_uncommons, prefix:"U", rarity:"uncommon");
 	cards := cards + skeleton_runner(count:skeleton_rares, prefix:"R", rarity:"rare");
 	cards := cards + skeleton_runner(count:skeleton_mythics, prefix:"M", rarity:"mythic rare");
-	cards := cards + skeleton_runner(count:skeleton_gold_commons, prefix:"CM", rarity:"common", letter_list:blank_list_10, mana_list:mana_list_ally+mana_list_enemy);
-	cards := cards + skeleton_runner(count:skeleton_gold_uncommons, prefix:"UM", rarity:"uncommon", letter_list:blank_list_10, mana_list:mana_list_ally+mana_list_enemy);
-	cards := cards + skeleton_runner(count:skeleton_gold_rares, prefix:"RM", rarity:"rare", letter_list:blank_list_10, mana_list:mana_list_ally+mana_list_enemy);
+	cards := cards + skeleton_runner(count:skeleton_gold_commons, prefix:"CM", rarity:"common", letter_list:blank_list_15, mana_list:mana_list_2c);
+	cards := cards + skeleton_runner(count:skeleton_gold_uncommons, prefix:"UM", rarity:"uncommon", letter_list:blank_list_15, mana_list:mana_list_2c);
+	cards := cards + skeleton_runner(count:skeleton_gold_rares, prefix:"RM", rarity:"rare", letter_list:blank_list_15, mana_list:mana_list_2c);
 	cards := cards + skeleton_runner(count:skeleton_shard_commons, prefix:"CM", rarity:"common", letter_list:blank_list_5, mana_list:mana_list_shard);
 	cards := cards + skeleton_runner(count:skeleton_shard_uncommons, prefix:"UM", rarity:"uncommon", letter_list:blank_list_5, mana_list:mana_list_shard);
 	cards := cards + skeleton_runner(count:skeleton_shard_rares, prefix:"RM", rarity:"rare", letter_list:blank_list_5, mana_list:mana_list_shard);
@@ -5709,12 +5713,6 @@ has_trim := {
 	chosen(card.card_trim_plus, choice: input) or chosen(card.card_trim_plus, choice: input + " ")
 }
 
-check_trim := {
-	chosen(ccard_trim, choice: input) or chosen(card_trim, choice: input + " ") or
-	chosen(ccard_trim_plus, choice: input) or chosen(card_trim_plus, choice: input + " ")
-}
-
-
 
 check_nyx_trim := {
 	lang_setting(
@@ -5809,7 +5807,7 @@ card_trim_plus_default := {
 	+ (if check_star_trim2() then ", star")
 	+ (if check_path() then ", path")
 	+ (if match_entity(card_sub_type) then ", familiar")
-	+ (if match_realize(card_text) then ", sky")
+	+ (if match_realize(card_text) then ", forge")
 	+ (if check_sanctum() then ", frontier")
 	+ (if match_kindred(card_type) and not has_trim("nyx") and not has_trim("star") and not match_revelation(card_sub_type) then ", hands")
 	+ (if check_nyx_trim() and set.alternate_nyx != "" then ", " + set.alternate_nyx)
