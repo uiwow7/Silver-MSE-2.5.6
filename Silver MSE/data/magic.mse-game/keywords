@@ -205,7 +205,7 @@ keyword:
 	keyword: Protection from
 	match: Protection from <atom-param>name</atom-param>
 	mode: expert
-	reminder: {protection_code(param1.value)}.
+	reminder: {protection_code(param1.value)}
 keyword:
 	keyword: Regeneration
 	match: Regenerate

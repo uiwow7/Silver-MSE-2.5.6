@@ -165,8 +165,8 @@ styling field:
 	description: The styling instructions for the popout image field, formatted as "left,top,width,height,". The text MUST end with a comma.
 styling field:
 	type: text
-	name: popout image style 3
-	description: The styling instructions for the popout image field, formatted as "left,top,width,height,". The text MUST end with a comma.
+	name: popunder image style
+	description: The styling instructions for the popunder image field, formatted as "left,top,width,height,". The text MUST end with a comma.
 styling field:
 	type: info
 	name: Custom links
