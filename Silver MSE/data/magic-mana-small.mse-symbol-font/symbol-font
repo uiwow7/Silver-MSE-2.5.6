@@ -576,6 +576,10 @@ symbol:
 	code: C/G
 	image: { masked_blend(dark: "mana_cc.png", light: "mana_gg.png", mask: "mask_hybrid.png") }
 	image font size: 145
+symbol:
+	code: C/I
+	image: { masked_blend(dark: "mana_cc.png", light: "mana_ii.png", mask: "mask_hybrid.png") }
+	image font size: 145
 ###################################################################################### Phyrexian Mana Symbols
 symbol:
 	code: H/W

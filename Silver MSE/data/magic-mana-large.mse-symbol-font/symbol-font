@@ -432,6 +432,10 @@ symbol:
 	image: mana_cmc_cg.png
 	image font size: 145
 symbol:
+	code: C/I
+	image: { masked_blend(dark: "mana_cc.png", light: "mana_ii.png", mask: "mask_hybrid.png") }
+	image font size: 145
+symbol:
 	code: D/W
 	image: mana_dw.png
 	image font size: 120
