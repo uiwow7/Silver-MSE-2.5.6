@@ -5,7 +5,7 @@ smallbox overlay:
 	height: 523
 	render style: image
 	image: {smallbox_colors()}
-	z index: 13
+	z index: 130
 	visible: {use_box()}
 smallbox text:
 	left: {if use_box() and any_box() then 33 else 0}
@@ -26,7 +26,7 @@ smallbox text:
 		scale down to: 7
 	####remember to check if this does anything
 	alignment: left shrink-overflow
-	z index: 14
+	z index: 140
 	padding left:   6
 	padding right:  4
 	line height hard: {if is_modal(card.rule_text) then 0.9 else 1.2 }

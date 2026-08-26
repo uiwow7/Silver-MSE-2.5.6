@@ -5,5 +5,5 @@ pins:
 	height: 465
 	render style: image
 	image: {pins_image()}
-	z index: 13
+	z index: 130
 	visible: {use_pins()}

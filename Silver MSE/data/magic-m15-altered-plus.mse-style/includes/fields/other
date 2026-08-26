@@ -3,7 +3,7 @@ set code:
 	top: {if use_porthole() then "504" else "498"}
 	width: 40
 	height: 10
-	z index: 13
+	z index: 130
 	font:
 		name: Relay-Medium
 		size: 7
@@ -14,7 +14,7 @@ illustrator:
 	top: {if use_porthole() then "504" else "498"}
 	width: 200
 	height: 10
-	z index: 13
+	z index: 130
 	font:
 		name: Beleren Small Caps Bold
 		size: 7.25
@@ -32,7 +32,7 @@ copyright:
 			else 488
 	width: {if set.automatic_copyright then 0 else 140}
 	height: 10
-	z index: 14
+	z index: 140
 	alignment: middle right
 	font:
 		name: MPlantin

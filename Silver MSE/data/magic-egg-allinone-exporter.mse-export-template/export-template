@@ -274,7 +274,8 @@ script:
 			"{q}set{q}: {q}{adj_setcode()}{q}",
 			"{q}loyalty{q}: {q}{sanitize(card.loyalty)}{q}",
 			"{q}designer{q}: {q}{sanitize(card_designer())}{q}",
-			"{q}artist{q}: {q}{sanitize(card.illustrator)}{q}"
+			"{q}artist{q}: {q}{sanitize(card.illustrator)}{q}",
+			"{q}position{q}: {q}{position(of:card, in:set)}{q}"
 		]
 		if is_double_card(card.shape) then strings := strings + [
 			"{q}card_name2{q}: {q}{card_name_2()}{q}",
@@ -300,14 +301,33 @@ script:
 	}
 
 	write_all_images := {
-		for each card in cards do
-			if contains(card.shape, match:"double") then
-				if contains(card.type, match:"Battle") then
-					write_image_file(crop(input: to_card_image(card), width: 523, height: 375, offset_x: 0, offset_y: 0), file: "img/" + card_number() + "_" + card_name() + "_front" + ".{options.image_type}") + write_image_file(crop(input: to_card_image(card), width: 375, height: 523, offset_x: 525, offset_y: 0), file: "img/" + card_number() + "_" + card_name() + "_back" + ".{options.image_type}")
-				else 
-					write_image_file(crop(input: to_card_image(card), width: 375, height: 523, offset_x: 0, offset_y: 0), file: "img/" + card_number() + "_" + card_name() + "_front" + ".{options.image_type}") + write_image_file(crop(input: to_card_image(card), width: 375, height: 523, offset_x: 377, offset_y: 0), file: "img/" + card_number() + "_" + card_name() + "_back" + ".{options.image_type}")
-			else 
-				write_image_file(card, file: "img/" + card_number() + (if contains(get_shape(), match:"token") then "t_" else "_") + card_name() + ".{options.image_type}")
+		for each card in cards do (
+			card_position := position(of:card, in:set)
+			card_image := to_card_image(card)
+			#### double faced templates
+			if contains(card.shape, match:"double") then (
+				#### check if we need to rotate the front face (if it's a battle)
+				rotated := lang_setting("is_battle")(card.super_type) and width_of(card_image) == 900
+				front_width := if rotated then 523 else 375
+				front_height := if rotated then 375 else 523
+				front_image := crop(card_image, width: front_width, height: front_height, offset_x: 0, offset_y: 0)
+				back_image := crop(card_image, width: 375, height: 523, offset_x: front_width + 2, offset_y: 0)
+				if rotated then front_image := rotate_image(front_image, angle: 90)
+
+				#### write to disk
+				write_image_file(front_image, file: "img/" + card_position + "_front." + options.image_type)
+				write_image_file(back_image, file: "img/" + card_position + "_back." + options.image_type)
+			)
+			#### single faced templates
+			else (
+				#### check if we need to rotate the card image (if it's a battle)
+				card_width := width_of(card_image)
+				rotated := card_width == 523 or card_width == 902 or card_width == 1039 or card_width == 1046
+				if rotated then card_image := rotate_image(card_image, angle: 90)
+				#### write to disk
+				write_image_file(card_image, file: "img/" + card_position + "." + options.image_type)
+			)
+		)
 	}
 
 	main_keys := [

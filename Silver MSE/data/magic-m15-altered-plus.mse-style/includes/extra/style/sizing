@@ -3,7 +3,7 @@ typeline overlay:
 	top: {textbox_size_adjusted()}
 	width: 375
 	height: 523
-	z index: 11
+	z index: 110
 	visible: { is_sized() }
 	render style: image
 	image: {typeline_img()}
@@ -12,7 +12,7 @@ textbox top:
 	top: {textbox_size_adjusted()}
 	width: 375
 	height: 523
-	z index: 11
+	z index: 110
 	visible: { is_sized() }
 	render style: image
 	image: {top_textbox_img()}
@@ -21,7 +21,7 @@ textbox middle:
 	top: {mid_textbox_y()}
 	width: {mid_textbox_width()}
 	height: {mid_textbox_height()}
-	z index: 11
+	z index: 110
 	visible: { is_sized() }
 	render style: image
 	image: {middle_textbox_img()}
@@ -30,7 +30,7 @@ texture:
 	top: 0
 	width: 375
 	height: 523
-	z index: 8
+	z index: 80
 	visible: { is_sized() }
 	render style: image
 	image: {texture_background()}
@@ -39,7 +39,7 @@ right image edge:
 	top: 60
 	width: 3
 	height: { unchopped_top_of_textbox() - 59 }
-	z index: 8
+	z index: 80
 	visible: { is_sized() }
 	render style: image
 	image: {image_edge()}
@@ -48,7 +48,7 @@ left image edge:
 	top: 60
 	width: 3
 	height: { unchopped_top_of_textbox() - 59 }
-	z index: 8
+	z index: 80
 	visible: { is_sized() }
 	render style: image
 	image: {image_edge()}

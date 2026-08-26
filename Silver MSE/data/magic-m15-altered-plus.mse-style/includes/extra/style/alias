@@ -3,7 +3,7 @@ alias bar:
 	top: {if is_clear() or clear_tops() then 59 else 57}
 	width: 298
 	height: 21
-	z index: 12
+	z index: 120
 	render style: image
 	image: {if is_devoid() or is_devoid2() then (if is_legend() then alias_bar() else "alias/devoidalias.png") else if is_clear() or clear_tops() then "alias/xalias.png" else alias_bar()}
 	visible: {is_skinned() and not use_evobar()}
@@ -20,7 +20,7 @@ evobar:
 			else 57
 	width: {card_style.alias.content_width}
 	height: 27
-	z index: 22
+	z index: 220
 	render style: image
 	image: modules/evobar/evobar.png
 	visible: {use_evobar()}
@@ -36,7 +36,7 @@ evobar tip:
 	top: {if is_map() then 62 else 57}
 	width: 36
 	height: 27
-	z index: 22
+	z index: 220
 	render style: image
 	image: modules/evobar/evobar_tip.png
 	visible: {use_evobar()}

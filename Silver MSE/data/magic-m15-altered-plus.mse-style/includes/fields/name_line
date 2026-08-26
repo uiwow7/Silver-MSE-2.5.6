@@ -6,7 +6,7 @@ name:
 	alignment: {if center_map() or center_name() then "center bottom shrink-overflow" else "left bottom shrink-overflow" }
 	padding bottom: 0
 	padding top: 0
-	z index: 13
+	z index: 130
 	font:
 		name: { if is_map() then "Beleren Small Caps" else "Beleren Bold" }
 		size: { (if is_map() then 14.8 else 16) - shrink_name() }
@@ -21,7 +21,7 @@ name 2:
 	right: {if is_adventure2() then (28 - card_style.casting_cost_2.content_width) else if is_adventure() then (178 - card_style.casting_cost_2.content_width) else if is_focus2() then (88 - card_style.casting_cost_2.content_width) else if is_focus() then (177 - card_style.casting_cost_2.content_width) else if is_omen() then (177 - card_style.casting_cost_2.content_width) else if is_omen2() then (88 - card_style.casting_cost_2.content_width)  else 0}
 	height: { 20 - shrink_name2() }
 	alignment: bottom shrink-overflow
-	z index: 15
+	z index: 150
 	font:
 		name: Beleren Bold
 		size: {12 - shrink_name2() }
@@ -33,7 +33,7 @@ alias:
 	height: 20
 	alignment: { (if is_skinned() then "center" else "") + "bottom shrink-overflow"}
 	padding bottom: 0
-	z index: 23
+	z index: 230
 	font:
 		name: {if use_evobar() then "Matrix" else "MPlantin-Italic"}
 		size: {if use_evobar() then 10 else 9}
@@ -54,7 +54,7 @@ casting cost:
 		size: { if is_map() then 14 else 15}
 		alignment: "middle right"
 	always symbol: true
-	z index: 13
+	z index: 130
 	padding top: 0
 casting cost 2:
 	right: {if is_adventure2() then 345 else if is_adventure() then 180 else if is_focus2() then 341 else if is_focus() then 183 else if is_omen() then 180 else if is_omen2() then 341 else if is_prototype() then 342 else 0}
@@ -67,5 +67,5 @@ casting cost 2:
 		size: 12
 		alignment: middle center
 	always symbol: true
-	z index: 16
+	z index: 160
 	padding top: 0

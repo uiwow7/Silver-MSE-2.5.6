@@ -6,7 +6,7 @@ adventure overlay:
 	render style: image
 	popup style: in place
 	image: {adventure_colors()}
-	z index: 10
+	z index: 100
 	visible: {is_adventure()}
 adventure overlay2:
 	left: 20
@@ -16,7 +16,7 @@ adventure overlay2:
 	render style: image
 	popup style: in place
 	image: {adventure2_colors()}
-	z index: 11
+	z index: 110
 	visible: {is_adventure()}
 adventure overlay3:
 	left: 0
@@ -26,7 +26,7 @@ adventure overlay3:
 	render style: image
 	popup style: in place
 	image: {adventure3_colors()}
-	z index: 10
+	z index: 100
 	visible: {is_adventure2()}
 adventure overlay4:
 	left: 187
@@ -36,7 +36,7 @@ adventure overlay4:
 	render style: image
 	popup style: in place
 	image: {adventure4_colors()}
-	z index: 11
+	z index: 110
 	visible: {is_adventure2()}
 focus overlay:
 	left: 27
@@ -45,7 +45,7 @@ focus overlay:
 	height: 157
 	render style: image
 	image: {focus_colors()}
-	z index: 11
+	z index: 110
 	visible: {is_focus()}
 focus overlay2:
 	left: 185
@@ -54,7 +54,7 @@ focus overlay2:
 	height: 157
 	render style: image
 	image: {focus2_colors()}
-	z index: 11
+	z index: 110
 	visible: {is_focus2()}
 omen overlay:
 	left: 18
@@ -63,7 +63,7 @@ omen overlay:
 	height: 160
 	render style: image
 	image: {omen_colors()}
-	z index: 11
+	z index: 120
 	visible: {is_omen()}
 omen overlay2:
 	left: 185
@@ -72,5 +72,5 @@ omen overlay2:
 	height: 160
 	render style: image
 	image: {omen2_colors()}
-	z index: 11
+	z index: 120
 	visible: {is_omen2()}

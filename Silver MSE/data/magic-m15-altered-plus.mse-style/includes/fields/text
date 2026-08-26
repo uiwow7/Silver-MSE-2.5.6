@@ -25,7 +25,7 @@ text:
 				styling.center_text == "always"
 			then "middle center"
 			else "middle left"
-	z index: 999
+	z index: 9990
 	padding left:   6
 	padding right:  4
 	line height hard: {if is_modal(card.rule_text) then 0.9 else 1.2 }
@@ -57,7 +57,7 @@ text 2:
 				styling.center_text == "always"
 			then "middle center"
 			else "middle left"
-	z index: 16
+	z index: 160
 	padding left:   6
 	padding right:  4
 	line height hard: 1.2
@@ -70,7 +70,7 @@ watermark:
 	top: { if is_full_art() then 359 else if is_prototype() then 384 else 330 }
 	width: { if is_map() then 287 else if is_altcast() then 163 else 334 }
 	height: { if is_map() then 154 else if is_full_art() then 120 else if is_prototype() then 100 else 152 }
-	z index: 12
+	z index: 120
 	render style: image
 	popup style: in place
 	alignment: middle center
@@ -82,7 +82,7 @@ chapter text:
 	top: 60
 	width: 156
 	bottom: {chapter0() - 1}
-	z index: 900
+	z index: 9000
 	font:
 		name: MPlantin
 		italic name: MPlantin-Italic

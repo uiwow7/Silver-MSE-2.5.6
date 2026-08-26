@@ -3,7 +3,7 @@ clear frame:
 	top: 0
 	width: 375
 	height: 523
-	z index: 11
+	z index: 110
 	render style: image
 	image: { if is_devoid() then devoid_background() else if is_devoid2() then devoid2_background() else if is_rare() and styling.use_holofoil_stamps then "cards/clear/clear_rare.png" else if is_ub() then "cards/universes-beyond/cclearcard.png" else "cards/clear/clear.png"}
 	visible: { is_clear() or is_devoid() or is_devoid2() or clear_tops() }
@@ -12,7 +12,7 @@ gold frame:
 	top: 0
 	width: 375
 	height: 523
-	z index: 11
+	z index: 110
 	render style: image
 	image: { "gold1.jpg" }
 	visible: { use_gold()}
@@ -21,7 +21,7 @@ porthole frame:
 	top: 0
 	width: 375
 	height: 523
-	z index: 11
+	z index: 110
 	render style: image
 	image: {if use_porthole() then "cards/voyager/porthole.png" else if use_wave() then "cards/voyager/wave.png"}
 	visible: { use_porthole() or use_wave()}
@@ -30,7 +30,7 @@ ocean frame:
 	top: 0
 	width: 375
 	height: 523
-	z index: 11
+	z index: 110
 	render style: image
 	image: {if use_ocean() then "cards/voyager/seafoam-2.png" else if use_gilded() then "cards/voyager/gilded.png" else ""}
 	visible: { use_ocean() or use_gilded()}
@@ -39,7 +39,7 @@ ocean frame color:
 	top: 0
 	width: 375
 	height: 523
-	z index: 11
+	z index: 110
 	render style: image
 	image: {card_background()}
 	visible: { use_ocean() or use_gilded()}
@@ -49,7 +49,7 @@ styles frame:
 	top: 0
 	width: 375
 	height: 523
-	z index: 11
+	z index: 110
 	render style: image
 	image: {if use_styles() then "cards/voyager/styles_frame_new.png"}
 	visible: { use_styles()}
@@ -58,7 +58,7 @@ mirror frame:
 	top:	0
 	width:	{if clear_tops() then 375 else 0}
 	height:	523
-	z index: 11
+	z index: 110
 	render style: image
 	popup style: in place
 	image: 
@@ -84,7 +84,7 @@ map frame:
 	top: 0
 	width: 375
 	height: 523
-	z index: 11
+	z index: 110
 	render style: image
 	image: 
 		script:

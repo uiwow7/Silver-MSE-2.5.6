@@ -1,5 +1,5 @@
 mutbar:
-	z index: 12
+	z index: 120
 	left: 28
 	top: 393
 	height: 2
@@ -12,7 +12,7 @@ silver patch:
 	top: 10
 	width: 355
 	height: 15
-	z index: 12
+	z index: 120
 	visible: {is_legend() and card.border_color == rgb(200,200,200)}
 
 ascend:
@@ -21,7 +21,7 @@ ascend:
 	width: {if is_season() then 300 else 0}
 	height: 20
 	angle: 270
-	z index: 16
+	z index: 160
 	alignment: justify-all force
 	always symbol: true
 	font:
@@ -39,7 +39,7 @@ node:
 	top: 0
 	height: 63
 	width: 375
-	z index: 16
+	z index: 160
 	render style: image
 	image: {node_background()}
 	visible: {not is_map() and use_node()}
@@ -69,7 +69,7 @@ flavor bar:
 			- bar_equation()
 		) 
 		else 1
-	z index: 12
+	z index: 120
 	render style: image
 	image: 
 		script:
@@ -100,7 +100,7 @@ tarot watermark:
 	top: { if is_full_art() then 359 else 330 }
 	width: { if not is_tarot() then 0 else if is_map() then 287 else 334 }
 	height: { if is_map() then 154 else if is_full_art() then 120 else 152 }
-	z index: 12
+	z index: 120
 	alignment: middle center
 	font:
 		name: MPlantin
@@ -114,7 +114,7 @@ arcun overlay:
 	height: 523
 	render style: image
 	image: modules/extras/arcunoverlay.png
-	z index: 11
+	z index: 110
 	visible: {is_arcun()}
 Bevel overlay:
 	left: {if is_YGO() then 71 else 87}
@@ -123,7 +123,7 @@ Bevel overlay:
 	height: {if is_YGO() then 233 else 204}
 	render style: image
 	image: {if is_YGO() then "modules/bevel/ycanbevel.png" else "modules/bevel/bevel.png"}
-	z index: 11
+	z index: 110
 	visible: {is_oldYGO() or is_YGO() and not is_nopopout()}
 Chain:
 	left: {if is_chain() then 27 else if is_chain2() then 192 else 0}
@@ -132,7 +132,7 @@ Chain:
 	height: 163
 	render style: image
 	image: {set_alpha(watermark_blend("cards/focus/chain-blend2.png", face:2), alpha: 180)}
-	z index: 11
+	z index: 110
 	visible: {has_chain()}
 Gold Bevel overlay:
 	left: 0
@@ -141,14 +141,14 @@ Gold Bevel overlay:
 	height: 523
 	render style: image
 	image: {"cards/gold/gold-bevel.png"}
-	z index: 12
+	z index: 120
 	visible: {is_YGO_gold()}
 foil overlay:
 	left: 0
 	top: 0
 	width: 375
 	height: 523
-	z index: 80
+	z index: 800
 	visible: { contains(card.card_trim, match: "foil") }
 	render style: image
 	image: {"/magic-overlay-foil-" + foil_type() + ".mse-include/overlay.png"}
@@ -158,7 +158,7 @@ promo label:
 	width: {if chosen(styling.other_options, choice:"prerelease stamp") then 295 else 0}
 	height: 29
 	alignment: middle right
-	z index: 14
+	z index: 140
 	font:
 		name: ModMatrix
 		size: 14

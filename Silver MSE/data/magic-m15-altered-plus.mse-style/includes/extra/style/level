@@ -3,7 +3,7 @@ lvl label 0:
 	top: {l1_center() - (if loy_leveler() then 2 else 10) + arrow_offset(0)}
 	width: {if is_leveler() or card.level_0 != "" then (if loy_leveler() then 10 else 34 + (if box_leveler() then 30 else 0)) else 0}
 	height: {if loy_leveler() then 10 else if center_label(0) then 0 else 10}
-	z index: 16
+	z index: 160
 	alignment: middle center
 	font:
 		name: {if loy_leveler() then "MPlantin" else "Beleren Small Caps"}
@@ -16,7 +16,7 @@ lvl label 1:
 	top: {l2_center() - (if loy_leveler() then 2 else 10) + arrow_offset(1)}
 	width: {if is_leveler() or card.level_1 != "" then (if loy_leveler() then 10 else 34 + (if box_leveler() then 30 else 0)) else 0}
 	height: {if loy_leveler() then 10 else if center_label(1) then 0 else 10}
-	z index: 16
+	z index: 160
 	alignment: middle center
 	font:
 		name: {if loy_leveler() then "MPlantin" else "Beleren Small Caps"}
@@ -29,7 +29,7 @@ lvl label 2:
 	top: {l3_center() - (if loy_leveler() then 2 else 10) + arrow_offset(2)}
 	width: {if is_leveler() or card.level_2 != "" then (if loy_leveler() then 10 else 34 + (if box_leveler() then 30 else 0)) else 0}
 	height: {if loy_leveler() then 10 else if center_label(2) then 0 else 10}
-	z index: 16
+	z index: 160
 	alignment: middle center
 	font:
 		name: {if loy_leveler() then "MPlantin" else "Beleren Small Caps"}
@@ -42,7 +42,7 @@ lvl label 3:
 	top: {l4_center() - (if loy_leveler() then 2 else 10) + arrow_offset(3)}
 	width: {if is_leveler() or card.level_3 != "" then (if loy_leveler() then 10 else 34 + (if box_leveler() then 30 else 0)) else 0}
 	height: {if loy_leveler() then 10 else if center_label(3) then 0 else 10}
-	z index: 16
+	z index: 160
 	alignment: middle center
 	font:
 		name: {if loy_leveler() then "MPlantin" else "Beleren Small Caps"}
@@ -55,7 +55,7 @@ level 2 overlay:
 	top: { if is_d20() then top_of_para(rolls_start(card.text)) else 329 + lv_2_coordinate()}
 	height: {if is_d20() then height_of_para(rolls_start(card.text)) else lv_2_height()}
 	width: 314
-	z index: 12
+	z index: 120
 	render style: image
 	image: {overlay1()}
 	visible: {(is_d20() and number_of_rolls(card.text) > 0) or (is_leveler() and not is_static())}
@@ -64,7 +64,7 @@ level 3 overlay:
 	top: { if is_d20() then top_of_para(rolls_start(card.text)+2) else 329 + lv_3_coordinate()}
 	height: {if is_d20() then height_of_para(rolls_start(card.text)+2) else lv_3_height()}
 	width: 314
-	z index: 12
+	z index: 120
 	render style: image
 	image: {overlay2()}
 	visible: {(is_d20() and number_of_rolls(card.text)-no_roll(card.text) > 2) or (is_leveler() and not is_static())}
@@ -73,7 +73,7 @@ level 4 overlay:
 	top: { if is_d20() then top_of_para(rolls_start(card.text)+4) else 329 + lv_4_coordinate()}
 	height: {if is_d20() then height_of_para(rolls_start(card.text)+4) else lv_4_height()}
 	width: 314
-	z index: 12
+	z index: 120
 	render style: image
 	image: {overlay3()}
 	visible:
@@ -93,7 +93,7 @@ level 4 overlay:
 				is_static()
 			)
 arrow 1:
-	z index: 15
+	z index: 150
 	left: {arrow_left()}
 	top: {l1_center() - 16 + arrow_offset(0)}
 	width: {if card.level_0 != "" then arrow_width() else 0}
@@ -101,7 +101,7 @@ arrow 1:
 	render style: image
 	image: {if loy_leveler() then loyalty_image(card.level_0) else if box_leveler() then choose_ptbox() else if space_leveler() then circle_background() else arrow_background()}
 arrow 2:
-	z index: 15
+	z index: 150
 	left: {arrow_left()}
 	top: {l2_center() - 16 + arrow_offset(1)}
 	width: {if card.level_1 != "" then arrow_width() else 0}
@@ -109,7 +109,7 @@ arrow 2:
 	render style: image
 	image: {if loy_leveler() then loyalty_image(card.level_1) else if box_leveler() then choose_ptbox() else if space_leveler() then circle_background() else arrow_background()}
 arrow 3:
-	z index: 15
+	z index: 150
 	left: {arrow_left()}
 	top: {l3_center() - 16 + arrow_offset(2)}
 	width: {if card.level_2 != "" then arrow_width() else 0}
@@ -117,7 +117,7 @@ arrow 3:
 	render style: image
 	image: {if loy_leveler() then loyalty_image(card.level_2) else if box_leveler() then choose_ptbox() else if space_leveler() then circle_background() else arrow_background()}
 arrow 4:
-	z index: 15
+	z index: 150
 	left: {arrow_left()}
 	top: {l4_center() - 16 + arrow_offset(3)}
 	width: {if card.level_3 != "" then arrow_width() else 0}

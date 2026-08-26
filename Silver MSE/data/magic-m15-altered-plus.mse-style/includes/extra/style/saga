@@ -5,7 +5,7 @@ bookmark:
 	height: 372
 	render style: image
 	image: {bookmark_background()}
-	z index: 810
+	z index: 8100
 	visible: {is_saga()}
 chapter 1:
 	left: 14
@@ -13,7 +13,7 @@ chapter 1:
 	width: 30
 	height: 34
 	render style: image
-	z index: 840
+	z index: 8400
 	image: {alt_chapters("1")}
 	visible: {is_saga()}
 chapter 2:
@@ -22,7 +22,7 @@ chapter 2:
 	width: 30
 	height: 34
 	render style: image
-	z index: 840
+	z index: 8400
 	image: {alt_chapters("2")}
 	visible: {is_saga()}
 chapter 3:
@@ -31,6 +31,6 @@ chapter 3:
 	width: 30
 	height: 34
 	render style: image
-	z index: 840
+	z index: 8400
 	image: {alt_chapters("3")}
 	visible: {is_saga()}

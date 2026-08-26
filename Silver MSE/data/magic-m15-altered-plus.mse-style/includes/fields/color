@@ -8,14 +8,14 @@ border color:
 	right width:  17
 	top width:	17
 	bottom width: 18
-	z index: 14
+	z index: 140
 	mask: { "imagemasks/" + (if is_puma() then "puma_" else "") + (if is_legend() and not use_porthole() then "crown_border" else "border_mask") + (if card.border_color == rgb(200,200,200) then "_silver" else "") + ".png" }
 card color:	
 	left:	0
 	top:	0
 	width:	375
 	height:	523
-	z index: 10
+	z index: 100
 	render style: image
 	popup style: in place
 	image: { main_background() }
@@ -26,7 +26,7 @@ card color 2:
 	top:	0
 	width:	375
 	height:	523
-	z index: 9
+	z index: 90
 	render style: image
 	popup style: in place
 	image: { main_background() }
@@ -41,7 +41,7 @@ card trim:
 	# top: 0
 	# width: 375
 	# height: 523
-	z index: 999
+	z index: 9990
 	render style: image
 	popup style: in place
 	image: {""}
@@ -93,7 +93,7 @@ card trim plus:
 	# top: 0
 	# width: 375
 	# height: 523
-	z index: 999
+	z index: 9990
 	render style: image
 	popup style: in place
 	image: {""}
@@ -118,7 +118,7 @@ crown type:
 	top: 10
 	width: 300
 	height: 20
-	z index: 999
+	z index: 9990
 	render style: image
 	image: {""}
 	popup style: in place
@@ -136,7 +136,7 @@ alias type:
 	top: 55
 	width: 50
 	height: 20
-	z index: 999
+	z index: 9990
 	render style: image
 	image: {""}
 	popup style: in place

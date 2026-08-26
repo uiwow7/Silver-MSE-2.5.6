@@ -3,7 +3,7 @@ back type hint:
 	top: 471
 	width: {if has_trim("back flag") then 80 else 0}
 	height: 12
-	z index: 17
+	z index: 170
 	visible: {has_trim("back flag")  }
 	font:
 		name: Beleren Bold
@@ -14,7 +14,7 @@ back color hint:
 	top: 471
 	width: {if has_trim("back flag") then 80 else 0}
 	height: 14
-	z index: 18
+	z index: 180
 	visible: {has_trim("back flag")  }
 	font:
 		name: MPlantin
@@ -30,7 +30,7 @@ front type hint:
 	top: 471
 	width: {if has_trim("front flag") then 80 else 0}
 	height: 12
-	z index: 18
+	z index: 180
 	visible: {has_trim("front flag")  }
 	font:
 		name: Beleren Bold
@@ -41,7 +41,7 @@ front color hint:
 	top: 471
 	width: {if has_trim("front flag") then 80 else 0}
 	height: 14
-	z index: 17
+	z index: 170
 	visible: {has_trim("front flag")  }
 	font:
 		name: MPlantin

@@ -41,7 +41,7 @@ pt box:
 			if is_map() 
 				then 54 
 			else leveler_ptbox_height()
-	z index: 14
+	z index: 140
 	visible: { card.pt != "" and not is_old() }
 	render style: image
 	image: 
@@ -78,7 +78,7 @@ pt box 2:
 	top: { l2_center() - (if is_map() then 26 else 15) + leveler_ptbox_top_offset()}
 	width: { if (is_leveler() and not lone_pt()) or card.pt_2 != "" then (if is_map() then 90 else leveler_ptbox_width()) else 0}
 	height:	{ if (is_leveler() and not lone_pt()) or card.pt_2 != "" then (if is_map() then 54 else leveler_ptbox_height()) else 0}
-	z index: 13
+	z index: 130
 	visible: { card.pt_2 != "" and not is_prototype() }
 	render style: image
 	image: {if is_map() then mappt_background() else if space_leveler() then station_ptbox() else combine_blend(image1: lv_2_ptbox(), image2: "modules/extras/ptbox_multiply_1.png", combine: "multiply")}
@@ -87,7 +87,7 @@ pt box 3:
 	top: { l3_center() - (if is_map() then 26 else 15) + leveler_ptbox_top_offset()}
 	width: { if (is_leveler() and not lone_pt()) or card.pt_3 != "" then (if is_map() then 90 else leveler_ptbox_width()) else 0}
 	height:	{ if (is_leveler() and not lone_pt()) or card.pt_3 != "" then (if is_map() then 54 else leveler_ptbox_height()) else 0}
-	z index: 13
+	z index: 130
 	visible: { card.pt_3 != "" }
 	render style: image
 	image: {if is_map() then mappt_background() else if space_leveler() then station_ptbox() else combine_blend(image1: lv_3_ptbox(), image2: "modules/extras/ptbox_multiply_2.png", combine: "multiply")}
@@ -96,7 +96,7 @@ pt box 4:
 	top: { l4_center() - (if is_map() then 26 else 15) + leveler_ptbox_top_offset()}
 	width: { if (is_leveler() and not lone_pt()) or card.pt_3 != "" then (if is_map() then 90 else leveler_ptbox_width()) else 0}
 	height:	{ if (is_leveler() and not lone_pt()) or card.pt_3 != "" then (if is_map() then 54 else leveler_ptbox_height()) else 0}
-	z index: 13
+	z index: 130
 	visible: { card.pt_7 != "" }
 	render style: image
 	image: {if is_map() then mappt_background() else if space_leveler() then station_ptbox() else combine_blend(image1: lv_4_ptbox(), image2: "modules/extras/ptbox_multiply_3.png", combine: "multiply")}
@@ -105,7 +105,7 @@ loyalty box:
 	top: 466
 	width: 60
 	height: 38
-	z index: 16
+	z index: 160
 	render style: image
 	visible: { starting_loyalty() and card.loyalty != "" }
 	choice images:
@@ -119,13 +119,13 @@ stamp backing:
 	visible: { card.card_stamp != "none" and styling.use_holofoil_stamps }
 	render style:	image
 	image: { if stamp_shape() == "triangle" then tri_stamp() else round_stamp() }
-	z index: 12
+	z index: 125
 #foil layer:
 #	left: 0
 #	top : 0
 #	width: 375
 #	height: 523
-#	z index: 19
+#	z index: 190
 #	render style: image
 #	image: {if styling.overlay == "" then nil else styling.overlay + "/overlay.png"}
 #	mask: { "imagemasks/foil_mask" + (if card.pt != "" then "_pt") + (if is_rare() and styling.use_holofoil_stamps then "_rare") + ".png" }
@@ -134,7 +134,7 @@ vorthos box:
 	top: {if card.pt == "" and shown_cr() then 500 else 488}
 	width: { if is_leveler() and not lone_pt() then 140 else if (starting_loyalty() and card.loyalty != "") then 90 else if (card.pt != "" and not starting_loyalty()) then 65 else 140 }
 	height: {if use_vorthos() then 10 else 0}
-	z index: 13
+	z index: 130
 	alignment: middle right
 	font:
 		name: Relay-Medium

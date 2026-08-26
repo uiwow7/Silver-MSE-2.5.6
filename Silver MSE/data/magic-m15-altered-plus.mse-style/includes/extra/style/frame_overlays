@@ -5,7 +5,7 @@ crown:
 	height: 523
 	render style: image
 	image: {if (is_clear() or clear_tops()) and not is_devoid() or is_devoid2() then "modules/legend/xcrown.png" else if is_fnm() then set_mask(image:crown_background(), mask:"modules/legend/fnm_mask.png") else module_crown()}
-	z index: 15
+	z index: 128
 	visible: {is_legend() and not is_map() and not use_porthole()}
 	mask: {if is_legend() and card.crown_type != "custom" and (is_curtains() or is_puma() or is_devoid() or is_devoid2() or is_oldYGO()) then "imagemasks/curtainmask.png" else if is_season() then "crown_season_mask.png" else if use_ocean() then "imagemasks/crown_voyager.png" else ""}
 curtain:
@@ -15,7 +15,7 @@ curtain:
 	height: 523
 	render style: image
 	image: {if is_cons() then cons_background() else curtain_background()}
-	z index: 10
+	z index: 100
 	visible: {is_cons() or is_curtains()}
 	mask: {if is_legend() and is_curtains() then "limagemasks/curtainmask.png"}
 scrolls:
@@ -26,7 +26,7 @@ scrolls:
 	render style: image
 	image: {if is_puma() then "modules/extras/puma.png" else ("trims/conspiracy/" + if is_full_art() then "full_" else "") + "consscrolls.png"}
 	mask: {if is_puma() then "imagemasks/puma_mask3.png" else ""}
-	z index: 11
+	z index: 110
 	visible: {is_scrolls() or is_puma()}
 miracle overlay:
 	left: 0
@@ -35,14 +35,14 @@ miracle overlay:
 	height: 523
 	render style: image
 	image: {if (is_clear() or clear_tops()) and not is_devoid() or is_devoid2() then "modules/miracles/xmiracle.png" else miracle_background()}
-	z index: 11
+	z index: 110
 	visible: {is_miracle()}
 season flag:
 	left: 0
 	top: 0
 	width: 375
 	height: 523
-	z index: 13
+	z index: 130
 	render style: image
 	image: { season_background() }
 	visible: { is_season() }
@@ -52,7 +52,7 @@ special guest overlay:
 	top: 0
 	width: 375
 	height: 523
-	z index: 12
+	z index: 120
 	render style: image
 	image: modules/extras/specialguest_overlay.png
 	visible: {is_specialguest()}
@@ -61,7 +61,7 @@ readable overlay:
 	top: 0
 	width: 375
 	height: 523
-	z index: 12
+	z index: 120
 	render style: image
 	image: modules/extras/readable_overlay.png
 	visible: {is_readable()}

@@ -1,5 +1,5 @@
 level 0:
-	z index: 17
+	z index: 170
 	left: {if box_leveler() then 8 else if loy_leveler() then 14 else if space_leveler() then 14 else 21}
 	top: {l1_center() - (if aug_leveler(0) then 4 else 2) - (if center_label(0) then 6 else 0) + arrow_offset(0) - (if space_leveler() then 10 else 0)}
 	width: {if is_leveler() or card.level_0 != "" then (34 + (if box_leveler() then 30 else 0) - (if space_leveler() then 10 else 0)) else 0}
@@ -16,7 +16,7 @@ level 0:
 		name: { styling.level_mana_symbols }
 		size: {12 + if center_label(0) then 0.5 else 0}
 level 1:
-	z index: 17
+	z index: 170
 	left: {if box_leveler() then 8 else if loy_leveler() then 14 else if space_leveler() then 14 else 21}
 	top: {l2_center() - (if aug_leveler(1) then 4 else 2) - (if center_label(1) then 6 else 0) + arrow_offset(1) - (if space_leveler() then 10 else 0)}
 	height: 22
@@ -33,7 +33,7 @@ level 1:
 		name: { styling.level_mana_symbols }
 		size: {12 + if center_label(0) then 0.5 else 0}
 level 2:
-	z index: 17
+	z index: 170
 	left: {if box_leveler() then 8 else if loy_leveler() then 14 else if space_leveler() then 14 else 21}
 	top: {l3_center() - (if aug_leveler(2) then 4 else 2) - (if center_label(2) then 6 else 0) + arrow_offset(2) - (if space_leveler() then 10 else 0)}
 	width: {if is_leveler() or card.level_2 != "" then (34 + (if box_leveler() then 30 else 0) - (if space_leveler() then 10 else 0)) else 0}
@@ -50,7 +50,7 @@ level 2:
 		name: { styling.level_mana_symbols }
 		size: {12 + if center_label(0) then 0.5 else 0}
 level 3:
-	z index: 17
+	z index: 170
 	left: {if box_leveler() then 8 else if loy_leveler() then 14 else if space_leveler() then 14 else 21}
 	top: {l4_center() - (if aug_leveler(3) then 4 else 2) - (if center_label(3) then 6 else 0) + arrow_offset(3) - (if space_leveler() then 10 else 0)}
 	width: {if is_leveler() or card.level_2 != "" then (34 + (if box_leveler() then 30 else 0) - (if space_leveler() then 10 else 0)) else 0}

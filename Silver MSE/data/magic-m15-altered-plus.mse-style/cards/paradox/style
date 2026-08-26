@@ -203,14 +203,14 @@ card style:
 		right width:  17
 		top width:    17
 		bottom width: 18
-		z index: 4
+		z index: 40
 		mask: border_mask.png
 	card color:
 		left:	0
 		top:	0
 		width:	375
 		height:	523
-		z index: 0
+		z index: 00
 		render style: image
 		popup style: in place
 		image: { card_background() }
@@ -222,7 +222,7 @@ card style:
 		height: { 23 - (0.5 * shrink_name()) }
 		alignment: bottom shrink-overflow
 		padding bottom: 0
-		z index: 1
+		z index: 10
 		font:
 			name: Beleren Bold
 			size: { 16 - shrink_name()}
@@ -241,14 +241,14 @@ card style:
 			size: 15
 			alignment: middle right
 		always symbol: true
-		z index: 2
+		z index: 20
 		padding top: 0
 	card symbol:
 		left: {if card.card_symbol=="none" then 20 else 30}
 		top: 29
 		height: 20
 		width: 14
-		z index: 1
+		z index: 10
 		render style: image
 		choice images:
 			tombstone: cardicons/tombstone.png
@@ -258,7 +258,7 @@ card style:
 		top: 59
 		width: 316
 		height:	231
-		z index: 1
+		z index: 10
 		default: {default_image(card.card_color)}
 	############################# Card type
 	indicator:
@@ -266,7 +266,7 @@ card style:
 		top: 300
 		width: 17
 		height: 17
-		z index: 2
+		z index: 20
 		render style: image
 		visible: { has_identity() }
 		image: { card_identity() }
@@ -276,7 +276,7 @@ card style:
 		width: { (if has_identity() then "290" else "310") - max(22,card_style.rarity.content_width) }
 		height: { 20  - shrink_type() }
 		alignment: top shrink-overflow
-		z index: 1
+		z index: 10
 		padding top: 2
 		font:
 			name: Beleren Bold
@@ -288,7 +288,7 @@ card style:
 		top: 297
 		width: 44
 		height: 22
-		z index: 2
+		z index: 20
 		render style: image
 		alignment: middle right
 		choice images:
@@ -347,7 +347,7 @@ card style:
 				   styling.center_text == "always"
 				then "middle center"
 				else "middle left"
-		z index: 2
+		z index: 20
 		padding left:   6
 		padding right:  4
 		line height hard: {if is_modal(card.text) then 0.9 else 1.2 }
@@ -360,14 +360,14 @@ card style:
 		top: 321
 		width: 138
 		height: 166
-		z index: 1
+		z index: 10
 		render style: image
 		popup style: in place
 		alignment: middle center
 		include file: /magic-watermarks.mse-include/watermarks
 	############################# PT
 	pt:
-		z index: 2
+		z index: 20
 		left: 286
 		top: 469
 		width: 60
@@ -384,7 +384,7 @@ card style:
 		top: 498
 		width: 40
 		height: 10
-		z index: 1
+		z index: 10
 		font:
 			name: Relay-Medium
 			size: 7
@@ -396,7 +396,7 @@ card style:
 		top: 497.5
 		width: 200
 		height: 10
-		z index: 1
+		z index: 10
 		font:
 			name: Beleren Small Caps Bold
 			size: 7.25
@@ -406,7 +406,7 @@ card style:
 		top: { if card.pt != "" or use_vorthos() then 500 else 488 }
 		width: 140
 		height: 10
-		z index: 2
+		z index: 20
 		visible: {not set.automatic_copyright}
 		alignment: middle right shrink-overflow
 		font:
@@ -480,7 +480,7 @@ extra card style:
 		top: 488
 		width: 120
 		height: 10
-		z index: 1
+		z index: 10
 		font:
 			name: Relay-Medium
 			size: 7
@@ -491,7 +491,7 @@ extra card style:
 		top: 500
 		width: 12
 		height: 7
-		z index: 1
+		z index: 10
 		render style: image
 		image: modules/extras/artist_arrow.png
 	pt box:
@@ -499,7 +499,7 @@ extra card style:
 		top: 466
 		width: 81
 		height:	42
-		z index: 1
+		z index: 10
 		visible: { card.pt != "" }
 		render style: image
 		image: { card_ptbox() }
@@ -508,7 +508,7 @@ extra card style:
 		top: 472
 		width: 46
 		height: 26
-		z index: 1
+		z index: 10
 		visible: { is_rare() and styling.use_holofoil_stamps }
 		render style: image
 		image: { card_stamp() }
@@ -517,7 +517,7 @@ extra card style:
 		top: 472
 		width: 46
 		height: 26
-		z index: 1
+		z index: 10
 		visible: { is_rare() and styling.use_holofoil_stamps }
 		render style: image
 		image: foil_stamp.png
@@ -526,7 +526,7 @@ extra card style:
 		top : 0
 		width: 375
 		height: 523
-		z index: 3
+		z index: 30
 		render style: image
 		image: {if styling.overlay == "" then nil else styling.overlay + "/overlay.png"}
 		mask: { if is_rare() then "foil_mask_rare.png" else "foil_mask.png" }
@@ -535,7 +535,7 @@ extra card style:
 		top: { if card.pt != "" or use_vorthos() then 500 else 488 }
 		width: 140
 		height: 10
-		z index: 2
+		z index: 20
 		alignment: middle right shrink-overflow
 		visible: {set.automatic_copyright}
 		font:
@@ -548,7 +548,7 @@ extra card style:
 		top: { bar_equation() }
 		width: 375
 		height: 1
-		z index: 1
+		z index: 10
 		render style: image
 		image: modules/extras/bar.png
 		visible: { card.rule_text != "" and remove_tags(card.flavor_text) != "" and set.use_flavor_bar }
@@ -557,7 +557,7 @@ extra card style:
 		top: 488
 		left: 210
 		height: {if use_vorthos() then 10 else 0}
-		z index: 3
+		z index: 30
 		alignment: middle right
 		font:
 			name: Relay-Medium

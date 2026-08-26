@@ -5,7 +5,7 @@ backdfc:
 	height: 523
 	render style: image
 	image: {backdfc_background()}
-	z index: 11
+	z index: 110
 	visible: {is_backdfc()}
 	mask: {"imagemasks/backdfcmask.png"}
 front modal flag:
@@ -15,7 +15,7 @@ front modal flag:
 	height: 20
 	render style: image
 	image: {front_flag_image()}
-	z index: 15
+	z index: 150
 	visible: {has_trim("back flag")  }
 
 back modal flag:
@@ -25,14 +25,14 @@ back modal flag:
 	height: 20
 	render style: image
 	image: {back_flag_image()}
-	z index: 15
+	z index: 150
 	visible: {has_trim("front flag")  }
 corner:
 	left: { if is_map() then 22 else 19}
 	top: 25
 	height: 31
 	width: {if use_node() then 31 else 0}
-	z index: 17
+	z index: 170
 	render style: image
 	visible: {use_node()}
 	choice images:

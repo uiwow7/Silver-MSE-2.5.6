@@ -5,7 +5,7 @@ prototype overlay:
 	height: 60
 	render style: image
 	image: {prototype_colors()}
-	z index: 14
+	z index: 140
 	visible: {is_prototype()}
 prototype cost:
 	left: 253
@@ -14,7 +14,7 @@ prototype cost:
 	height: 24
 	render style: image
 	image: {prototype_cost()}
-	z index: 15
+	z index: 150
 	visible: {is_prototype()}
 prototype pt:
 	left: 288
@@ -23,5 +23,5 @@ prototype pt:
 	height: 32
 	render style: image
 	image: {prototype_pt()}
-	z index: 15
+	z index: 150
 	visible: {is_prototype()}
