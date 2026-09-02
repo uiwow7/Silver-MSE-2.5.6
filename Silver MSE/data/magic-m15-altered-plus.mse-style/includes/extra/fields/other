@@ -1,0 +1,97 @@
+## Mainframe rarity 
+extra card field:
+	type: choice
+	name: mainframe rarity
+	choice: rarity
+	save value: false
+	editable: false
+## Other overlays
+extra card field:
+	type: choice
+	name: arcun overlay
+	choice: car door
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: Bevel overlay
+	choice: car door
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: Chain
+	choice: card door
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: Gold Bevel overlay
+	choice: car door
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: smallbox overlay
+	script: card.card_color
+	save value: false
+	editable: false
+## Promo label
+extra card field:
+	type: text
+	name: promo label
+	save value: true
+	description: The golden promo label.
+## Mutbar & ascend (not sure what these are)
+extra card field:
+	type: choice
+	name: mutbar
+	choice: bar
+	editable: false
+	save value: false
+	show statistics: false
+extra card field:
+	type: color
+	name: silver patch
+	script: rgb(0,0,0)
+extra card field:
+	type: text
+	name: ascend
+	script: text_filter(value, card_name:card.name, margin_code:"unknown")
+## Smallbox text
+extra card field:
+	type: text
+	name: smallbox text
+	save value:true
+	editable: true
+	multi line: true
+	description: smallbox
+## Brave & comm box
+extra card field:
+	type: choice
+	name: Brave overlay
+	choice: car door
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: comm box
+	choice: car door
+	save value: false
+	editable: false
+## Foil overlay
+extra card field:
+	type: choice
+	name: foil overlay
+	choice: chapter
+	editable: false
+	save value: false
+	show statistics: false
+## SPG Overlay
+extra card field:
+	type: choice
+	name: special guest overlay
+	choice: t 
+	editable: false
+	save value: false
+	show statistics: false

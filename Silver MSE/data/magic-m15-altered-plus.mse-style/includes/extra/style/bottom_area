@@ -1,0 +1,143 @@
+pt box:
+	left: 
+		script:
+			if is_leveler() 
+			and not lone_pt() 
+				then leveler_ptbox_left() 
+			else if is_map() 
+				then 270 
+			else 273
+	top:  
+		script: 
+			if is_leveler() 
+			and not lone_pt() 
+				then (
+					l1_center() 
+					- (
+						if is_map() 
+							then 26 
+						else 18
+					)
+					+ leveler_ptbox_top_offset()
+				) 
+			else if is_halfart() 
+			or is_thbland() 
+				then 476 
+			else if is_map() 
+				then 453 
+			else if use_porthole() 
+				then 460 
+			else 466
+	width:  
+		script:
+			if starting_loyalty() 
+			and not is_leveler() 
+				then 0 
+			else if is_map() 
+				then 90 
+			else leveler_ptbox_width()
+	height:	 
+		script:
+			if is_map() 
+				then 54 
+			else leveler_ptbox_height()
+	z index: 140
+	visible: { card.pt != "" and not is_old() }
+	render style: image
+	image: 
+		script: 
+			if is_map() 
+				then mappt_background()
+			else if space_leveler() 
+				then station_ptbox()
+			else if is_vehicle() 
+			and (
+				not is_legend() 
+				or chosen(
+					styling.other_options, 
+					choice:"brown legendary vehicle pt"
+				)
+			) 
+				then "trims/vehicle/vpt.png" 
+			else if is_familiar() 
+			or is_familiarpt() 
+				then "trims/familiar/fmpt.png" 
+			else if is_clear() 
+			and not is_backdfc() 
+				then "cards/normal/cpt.png" 
+			else if use_gold() 
+				then "cards/gold/goldpt.png" 
+			else if is_backdfc() 
+				then pt2() 
+			else if use_porthole() 
+				then "cards/voyager/portholept.png" 
+			else choose_ptbox() 
+	
+pt box 2:
+	left: {leveler_ptbox_left()}
+	top: { l2_center() - (if is_map() then 26 else 15) + leveler_ptbox_top_offset()}
+	width: { if (is_leveler() and not lone_pt()) or card.pt_2 != "" then (if is_map() then 90 else leveler_ptbox_width()) else 0}
+	height:	{ if (is_leveler() and not lone_pt()) or card.pt_2 != "" then (if is_map() then 54 else leveler_ptbox_height()) else 0}
+	z index: 130
+	visible: { card.pt_2 != "" and not is_prototype() }
+	render style: image
+	image: {if is_map() then mappt_background() else if space_leveler() then station_ptbox() else combine_blend(image1: lv_2_ptbox(), image2: "modules/extras/ptbox_multiply_1.png", combine: "multiply")}
+pt box 3:
+	left: {leveler_ptbox_left()}
+	top: { l3_center() - (if is_map() then 26 else 15) + leveler_ptbox_top_offset()}
+	width: { if (is_leveler() and not lone_pt()) or card.pt_3 != "" then (if is_map() then 90 else leveler_ptbox_width()) else 0}
+	height:	{ if (is_leveler() and not lone_pt()) or card.pt_3 != "" then (if is_map() then 54 else leveler_ptbox_height()) else 0}
+	z index: 130
+	visible: { card.pt_3 != "" }
+	render style: image
+	image: {if is_map() then mappt_background() else if space_leveler() then station_ptbox() else combine_blend(image1: lv_3_ptbox(), image2: "modules/extras/ptbox_multiply_2.png", combine: "multiply")}
+pt box 4:
+	left: {leveler_ptbox_left()}
+	top: { l4_center() - (if is_map() then 26 else 15) + leveler_ptbox_top_offset()}
+	width: { if (is_leveler() and not lone_pt()) or card.pt_3 != "" then (if is_map() then 90 else leveler_ptbox_width()) else 0}
+	height:	{ if (is_leveler() and not lone_pt()) or card.pt_3 != "" then (if is_map() then 54 else leveler_ptbox_height()) else 0}
+	z index: 130
+	visible: { card.pt_7 != "" }
+	render style: image
+	image: {if is_map() then mappt_background() else if space_leveler() then station_ptbox() else combine_blend(image1: lv_4_ptbox(), image2: "modules/extras/ptbox_multiply_3.png", combine: "multiply")}
+loyalty box:
+	right: 362
+	top: 466
+	width: 60
+	height: 38
+	z index: 160
+	render style: image
+	visible: { starting_loyalty() and card.loyalty != "" }
+	choice images:
+		loyalty: modules/loyalty/loyalty.png
+	image: {"modules/loyalty/loyalty.png"}
+stamp backing:
+	left: { 159 }
+	top: { stamp_top() }
+	height: { 26 }
+	width: { 56 }
+	visible: { card.card_stamp != "none" and styling.use_holofoil_stamps }
+	render style:	image
+	image: { if stamp_shape() == "triangle" then tri_stamp() else round_stamp() }
+	z index: 125
+#foil layer:
+#	left: 0
+#	top : 0
+#	width: 375
+#	height: 523
+#	z index: 190
+#	render style: image
+#	image: {if styling.overlay == "" then nil else styling.overlay + "/overlay.png"}
+#	mask: { "imagemasks/foil_mask" + (if card.pt != "" then "_pt") + (if is_rare() and styling.use_holofoil_stamps then "_rare") + ".png" }
+vorthos box:
+	right: { if is_leveler() and not lone_pt() then 350 else if (starting_loyalty() and card.loyalty != "") then 300 else if (card.pt != "" and not starting_loyalty()) then 275 else 350 }
+	top: {if card.pt == "" and shown_cr() then 500 else 488}
+	width: { if is_leveler() and not lone_pt() then 140 else if (starting_loyalty() and card.loyalty != "") then 90 else if (card.pt != "" and not starting_loyalty()) then 65 else 140 }
+	height: {if use_vorthos() then 10 else 0}
+	z index: 130
+	alignment: middle right
+	font:
+		name: Relay-Medium
+		size: 7
+		color: white
+		weight: bold

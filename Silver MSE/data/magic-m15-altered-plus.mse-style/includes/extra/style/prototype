@@ -1,0 +1,27 @@
+prototype overlay:
+	left: 25
+	top: {if is_mutate() then 392.7 else 325.5}
+	width: 324
+	height: 60
+	render style: image
+	image: {prototype_colors()}
+	z index: 140
+	visible: {is_prototype()}
+prototype cost:
+	left: 253
+	top: {if is_mutate() then 395 else 327.8}
+	width: 92
+	height: 24
+	render style: image
+	image: {prototype_cost()}
+	z index: 150
+	visible: {is_prototype()}
+prototype pt:
+	left: 288
+	top: {if is_prototype() and is_mutate() then 419.8 else 352.6}
+	width: {if card.pt_2 != "" then 66 else 0}
+	height: 32
+	render style: image
+	image: {prototype_pt()}
+	z index: 150
+	visible: {is_prototype()}

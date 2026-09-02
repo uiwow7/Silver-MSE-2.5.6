@@ -1,0 +1,56 @@
+extra card field:
+	type: choice
+	name: miracle overlay
+	choice: miracle
+	save value: false
+	editable: false
+	script: card.card_color
+extra card field:
+	type: choice
+	name: flavor bar
+	choice: bar
+	editable: false
+	save value: false
+	show statistics: false
+extra card field:
+	type: text
+	name: tarot watermark
+extra card field:
+	type: choice
+	name: curtain
+	script: card.card_color
+	editable: false
+	save value: false
+	show statistics: false
+extra card field:
+	type: choice
+	name: scrolls
+	script: card.card_color
+	editable: false
+	save value: false
+	show statistics: false
+extra card field:
+	type: choice
+	name: crown
+	script: card.card_color
+	editable: false
+	save value: false
+	show statistics: false
+extra card field:
+	type: choice
+	name: season flag
+	script: card.card_color
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: loyalty box
+	editable: false
+	choice: loyalty
+	save value: false
+extra card field:
+	type: choice
+	name: readable overlay
+	editable: false
+	choice: no reading
+	save value: false

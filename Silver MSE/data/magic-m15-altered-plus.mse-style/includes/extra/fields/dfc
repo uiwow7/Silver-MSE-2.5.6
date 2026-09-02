@@ -1,0 +1,119 @@
+# extra card field:
+# 	type: choice
+# 	name: backdfc
+# 	choice: backdfc
+# 	save value: false
+# 	editable: false
+# 	script: card.card_color
+# extra card field:
+# 	type: choice
+# 	name: corner
+# 	choice: none
+# 	choice: lesson
+# 	choice: custom
+# 	choice: sanctum
+# 	choice: modal front
+# 	choice: modal back
+# 	choice: day
+# 	choice: night
+# 	choice: moon
+# 	choice: eldrazi
+# 	choice: compass
+# 	choice: artifact
+# 	choice: creature
+# 	choice: enchantment
+# 	choice: instant
+# 	choice: land
+# 	choice: multitype
+# 	choice: sorcery
+# 	choice: planeswalker
+# 	choice: structure
+# 	choice: aetherprint
+# 	choice:
+# 		name: sparker colors
+# 		choice: white
+# 		choice: blue
+# 		choice: black
+# 		choice: red
+# 		choice: green
+# 		choice: multicolor
+# 		choice: colorless
+# 	default: "lesson"
+# 	save value: true
+# 	editable: true
+# extra card field:
+# 	type: multiple choice
+# 	name: front modal flag
+# 	empty choice: colorless
+# 	choice: white
+# 	choice: blue
+# 	choice: black
+# 	choice: red
+# 	choice: green
+# 	choice:
+# 		name: silver
+# 		line below: true
+# 	choice: artifact
+# 	choice: snow
+# 	choice: land
+# 	choice: multicolor
+# 	choice:
+# 		name: hybrid
+# 		line below: true
+# 	choice:
+# 		name: horizontal
+# 		type: radio
+# 	choice:
+# 		name: vertical
+# 		type: radio
+# 	choice:
+# 		name: radial
+# 		type: radio
+# 	choice:
+# 		name: diagonal
+# 		type: radio
+# 	choice:
+# 		name: overlay
+# 		type: radio
+# 	choice:
+# 		name: reversed
+# 	script: card_color_filter(value)
+# 	show statistics: false
+# extra card field:
+# 	type: multiple choice
+# 	name: back modal flag
+# 	empty choice: colorless
+# 	choice: white
+# 	choice: blue
+# 	choice: black
+# 	choice: red
+# 	choice: green
+# 	choice:
+# 		name: silver
+# 		line below: true
+# 	choice: artifact
+# 	choice: snow
+# 	choice: land
+# 	choice: multicolor
+# 	choice:
+# 		name: hybrid
+# 		line below: true
+# 	choice:
+# 		name: horizontal
+# 		type: radio
+# 	choice:
+# 		name: vertical
+# 		type: radio
+# 	choice:
+# 		name: radial
+# 		type: radio
+# 	choice:
+# 		name: diagonal
+# 		type: radio
+# 	choice:
+# 		name: overlay
+# 		type: radio
+# 	choice:
+# 		name: reversed
+# 	script: card_color_filter(value)
+# 	show statistics: false

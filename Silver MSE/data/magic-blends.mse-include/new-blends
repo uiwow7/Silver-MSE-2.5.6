@@ -934,8 +934,8 @@ color_background := {
 	
 	# Determine background (allows styles to hook something else here)
 	# This is implicitly passed the following parameters: type, shape, colors, color_count, base_hybrid, land, multi, hybrid, artifact, multicolor_blend, hybrid_blend, artifact_blend
-	color_combination(folder:folder, blend_type:blend_type)
-}@(folder: "", blend_type: "", multicolor_blend: "mask", hybrid_blend: "mask", artifact_blend: "mask")
+	color_combination(folder:folder, blend_type:blend_type, masks_folder:masks_folder)
+}@(folder: "", blend_type: "", multicolor_blend: "mask", hybrid_blend: "mask", artifact_blend: "mask",masks_folder:"")
 
 color_combination := {
 	# does this have an override blend_type?
@@ -1053,11 +1053,11 @@ color_combination := {
 	## if we have a mode, blend that, otherwise use our base gradient
 	if mode == "" then base() else conditional_masked_blend()
 	
-}@(folder: "", blend_type:"")
+}@(folder: "", blend_type:"",masks_folder:"")
 
 conditional_masked_blend :=
 {
-	mask := "{folder}{mode}_blend_{blend_type}.png"
+	mask := "{folder}{masks_folder}{mode}_blend_{blend_type}.png"
 	mode :=	if		mode == "multicolor" then	multicolor_blend
 			else if	mode == "artifact" then		artifact_blend
 			else								hybrid_blend

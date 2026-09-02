@@ -5372,10 +5372,7 @@ pinline_mask_3 := {""}
 ############################################################## Crown
 crowns_folder := {"/magic-modules.mse-include/crowns/375/"}
 module_legend_crown_template := { crowns_folder() + input + "crown.png" }
-module_borderless_crown_template := { crowns_folder() + "borderless/" + input + "crown.png" }
-module_nyx_crown_template := { crowns_folder() + "nyx/" + input + "crown.png" }
-module_companion_crown_template := { crowns_folder() + "companion/" + input + "crown.png" }
-module_brawl_crown_template := { crowns_folder() + "brawl/" + input + "crown.png" }
+crown_template := { crowns_folder() + type + "/" + input + "crown.png" }@(type: "")
 module_custom_crown_template := { 
 	"/magic-mainframe-extras.mse-include/"
 	+ styling.custom_crown_location
@@ -5386,14 +5383,23 @@ module_custom_crown_template := {
 module_crown_template := {
 	crown_shape := styling.legend_crown or else crown_type
 	if override != "" then crown_shape := override
-	case crown_shape of
-		"borderless": module_borderless_crown_template(),
-		"nyx": module_nyx_crown_template(),
-		"companion": module_companion_crown_template(),
-		"brawl": module_brawl_crown_template(),
-		"custom": module_custom_crown_template(),
-		else: module_legend_crown_template();
+
+	if crown_shape == "custom" then module_custom_crown_template()
+	else if crown_shape == "standard" or crown_shape == "normal" then module_legend_crown_template()
+	else crown_template(type: crown_shape)
 }@(crown_type:"normal", override:"")
+
+# module_crown_template := {
+# 	crown_shape := styling.legend_crown or else crown_type
+# 	if override != "" then crown_shape := override
+# 	case crown_shape of
+# 		"borderless": module_borderless_crown_template(),
+# 		"nyx": module_nyx_crown_template(),
+# 		"companion": module_companion_crown_template(),
+# 		"brawl": module_brawl_crown_template(),
+# 		"custom": module_custom_crown_template(),
+# 		else: module_legend_crown_template();
+# }@(crown_type:"normal", override:"")
 module_crown_mask := {""}
 
 module_crown := { color_background(type:"crown",     base_hybrid:card_hybrid, folder:crowns_folder()) }
@@ -7048,6 +7054,166 @@ linked_dfc_compat_map := {
 		casting_cost_3:		front.casting_cost_2,
 		watermark_3:		front.watermark_2,
 	]
+}
+
+has_trim := {
+	chosen(card.card_trim, choice: input) or chosen(card.card_trim, choice: input + " ") or
+	chosen(card.card_trim_plus, choice: input) or chosen(card.card_trim_plus, choice: input + " ")
+}
+
+
+check_nyx_trim := {
+	lang_setting(
+		"is_enchantment"
+	)(
+		card_type
+	) 
+	and set.auto_nyx 
+	and not(
+		lang_setting(
+			"is_creature"
+		)(
+			card_type
+		) 
+		and set.auto_star
+	)
+}
+
+check_star_trim2 := {
+	lang_setting(
+		"is_enchantment"
+	)(
+		card_type
+	) 
+	and set.auto_star 
+	and (
+		lang_setting(
+			"is_creature"
+		)(
+			card_type
+		) 
+		and set.auto_nyx
+	)
+}
+
+is_type := {
+	lang_setting("is_{input}")(type)
+}
+
+match_erysite := match@(match: "(?i)Erysite")
+match_anima 		:= contains@(match: "Anima")
+match_path 			:= contains@(match: "Pathbound")
+match_revelation	:= contains@(match: "Revelation")
+match_entity		:= contains@(match: "Entity")
+match_wonder		:= contains@(match: "Wonder")
+match_frontier		:= contains@(match: "Frontier")
+match_celestial		:= contains@(match: "Celestial")
+match_realm			:= contains@(match: "Realm")
+match_focus			:= contains@(match: "Focus")
+match_chain			:= contains@(match: "Chain")
+match_vertex		:= contains@(match: "Vertex")
+match_kindred		:= contains@(match: "Kindred")
+match_foretell		:= contains@(match: "Foretell")
+match_realize		:= contains@(match: "Realize")
+match_skill			:= contains@(match: "Skill")
+match_token			:= contains@(match: "Token")
+
+
+check_star_trim := {
+	true
+}
+
+check_sanctum := {
+	# false
+	# true
+	match_wonder(card_sub_type) 
+	or match_frontier(card_sub_type) 
+	or match_celestial(card_sub_type) 
+	or match_realm(card_sub_type) 
+}
+
+check_path := {
+	match_path(lv_1) or match_anima(card_sub_type)
+}
+
+card_trim_default := {
+	""
+	+ (if check_nyx_trim() and set.alternate_nyx == "" then "nyx")
+	+ (if is_type("vehicle", type: card_sub_type) then ", vehicle")
+	+ (if is_type("snow", type: card_type) then ", snow")
+	+ (if match_revelation(card_sub_type) and not match_realize(card_text) then ", paradox")
+	+ (if match_realize(card_text) then ", inverted")
+	+ (if is_type("legendary", type: card_type) and set.auto_legends then ", legend")
+	+ (if match_erysite(card_sub_type) or match_skill(card_type) or match_token(card_type) then ", frameless art")
+	+ (if match_focus(sub_type_2) then ", adventure focus")
+	+ (if match_chain(sub_type_2) then ", adventure chain")
+	+ (if match_vertex(type_2) then ", adventure reversed")
+	+ (if match_path(lv_1) then ", mutate")
+}
+
+card_trim_plus_default := {
+	""
+	+ (if check_star_trim2() then ", star")
+	+ (if check_path() then ", path")
+	+ (if match_entity(card_sub_type) then ", familiar")
+	+ (if match_realize(card_text) then ", forge")
+	+ (if check_sanctum() then ", frontier")
+	+ (if match_kindred(card_type) and not has_trim("nyx") and not has_trim("star") and not match_revelation(card_sub_type) then ", hands")
+	+ (if check_nyx_trim() and set.alternate_nyx != "" then ", " + set.alternate_nyx)
+}
+
+card_trim_filter := {
+	input := exclusive_choice(choices: "frameless art, borderless art, special guest")
+	if (chosen(choice: "fullart")) then
+		input := require_choice(choices: "frameless art, borderless art")
+	if (contains(match: "foil")) then
+		input := require_exclusive_choice(choices: "foil normal, foil fracture, foil ghost, foil holes, foil jss, foil oil, foil old, foil oldfeed, foil parallel, foil polishedstone, foil ripples")
+	if (chosen(choice: "special guest")) then
+		input := require_choice(choice: "inverted")
+	if (chosen(choice: "adventure chain")) then
+		input:= require_choice(choice: "adventure focus")
+	if (contains(match: "adventure")) then
+		input := require_exclusive_choice(choices: "adventure normal, adventure focus, adventure omen")
+
+	input
+}
+
+crown_type_default := {
+	if has_trim("space") 
+		then "space"
+	else if has_trim("nyx") 
+		then "nyx"
+	else if has_trim("star") 
+		then "star"
+	else if (has_trim("borderless art") or has_trim("frameless art") or has_trim("special guest"))
+		then "borderless"
+	else 
+		"normal"
+}
+
+crown_type_filter := {
+	require_exclusive_choice(choices: "normal, companion, brawl, star, space, nyx, borderless, custom")
+}
+
+watermark_default := {
+	"" +
+	(if match_foretell(text) then "other magic symbols foretell2")
+}
+
+alias_type_default := {
+	if match_frontier(card_sub_type) or match_realm(card_sub_type) or match_celestial(card_sub_type)
+		then "starts in sanctum" 
+	else "none"
+}
+
+alias_type_filter := {
+	require_exclusive_choice(choices: "none, godzilla, starts in sanctum")
+}
+
+alias_default := {
+	if chosen(alias_type, choice: "starts in sanctum") 
+		then "This card can start in your sanctum.                             " 
+	else input
 }
 
 #### load the user overwrites here, doing it in game overwrites this file instead

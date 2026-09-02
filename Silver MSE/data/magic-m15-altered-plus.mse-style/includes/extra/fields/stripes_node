@@ -1,0 +1,21 @@
+extra card field:
+	type: choice
+	name: stripe
+	choice: stripe
+	editable: false
+	save value: false
+	show statistics: false
+extra card field:
+	type: choice
+	name: stripe 2
+	choice: stripe
+	editable: false
+	save value: false
+	show statistics: false
+extra card field:
+	type: choice
+	name: node
+	script: card.card_color
+	editable: false
+	save value: false
+	show statistics: false

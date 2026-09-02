@@ -1,0 +1,78 @@
+image:
+	left: {if is_clear() or is_map() or is_expanded_art() or is_devoid() or is_devoid2() or is_puma() or is_rem() or use_ocean() or use_styles() or use_wave() then 0 else if is_YGO() and is_mutate() then 14 else if is_full_art() then 23 else if clear_tops() then 15 else if is_mutate() and not is_YGO() then 22 else if is_YGO() and not is_mutate() then 14 else if use_porthole() then 38 else if is_saga() then 188 else 29}
+	top: {if is_map() then 57 else if is_clear() or is_expanded_art() or is_devoid() or is_devoid2() or clear_tops() or is_rem() or use_ocean() or use_styles() or use_wave() then 0 else if is_YGO() then 58 else if use_porthole() then 65 else 59}
+	width: {if is_clear() or is_map() or is_expanded_art() or is_devoid() or is_devoid2() or is_puma() or is_rem() or use_ocean() or use_styles() or use_wave() then 375 else if is_full_art() then 328 else if clear_tops() then 345 else if is_YGO() and is_mutate() then 347 else if is_mutate() and not is_YGO() then 330 else if is_YGO() then 347 else if use_porthole() then 288 else if is_ub() then 318 else if is_saga() then 157 else 316}
+	height:	{ (if is_clear() or is_expanded_art() or is_devoid() or is_devoid2() or is_rem() or use_styles() then 523 else if is_map() then 241 else if is_YGO() and is_mutate() then 334 else if is_puma() then 265 else if is_full_art() then 423 else if clear_tops() then 291 else if is_mutate() then 334 else if is_YGO() then 233 else if use_porthole() then 224 else if use_ocean() then 290 else if use_wave() then 295 else if is_ub() then 233 else if is_saga() then 379 else 231) + textbox_size_adjusted() }
+	z index: 110
+	default: {default_image(card.card_color)}
+	mask: 
+		script:
+				if is_sized() 
+				then "" 
+				else if is_glitch() 
+				then "imagemasks/glitch_mask.png"
+				else if is_devoid() 
+				or is_devoid2() 
+				then "imagemasks/image_mask_devoid.png" 
+				else if is_rem() 
+				then "imagemasks/rem_mask.png" 
+				else if is_YGO() 
+				and is_expanded_art() 
+				and not is_nopopout()
+				and not is_thbland()
+				and not is_halfart()  
+				then expanded_mask() 
+				else if is_YGO() 
+				and not is_mutate() 
+				and not is_full_art() 
+				and not is_expanded_art() 
+				then "imagemasks/YGO.png" 
+				else if is_YGO() 
+				and is_mutate() 
+				then "imagemasks/YGOmutatemask.png" 
+				else if is_clear() 
+				then "image_mask.png" 
+				else if use_porthole() 
+				then "cards/voyager/portholemask.png" 
+				else if use_styles() 
+				then "cards/voyager/styles_mask.png" 
+				else if is_thbland() 
+				then "bigimagemasks/thbland_frameless.png" 
+				else if is_halfart() 
+				then "imagemasks/halfartmask.png" 
+				else if is_puma() 
+				then "imagemasks/puma_mask" + (
+					if is_mutate() then "_mutate.png" else "3.png"
+				)	 
+				else if is_expanded_art() 
+				then expanded_mask() 
+				else if (
+				is_full_art() 
+				or is_full_art() 
+				and is_YGO()) 
+				then "imagemasks/image_mask" + (
+				if is_rare() and styling.use_holofoil_stamps then "_rare"
+			) + ".png" 
+				else if is_mutate() 
+				and not clear_tops() 
+				then "imagemasks/mutate_mask.png"
+				else ""
+
+mainframe image:
+	left: {if comma_count(styling.popout_image_style) == ",,,," then split_text(match:",", styling.popout_image_style).0 else "0"}
+	top: {if comma_count(styling.popout_image_style) == ",,,," then split_text(match:",", styling.popout_image_style).1 else "0"}
+	width: {if comma_count(styling.popout_image_style) == ",,,," then split_text(match:",", styling.popout_image_style).2 else "0"}
+	height: {if comma_count(styling.popout_image_style) == ",,,," then split_text(match:",", styling.popout_image_style).3 else "0"}
+	z index: 130
+mainframe image 2:
+	left: {if comma_count(styling.popout_image_style_2) == ",,,," then split_text(match:",", styling.popout_image_style_2).0 else "0"}
+	top: {if comma_count(styling.popout_image_style_2) == ",,,," then split_text(match:",", styling.popout_image_style_2).1 else "0"}
+	width: {if comma_count(styling.popout_image_style_2) == ",,,," then split_text(match:",", styling.popout_image_style_2).2 else "0"}
+	height: {if comma_count(styling.popout_image_style_2) == ",,,," then split_text(match:",", styling.popout_image_style_2).3 else "0"}
+	z index: 160
+image 2:
+	left: {if comma_count(styling.popunder_image_style) == ",,,," then split_text(match:",", styling.popunder_image_style).0 else if is_YGO() and not is_nopopout() and not is_YGO() then 89.7 else if is_YGO() then 73 else "0"}
+	top: {if comma_count(styling.popunder_image_style) == ",,,," then split_text(match:",", styling.popunder_image_style).1 else if is_YGO() and not is_nopopout() and not is_YGO() then 77.3 else if is_halfart() and is_YGO() and not is_nopopout() then 106.3 else if is_YGO() then 61 else "0"}
+	width: {if comma_count(styling.popunder_image_style) == ",,,," then split_text(match:",", styling.popunder_image_style).2 else if is_YGO() and not is_nopopout() and not is_YGO() then 194 else if is_YGO() then 227.7 else "0"}
+	height: {if comma_count(styling.popunder_image_style) == ",,,," then split_text(match:",", styling.popunder_image_style).3 else if is_YGO() and not is_nopopout() and not is_YGO() then 196 else if is_YGO() then 227.7 else "0"}
+	z index: 129

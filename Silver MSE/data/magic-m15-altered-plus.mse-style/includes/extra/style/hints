@@ -1,0 +1,54 @@
+back type hint:
+	left: 28
+	top: 471
+	width: {if has_trim("back flag") then 80 else 0}
+	height: 12
+	z index: 170
+	visible: {has_trim("back flag")  }
+	font:
+		name: Beleren Bold
+		size: 9
+		color: white
+back color hint:
+	right: 161
+	top: 471
+	width: {if has_trim("back flag") then 80 else 0}
+	height: 14
+	z index: 180
+	visible: {has_trim("back flag")  }
+	font:
+		name: MPlantin
+		size: 10
+		color: white
+	symbol font:
+		name: { styling.text_box_mana_symbols }
+		size: 10
+		scale down to: 6
+	alignment: right middle
+front type hint:
+	left: { if mainframe_walkerb() then 24 else 28}
+	top: 471
+	width: {if has_trim("front flag") then 80 else 0}
+	height: 12
+	z index: 180
+	visible: {has_trim("front flag")  }
+	font:
+		name: Beleren Bold
+		size: 9
+		color: black
+front color hint:
+	right: 161
+	top: 471
+	width: {if has_trim("front flag") then 80 else 0}
+	height: 14
+	z index: 170
+	visible: {has_trim("front flag")  }
+	font:
+		name: MPlantin
+		size: 10
+		color: black
+	symbol font:
+		name: { styling.text_box_mana_symbols }
+		size: 10
+		scale down to: 6
+	alignment: right middle

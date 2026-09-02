@@ -1,0 +1,78 @@
+# Should hybrids have a grey name?
+mask_hybrid_with_land := { 
+	styling.hybrid_name == "grey" 
+}
+mask_hybrid_with_gold := { 
+	styling.hybrid_name == "gold" 
+}
+
+use_altered_plus_holofoil := { 
+	true 
+}
+
+#Should multicolor lands with basic land types have a colored name?
+mask_multi_land_with_color := { 
+	styling.colored_multicolor_land_name 
+}
+#################### Here Lies things TVP has defined
+is_static := {
+	is_full_art() 
+	or is_map() 
+	or is_fnm() 
+	or is_inverted() 
+	or is_clear()
+}
+clamp := {
+	number := to_number(input) 
+	if number < minimum 
+	then minimum 
+	else if number > maximum 
+	then maximum 
+	else number
+}
+
+# Determine a rarity code for M15 styles.\
+shown_cr := {if set.automatic_copyright then set.copyright != "" else card.copyright != ""}
+card_shape := {if is_leveler() then "leveler" else if is_token() then "token" else if is_altcast() then "adventure" else "normal"}
+rarity_code := {
+	if not set.rarity_codes then ""
+	else if is_promo() then "P"
+	else if is_masterpiece() then "S"
+	else if contains(card.shape, match:"token") then "T"
+	else if contains(card.shape, match:"emblem") then "E"
+	else if card.rarity == "common" then "C"
+	else if card.rarity == "uncommon" then "U"
+	else if card.rarity == "rare" then "R"
+	else if card.rarity == "mythic rare" then "M"
+	else if card.rarity == "special" then "S"
+	else if card.rarity == "basic land" then "L" 
+	else ""
+}
+
+
+## Stamp stuff
+
+tri_stamp := {
+	if is_map() or is_clear() or is_thbland()
+		then template_prefix(type:"normal")["ubstamp"] + "_stamp.png"
+	else if is_devoid()
+		then template_prefix(type:"normal")["ubstamp"] + "devoid.png"
+	else module_ubstamp()
+}
+round_stamp := {
+	if is_map() or is_clear() or is_thbland()
+		then template_prefix(type:"normal")["stamp"] + "_stamp.png"
+	else if is_devoid()
+		then template_prefix(type:"normal")["stamp"] + "devoid.png"
+	else module_stamp()
+}
+stamp_top := {
+	sh := stamp_shape()
+	if is_map() and sh == "triangle"
+		then 472
+	else if is_clear()
+		then (if sh == "triangle" then 472 else 473)
+	else if is_thbland()
+		then 472
+	else 471
+}

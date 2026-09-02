@@ -1,0 +1,34 @@
+#### Style includes
+## Card code, artist arrow, pt boxes, stamp, copyright
+include file: includes/extra/fields/bottom_area
+## Card frames
+include file: includes/extra/fields/frames
+## Adventures/focus
+include file: includes/extra/fields/adventure
+## Trims (nyx, star, space, snow, etc.)
+include file: includes/extra/fields/trims
+## Prototype
+include file: includes/extra/fields/prototype
+## Pins
+include file: includes/extra/fields/pins
+## Frame overlays
+include file: includes/extra/fields/frame_overlays
+## Alias
+include file: includes/extra/fields/alias
+## Leveler
+include file: includes/extra/fields/level
+## Stripes & Node
+include file: includes/extra/fields/stripes_node
+## Dfc (backdfc, icon)
+include file: includes/extra/fields/dfc
+## Hints
+include file: includes/extra/fields/hints
+## Textbox sizing
+include file: includes/extra/fields/sizing
+## Saga
+include file: includes/extra/fields/saga
+## Everything else
+include file: includes/extra/fields/other
+#### Modules
+## Pride pins
+include file: /magic-pride.mse-include/extra_card_fields

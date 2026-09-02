@@ -1,0 +1,146 @@
+border color:
+	left: 0
+	top : 0
+	width:	{if is_borderless() or is_specialguest() then 0 else 375}
+	height:	523
+	radius: 18
+	left width:   17
+	right width:  17
+	top width:	17
+	bottom width: 18
+	z index: 140
+	mask: { "imagemasks/" + (if is_puma() then "puma_" else "") + (if is_legend() and not use_porthole() then "crown_border" else "border_mask") + (if card.border_color == rgb(200,200,200) then "_silver" else "") + ".png" }
+card color:	
+	left:	0
+	top:	0
+	width:	375
+	height:	523
+	z index: 100
+	render style: image
+	popup style: in place
+	image: { main_background() }
+	mask: { if is_sized() then "imagemasks/sized_mask.png" else "" }
+	visible: { not is_sized() }
+card color 2:
+	left:	0
+	top:	0
+	width:	375
+	height:	523
+	z index: 90
+	render style: image
+	popup style: in place
+	image: { main_background() }
+	mask: { if is_sized() then "imagemasks/sized_mask.png" else "" }
+	visible: { is_sized() }
+card trim:
+	left: 0
+	top: 50
+	width: 35
+	height: 150
+	# left: 0
+	# top: 0
+	# width: 375
+	# height: 523
+	z index: 9990
+	render style: image
+	popup style: in place
+	image: {""}
+	choice images:
+		default: {card_background(card.card_color)}
+		borderless art: bigimagemasks/borderless_frameless.png
+		frameless art: bigimagemasks/frameless.png
+		fullart: bigimagemasks/dka_borderless_frameless.png
+		puma: {puma_bar(card.card_color)}
+		clear: cards/clear/clear.png
+		devoid: {devoid_background(card.card_color)}
+		paradox: {paradox_background(card.card_color)}
+		universes beyond: {ub_background(card.card_color)}
+		inverted: {inverted_background(card.card_color)}
+		fnm promo: {fnm_background(card.card_color)}
+		map: {map_background(card.card_color)}
+		foil: /magic-overlay-foil-normal.mse-include/overlay.png
+		foil normal: /magic-overlay-foil-normal.mse-include/overlay.png
+		foil fracture: /magic-overlay-foil-fracture.mse-include/overlay.png
+		foil ghost: /magic-overlay-foil-ghost.mse-include/overlay.png
+		foil holes: /magic-overlay-foil-holes.mse-include/overlay.png
+		foil jss: /magic-overlay-foil-jss.mse-include/overlay.png
+		foil oil: /magic-overlay-foil-oil.mse-include/overlay.png
+		foil old: /magic-overlay-foil-old.mse-include/overlay.png
+		foil oldfeed: /magic-overlay-foil-oldfeed.mse-include/overlay.png
+		foil parallel: /magic-overlay-foil-parallel.mse-include/overlay.png
+		foil ripples: /magic-overlay-foil-ripples.mse-include/overlay.png
+		foil polishedstone: /magic-overlay-foil-polishedstone.mse-include/overlay.png
+		snow: {snow_background(card.card_color)}
+		vehicle: trims/vehicle/voverlay_full.png
+		legend: {crown_background(card.card_color)}
+		conspiracy: /magic-modules.mse-include/trims/conspiracy/full_consscrolls.png
+		draft matters: {cons_background(card.card_color)}
+		miracle: {miracle_background(card.card_color)}
+		nyx: {nyx_background(card.card_color)}
+		mutate: imagemasks/mutate_mask.png
+		prototype: {prototype_colors(card.card_color)}
+		adventure: {adventure_colors(card.card_color)}
+		adventure normal: modules/previews/adventure/normal.png
+		adventure focus: modules/previews/adventure/focus.png
+		adventure reversed: modules/previews/adventure/reversed.png
+		season: {season_background(card.card_color)}
+card trim plus:
+	left: 0
+	top: 200
+	width: 35
+	height: 150
+	# left: 0
+	# top: 0
+	# width: 375
+	# height: 523
+	z index: 9990
+	render style: image
+	popup style: in place
+	image: {""}
+	choice images:
+		star:         {star_background(card.card_color)}
+		space:       {space_background(card.card_color)}
+		sky:           {sky_background(card.card_color)}
+		forge:           {forge_background(card.card_color)}
+		frontier: {frontier_background(card.card_color)}
+		path:         {path_background(card.card_color)}
+		lush:         {lush_background(card.card_color)}
+		familiar: trims/familiar/foverlay_full.png
+		norm:         {card_background(card.card_color)}
+		hands:       {hands_background(card.card_color)}
+		Yugioh Frame: modules/bevel/bevel.png
+		backdfc: {backdfc_background(card.card_color)}
+		front flag: {front_flag_image(card.card_color)}
+		back flag: {back_flag_image(card.card_color)}
+		arcun overlay: modules/extras/arcunoverlay.png
+crown type:
+	left: 50
+	top: 10
+	width: 300
+	height: 20
+	z index: 9990
+	render style: image
+	image: {""}
+	popup style: in place
+	visible: {is_legend()}
+	choice images:
+		star: {star_background(card.card_color)}
+		space: {space_background(card.card_color)}
+		normal: /magic-modules.mse-include/crowns/icons/standard.png
+		nyx: /magic-modules.mse-include/crowns/icons/nyx.png
+		companion: /magic-modules.mse-include/crowns/icons/companion.png
+		brawl: /magic-modules.mse-include/crowns/icons/brawl.png
+		custom: /magic-modules.mse-include/crowns/icons/custom.png
+alias type:
+	left: 35
+	top: 55
+	width: 50
+	height: 20
+	z index: 9990
+	render style: image
+	image: {""}
+	popup style: in place
+	choice images:
+		none: /magic.mse-game/icons/choice-no.png
+		godzilla: modules/alias/xalias.png
+		evobar: modules/evobar/evobar-tip.png

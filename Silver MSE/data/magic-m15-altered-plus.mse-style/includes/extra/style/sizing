@@ -1,0 +1,54 @@
+typeline overlay:
+	left: 0
+	top: {textbox_size_adjusted()}
+	width: 375
+	height: 523
+	z index: 110
+	visible: { is_sized() }
+	render style: image
+	image: {typeline_img()}
+textbox top:
+	left: 0
+	top: {textbox_size_adjusted()}
+	width: 375
+	height: 523
+	z index: 110
+	visible: { is_sized() }
+	render style: image
+	image: {top_textbox_img()}
+textbox middle:
+	left: {mid_textbox_x()}
+	top: {mid_textbox_y()}
+	width: {mid_textbox_width()}
+	height: {mid_textbox_height()}
+	z index: 110
+	visible: { is_sized() }
+	render style: image
+	image: {middle_textbox_img()}
+texture:
+	left: 0
+	top: 0
+	width: 375
+	height: 523
+	z index: 80
+	visible: { is_sized() }
+	render style: image
+	image: {texture_background()}
+right image edge:
+	left: 346
+	top: 60
+	width: 3
+	height: { unchopped_top_of_textbox() - 59 }
+	z index: 80
+	visible: { is_sized() }
+	render style: image
+	image: {image_edge()}
+left image edge:
+	left: 25
+	top: 60
+	width: 3
+	height: { unchopped_top_of_textbox() - 59 }
+	z index: 80
+	visible: { is_sized() }
+	render style: image
+	image: {image_edge()}

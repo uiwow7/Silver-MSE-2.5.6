@@ -1,0 +1,6 @@
+extra card field:
+	type: multiple choice
+	name: pride pin
+	include file: pins
+	save value: true
+	editable: true

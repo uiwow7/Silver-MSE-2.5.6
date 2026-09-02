@@ -1,0 +1,64 @@
+mse version: 2.0.0
+game: magic
+short name: Altered Plus
+full name: M15 Mainframe w/Extraframes
+icon: card-sample.png
+installer group: magic/m15 style/normal cards
+position hint: 001
+version: 2020-09-04
+
+## Depends on
+include file: includes/packages
+
+card width: 375
+card height: 523
+card dpi: 150
+##### Flavor bar image by SirnightNano
+##### Ancestral generic mana by ancestral
+##### Nyx crowns by Angelus
+##### Companion crowns, nyx extensions, DOM FNM frame, THB fullart lands, snow frames by silverback_ape
+##### Updated PUMA by Cardists
+##### Inverted by VerumCH
+##### star, Space, path, and Familiars by Tvpattack
+##### Smallbox by Fungustober and CyberChronometer
+##### lush by OwlUmbreon, Implemented by Tvpattack
+##### norm by Fungustober, implemented by Tvpattack
+##### flavor plate by cyberchronometer, implemented by Tvpattack
+##### file organization by aanginer
+#############################################
+init script:
+	# Load scripts for image box
+	include file: /magic-default-image.mse-include/scripts
+	include file: /magic-pride.mse-include/scripts
+	#### Load scripts that are redefined from the blends package
+	include file: /magic-blends.mse-include/new-blends
+	#### DFC support
+	include file: /magic-modules.mse-include/dfc/init_script
+	
+	#### Load include scripts
+	# Various utility scripts
+	include file: includes/other_scripts
+	# Background stuff
+	include file: includes/template
+	include file: includes/backgrounds
+	# Textbox sizing
+	include file: includes/size_crops
+	# Styling options
+	include file: includes/styling_scripts
+	# Textbox
+	include file: includes/textbox
+	# Saga
+	include file: includes/saga_script
+	#### Modules
+	# Custom border
+	include file: /magic-modules.mse-include/information/custom-border/script
+
+############################################# Set info fields
+include file: includes/set_info_style
+############################################# Extra style options
+include file: includes/styling_fields
+############################################# Card fields
+include file: includes/card_fields
+############################################# Extra card fields
+include file: includes/extra_card_fields
+include file: includes/extra_card_style

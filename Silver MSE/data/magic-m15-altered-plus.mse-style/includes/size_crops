@@ -1,0 +1,82 @@
+sized_textbox_values := [
+    normal: 0
+    small: 30
+    extrasmall: 60
+    xxs: 80
+]
+
+get_textbox_offset := { 
+    if styling.textbox_offset == "" 
+        then 0 
+    else styling.textbox_offset 
+}
+textbox_size_adjusted := { 
+    sized_textbox_values[
+        styling.textbox_size
+    ] 
+    + get_textbox_offset()
+}
+
+typeline_img := { 
+    set_mask(
+        image:main_background(), 
+        mask:"imagemasks/typelinemask.png"
+    ) 
+}
+top_textbox_img := { 
+    set_mask(
+        image:main_background(), 
+        mask:"imagemasks/top_textbox.png"
+    ) 
+}
+mid_textbox_x := { 
+    left_of_textbox() 
+    - 4 
+}
+mid_textbox_y := { 
+    base_top_of_textbox() 
+    + 2 
+    + textbox_size_adjusted() 
+}
+mid_textbox_height := { 
+    height_of_textbox() 
+}
+mid_textbox_width := { 
+    width_of_textbox() 
+    + 8 
+}
+middle_crop := { 
+    crop(
+        input, 
+        offset_x:mid_textbox_x(), 
+        offset_y:mid_textbox_y(), 
+        height:mid_textbox_height(), 
+        width:mid_textbox_width()
+    ) 
+}
+middle_textbox_img := { 
+    middle_crop(
+        main_background()
+        ) 
+}
+bottom_textbox_img := {
+        set_mask(
+        image:main_background(), 
+        mask:"imagemasks/bottom_textbox.png"
+        ) 
+}
+
+edge_crop := { 
+    crop(
+        input, 
+        offset_x: 346, 
+        offset_y: 60, 
+        height: 1, 
+        width: 3
+        ) 
+}
+image_edge := { 
+    edge_crop(
+        main_background()
+        ) 
+}

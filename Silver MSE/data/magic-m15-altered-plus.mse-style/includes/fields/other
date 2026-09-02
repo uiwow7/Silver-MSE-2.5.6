@@ -1,0 +1,41 @@
+set code:
+	left: 24
+	top: {if use_porthole() then "504" else "498"}
+	width: 40
+	height: 10
+	z index: 130
+	font:
+		name: Relay-Medium
+		size: 7
+		color: white
+		weight: bold
+illustrator:
+	left: {44 + card_style.set_code.content_width }
+	top: {if use_porthole() then "504" else "498"}
+	width: 200
+	height: 10
+	z index: 130
+	font:
+		name: Beleren Small Caps Bold
+		size: 7.25
+		color: white
+copyright:
+	right: 350
+	top:	 
+		script:
+			if is_leveler() and not lone_pt()
+				then 488
+			else if (starting_loyalty() and card.loyalty != "") or (card.pt != "" and not starting_loyalty() and not is_halfart())
+				then 500
+			else if is_halfart() or use_porthole()
+				then 504
+			else 488
+	width: {if set.automatic_copyright then 0 else 140}
+	height: 10
+	z index: 140
+	alignment: middle right
+	font:
+		name: MPlantin
+		size: 6.5
+		color: white
+		weight: bold

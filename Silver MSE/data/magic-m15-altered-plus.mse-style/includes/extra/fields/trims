@@ -1,0 +1,86 @@
+extra card field:
+	type: choice
+	name: snow overlay
+	choice: snow
+	save value: false
+	editable: false
+	script: card.card_color
+extra card field:
+	type: choice
+	name: frontier overlay
+	script: card.card_color
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: nyx overlay
+	choice: nyx
+	save value: false
+	editable: false
+	script: card.card_color
+extra card field:
+	type: choice
+	name: hands overlay
+	choice: hands
+	save value: false
+	editable: false
+	script: card.card_color
+extra card field:
+	type: choice
+	name: star overlay
+	choice: star
+	save value: false
+	editable: false
+	script: card.card_color
+extra card field:
+	type: choice
+	name: space overlay
+	choice: space
+	save value: false
+	editable: false
+	script: card.card_color
+extra card field:
+	type: choice
+	name: path overlay
+	choice: path
+	save value: false
+	editable: false
+	script: card.card_color
+extra card field:
+	type: choice
+	name: norm overlay
+	choice: norm
+	save value: false
+	editable: false
+	script: card.card_color
+extra card field:
+	type: choice
+	name: lush overlay
+	choice: lush
+	save value: false
+	editable: false
+	script: card.card_color
+extra card field:
+	type: choice
+	name: familiar overlay
+	choice: car door
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: sky overlay
+	script: card.card_color
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: pocket overlay
+	script: card.card_color
+	save value: false
+	editable: false
+extra card field:
+	type: choice
+	name: forge overlay
+	script: card.card_color
+	save value: false
+	editable: false

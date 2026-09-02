@@ -189,7 +189,7 @@ card field:
 	description: The altered plus trim of the card, such as star.
 	show statistics: false
 	card list visible: false
-	card list name: trims
+	card list name: altered plus trims
 	card list column: 1631
 	card list width: 150
 	choice: star

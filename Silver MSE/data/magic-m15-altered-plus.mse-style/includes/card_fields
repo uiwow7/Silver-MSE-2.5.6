@@ -1,0 +1,29 @@
+############################# Modules
+include file: /magic-modules.mse-include/information/card_fields
+include file: /magic-modules.mse-include/card-symbols/card_fields
+include file: /magic-modules.mse-include/separators/card_fields
+include file: /magic-modules.mse-include/corners/card_fields
+include file: /magic-modules.mse-include/stamps/card_fields
+include file: /magic-modules.mse-include/symbols/card_fields
+include file: /magic-modules.mse-include/reminders/card_fields
+include file: /magic-modules.mse-include/dfc/card_fields
+
+card style:
+	############################# Background stuff
+	include file: includes/fields/color
+	############################# Name line
+	include file: includes/fields/name_line
+	############################# Image
+	include file: includes/fields/image
+	############################# Card type
+	include file: includes/fields/type_line
+	############################# Text boxs
+	include file: includes/fields/text
+	############################# leveler
+	include file: includes/fields/level_text
+	############################# Levels
+	include file: includes/fields/level
+	############################# PT
+	include file: includes/fields/pt
+	############################# Other
+	include file: includes/fields/other

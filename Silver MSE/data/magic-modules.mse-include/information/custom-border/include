@@ -1,0 +1,28 @@
+styling field:
+	type: choice
+	name: use custom border
+	description: Use custom border?
+	choice: yes
+	choice: no
+	initial: no
+styling field:
+	type: text
+	name: custom border source
+	description: Use this file from magic-mainframe-extras as a custom vehicle-like frame. if colored, name images like "wborder.png" and put "-color-border.png" here.
+extra card field:
+	type: choice
+	name: custom overlay
+	script: card.card_color
+	save value: false
+	editable: false
+extra card style:
+	custom overlay:
+		left: 0
+		top: 0
+		width: 375
+		height: 523
+		render style: image
+		image: { custom_border_blend() }
+		z index: 317
+		visible: { not is_map() and is_custom_border() }
+		mask: { custom_border_mask() }

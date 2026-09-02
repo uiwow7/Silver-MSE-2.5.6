@@ -1,0 +1,8 @@
+is_custom_border := {
+	if chosen(styling.use_custom_border, choice:"yes")
+		then has_png(styling.custom_border_source)
+	else auto_custom_border()
+}
+custom_border_blend := { color_background(type:"custom_border",     base_hybrid:card_hybrid) }
+harder_script := harder_script + [custom_border: custom_border_image]
+custom_border_mask := {"/magic-modules.mse-include/trims/375x523 trim mask.png"}

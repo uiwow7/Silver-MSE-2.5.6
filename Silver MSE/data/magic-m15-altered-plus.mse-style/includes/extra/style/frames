@@ -1,0 +1,97 @@
+clear frame:
+	left: 0
+	top: 0
+	width: 375
+	height: 523
+	z index: 110
+	render style: image
+	image: { if is_devoid() then devoid_background() else if is_devoid2() then devoid2_background() else if is_rare() and styling.use_holofoil_stamps then "cards/clear/clear_rare.png" else if is_ub() then "cards/universes-beyond/cclearcard.png" else "cards/clear/clear.png"}
+	visible: { is_clear() or is_devoid() or is_devoid2() or clear_tops() }
+gold frame:
+	left: 0
+	top: 0
+	width: 375
+	height: 523
+	z index: 110
+	render style: image
+	image: { "gold1.jpg" }
+	visible: { use_gold()}
+porthole frame:
+	left: 0
+	top: 0
+	width: 375
+	height: 523
+	z index: 110
+	render style: image
+	image: {if use_porthole() then "cards/voyager/porthole.png" else if use_wave() then "cards/voyager/wave.png"}
+	visible: { use_porthole() or use_wave()}
+ocean frame:
+	left: 0
+	top: 0
+	width: 375
+	height: 523
+	z index: 110
+	render style: image
+	image: {if use_ocean() then "cards/voyager/seafoam-2.png" else if use_gilded() then "cards/voyager/gilded.png" else ""}
+	visible: { use_ocean() or use_gilded()}
+ocean frame color:
+	left: 0
+	top: 0
+	width: 375
+	height: 523
+	z index: 110
+	render style: image
+	image: {card_background()}
+	visible: { use_ocean() or use_gilded()}
+	mask: {if use_ocean() then "imagemasks/voyager_card_color.png" else if use_gilded() then "imagemasks/pinlineframe.png" else ""}
+styles frame:
+	left: 0
+	top: 0
+	width: 375
+	height: 523
+	z index: 110
+	render style: image
+	image: {if use_styles() then "cards/voyager/styles_frame_new.png"}
+	visible: { use_styles()}
+mirror frame:
+	left:	0
+	top:	0
+	width:	{if clear_tops() then 375 else 0}
+	height:	523
+	z index: 110
+	render style: image
+	popup style: in place
+	image: 
+		script:
+			if not clear_tops() 
+			then "" 
+			else if is_fnm() 
+			then fnm_background() 
+			else if is_inverted() 
+			then inverted_background() 
+			else if is_paradox() 
+			then paradox_background() 
+			else if is_full_art() 
+			then promo_background() 
+			else card_background()
+	mask: 
+		script:
+			if clear_tops() 
+			then "imagemasks/clear_tops_mask.png" 
+			else ""
+map frame:
+	left: 0
+	top: 0
+	width: 375
+	height: 523
+	z index: 110
+	render style: image
+	image: 
+		script:
+			if is_map() 
+			then map_background() 
+			else if is_halfart() 
+			then halfart_background() 
+			else energy_background()
+			
+	visible: {is_map() or is_halfart() or is_thbland()}

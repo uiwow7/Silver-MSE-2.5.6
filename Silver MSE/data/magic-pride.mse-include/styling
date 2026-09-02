@@ -1,0 +1,6 @@
+styling field:
+	type: choice
+	name: pride pinlines
+	choice: no
+	choice: ace
+	initial: no

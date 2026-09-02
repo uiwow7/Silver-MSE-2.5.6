@@ -1,0 +1,36 @@
+bookmark:
+	left: 15
+	top: 60
+	width: 27
+	height: 372
+	render style: image
+	image: {bookmark_background()}
+	z index: 8100
+	visible: {is_saga()}
+chapter 1:
+	left: 14
+	top: { if chapter1() == "" then 185 else chapter1() }
+	width: 30
+	height: 34
+	render style: image
+	z index: 8400
+	image: {alt_chapters("1")}
+	visible: {is_saga()}
+chapter 2:
+	left: 14
+	top: { if chapter2() == "" then 279 else chapter2() }
+	width: 30
+	height: 34
+	render style: image
+	z index: 8400
+	image: {alt_chapters("2")}
+	visible: {is_saga()}
+chapter 3:
+	left: 14
+	top: { if chapter3() == "" then 373 else chapter3() }
+	width: 30
+	height: 34
+	render style: image
+	z index: 8400
+	image: {alt_chapters("3")}
+	visible: {is_saga()}

@@ -1,0 +1,165 @@
+mutbar:
+	z index: 120
+	left: 28
+	top: 393
+	height: 2
+	width: 317
+	render style: image
+	image: modules/extras/mutbar.png
+	visible: {is_mutate()}
+silver patch:
+	left: 10
+	top: 10
+	width: 355
+	height: 15
+	z index: 120
+	visible: {is_legend() and card.border_color == rgb(200,200,200)}
+
+ascend:
+	left: 37
+	top: 59
+	width: {if is_season() then 300 else 0}
+	height: 20
+	angle: 270
+	z index: 160
+	alignment: justify-all force
+	always symbol: true
+	font:
+		name: MPlantin
+		italic name: MPlantin-Italic
+		size: {if styling.font_cap != "" then to_number(styling.font_cap) else 14}
+		scale down to: 6
+		color: black
+	symbol font:
+		name: { styling.text_box_mana_symbols }
+		size: {if styling.font_cap != "" then to_number(styling.font_cap) else 14}
+		scale down to: 6
+# node:
+# 	left: 0
+# 	top: 0
+# 	height: 63
+# 	width: 375
+# 	z index: 160
+# 	render style: image
+# 	image: {node_background()}
+# 	visible: {not is_map() and use_node()}
+
+flavor bar:
+	left: 
+		script:
+			if is_reversed() 
+			then 10 
+			else if is_altcast() 
+			then 175 
+			else if flavor_plate() 
+			then 27 
+			else 0
+	top: {bar_equation()}
+	width: 
+		script:
+			if is_altcast() 
+			then 188 
+			else if flavor_plate() 
+			then 317 
+			else 375
+	height: 
+		script: if flavor_plate() 
+		then (
+			484 
+			- bar_equation()
+		) 
+		else 1
+	z index: 120
+	render style: image
+	image: 
+		script:
+			if is_altcast() 
+			then "modules/extras/altflav.png"
+			else if flavor_plate() 
+			then crop(
+				"flavorframe.png", 
+				height: clamp(
+					484 - bar_equation(), 
+					minimum: 1, 
+					maximum: 154
+				),
+					width:317, 
+					offset_x: 0, 
+					offset_y: 0
+			) 
+			else "modules/extras/bar.png"
+	visible: 
+		script:
+			card.rule_text != "" 
+			and remove_tags(
+				card.flavor_text
+			) != "" 
+			and set.use_flavor_bar 
+tarot watermark:
+	left: { if is_map() then 40 else 19 }
+	top: { if is_full_art() then 359 else 330 }
+	width: { if not is_tarot() then 0 else if is_map() then 287 else 334 }
+	height: { if is_map() then 154 else if is_full_art() then 120 else 152 }
+	z index: 120
+	alignment: middle center
+	font:
+		name: MPlantin
+		size: 90
+		color: {rgba(0,0,0,40)}
+
+arcun overlay:
+	left: 0
+	top: 0
+	width: 375
+	height: 523
+	render style: image
+	image: modules/extras/arcunoverlay.png
+	z index: 110
+	visible: {is_arcun()}
+Bevel overlay:
+	left: {if is_YGO() then 71 else 87}
+	top: {if is_skinned() then 78.5 else if is_halfart() and is_YGO() then 105 else if is_YGO() and not is_halfart() then 58 else 74.5}
+	width: {if is_YGO() then 233 else 200}
+	height: {if is_YGO() then 233 else 204}
+	render style: image
+	image: {if is_YGO() then "modules/bevel/ycanbevel.png" else "modules/bevel/bevel.png"}
+	z index: 110
+	visible: {is_oldYGO() or is_YGO() and not is_nopopout()}
+Chain:
+	left: {if is_chain() then 27 else if is_chain2() then 192 else 0}
+	top: 326
+	width: {if is_focus() then 163 else 0}
+	height: 163
+	render style: image
+	image: {set_alpha(watermark_blend("cards/focus/chain-blend2.png", face:2), alpha: 180)}
+	z index: 110
+	visible: {has_chain()}
+Gold Bevel overlay:
+	left: 0
+	top: 0
+	width: 375
+	height: 523
+	render style: image
+	image: {"cards/gold/gold-bevel.png"}
+	z index: 120
+	visible: {is_YGO_gold()}
+foil overlay:
+	left: 0
+	top: 0
+	width: 375
+	height: 523
+	z index: 800
+	visible: { contains(card.card_trim, match: "foil") }
+	render style: image
+	image: {"/magic-overlay-foil-" + foil_type() + ".mse-include/overlay.png"}
+promo label:
+	left: 40
+	top: { if is_full_art() then 295 else 262 }
+	width: {if chosen(styling.other_options, choice:"prerelease stamp") then 295 else 0}
+	height: 29
+	alignment: middle right
+	z index: 140
+	font:
+		name: ModMatrix
+		size: 14
+		color: rgb(223,169,41)

@@ -1,0 +1,11 @@
+pride pin:
+	left: {if is_legend() then 18 else 24}
+	top: 58
+	width: {if not is_pinned() then 0 else if is_legend() then 338 else 325}
+	height: {if not is_pinned() then 0 else 234}
+	z index: 9999
+	render style: image
+	popup style: in place
+	mask: {"/magic-pride.mse-include/masks/m15" + if is_legend() then " legend.png" else ".png"}
+	image: {pin_image("lesbian")}
+	

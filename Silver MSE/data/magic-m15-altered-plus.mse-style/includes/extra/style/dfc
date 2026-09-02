@@ -1,0 +1,66 @@
+# backdfc:
+# 	left: 0
+# 	top: {if is_clear() or is_devoid() or is_devoid2() then -1 else 0}
+# 	width: 375
+# 	height: 523
+# 	render style: image
+# 	image: {backdfc_background()}
+# 	z index: 110
+# 	visible: {is_backdfc()}
+# 	mask: {"imagemasks/backdfcmask.png"}
+# front modal flag:
+# 	left: 14
+# 	top: 468
+# 	width: {if has_trim("back flag") then 160 else 0}
+# 	height: 20
+# 	render style: image
+# 	image: {front_flag_image()}
+# 	z index: 150
+# 	visible: {has_trim("back flag")  }
+
+# back modal flag:
+# 	left: 14
+# 	top: 468
+# 	width: {if has_trim("front flag") then 160 else 0}
+# 	height: 20
+# 	render style: image
+# 	image: {back_flag_image()}
+# 	z index: 150
+# 	visible: {has_trim("front flag")  }
+# corner:
+# 	left: { if is_map() then 22 else 19}
+# 	top: 25
+# 	height: 31
+# 	width: {if use_node() then 31 else 0}
+# 	z index: 170
+# 	render style: image
+# 	visible: {use_node()}
+# 	choice images:
+# 		lesson: modules/corners/lesson.png
+# 		sanctum: modules/corners/sanctum.png
+# 		day: modules/corners/sun_circle.png
+# 		night: modules/corners/night_circle.png
+# 		modal front: modules/corners/mdfc_up.png
+# 		modal back: modules/corners/mdfc_down.png
+# 		eldrazi: modules/corners/eldrazi.png
+# 		moon: modules/corners/moon.png
+# 		compass: modules/corners/compass.png
+# 		artifact: modules/corners/artifact.png
+# 		creature: modules/corners/creature.png
+# 		enchantment: modules/corners/enchantment.png
+# 		instant: modules/corners/instant.png
+# 		land: modules/corners/land.png
+# 		multitype: modules/corners/multitype.png
+# 		sorcery: modules/corners/sorcery.png
+# 		planeswalker: modules/corners/planeswalker.png
+# 		structure: modules/corners/structure.png
+# 		compass: modules/corners/compass.png
+# 		aetherprint: modules/corners/aetherprint.png
+# 		sparker colors white: modules/corners/wcorner.png
+# 		sparker colors blue: modules/corners/ucorner.png
+# 		sparker colors black: modules/corners/bcorner.png
+# 		sparker colors red: modules/corners/rcorner.png
+# 		sparker colors green: modules/corners/gcorner.png
+# 		sparker colors multicolor: modules/corners/mcorner.png
+# 		sparker colors colorless: modules/corners/ccorner.png
+# 		custom: { if contains(styling.custom_symbol, match:".png") then "/magic-mainframe-extras.mse-include/" + styling.custom_symbol else "" }
