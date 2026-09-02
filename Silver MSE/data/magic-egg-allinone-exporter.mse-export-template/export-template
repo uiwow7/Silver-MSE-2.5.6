@@ -1,15 +1,20 @@
-mse version: 2.0.0
-short name: Egg's All-in-One
-full name: Egg's All-in-One Exporter
-position hint: 009
-icon: icon.png
-version: 2025-03-31
+mse version:		2.6.0
+game:				magic
+short name:			Egghub
+full name:			Egg's All-in-One Exporter
+icon:				icon.png
+position hint:		960000
+installer group:	magic/Exporters/Egghub
 
+
+version: 2026-08-28
 depends on:
 	package: magic.mse-game
-	version: 2008-08-08
+	version: 2026-08-28
+depends on:
+	package: magic-modules.mse-include
+	version: 2024-10-01
 
-game: magic
 create directory: true
 file type: *.txt|*.txt|*.*|*.*
 
@@ -21,7 +26,6 @@ option field:
 	choice: png
 	choice: jpg
 	description: Image type
-	initial: jpg
 
 option field:
 	type: choice
@@ -39,8 +43,7 @@ option field:
 	choice: draft booster
 	choice: cube
 	choice: none
-	description: Format for this sets draft format
-	initial: play booster
+	description: Format for this set's draft format
 
 option field:
 	type: text
@@ -58,6 +61,13 @@ option field:
 	choice: no
 	choice: yes
 	description: Export set description as splash page
+
+option field:
+	type: choice
+	name: unpreviewed card image
+	choice: card back
+	choice: empty
+	description: What should display on the preview gallery for unpreviewed cards
 
 script:
 	fix_tm := replace@(match:"™", replace:"TM")
@@ -88,20 +98,12 @@ script:
 	winfix := replace@(match:"^(CON|PRN|AUX|NUL|COM[0-9]|LPT[0-9])$", replace:{_1 + "_"})
 	adj_setcode := { winfix(set.set_code) }
 	
-	## tag management
+	### tag management
 	exporter_name_filter := filter_text@(match:"!exporte?r?name [^\n]+")
 	exporter_name_grabber := replace@(match:"!exporte?r?name ", replace:"")
 
 	exporter_backname_filter := filter_text@(match:"!backf?a?c?e?name [^\n\<]+")
 	exporter_backname_grabber := replace@(match:"!backf?a?c?e?name ", replace:"")
-
-	#functions for the !designer command
-	designer_filter := filter_text@(match:"!designer [^\n\<]+")
-	designer_grabber := replace@(match:"!designer ", replace:"")
-
-	get_designer := { designer_grabber(designer_filter(input)) }
-	set_designer := { get_designer(set.description) }
-	card_designer := { if get_designer(card.notes) != "" then get_designer(card.notes) else set_designer() }
 
 	card_name := { 
 		given := exporter_name_grabber(exporter_name_filter(card.notes))
@@ -207,10 +209,6 @@ script:
 	
 	format_textbox := inline_replacement + convert_tags + sanitize
 
-	full_text := {
-		if card.special_text == "" then card.rule_text else card.special_text
-	}
-
 	##Slightly more advanced CI functions to let the exporter detect land types
 	get_land_type_CI := {
 		  (if contains(card.type, match:"Plains") then "W" else "")
@@ -218,7 +216,6 @@ script:
 		+ (if contains(card.type, match:"Swamp") then "B" else "")
 		+ (if contains(card.type, match:"Mountain") then "R" else "")
 		+ (if contains(card.type, match:"Forest") then "G" else "")
-		+ (if contains(card.type, match:"Fault") then "I" else "")
 	}
 	merge_ci := {
 		base := input
@@ -233,7 +230,8 @@ script:
 
 	get_color_identity := {
 		land_ci := get_land_type_CI()
-		base_ci := color_identity_statistic()
+		base_ci := if card.compatability or else false == false then color_identity_statistic()
+			else distil_colors_statistic(color_identity_statistic(card:card.card)+color_identity_statistic(card:card.card_2))
 		## if base_ci is colorless and land_ci isn't, use land_ci
 		## if land and land_ci isn't blank, use both
 		## otherwise use base_ci
@@ -244,79 +242,125 @@ script:
 		else base_ci
 	}
 
+	##Grab special_text if it's not empty, otherwise grab rule_text
+	full_text := { if card.special_text != "" then card.special_text else card.rule_text }
+	full_text2 := { if card.special_text_2 != "" then card.special_text_2 else card.rule_text_2 }
+	full_text3 := { card.rule_text_3 }
+
 	##Shape function to deal with all the non-standard shapes
 	get_shape := {
 		if card.shape == "emblem"
 		or card.shape == "counter"
 		or card.shape == "rulestip"
 		or card.shape == "checklist"
-		or contains(card.notes, match:"!token") and not contains(card.notes, match:"!tokens")
+		or contains (card.notes, match:"!token") and not contains (card.notes, match:"!tokens")
 			then "token"
 		else card.shape
 	}
 
-	is_double_card := match@(match:"double|adventure|aftermath|spli")
+	is_rotated := {
+		real_card := card.card or else card
+		card_image := to_card_image(real_card)
+		card_width := width_of(card_image)
+		if contains(card.shape, match:"double") or is_linked_dfc(card:real_card) and lang_setting("is_battle")(card.super_type) and width_of(card_image) == 900
+			then "true"
+		else if card_width == 523 or card_width == 902 or card_width == 1039 or card_width == 1046
+			then "true"
+		else "false"
+	}
+
+	is_double_card := match@(match:"double|adventure|aftermath|spli|flip")
 	q := "\""
 	write_card := {
+		if get_front_face(card) != nil
+			then ""
+		else if get_back_face(card) != nil then write_card_main(card:linked_dfc_compat_map())
+		else write_card_main()
+	}
+	write_card_main := {
+		real_card := card.card or else card
 		strings := [
 			"{q}card_name{q}: {q}{card_name()}{q}",
 			"{q}color{q}: {q}{card_color_1()}{q}",
-			"{q}rarity{q}: {q}{card_rarity()}{q}",
+			"{q}rarity{q}: {q}{if options.draft_structure == "cube" then "cube" else card_rarity()}{q}",
 			"{q}type{q}: {q}{sanitize(card.type)}{q}",
-			"{q}number{q}: {sanitize(card_number())}",
+			"{q}number{q}: {sanitize(card_number(card:real_card))}",
 			"{q}color_identity{q}: {q}{get_color_identity()}{q}",
 			"{q}cost{q}: {q}{mana_cost_replacement_css(card.casting_cost)}{q}",
 			"{q}rules_text{q}: {q}{format_textbox(full_text())}{q}",
 			"{q}flavor_text{q}: {q}{format_textbox(card.flavor_text)}{q}",
 			"{q}pt{q}: {q}{sanitize(card.pt)}{q}",
-			"{q}special_text{q}: {q}{format_textbox(card.alias)}{q}",
+			"{q}special_text{q}: {q}{format_textbox(card.special_text)}{q}",
 			"{q}shape{q}: {q}{get_shape()}{q}",
 			"{q}set{q}: {q}{adj_setcode()}{q}",
 			"{q}loyalty{q}: {q}{sanitize(card.loyalty)}{q}",
-			"{q}designer{q}: {q}{sanitize(card_designer())}{q}",
 			"{q}artist{q}: {q}{sanitize(card.illustrator)}{q}",
-			"{q}position{q}: {q}{position(of:card, in:set)}{q}"
+			"{q}alias{q}: {q}{sanitize(card.alias)}{q}",
+			"{q}position{q}: {q}{position(of:real_card, in:set)}{q}"
 		]
 		if is_double_card(card.shape) then strings := strings + [
 			"{q}card_name2{q}: {q}{card_name_2()}{q}",
 			"{q}color2{q}: {q}{card_color_2()}{q}",
 			"{q}type2{q}: {q}{sanitize(card.type_2)}{q}",
 			"{q}cost2{q}: {q}{mana_cost_replacement_css(card.casting_cost_2)}{q}",
-			"{q}rules_text2{q}: {q}{format_textbox(card.rule_text_2)}{q}",
+			"{q}rules_text2{q}: {q}{format_textbox(full_text2())}{q}",
 			"{q}flavor_text2{q}: {q}{format_textbox(card.flavor_text_2)}{q}",
 			"{q}pt2{q}: {q}{sanitize(sanitize(card.pt_2))}{q}",
 			"{q}special_text2{q}: {q}{format_textbox(card.special_text_2)}{q}",
 			"{q}loyalty2{q}: {q}{sanitize(card.loyalty_2)}{q}",
-			"{q}artist2{q}: {q}{sanitize(card.illustrator_2)}{q}"
+			"{q}artist2{q}: {q}{sanitize(card.illustrator_2)}{q}",
+			"{q}alias2{q}: {q}{sanitize(card.alias_2)}{q}",
+			"{q}rules_text3{q}: {q}{format_textbox(full_text3())}{q}"
 		]
 		strings := strings + [
+			"{q}rotated{q}: {is_rotated()}",
 			"{q}notes{q}: {q}{sanitize(card.notes)}{q}"
 		]
 		"\{" + join(strings) + "}"
 	}
 	
 	write_cards := {
-		strings := for each card in cards do [write_card()]
+		strings := for each card in cards do (str := write_card(); if str != "" then [str] else nil)
 		join(strings)
 	}
 
+	#### load corner masks for the most common card dimensions, so we dont re-load them for every card
+	corner_masks := [
+		"523"  : invert_image("/magic-modules.mse-include/corners/375x523 rounded and antialiased.png"),
+		"902"  : invert_image("/magic-modules.mse-include/corners/646x902 rounded and antialiased.png"),
+		"1039" : invert_image("/magic-modules.mse-include/corners/744x1039 rounded and antialiased.png"),
+		"1046" : invert_image("/magic-modules.mse-include/corners/750x1046 rounded and antialiased.png")
+	]
+
 	write_all_images := {
-		for each card in cards do (
+		for each card in set do (
 			card_position := position(of:card, in:set)
 			card_image := to_card_image(card)
 			#### double faced templates
-			if contains(card.shape, match:"double") then (
+			if contains(card.shape, match:"double") or is_linked_dfc() then (
+				linked_front := get_front_face(card)
+				linked_back := get_back_face(card)
+				if linked_front != nil then card_position := position(of:linked_front, in:set)
+				
+				print_front := if linked_front != nil then false else true
+				print_back := if linked_back != nil then false else true
+				
 				#### check if we need to rotate the front face (if it's a battle)
 				rotated := lang_setting("is_battle")(card.super_type) and width_of(card_image) == 900
 				front_width := if rotated then 523 else 375
 				front_height := if rotated then 375 else 523
-				front_image := crop(card_image, width: front_width, height: front_height, offset_x: 0, offset_y: 0)
-				back_image := crop(card_image, width: 375, height: 523, offset_x: front_width + 2, offset_y: 0)
+				front_image := if linked_back != nil then card_image else crop(card_image, width: front_width, height: front_height, offset_x: 0, offset_y: 0)
+				back_image := if linked_front != nil then card_image else crop(card_image, width: 375, height: 523, offset_x: front_width + 2, offset_y: 0)
 				if rotated then front_image := rotate_image(front_image, angle: 90)
 
+				#### add transparent corners (all double faced templates are 375x523)
+				front_image := set_mask(image: front_image, mask: corner_masks["523"])
+				back_image := set_mask(image: back_image, mask: corner_masks["523"])
+
 				#### write to disk
-				write_image_file(front_image, file: "img/" + card_position + "_front." + options.image_type)
-				write_image_file(back_image, file: "img/" + card_position + "_back." + options.image_type)
+				if print_front then write_image_file(front_image, file: "img/" + card_position + "_front." + options.image_type)
+				if print_back then write_image_file(back_image, file: "img/" + card_position + "_back." + options.image_type)
+				"dummy return"
 			)
 			#### single faced templates
 			else (
@@ -324,6 +368,10 @@ script:
 				card_width := width_of(card_image)
 				rotated := card_width == 523 or card_width == 902 or card_width == 1039 or card_width == 1046
 				if rotated then card_image := rotate_image(card_image, angle: 90)
+				#### add transparent corners
+				mask_height := to_string(if rotated then card_width else height_of(card_image))
+				corner_mask := corner_masks[mask_height] or else corner_masks["1046"]
+				card_image := set_mask(image: card_image, mask: corner_mask)
 				#### write to disk
 				write_image_file(card_image, file: "img/" + card_position + "." + options.image_type)
 			)
@@ -333,16 +381,20 @@ script:
 	main_keys := [
 		"{q}name{q}: {q}{set.title}{q}",
 		"{q}formats{q}: {q}{options.formats}{q}",
-		"{q}trimmed{q}: {q}n{q}",
 		"{q}image_type{q}: {q}{options.image_type}{q}",
 		"{q}draft_structure{q}: {q}{options.draft_structure}{q}",
-		"{q}designer{q}: {q}{set_designer()}{q}",
+		"{q}unpreviewed{q}: {q}{options.unpreviewed_card_image}{q}",
+		"{q}image_name{q}: {q}position{q}",
+		"{q}v_mana{q}: {q}{options.v_mana_replacement}{q}",
 		"{q}cards{q}: [{write_cards()}]"
 	]
 	write_text_file(file: adj_setcode() + ".json", "\{" + join(main_keys) + "}")
 
 	write_image_file({symbol_variation(symbol: set.symbol, variation: options.symbol_rarity)}(), file: "icon.png", width: 512, height: 512)
 	write_image_file({symbol_variation(symbol: set.symbol, variation: options.symbol_rarity)}(), file: "logo.png", width: 320, height: 320)
+
+	if options.export_description == "yes"
+		then write_text_file(file: "splash.md", set.description)
 
 	write_all_images()
 	"This file doesn't contain anything. Exported files can be found in the name-files folder with the same name you saved as."

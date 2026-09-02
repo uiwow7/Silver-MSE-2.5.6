@@ -1,0 +1,37 @@
+mse version:		2.6.0
+short name:			deckbox style
+icon:				rmana.png
+position hint:		850020
+installer group:	magic/Mana Symbols/deckbox style
+
+
+version: 2020-02-07
+# Symbol font in the 'deckbox' style, used for commander decks
+
+image font size: 135
+horizontal space: 2
+
+symbol:
+	code: W
+	image: wmana.png
+symbol:
+	code: U
+	image: umana.png
+symbol:
+	code: B
+	image: bmana.png
+symbol:
+	code: R
+	image: rmana.png
+symbol:
+	code: G
+	image: gmana.png
+
+##############################################################
+# Insert-symbol menu
+insert symbol menu:
+	item: W
+	item: U
+	item: B
+	item: R
+	item: G

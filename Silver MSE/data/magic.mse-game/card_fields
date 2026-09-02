@@ -1,5 +1,19 @@
 ﻿############################################################## Card fields
 ############################################################## Automated fields
+############################################################## Card shape
+card field:
+	type: text
+	name: shape
+	description: The overall shape of the card.
+	show statistics: false
+	save value: false
+	editable: false
+	card list name: Shape
+	card list column: 1610
+	card list width: 110
+	script:
+		stylesheet		### updates when the style changes
+		card_shape()	### determined by the style, by override
 ### this value is used to determine the card's place in the set numbering
 ### as well as how to count it in the stats page
 ### it should always evaluate to one or more of these:
@@ -31,6 +45,8 @@
 card field:
 	type: color
 	name: border color
+	alt name: bordercolor
+	alt name: border
 	description: The border of the card. Can be any solid color.
 	show statistics: false
 	card list name: Border
@@ -48,6 +64,7 @@ card field:
 	choice:
 		name: gold
 		color: rgb(200,180,0)
+	import script: dfc_split_import_script(value:value, import_script:border_import_script, margin_code:"border1")
 	default: stylesheet; border_color_default()
 
 card field:
@@ -81,198 +98,6 @@ card field:
 	include file: /magic-modules.mse-include/corners/choices
 	default: stylesheet; corners_default(value, margin_code: "corners3")
 
-############################################################## Altered plus stuff
-card field:
-	type: multiple choice
-	name: card trim
-	description: The trim of the card, such as nyx.
-	show statistics: false
-	card list visible: false
-	card list name: trims
-	card list column: 1630
-	card list width: 150
-	choice: 
-		name: borderless art
-		type: radio
-	choice:
-		name: special guest
-		type: radio
-	choice: 
-		name: frameless art
-		type: radio
-		line below: true
-	choice: fullart
-	choice: 
-		name: puma
-		line below: true
-	choice: clear
-	choice: devoid
-	choice: paradox
-	choice: universes beyond
-	choice: inverted
-	choice: planeshifted
-	choice: fnm promo
-	choice: map
-	choice: 
-		name: foil
-		choice:
-			type: radio
-			name: normal
-		choice:
-			type: radio
-			name: fracture
-		choice:
-			type: radio
-			name: ghost
-		choice:
-			type: radio
-			name: holes
-		choice:
-			type: radio
-			name: jss
-		choice:
-			type: radio
-			name: oil
-		choice:
-			type: radio
-			name: old
-		choice:
-			type: radio
-			name: oldfeed
-		choice:
-			type: radio
-			name: parallel
-		choice:
-			type: radio
-			name: polishedstone
-		choice:
-			type: radio
-			name: ripples
-		line below: true
-	choice: snow
-	choice: vehicle
-	choice: legend
-	choice: conspiracy
-	choice: draft matters
-	choice: miracle
-	choice: token
-	choice: 
-		name: nyx
-		line below: true
-	choice: mutate
-	choice: prototype
-	choice: 
-		name: adventure
-		choice: 
-			type: radio
-			name: normal
-		choice:
-			type: radio
-			name: focus
-		choice:
-			type: radio
-			name: omen
-		choice:
-			name: chain
-			line below: true
-		choice: reversed
-
-	choice: season
-	choice: leveler
-	empty choice: none 
-	default: stylesheet; card_trim_default(card_type: card.super_type, card_sub_type: card.sub_type,card_text: card.rule_text, sub_type_2: card.sub_type_2, type_2: card.type_2, lv_1: card.level_1_text, card_color: card.card_color)
-	script: card_trim_filter(value)
-
-card field:
-	type: multiple choice
-	name: card trim plus
-	description: The altered plus trim of the card, such as star.
-	show statistics: false
-	card list visible: false
-	card list name: trims
-	card list column: 1631
-	card list width: 150
-	choice: star
-	choice: space
-	choice: sky
-	choice: forge
-	choice: frontier
-	choice: path
-	choice: lush
-	choice: glitch
-	choice: familiar
-	choice: norm
-	choice: 
-		name: hands
-		line below: true
-	choice: framed
-	choice: Yugioh Frame
-	choice: backdfc
-	choice: front flag
-	choice: back flag
-	choice: arcun overlay
-	empty choice: none
-	default: stylesheet; card_trim_plus_default(card_type: card.super_type, card_sub_type: card.sub_type,card_text: card.rule_text, lv_1: card.level_1_text)
-
-card field:
-	type: multiple choice
-	name: crown type
-	description: The type of legend crown. For the custom option, go to the style tab and find 'custom crown location'
-	show statistics: false
-	card list visible: false
-	card list name: crown type
-	card list column: 1631
-	card list width: 150
-	choice: 
-		name: normal
-		type: radio
-	choice: 
-		name: companion
-		type: radio
-	choice: 
-		name: brawl
-		type: radio
-	choice: 
-		name: star
-		type: radio
-	choice: 
-		name: space
-		type: radio
-	choice: 
-		name: nyx
-		type: radio
-	choice: 
-		name: borderless
-		type: radio
-	choice: 
-		name: custom
-		type: radio
-	empty choice: none
-	default: stylesheet; crown_type_default(card_type: card.super_type, card_sub_type: card.sub_type, card_text: card.rule_text, trim: card.card_trim, trim_plus: card.card_trim_plus)
-	script: crown_type_filter(value)
-
-card field:
-	type: multiple choice
-	name: alias type
-	show statistics: false
-	card list visible: false
-	card list name: alias type
-	card list column: 1631
-	card list width: 150
-	description: The type of alias used on the card.
-	choice: 
-		type: radio
-		name: none
-	choice: 
-		type: radio
-		name: godzilla
-	choice: 
-		type: radio
-		name: starts in sanctum
-	empty choice: dummy
-	script: alias_type_filter(value)
-	default: stylesheet; alias_type_default(card_type: card.super_type, card_sub_type: card.sub_type, card_text: card.rule_text, trim: card.card_trim, trim_plus: card.card_trim_plus)
-
 ############################################################## Card color
 card field:
 	type: multiple choice
@@ -290,7 +115,7 @@ card field:
 	choice: black
 	choice: red
 	choice: green
-	choice: 
+	choice:
 		name: silver
 		line below: true
 	choice: artifact
@@ -470,6 +295,7 @@ card field:
 	card list name: Color Category
 	card list column: 0410
 	card list width: 90
+	import script: ""
 	script: remove_zwsp(color_category_statistic())
 
 card field:
@@ -482,6 +308,7 @@ card field:
 	card list name: Exact Color
 	card list column: 0420
 	card list width: 100
+	import script: ""
 	script: remove_zwsp(prefixed_color_statistic())
 
 card field:
@@ -494,6 +321,7 @@ card field:
 	card list name: Color Identity
 	card list column: 0430
 	card list width: 100
+	import script: ""
 	script: remove_zwsp(prefixed_color_identity_statistic())
 
 card field:
@@ -506,10 +334,32 @@ card field:
 	card list name: Color Count
 	card list column: 0440
 	card list width: 40
+	import script: ""
 	script: remove_zwsp(color_count_statistic())
 
 ############################################################## Name line
 ############################################################## Card name
+card field:
+	type: text
+	name: full name
+	description: The full name of the card.
+	show statistics: false
+	save value: false
+	editable: false
+	card list visible: true
+	card list name: Full Name
+	card list column: 0010
+	localized card list name:
+		ch-s: 名称
+		ch-t: 名稱
+		de: Name
+		es: Nombre
+		fr: Nom
+		it: Nome
+		jp: 名前
+		pt-br: Nome
+	card list width: 280
+	script: card_full_name_script()
 card field:
 	type: text
 	name: name
@@ -528,6 +378,7 @@ card field:
 		pt-br: Nome 1
 	card list column: 0020
 	card list width: 150
+	import script: dfc_split_import_script(value:value, import_script:name_import_script, margin_code:"name1")
 	default: stylesheet; name_default(value, margin_code: "name1")
 	script: name_checker(value)
 card field:
@@ -535,7 +386,6 @@ card field:
 	name: name 2
 	description: The second name of the card.
 	show statistics: false
-	identifying: true
 	card list name: Name 2
 	localized card list name:
 		ch-s: 名称 2
@@ -548,13 +398,13 @@ card field:
 		pt-br: Nome 2
 	card list column: 0021
 	card list width: 150
+	import script: dfc_split_import_script(value:value, import_script:name_import_script, margin_code:"name2")
 	default: stylesheet; name_default(value, margin_code: "name2")
 card field:
 	type: text
 	name: name 3
 	description: The third name of the card.
 	show statistics: false
-	identifying: true
 	card list name: Name 3
 	localized card list name:
 		ch-s: 名称 3
@@ -567,13 +417,13 @@ card field:
 		pt-br: Nome 3
 	card list column: 0022
 	card list width: 150
+	import script: dfc_split_import_script(value:value, import_script:name_import_script, margin_code:"name3")
 	default: stylesheet; name_default(value, margin_code: "name3")
 card field:
 	type: text
 	name: name 4
 	description: The fourth name of the card.
 	show statistics: false
-	identifying: true
 	card list name: Name 4
 	localized card list name:
 		ch-s: 名称 4
@@ -586,7 +436,9 @@ card field:
 		pt-br: Nome 4
 	card list column: 0023
 	card list width: 150
+	import script: dfc_split_import_script(value:value, import_script:name_import_script, margin_code:"name4")
 	default: stylesheet; name_default(value, margin_code: "name4")
+
 card field:
 	type: text
 	name: alias
@@ -595,7 +447,6 @@ card field:
 	card list name: Alias
 	card list column: 0030
 	card list width: 150
-	default: alias_default(value, alias_type: card.alias_type)
 card field:
 	type: text
 	name: alias 2
@@ -625,6 +476,10 @@ card field:
 card field:
 	type: text
 	name: casting cost
+	alt name: mana cost
+	alt name: manacost
+	alt name: cost
+	alt name: cc
 	description: The casting cost of the card.
 	show statistics: false
 	card list visible: true
@@ -640,10 +495,14 @@ card field:
 	card list column: 0100
 	card list alignment: right
 	card list width: 60
+	import script: dfc_split_import_script(value:value, import_script:cc_import_script, margin_code:"cc1")
 	script: mana_filter(value)
 card field:
 	type: text
 	name: casting cost 2
+	alt name: mana cost 2
+	alt name: cost 2
+	alt name: cc 2
 	description: The second casting cost of the card.
 	show statistics: false
 	card list name: CC 2
@@ -658,10 +517,14 @@ card field:
 	card list column: 0101
 	card list alignment: right
 	card list width: 60
+	import script: dfc_split_import_script(value:value, import_script:cc_import_script, margin_code:"cc2")
 	script: mana_filter(value)
 card field:
 	type: text
 	name: casting cost 3
+	alt name: mana cost 3
+	alt name: cost 3
+	alt name: cc 3
 	description: The third casting cost of the card.
 	show statistics: false
 	card list name: CC 3
@@ -676,10 +539,14 @@ card field:
 	card list column: 0102
 	card list alignment: right
 	card list width: 60
+	import script: dfc_split_import_script(value:value, import_script:cc_import_script, margin_code:"cc3")
 	script: mana_filter(value)
 card field:
 	type: text
 	name: casting cost 4
+	alt name: mana cost 4
+	alt name: cost 4
+	alt name: cc 4
 	description: The fourth casting cost of the card.
 	show statistics: false
 	card list name: CC 4
@@ -694,6 +561,7 @@ card field:
 	card list column: 0103
 	card list alignment: right
 	card list width: 60
+	import script: dfc_split_import_script(value:value, import_script:cc_import_script, margin_code:"cc4")
 	script: mana_filter(value)
 
 card field:
@@ -716,6 +584,7 @@ card field:
 	card list column: 0120
 	card list alignment: right
 	card list width: 40
+	import script: ""
 	script: cmc(card.casting_cost)
 
 ############################################################## Nameline symbols
@@ -743,14 +612,14 @@ card field:
 	name: card symbol 3
 	description: The third symbol of the card.
 	show statistics: false
-	card list name: Symbol 2
+	card list name: Symbol 3
 	card list column: 0922
 	card list width: 100
 	include file: /magic-modules.mse-include/card-symbols/choices
 
 ############################################################## Transform/Lesson
 card field:
-	type: choice
+	type: multiple choice
 	name: transformation
 	description: The transformation symbol of the card.
 	show statistics: false
@@ -758,9 +627,10 @@ card field:
 	card list column: 0940
 	card list width: 100
 	include file: /magic-modules.mse-include/symbols/choices
-	default: stylesheet; transform_symbol_default(value, margin_code:"transform1", type: card.super_type, sub_type: card.sub_type)
+	default: stylesheet; card.linked_card_1; transform_symbol_default(value, margin_code:"transform1")
+	script: transform_symbol_script(value, margin_code:"transform1")
 card field:
-	type: choice
+	type: multiple choice
 	name: transformation 2
 	description: The second transformation symbol of the card.
 	show statistics: false
@@ -768,9 +638,10 @@ card field:
 	card list column: 0941
 	card list width: 100
 	include file: /magic-modules.mse-include/symbols/choices
-	default: stylesheet; transform_symbol_default(value, margin_code:"transform2", type: card.super_type, sub_type: card.sub_type)
+	default: stylesheet; card.linked_card_1; transform_symbol_default(value, margin_code:"transform2")
+	script: transform_symbol_script(value, margin_code:"transform2")
 card field:
-	type: choice
+	type: multiple choice
 	name: transformation 3
 	description: The third transformation symbol of the card.
 	show statistics: false
@@ -778,7 +649,74 @@ card field:
 	card list column: 0942
 	card list width: 100
 	include file: /magic-modules.mse-include/symbols/choices
-	default: stylesheet; transform_symbol_default(value, margin_code:"transform3", type: card.super_type, sub_type: card.sub_type)
+	default: stylesheet; card.linked_card_1; transform_symbol_default(value, margin_code:"transform3")
+	script: transform_symbol_script(value, margin_code:"transform3")
+
+card field:
+	type: text
+	name: reminder type
+	description: The type reminder hint on modal transforming cards.
+	show statistics: false
+	card list name: Reminder Type
+	card list column: 0945
+	card list width: 100
+	default: stylesheet; card.linked_card_1; reminder_type_default()
+	script: reminder_type_script()
+card field:
+	type: text
+	name: reminder cost
+	description: The cost reminder hint on modal transforming cards.
+	show statistics: false
+	card list name: Reminder Cost
+	card list column: 0946
+	card list width: 100
+	default: stylesheet; card.linked_card_1; reminder_cost_default()
+	script: reminder_cost_script()
+card field:
+	type: multiple choice
+	name: reminder box
+	description: The box for the reminder type and cost hints on modal transforming cards.
+	show statistics: false
+	card list name: Reminder Box
+	card list column: 0947
+	card list width: 100
+	empty choice: colorless
+	choice: white
+	choice: blue
+	choice: black
+	choice: red
+	choice: green
+	choice:
+		name: silver
+		line below: true
+	choice: artifact
+	choice: land
+	choice: multicolor
+	choice:
+		name: hybrid
+		enabled: { card_color_color_count(card.reminder_box) >= 2 }
+		line below: true
+	choice:
+		name: horizontal
+		enabled: { card_color_color_count(card.reminder_box) >= 2 }
+		type: radio
+	choice:
+		name: vertical
+		enabled: { card_color_color_count(card.reminder_box) >= 2 }
+		type: radio
+	choice:
+		name: radial
+		enabled: { card_color_color_count(card.reminder_box) >= 2 }
+		type: radio
+	choice:
+		name: overlay
+		enabled: { card_color_color_count(card.reminder_box) == 2 and chosen(choice:"hybrid",card.reminder_box) }
+		type: radio
+	choice:
+		name: reversed
+		enabled: { card_color_color_count(card.reminder_box) >= 2 and not chosen(choice:"overlay",card.reminder_box) }
+	default: stylesheet; card.linked_card_1; reminder_box_default()
+	script: card_color_filter(value)
 
 ############################################################## Future Sight type symbols
 card field:
@@ -789,7 +727,14 @@ card field:
 	card list name: Type Symbol
 	card list column: 0230
 	card list width: 90
-	include file: /magic-modules.mse-include/symbols/choices
+	choice: artifact
+	choice: creature
+	choice: enchantment
+	choice: instant
+	choice: land
+	choice: multitype
+	choice: sorcery
+	choice: planeswalker
 	default: stylesheet; typesymbol_for(card.super_type)
 card field:
 	type: choice
@@ -799,7 +744,14 @@ card field:
 	card list name: Type Symbol 2
 	card list column: 0231
 	card list width: 90
-	include file: /magic-modules.mse-include/symbols/choices
+	choice: artifact
+	choice: creature
+	choice: enchantment
+	choice: instant
+	choice: land
+	choice: multitype
+	choice: sorcery
+	choice: planeswalker
 	default: stylesheet; typesymbol_for(card.super_type_2)
 card field:
 	type: choice
@@ -809,7 +761,14 @@ card field:
 	card list name: Type Symbol 3
 	card list column: 0232
 	card list width: 90
-	include file: /magic-modules.mse-include/symbols/choices
+	choice: artifact
+	choice: creature
+	choice: enchantment
+	choice: instant
+	choice: land
+	choice: multitype
+	choice: sorcery
+	choice: planeswalker
 	default: stylesheet; typesymbol_for(card.super_type_3)
 card field:
 	type: choice
@@ -819,19 +778,30 @@ card field:
 	card list name: Type Symbol 4
 	card list column: 0233
 	card list width: 90
-	include file: /magic-modules.mse-include/symbols/choices
+	choice: artifact
+	choice: creature
+	choice: enchantment
+	choice: instant
+	choice: land
+	choice: multitype
+	choice: sorcery
+	choice: planeswalker
 	default: stylesheet; typesymbol_for(card.super_type_4)
 
 ############################################################## Card art
 card field:
 	type: image
 	name: image
+	alt name: illustration
+	alt name: art
 	description: The illustration of the card.
 	show statistics: false
 	card list allow: false
 card field:
 	type: image
 	name: image 2
+	alt name: illustration 2
+	alt name: art 2
 	description: The second illustration of the card.
 	show statistics: false
 	card list allow: false
@@ -856,6 +826,7 @@ card field:
 card field:
 	type: multiple choice
 	name: indicator
+	alt name: color indicator
 	description: The color indicator dot of the card. Used to indicate card color on cards without casting cost.
 	show statistics: false
 	card list name: Indicator
@@ -902,6 +873,7 @@ card field:
 card field:
 	type: multiple choice
 	name: indicator 2
+	alt name: color indicator 2
 	description: The second color indicator dot of the card. Used to indicate card color on cards without casting cost.
 	show statistics: false
 	card list name: Indicator 2
@@ -948,6 +920,7 @@ card field:
 card field:
 	type: multiple choice
 	name: indicator 3
+	alt name: color indicator 3
 	description: The third color indicator dot of the card. Used to indicate card color on cards without casting cost.
 	show statistics: false
 	card list name: Indicator 3
@@ -997,6 +970,7 @@ card field:
 card field:
 	type: text
 	name: super type
+	alt name: supertype
 	description: The combined types and supertypes of the card.
 	show statistics: false
 	card list name: Super Type
@@ -1007,6 +981,7 @@ card field:
 card field:
 	type: text
 	name: super type 2
+	alt name: supertype 2
 	description: The second combined types and supertypes of the card.
 	show statistics: false
 	card list name: Super Type 2
@@ -1017,6 +992,7 @@ card field:
 card field:
 	type: text
 	name: super type 3
+	alt name: supertype 3
 	description: The third combined types and supertypes of the card.
 	show statistics: false
 	card list name: Super Type 3
@@ -1027,6 +1003,7 @@ card field:
 card field:
 	type: text
 	name: super type 4
+	alt name: supertype 4
 	description: The fourth combined types and supertypes of the card.
 	show statistics: false
 	card list name: Super Type 4
@@ -1040,6 +1017,7 @@ card field:
 card field:
 	type: text
 	name: sub type
+	alt name: subtype
 	description: The combined subtypes of the card.
 	show statistics: false
 	card list name: Sub Type
@@ -1050,6 +1028,7 @@ card field:
 card field:
 	type: text
 	name: sub type 2
+	alt name: subtype 2
 	description: The second combined subtypes of the card.
 	show statistics: false
 	card list name: Sub Type 2
@@ -1060,6 +1039,7 @@ card field:
 card field:
 	type: text
 	name: sub type 3
+	alt name: subtype 3
 	description: The third combined subtypes of the card.
 	show statistics: false
 	card list name: Sub Type 3
@@ -1070,6 +1050,7 @@ card field:
 card field:
 	type: text
 	name: sub type 4
+	alt name: subtype 4
 	description: The fourth combined subtypes of the card.
 	show statistics: false
 	card list name: Sub Type 4
@@ -1083,6 +1064,8 @@ card field:
 card field:
 	type: text
 	name: type
+	alt name: typeline
+	alt name: type line
 	description: The combined subtypes, types and supertypes of the card.
 	show statistics: false
 	save value: false
@@ -1100,17 +1083,20 @@ card field:
 	card list column: 0200
 	card list width: 220
 	sort script: type_sort_script(super_type: card.super_type, sub_type: card.sub_type)
+	import script: dfc_split_import_script(value:value, import_script:type_import_script, margin_code:"type1")
 	script:
 		combined_editor(
 			field1: card.super_type,
 			separator: language().type_separator,
 			field2: card.sub_type,
 			soft_before_empty: true,
-			hide_when_empty:	 true
+			hide_when_empty:   true
 		)
 card field:
 	type: text
 	name: type 2
+	alt name: typeline 2
+	alt name: type line 2
 	description: The second combined subtypes, types and supertypes of the card.
 	show statistics: false
 	save value: false
@@ -1127,17 +1113,20 @@ card field:
 	card list column: 0201
 	card list width: 220
 	sort script: type_sort_script(super_type: card.super_type_2, sub_type: card.sub_type_2)
+	import script: dfc_split_import_script(value:value, import_script:type_import_script, margin_code:"type2")
 	script:
 		combined_editor(
 			field1: card.super_type_2,
 			separator: language().type_separator,
 			field2: card.sub_type_2,
 			soft_before_empty: true,
-			hide_when_empty:	 true
+			hide_when_empty:   true
 		)
 card field:
 	type: text
 	name: type 3
+	alt name: typeline 3
+	alt name: type line 3
 	description: The third combined subtypes, types and supertypes of the card.
 	show statistics: false
 	save value: false
@@ -1154,15 +1143,20 @@ card field:
 	card list column: 0202
 	card list width: 220
 	sort script: type_sort_script(super_type: card.super_type_3, sub_type: card.sub_type_3)
+	import script: dfc_split_import_script(value:value, import_script:type_import_script, margin_code:"type3")
 	script:
 		combined_editor(
 			field1: card.super_type_3,
 			separator: language().type_separator,
 			field2: card.sub_type_3,
+			soft_before_empty: true,
+			hide_when_empty:   true
 		)
 card field:
 	type: text
 	name: type 4
+	alt name: typeline 4
+	alt name: type line 4
 	description: The fourth combined subtypes, types and supertypes of the card.
 	show statistics: false
 	save value: false
@@ -1179,13 +1173,14 @@ card field:
 	card list column: 0203
 	card list width: 220
 	sort script: type_sort_script(super_type: card.super_type_4, sub_type: card.sub_type_4)
+	import script: dfc_split_import_script(value:value, import_script:type_import_script, margin_code:"type4")
 	script:
 		combined_editor(
 			field1: card.super_type_4,
 			separator: language().type_separator,
 			field2: card.sub_type_4,
 			soft_before_empty: true,
-			hide_when_empty:	 true
+			hide_when_empty:   true
 		)
 
 ############################################################## Rarity
@@ -1216,6 +1211,7 @@ card field:
 	choice: special
 	choice: masterpiece
 	initial: common
+	import script: dfc_split_import_script(value:value, import_script:rarity_import_script, margin_code:"rarity1")
 card field:
 	type: choice
 	name: rarity 2
@@ -1242,6 +1238,7 @@ card field:
 	choice: special
 	choice: masterpiece
 	initial: common
+	import script: dfc_split_import_script(value:value, import_script:rarity_import_script, margin_code:"rarity1")
 	default: stylesheet; card.rarity
 card field:
 	type: choice
@@ -1269,6 +1266,7 @@ card field:
 	choice: special
 	choice: masterpiece
 	initial: common
+	import script: dfc_split_import_script(value:value, import_script:rarity_import_script, margin_code:"rarity1")
 	default: stylesheet; card.rarity
 
 ############################################################## The text box
@@ -1302,45 +1300,61 @@ card field:
 card field:
 	type: text
 	name: rule text
+	alt name: rules text
+	alt name: rules
+	alt name: oracle text
 	description: The rules text of the card.
 	show statistics: false
 	multi line: true
 	card list name: Rule Text
 	card list column: 0700
 	card list width: 150
+	import script: text_import_script(margin_code:"text")
 	default: stylesheet; text_filter_default(value, card_name: card_name_for_face(1), margin_code:"text")
 	script: text_filter(value, card_name: card_name_for_face(1), margin_code:"text")
 card field:
 	type: text
 	name: rule text 2
+	alt name: rules text 2
+	alt name: rules 2
+	alt name: oracle text 2
 	description: The second rules text of the card.
 	show statistics: false
 	multi line: true
 	card list name: Rule Text 2
 	card list column: 0701
 	card list width: 150
+	import script: text_import_script(margin_code:"text2")
 	default: stylesheet; text_filter_default(value, card_name: card_name_for_face(2), margin_code:"text2")
 	script: text_filter(value, card_name: card_name_for_face(2), margin_code:"text2")
 card field:
 	type: text
 	name: rule text 3
+	alt name: rules text 3
+	alt name: rules 3
+	alt name: oracle text 3
 	description: The third rules text of the card.
 	show statistics: false
 	multi line: true
 	card list name: Rule Text 3
 	card list column: 0702
 	card list width: 150
+	import script: text_import_script(margin_code:"text3")
 	default: stylesheet; text_filter_default(value, card_name: card_name_for_face(3), margin_code:"text3")
 	script: text_filter(value, card_name: card_name_for_face(3), margin_code:"text3")
 card field:
 	type: text
 	name: rule text 4
+	alt name: rules text 4
+	alt name: rules 4
+	alt name: oracle text 4
 	description: The fourth rules text of the card.
 	show statistics: false
 	multi line: true
 	card list name: Rule Text 4
 	card list column: 0703
 	card list width: 150
+	import script: text_import_script(margin_code:"text4")
 	default: stylesheet; text_filter_default(value, card_name: card_name_for_face(4), margin_code:"text4")
 	script: text_filter(value, card_name: card_name_for_face(4), margin_code:"text4")
 
@@ -1348,6 +1362,8 @@ card field:
 card field:
 	type: text
 	name: rule text 5
+	alt name: rules text 5
+	alt name: rules 5
 	description: The fifth rules text of the card.
 	show statistics: false
 	multi line: true
@@ -1359,6 +1375,8 @@ card field:
 card field:
 	type: text
 	name: rule text 6
+	alt name: rules text 6
+	alt name: rules 6
 	description: The sixth rules text of the card.
 	show statistics: false
 	multi line: true
@@ -1374,6 +1392,7 @@ card field:
 card field:
 	type: text
 	name: flavor text
+	alt name: flavortext
 	description: The flavor text of the card.
 	show statistics: false
 	multi line: true
@@ -1428,6 +1447,7 @@ card field:
 	card list name: Text
 	card list column: 0740
 	card list width: 150
+	import script: text_import_script(margin_code:"text")
 	script:
 		if mainframe_walker() then
 			mainframe_walker_text_script()
@@ -1445,6 +1465,7 @@ card field:
 	card list name: Text 2
 	card list column: 0741
 	card list width: 150
+	import script: text_import_script(margin_code:"text2")
 	script:
 		if mainframe_walkerb() then
 			mainframe_walker_text_scriptb()
@@ -1462,6 +1483,7 @@ card field:
 	card list name: Text 3
 	card list column: 0742
 	card list width: 150
+	import script: text_import_script(margin_code:"text3")
 	script:
 		if mainframe_walkerc() then
 			mainframe_walker_text_scriptc()
@@ -1479,6 +1501,7 @@ card field:
 	card list name: Text 4
 	card list column: 0743
 	card list width: 150
+	import script: text_import_script(margin_code:"text4")
 	script:
 		if mainframe_walkerd() then
 			mainframe_walker_text_scriptd()
@@ -1497,7 +1520,6 @@ card field:
 	card list column: 0900
 	card list width: 110
 	include file: /magic-modules.mse-include/watermarks/choices
-	default: stylesheet; watermark_default(type: card.super_type, sub_type: card.sub_type, text: card.rule_text)
 card field:
 	type: choice
 	name: watermark 2
@@ -2385,6 +2407,10 @@ card field:
 card field:
 	type: text
 	name: pt
+	alt name: p/t
+	alt name: p t
+	alt name: power/toughness
+	alt name: power toughness
 	description: The combined power/toughness of the creature.
 	show statistics: false
 	save value: false
@@ -2401,17 +2427,22 @@ card field:
 		pt-br: P/R
 	card list column: 0300
 	card list width: 60
+	import script: dfc_split_import_script(value:value, import_script:pt_import_script, margin_code:"pt1")
 	script:
 		combined_editor(
 			field1: card.power,
 			separator: language().pt_separator,
 			field2: card.toughness,
 			soft_before_empty: true,
-			hide_when_empty:	 true
+			hide_when_empty:   true
 		)
 card field:
 	type: text
 	name: pt 2
+	alt name: p/t 2
+	alt name: p t 2
+	alt name: power/toughness 2
+	alt name: power toughness 2
 	description: The second combined power/toughness of the creature.
 	show statistics: false
 	save value: false
@@ -2427,17 +2458,22 @@ card field:
 		pt-br: P/R 2
 	card list column: 0301
 	card list width: 60
+	import script: dfc_split_import_script(value:value, import_script:pt_import_script, margin_code:"pt2")
 	script:
 		combined_editor(
 			field1: card.power_2,
 			separator: language().pt_separator,
 			field2: card.toughness_2,
 			soft_before_empty: true,
-			hide_when_empty:	 true
+			hide_when_empty:   true
 		)
 card field:
 	type: text
 	name: pt 3
+	alt name: p/t 3
+	alt name: p t 3
+	alt name: power/toughness 3
+	alt name: power toughness 3
 	description: The third combined power/toughness of the creature.
 	show statistics: false
 	save value: false
@@ -2453,17 +2489,22 @@ card field:
 		pt-br: P/R 3
 	card list column: 0302
 	card list width: 60
+	import script: dfc_split_import_script(value:value, import_script:pt_import_script, margin_code:"pt3")
 	script:
 		combined_editor(
 			field1: card.power_3,
 			separator: language().pt_separator,
 			field2: card.toughness_3,
 			soft_before_empty: true,
-			hide_when_empty:	 true
+			hide_when_empty:   true
 		)
 card field:
 	type: text
 	name: pt 4
+	alt name: p/t 4
+	alt name: p t 4
+	alt name: power/toughness 4
+	alt name: power toughness 4
 	description: The fourth combined power/toughness of the creature.
 	show statistics: false
 	save value: false
@@ -2479,17 +2520,22 @@ card field:
 		pt-br: P/R 4
 	card list column: 0303
 	card list width: 60
+	import script: dfc_split_import_script(value:value, import_script:pt_import_script, margin_code:"pt4")
 	script:
 		combined_editor(
 			field1: card.power_4,
 			separator: language().pt_separator,
 			field2: card.toughness_4,
 			soft_before_empty: true,
-			hide_when_empty:	 true
+			hide_when_empty:   true
 		)
 card field:
 	type: text
 	name: pt 5
+	alt name: p/t 5
+	alt name: p t 5
+	alt name: power/toughness 5
+	alt name: power toughness 5
 	description: The fifth combined power/toughness of the creature.
 	show statistics: false
 	save value: false
@@ -2505,17 +2551,22 @@ card field:
 		pt-br: P/R 5
 	card list column: 0304
 	card list width: 60
+	import script: dfc_split_import_script(value:value, import_script:pt_import_script, margin_code:"pt5")
 	script:
 		combined_editor(
 			field1: card.power_5,
 			separator: language().pt_separator,
 			field2: card.toughness_5,
 			soft_before_empty: true,
-			hide_when_empty:	 true
+			hide_when_empty:   true
 		)
 card field:
 	type: text
 	name: pt 6
+	alt name: p/t 6
+	alt name: p t 6
+	alt name: power/toughness 6
+	alt name: power toughness 6
 	description: The sixth combined power/toughness of the creature.
 	show statistics: false
 	save value: false
@@ -2531,17 +2582,22 @@ card field:
 		pt-br: P/R 6
 	card list column: 0305
 	card list width: 60
+	import script: dfc_split_import_script(value:value, import_script:pt_import_script, margin_code:"pt6")
 	script:
 		combined_editor(
 			field1: card.power_6,
 			separator: language().pt_separator,
 			field2: card.toughness_6,
 			soft_before_empty: true,
-			hide_when_empty:	 true
+			hide_when_empty:   true
 		)
 card field:
 	type: text
 	name: pt 7
+	alt name: p/t 7
+	alt name: p t 7
+	alt name: power/toughness 7
+	alt name: power toughness 7
 	description: The seventh combined power/toughness of the creature.
 	show statistics: false
 	save value: false
@@ -2557,17 +2613,22 @@ card field:
 		pt-br: P/R 7
 	card list column: 0306
 	card list width: 60
+	import script: dfc_split_import_script(value:value, import_script:pt_import_script, margin_code:"pt7")
 	script:
 		combined_editor(
 			field1: card.power_7,
 			separator: language().pt_separator,
 			field2: card.toughness_7,
 			soft_before_empty: true,
-			hide_when_empty:	 true
+			hide_when_empty:   true
 		)
 card field:
 	type: text
 	name: pt 8
+	alt name: p/t 8
+	alt name: p t 8
+	alt name: power/toughness 8
+	alt name: power toughness 8
 	description: The eighth combined power/toughness of the creature.
 	show statistics: false
 	save value: false
@@ -2583,13 +2644,14 @@ card field:
 		pt-br: P/R 8
 	card list column: 0307
 	card list width: 60
+	import script: dfc_split_import_script(value:value, import_script:pt_import_script, margin_code:"pt8")
 	script:
 		combined_editor(
 			field1: card.power_8,
 			separator: language().pt_separator,
 			field2: card.toughness_8,
 			soft_before_empty: true,
-			hide_when_empty:	 true
+			hide_when_empty:   true
 		)
 
 ############################################################## Separators
@@ -2678,6 +2740,7 @@ card field:
 card field:
 	type: choice
 	name: card stamp
+	alt name: stamp
 	description: The hologram security stamp of the card.
 	show statistics: false
 	card list name: Stamp
@@ -2688,6 +2751,7 @@ card field:
 card field:
 	type: choice
 	name: card stamp 2
+	alt name: stamp 2
 	description: The second hologram security stamp of the card.
 	show statistics: false
 	card list name: Stamp 2
@@ -2698,6 +2762,7 @@ card field:
 card field:
 	type: choice
 	name: card stamp 3
+	alt name: stamp 3
 	description: The third hologram security stamp of the card.
 	show statistics: false
 	card list name: Stamp 3
@@ -2774,6 +2839,7 @@ card field:
 card field:
 	type: text
 	name: illustrator
+	alt name: artist
 	description: The illustrator of the card. Default value can be changed on the 'set info' tab. Can also be used for flavor, mechanics or template credit.
 	show statistics: false
 	card list visible: true
@@ -2784,6 +2850,7 @@ card field:
 card field:
 	type: text
 	name: illustrator 2
+	alt name: artist 2
 	description: The second illustrator of the card. Default value can be changed on the 'set info' tab. Can also be used for flavor, mechanics or template credit.
 	show statistics: false
 	card list name: Artist 2
@@ -2793,6 +2860,7 @@ card field:
 card field:
 	type: text
 	name: illustrator 3
+	alt name: artist 3
 	description: The third illustrator of the card. Default value can be changed on the 'set info' tab. Can also be used for flavor, mechanics or template credit.
 	show statistics: false
 	card list name: Artist 3
@@ -3009,6 +3077,7 @@ card field:
 card field:
 	type: text
 	name: custom card number
+	alt name: collector number
 	description: The custom cardnumber of the card, defined by the user.
 	show statistics: false
 	card list name: Custom #
@@ -3253,7 +3322,7 @@ card field:
 	card list name: Vorthos Box
 	card list column: 1223
 	card list width: 150
-	script: extra_card.vorthos_box or else ""
+	script: if value == "" then extra_card.vorthos_box or else "" else value
 card field:
 	type: text
 	name: vorthos box 2
@@ -3262,7 +3331,7 @@ card field:
 	card list name: Vorthos Box 2
 	card list column: 1224
 	card list width: 150
-	script: extra_card.vorthos_box_2 or else ""
+	script: if value == "" then extra_card.vorthos_box_2 or else "" else value
 
 ############################################################## Old frame copyright line
 card field:
@@ -3296,6 +3365,24 @@ card field:
 	card list width: 150
 	script: card_number_old_3()
 
+############################################################## Vanguard
+card field:
+	type: text
+	name: hand mod
+	description: The hand size modifier on the Vanguard card.
+	show statistics: false
+	card list name: Hand Mod
+	card list column: 3011
+	card list width: 80
+card field:
+	type: text
+	name: life mod
+	description: The starting life modifier on the Vanguard card.
+	show statistics: false
+	card list name: Life Mod
+	card list column: 3021
+	card list width: 80
+
 ############################################################## Mirror fields for sorting
 card field:
 	type: text
@@ -3325,7 +3412,7 @@ card field:
 
 card field:
 	type: text
-	name: time created
+	name: sorted time created
 	description: A mirror of time created, to make it sortable. Only updates on data reload.
 	show statistics: false
 	save value: false
@@ -3337,7 +3424,7 @@ card field:
 
 card field:
 	type: text
-	name: time modified
+	name: sorted time modified
 	description: A mirror of time modified, to make it sortable. Only updates on data reload.
 	show statistics: false
 	save value: false
@@ -3361,11 +3448,72 @@ card field:
 	card list width: 50
 	script: custom_index()
 
+############################################################## JSON import helper
+card field:
+	type: text
+	name: card faces
+	description: A helper field that will import values from a Scryfall JSON card_faces object
+	show statistics: false
+	save value: false
+	editable: false
+	card list allow: false
+	script: ""
+	import script:
+		result := []
+		if value != nil then
+		(
+			count := length(value)
+			for f from 1 to count do
+			(
+				suffix := if f <= 1 then "" else "_" + f
+				map := value[f-1]
+				for each k:v in map do
+				(
+					if		k == "oracle_text"	then result := result + make_map(keys:["rule_text"		+ suffix], values:[v])
+					else if	k == "flavor_text"	then result := result + make_map(keys:["flavor_text"	+ suffix], values:[v])
+					else if	k == "mana_cost"	then result := result + make_map(keys:["casting_cost"	+ suffix], values:[v])
+					else if	k == "power"		then result := result + make_map(keys:["power"			+ suffix], values:[v])
+					else if	k == "toughness"	then result := result + make_map(keys:["toughness"		+ suffix], values:[v])
+					else if	k == "defense"		then result := result + make_map(keys:["loyalty"		+ suffix], values:[v])
+					else if	k == "loyalty"		then result := result + make_map(keys:["loyalty"		+ suffix], values:[v])
+					""
+				)
+				""
+			)
+		)
+		result
+
+card field:
+	type: text
+	name: layout
+	description: A helper field that will import values from a Scryfall JSON layout object
+	show statistics: false
+	save value: false
+	editable: false
+	card list allow: false
+
+card field:
+	type: text
+	name: image uris
+	description: A helper field that will import values from a Scryfall JSON image_uris object
+	show statistics: false
+	save value: false
+	editable: false
+	card list allow: false
+	import script:
+		result := []
+		if type_name(value) == "collection" then
+		(
+			art_crop := value["art_crop"] or else nil
+			if art_crop != nil then result := [image: download_image(art_crop)]
+		)
+		result
 
 ############################################################## Special text
-#### This is given to exporters to handle complicated rules text
-#### In particular, things like Sagas that using styling data to determine their rules text
-#### That exporters can't access
+### This is given to exporters to handle complicated rules text
+### In particular, things like Sagas that using styling data to determine their rules text
+### That exporters can't access
+### This needs to be at the end so it can properly access other fields
 card field:
 	type: text
 	name: special text
@@ -3384,38 +3532,3 @@ card field:
 	card list column: 0781
 	card list width: 150
 	script: special_text2()
-
-############################################################## Card shape
-card field:
-	type: text
-	name: shape
-	description: The overall shape of the card.
-	show statistics: false
-	save value: false
-	editable: false
-	card list name: Shape
-	card list column: 1610
-	card list width: 110
-	script: stylesheet; card_shape()	
-card field:
-	type: text
-	name: full name
-	description: The full name of the card.
-	show statistics: false
-	save value: false
-	editable: false
-	card list visible: true
-	card list name: Name
-	card list column: 0010
-	localized card list name:
-		ch-s: 名称
-		ch-t: 名稱
-		de: Name
-		es: Nombre
-		fr: Nom
-		it: Nome
-		jp: 名前
-		pt-br: Nome
-	card list width: 280
-	default: stylesheet; card_full_name_default()
-	script: card_full_name()

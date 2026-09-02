@@ -1,15 +1,15 @@
-﻿mse version: 2.0.0
-game: magic
-short name: Jumpstart Front Card
-full name: Jumpstart Front Card
-icon: card-sample.png
-installer group: magic/m15 style/Emblems
-position hint: 999
+mse version:		2.6.0
+game:				magic
+short name:			Jumpstart Front Card
+icon:				card-sample.png
+position hint:		802100
+installer group:	magic/Paraphernalia/Jumpstart Front Card
+
 
 version: 2024-05-30
 depends on:
 	package: magic.mse-game
-	version: 2014-06-25
+	version: 2026-08-28
 depends on:
 	package: magic-modules.mse-include
 	version: 2024-10-01
@@ -36,7 +36,6 @@ init script:
 	
 	# Use guild mana symbols?
 	guild_mana := { styling.use_guild_mana_symbols }
-	watermark_include := "/magic-modules.mse-include/watermarks"
 
 ############################################################## Set info fields
 set info style:
@@ -127,17 +126,17 @@ card style:
 			color: rgb(255,255,255)
 		always symbol: true
 	casting cost:
-		top: 417
-		width: 328
-		height: 28
-		left: 22
-		alignment: middle center
+		right: 347
+		top: 475
+		width: 50
+		height: 22
+		alignment: middle right
 		font:
 			name: MPlantin
-			size: 26
+			size: 21
 		symbol font:
-			name: magic-mana-small
-			size: 26
+			name: magic-mana-large
+			size: 21
 			alignment: middle right
 		always symbol: true
 		z index: 2
@@ -149,6 +148,7 @@ card style:
 		width: 345
 		height: 490
 		z index: -1
+		store in metadata:	true
 	copyright:
 		right: 339
 		top: 23

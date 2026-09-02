@@ -1,0 +1,346 @@
+mse version:		2.6.0
+game:				magic
+short name:			PHY Counters
+icon:				card_sample.png
+position hint:		800003
+installer group:	magic/Paraphernalia/PHY Counters
+
+
+version:			2026-07-14
+depends on:
+	package:			magic.mse-game
+	version:			2026-08-28
+depends on:
+	package:			magic-mana-small.mse-symbol-font
+	version:			2007-09-23
+depends on:
+	package:			magic-modules.mse-include
+	version:			2024-10-01
+
+card width:			744
+card height:		1039
+card dpi:			297.6
+
+### blanks by GenevensiS
+### code by GenevensiS
+############################################################## Extra scripts
+init script:
+	card_shape := { "counter" }
+	
+	swap_fonts_pt_default :=
+	[
+		name: {"CartaMarina"},
+		size: {30.0},
+		color: {rgb(243,250,170)},
+		vertical: {0},
+		italic: {""}
+	]
+	
+	swap_fonts_body_default :=
+	[
+		name: {"CartaMarina"},
+		size: {27.0},
+		color: {rgb(143,150,70)},
+		vertical: {0},
+		italic: {""}
+	]
+	
+	swap_fonts_name_default :=
+	[
+		name: {"CartaMarinaAllCaps"},
+		size: {42.0},
+		color: {rgb(143,150,70)},
+		vertical: {0},
+		italic: {""}
+	]
+	
+	counter_color := { rgb(0,0,0) }
+	
+	illustrator_brush_color := { body_font_color() }
+	
+	sym_offset_left :=		{ split := split_comma(styling.symbol_offsets); if length(split) > 0 and split.0 != "" then clamp(split.0, maximum: 1000, minimum: -1000) else 0 }
+	sym_offset_top :=		{ split := split_comma(styling.symbol_offsets); if length(split) > 1 and split.1 != "" then clamp(split.1, maximum: 1000, minimum: -1000) else 0 }
+	sym_offset_width :=		{ split := split_comma(styling.symbol_offsets); if length(split) > 2 and split.2 != "" then clamp(split.2, maximum: 1000, minimum: -200) else 0 }
+	sym_offset_height :=	{ split := split_comma(styling.symbol_offsets); if length(split) > 3 and split.3 != "" then clamp(split.3, maximum: 1000, minimum: -200) else 0 }
+	
+	popout_left :=		{ split := split_comma(styling.popout_art_coordinates); if length(split) > 3 and split.0 != "" then clamp(split.0, maximum: 1500, minimum: -500) else 0 }
+	popout_top :=		{ split := split_comma(styling.popout_art_coordinates); if length(split) > 3 and split.1 != "" then clamp(split.1, maximum: 2000, minimum: -500) else 0 }
+	popout_width :=		{ split := split_comma(styling.popout_art_coordinates); if length(split) > 3 and split.2 != "" then clamp(split.2, maximum: 1500, minimum: 0) else 0 }
+	popout_height :=	{ split := split_comma(styling.popout_art_coordinates); if length(split) > 3 and split.3 != "" then clamp(split.3, maximum: 2000, minimum: 0) else 0 }
+	
+	art_left :=			{ if styling.stretch_art_to_whole_card then 0						else 40 }
+	art_width :=		{ if styling.stretch_art_to_whole_card then stylesheet.card_width	else 663 }
+	art_top :=			{ if styling.stretch_art_to_whole_card then 0						else 40 }
+	art_bottom :=		{ if styling.stretch_art_to_whole_card then stylesheet.card_height	else 998 }
+	art_mask :=			{ crop(styling.frame_type + "/image_mask.png", offset_x: art_left(), offset_y: art_top(), width: art_width(), height: art_bottom() - art_top()) }
+	
+	illustrator_brush_width := { (if card.illustrator_brush == "art old" then 30 else if contains(card.illustrator_brush, match: "wide") then 15 else 12) * 744/375 }
+
+############################################################## Extra style options
+
+styling field:
+	type:			text
+	name:			popout art coordinates
+	description:	The coordinates for the popout image field, formatted as "left,top,width,height". Used to make the illustration jump in front of the frame.
+styling field:
+	type:			boolean
+	name:			stretch art to whole card
+	description:	Make the image span the whole card instead of just the visible part. Use this to help make popout effects.
+	initial:		no
+styling field:
+	type:			choice
+	name:			frame type
+	description:	Which version of the frame should be used?
+	choice:			Scars of Mirrodin
+	choice:			Mirrodin Besieged
+	choice:			New Phyrexia
+styling field:
+	type:			choice
+	name:			symbol type
+	description:	Which list of symbols should be used?
+	choice:			watermark
+	choice:			counter
+styling field:
+	type:			text
+	name:			symbol offsets
+	description:	Formatted as "A,B,C,D". Moves the symbol A pixels to the right, B pixels down, makes it C pixels wider and D taller. Use negatives for other directions.
+styling field:
+	type:			text
+	name:			chop text box
+	description:	Formatted as "X,Y,Z". Shrinks the rule textbox X pixels from the top, Y from the bottom and Z from the right.
+styling field:
+	type:			choice
+	name:			center text
+	description:	Center all rule text on the card.
+	choice:			always
+	choice:			short text only
+	choice:			never
+	initial:		always
+styling style:
+	center text:
+		render style:	both
+		choice images:
+			always:				/magic.mse-game/icons/center-all-text.png
+			short text only:	/magic.mse-game/icons/center-short-text.png
+			never:				/magic.mse-game/icons/center-no-text.png
+include file: /magic-modules.mse-include/watermarks/styling_fields
+
+styling field:
+	type:			package choice
+	name:			overlay
+	description:	Should there be an overlay applied, such as foil?
+	match:			magic-overlay-*.mse-include
+	required:		false
+styling field:
+	type:			boolean
+	name:			remove from autocount
+	description:	Removes the automatic card number for specific cards, to allow for overcounted cards like in Planeswalker Decks.
+	initial:		no
+styling field:
+	type:			boolean
+	name:			promo
+	description:	Is this card a promo card, with the "P" rarity?
+	initial:		no
+
+include file: /magic-modules.mse-include/symbol-fonts/styling_fields
+
+include file: /magic-modules.mse-include/fonts/styling_fields
+
+############################################################## Card fields
+
+card style:
+	############################# Background stuff
+	border color:
+		left:				0
+		top:				0
+		width:				{ stylesheet.card_width }
+		height:				{ stylesheet.card_height }
+		left width:			29
+		right width:		29
+		top width:			29
+		bottom width:		30
+		z index:			200
+	############################# Name line
+	name:
+		left:				110
+		top:
+			script:
+				if		styling.frame_type == "Scars of Mirrodin"	then	80
+				else if	styling.frame_type == "Mirrodin Besieged"	then	35
+				else														48
+		width:				524
+		height:				80
+		alignment:			middle center shrink-overflow
+		z index:			900
+		font:
+			name:				{ name_font() }
+			italic name:		{ name_font_italic() }
+			size:				{ name_font_size() }
+			color:				{ name_font_color() }
+			shadow color:			{ name_shadow_color() }
+			shadow displacement x:	0
+			shadow displacement y:	0
+			shadow blur:			2
+	############################# Image
+	image:
+		left:				{ art_left() }
+		top:				{ art_top() }
+		width:				{ art_width() }
+		bottom:				{ art_bottom() }
+		z index:			100
+		default:			default.png
+		mask:				{ art_mask() }
+	mainframe image:
+		left:				{ popout_left() }
+		top:				{ popout_top() }
+		width:				{ popout_width() }
+		height:				{ popout_height() }
+		z index:			1000
+	############################# Text box
+	text:
+		left:				84
+		top:				{ 200 + chop_top() + body_font_vertical() }
+		width:				{ 576 - chop_right() }
+		height:				{ 110 - chop_top() - chop_bottom() }
+		z index:			900
+		line height hard:	1.2
+		line height line:	1.5
+		line height soft:	0.9
+		line height hard max:	1.3
+		line height line max:	1.6
+		alignment:
+			script:
+				if (styling.center_text == "short text only" and
+				   not contains(match:"\n", card.rule_text) and
+				   card.flavor_text == "<i-flavor></i-flavor>" and
+				   card_style.text.content_lines <= 2) or
+				   styling.center_text == "always"
+				then "middle center"
+				else "middle left"
+		font:
+			name:				{ body_font() }
+			italic name:		{ body_font_italic() }
+			size:				{ body_font_size() }
+			scale down to:		7
+			color:				{ body_font_color() }
+		symbol font:
+			name:				{ styling.text_box_mana_symbols }
+			size:				{ body_font_size() }
+			scale down to:		7
+	watermark:
+		left:				{ 84	+ sym_offset_left() - sym_offset_width() }
+		top:				{ 300	+ sym_offset_top() - sym_offset_height() }
+		width:				{ 576	+ 2*sym_offset_width() }
+		height:				{ if styling.symbol_type == "watermark" then 578 + 2*sym_offset_height() else 0 }
+		z index:			900
+		alignment:			middle center
+		popup style:		in place
+		render style:		image
+		include dark file:	/magic.mse-game/watermarks/menu_choice_images
+		image:				{ drop_shadow(enlarge_image(set_alpha(watermark_image_1(), alpha:10.0), border_size:0.1), offset_x: 0.001, offset_y: 0.001, blur_radius: 0.07, alpha: 1.1, color: body_font_color()) }
+	counter:
+		left:				{ 54	+ sym_offset_left() - sym_offset_width() }
+		top:				{ 290	+ sym_offset_top() - sym_offset_height() }
+		width:				{ 636	+ 2*sym_offset_width() }
+		height:				{ if styling.symbol_type == "counter" then 636 + 2*sym_offset_height() else 0 }
+		z index:			900
+		popup style:		in place
+		render style:		image
+		include dark file:	/magic.mse-game/counters/menu_choice_images
+		image:				{ drop_shadow(enlarge_image(counter_image(field: 1), border_size:0.1), offset_x: 0.001, offset_y: 0.001, blur_radius: 0.07, alpha: 1.1, color: body_font_color()) }
+	############################# PT
+	pt:
+		left:				590
+		top:				{ 933 + pt_font_vertical() }
+		width:				101
+		height:				45
+		z index:			920
+		alignment:			center middle shrink-overflow
+		font:
+			name:				{ pt_font() }
+			size:				{ pt_font_size() }
+			color:				{ pt_font_color() }
+			separator color:	red
+	############################# Information
+	illustrator:
+		left:				{ 372 + (illustrator_brush_width() + 6 - card_style.illustrator.content_width) / 2 }
+		top:				{ if styling.frame_type == "Scars of Mirrodin" then 927 else 931 }
+		width:				400
+		height:				25
+		z index:			900
+		alignment:			left middle shrink-overflow
+		font:
+			name:				Matrix
+			size:				20
+			weight:				bold
+			color:				{ body_font_color() }
+	illustrator brush:
+		left:				{ 372 - (illustrator_brush_width() + 6 + card_style.illustrator.content_width) / 2 }
+		top:				{ if styling.frame_type == "Scars of Mirrodin" then 934 else 938 }
+		width:				{ illustrator_brush_width() }
+		height:				{ 7 * 1039/523 }
+		popup style:		in place
+		include dark file:	/magic.mse-game/information/menu_choice_images
+		render style:		image
+		image:				{ if card.illustrator == "" then "" else illustrator_brush_image(field: 1) }
+		z index:			900
+	copyright:
+		left:				77
+		top:				{ if styling.frame_type == "Scars of Mirrodin" then 959 else 963 }
+		width:				590
+		height:				30
+		z index:			900
+		alignment:			center middle shrink-overflow
+		font:
+			name:				MPlantin
+			size:				19
+			color:				{ body_font_color() }
+############################################################## Extra card fields
+extra card field:
+	type:				choice
+	name:				frame
+	editable:			false
+	save value:			false
+	show statistics:	false
+	choice:				frame
+extra card field:
+	type:				choice
+	name:				ptbox
+	editable:			false
+	save value:			false
+	show statistics:	false
+	choice:				ptbox
+extra card field:
+	type:				choice
+	name:				foil layer
+	editable:			false
+	save value:			false
+	show statistics:	false
+	choice:				foil layer
+extra card style:
+	frame:
+		left:				0
+		top:				0
+		width:				{ stylesheet.card_width }
+		height:				{ stylesheet.card_height }
+		z index:			200
+		render style:		image
+		image:				{ styling.frame_type + "/card.png" }
+	ptbox:
+		left:				570
+		top:				924
+		width:				134
+		height:				72
+		z index:			800
+		visible:			{ card.pt != "" }
+		render style:		image
+		image:				pt.png
+	foil layer:
+		left:				0
+		top:				0
+		width:				{ stylesheet.card_width }
+		height:				{ stylesheet.card_height }
+		z index:			1050
+		visible:			{ styling.overlay != "none" and styling.overlay != "" }
+		render style:		image
+		image:				{ if styling.overlay == "" then "" else styling.overlay + "/overlay.png" }

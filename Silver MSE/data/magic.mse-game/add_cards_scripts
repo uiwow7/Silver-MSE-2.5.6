@@ -1,4 +1,14 @@
-
+add cards script:
+	name: &Meld Card
+	description: Adds and links a meld trio
+	script:
+		meld_catalyst := new_card([])
+		meld_base := new_card([rule_text:"\n(Melds with LINKNAME.)"])
+		meld_result := new_card([])
+		add_link(meld_catalyst, selected_relation: "Meld Component", linked_card:meld_base, linked_relation: "Meld Component")
+		add_link(meld_catalyst, selected_relation: "Meld Catalyst", linked_card:meld_result, linked_relation: "Meld Result")
+		add_link(meld_base, selected_relation: "Meld Base", linked_card:meld_result, linked_relation: "Meld Result")
+		[ meld_catalyst, meld_base, meld_result ]
 add cards script:
 	name: &Basic Lands
 	description: Adds 5 basic lands to the set (Plains, Island, Swamp, Mountain, Forest)
@@ -10,7 +20,6 @@ add cards script:
 		, new_card([name: "Swamp",    super_type: "Basic Land", sub_type: "Swamp",    rarity: "basic land", watermark: "mana symbol black"])
 		, new_card([name: "Mountain", super_type: "Basic Land", sub_type: "Mountain", rarity: "basic land", watermark: "mana symbol red"])
 		, new_card([name: "Forest",   super_type: "Basic Land", sub_type: "Forest",   rarity: "basic land", watermark: "mana symbol green"])
-		, new_card([name: "Fault",   super_type: "Basic Land", sub_type: "Fault",   rarity: "basic land", watermark: "mana symbol silver"])
 		]
 
 add cards script:
@@ -24,7 +33,6 @@ add cards script:
 		, new_card([name: "Snow-Covered Swamp",    super_type: "Basic Snow Land", sub_type: "Swamp",    rarity: "common", watermark: "mana symbol black"])
 		, new_card([name: "Snow-Covered Mountain", super_type: "Basic Snow Land", sub_type: "Mountain", rarity: "common", watermark: "mana symbol red"])
 		, new_card([name: "Snow-Covered Forest",   super_type: "Basic Snow Land", sub_type: "Forest",   rarity: "common", watermark: "mana symbol green"])
-		, new_card([name: "Snow-Covered Fault",   super_type: "Basic Snow Land", sub_type: "Fault",   rarity: "common", watermark: "mana symbol silver"])
 		]
 
 #add cards script:
@@ -46,7 +54,6 @@ add cards script:
 		, new_card([casting_cost: "B"])
 		, new_card([casting_cost: "R"])
 		, new_card([casting_cost: "G"])
-		, new_card([casting_cost: "I"])
 		]
 add cards script:
 	name: &Uncommon Cycle
@@ -57,16 +64,15 @@ add cards script:
 		, new_card([casting_cost: "B",   rarity: "uncommon"])
 		, new_card([casting_cost: "R",   rarity: "uncommon"])
 		, new_card([casting_cost: "G",   rarity: "uncommon"])
-		, new_card([casting_cost: "I",   rarity: "uncommon"])
 		]
 add cards script:
 	name: &Rare Cycle
 	description: Adds a rare card of each color to the set
 	script:
-		[ new_card([casting_cost: "W",   rarity: "rare"]) , new_card([casting_cost: "U",   rarity: "rare"]) , new_card([casting_cost: "B",   rarity: "rare"]) , new_card([casting_cost: "R",   rarity: "rare"]) , new_card([casting_cost: "G",   rarity: "rare"]), new_card([casting_cost: "I",   rarity: "rare"]) ]
+		[ new_card([casting_cost: "W",   rarity: "rare"]) , new_card([casting_cost: "U",   rarity: "rare"]) , new_card([casting_cost: "B",   rarity: "rare"]) , new_card([casting_cost: "R",   rarity: "rare"]) , new_card([casting_cost: "G",   rarity: "rare"]) ]
 add cards script:
 	name: &Design Skeleton Full
-	description: Basic skeleton of 19C,11U,7R,2M/color, 1U,1R/color pair, 6C,15U,8R,5M/colorless. Type "skeleton_info()" in console tab/help
+	description: Basic skeleton of 15C,14U,9R,3M/color, 2U,1R/color pair, 6C,10U,5R,5M/colorless. Type "skeleton_info()" in console tab for help changing these numbers
 	script:	skeleton_script()
 add cards script:
 	name: &Design Skeleton Commons

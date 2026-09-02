@@ -3,60 +3,12 @@
 	select: no replace
 	filter: not is_token_card()
 pack type:
-	name: white common
-	filter: card.rarity == "common" and card.card_color == "white" and not is_token_card()
-pack type:
-	name: blue common
-	filter: card.rarity == "common" and card.card_color == "blue" and not is_token_card()
-pack type:
-	name: black common
-	filter: card.rarity == "common" and card.card_color == "black" and not is_token_card()
-pack type:
-	name: red common
-	filter: card.rarity == "common" and card.card_color == "red" and not is_token_card()
-pack type:
-	name: green common
-	filter: card.rarity == "common" and card.card_color == "green" and not is_token_card()
-pack type:
-	name: silver common
-	filter: card.rarity == "common" and card.card_color == "silver" and not is_token_card()
-pack type:
-	name: colorless common
-	filter: card.rarity == "common" and card.card_color == "colorless" and not is_token_card()
-
-pack type:
-	name: mythic or rare
-	selectable: false
-	# In Shards of Alara there are 15 mythics and 53 rares.
-	# Each booster has a 1/8 chance of containing a mythic.
-	# This means that looking at single mythics : rares, the proportion is
-	#  1*53 : 7*15 = 53 : 105
-	# this is almost exactly 1 : 2,
-	# So, a a single mythic is 2 times as rare as a single normal rare.
-	# 
-	# We use this proportional system instead of a fixed 1:7 system,
-	#  because it copes better with cases where there are few mythics.
-	# For example, if a set has 1 mythic and 20 rares, you would actually
-	# be MORE likely to find the mythic card with the 1:7 system!
-	select: proportional
-	item:
-		name: mythic rare
-		weight: 1
-	item:
-		name: rare
-		weight: 2
-
-pack type:
 	name: basic land
 	select: equal
 	filter: card.rarity == "basic land" and not is_token_card() and not is_masterpiece() # can be shifted
 pack type:
-	name: land
-	select: equal
-	filter: card.type == "land" and not is_token_card() and not is_masterpiece() # can be shifted
-pack type:
 	name: common
-	filter: card.rarity == "common" and not is_token_card() and not is_shifted_card() and not is_masterpiece() and not is_unsorted() and not (card.rarity == "basic land")
+	filter: card.rarity == "common" and not is_token_card() and not is_shifted_card() and not is_masterpiece() and not is_unsorted()
 pack type:
 	name: uncommon
 	filter: card.rarity == "uncommon" and not is_token_card() and not is_shifted_card() and not is_masterpiece() and not is_unsorted()
@@ -223,11 +175,8 @@ pack type:
 		amount: 7
 
 pack type:
-	name: basic land
+	name: additional land
 	item: basic land
-pack type:
-	name: land
-	item: land
 pack type:
 	name: additional common
 	item: common sometimes shifted or special
