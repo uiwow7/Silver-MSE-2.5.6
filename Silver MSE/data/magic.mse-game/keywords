@@ -2235,7 +2235,7 @@ keyword:
 	keyword: Augmented
 	match: Augmented
 	mode: pseudo
-	rules: You’ve spent [WUBRG] to cast spells this turn
+	rules: You’ve spent five or more colors to cast spells this turn
 keyword:
 	keyword: Iterate 
 	match: Iterate
