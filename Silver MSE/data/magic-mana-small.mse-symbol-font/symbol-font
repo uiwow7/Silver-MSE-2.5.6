@@ -1,11 +1,9 @@
-mse version:		2.6.0
-short name:			M15 normal
-icon:				mana_c.png
-position hint:		850001
-installer group:	magic/Mana Symbols/M15 normal
-
-
+﻿mse version: 2.0.0
+short name: M15 normal
+position hint: 201
+icon: mana_c.png
 version: 2020-02-07
+installer group: magic/Mana symbols/normal style with extra colors/M15
 depends on:
 	package: magic-mainframe-extras.mse-include
 	version: 2018-01-01
@@ -213,44 +211,64 @@ symbol:
 ###################################################################################### Phy Hybrid
 symbol:
 	code: H/W/U
-	image: mana_phywu.png
-	image font size: 75
+	image: { masked_blend(dark: "mana_phyww.png", light: "mana_phyuu.png", mask: "mask_hybrid.png") }
+	image font size: 145
 symbol:
 	code: H/W/B
-	image: mana_phywb.png
-	image font size: 75
+	image: { masked_blend(dark: "mana_phyww.png", light: "mana_phybb.png", mask: "mask_hybrid.png") }
+	image font size: 145
 symbol:
 	code: H/U/B
-	image: mana_phyub.png
-	image font size: 75
+	image: { masked_blend(dark: "mana_phyuu.png", light: "mana_phybb.png", mask: "mask_hybrid.png") }
+	image font size: 145
 symbol:
 	code: H/U/R
-	image: mana_phyur.png
-	image font size: 75
+	image: { masked_blend(dark: "mana_phyuu.png", light: "mana_phyrr.png", mask: "mask_hybrid.png") }
+	image font size: 145
 symbol:
 	code: H/B/R
-	image: mana_phybr.png
-	image font size: 75
+	image: { masked_blend(dark: "mana_phybb.png", light: "mana_phyrr.png", mask: "mask_hybrid.png") }
+	image font size: 145
 symbol:
 	code: H/B/G
-	image: mana_phybg.png
-	image font size: 75
+	image: { masked_blend(dark: "mana_phybb.png", light: "mana_phygg.png", mask: "mask_hybrid.png") }
+	image font size: 145
 symbol:
 	code: H/R/G
-	image: mana_phyrg.png
-	image font size: 75
+	image: { masked_blend(dark: "mana_phyrr.png", light: "mana_phygg.png", mask: "mask_hybrid.png") }
+	image font size: 145
 symbol:
 	code: H/R/W
-	image: mana_phyrw.png
-	image font size: 75
+	image: { masked_blend(dark: "mana_phyrr.png", light: "mana_phyww.png", mask: "mask_hybrid.png") }
+	image font size: 145
 symbol:
 	code: H/G/W
-	image: mana_phygw.png
-	image font size: 75
+	image: { masked_blend(dark: "mana_phygg.png", light: "mana_phyww.png", mask: "mask_hybrid.png") }
+	image font size: 145
 symbol:
 	code: H/G/U
-	image: mana_phygu.png
-	image font size: 75
+	image: { masked_blend(dark: "mana_phygg.png", light: "mana_phyuu.png", mask: "mask_hybrid.png") }
+	image font size: 145
+symbol:
+	code: H/I/W
+	image: { masked_blend(dark: "mana_phyii.png", light: "mana_phyww.png", mask: "mask_hybrid.png") }
+	image font size: 145
+symbol:
+	code: H/I/U
+	image: { masked_blend(dark: "mana_phyii.png", light: "mana_phyuu.png", mask: "mask_hybrid.png") }
+	image font size: 145
+symbol:
+	code: H/I/B
+	image: { masked_blend(dark: "mana_phyii.png", light: "mana_phybb.png", mask: "mask_hybrid.png") }
+	image font size: 145
+symbol:
+	code: H/I/R
+	image: { masked_blend(dark: "mana_phyii.png", light: "mana_phyrr.png", mask: "mask_hybrid.png") }
+	image font size: 145
+symbol:
+	code: H/I/G
+	image: { masked_blend(dark: "mana_phyii.png", light: "mana_phygg.png", mask: "mask_hybrid.png") }
+	image font size: 145
 
 ###################################################################################### Loyalty Symbols
 include file: /magic-modules.mse-include/symbol-fonts/small/symbol_fields_loyalty
@@ -292,6 +310,31 @@ symbol:
 symbol:
 	code: Q
 	image: mana_q.png
+
+###################################################################################### Silver Hybrid Symbols
+symbol:
+	code: I/W
+	image: { masked_blend(dark: "mana_ii.png", light: "mana_ww.png", mask: "mask_hybrid.png") }
+	image font size: 145
+symbol:
+	code: I/U
+	image: { masked_blend(dark: "mana_ii.png", light: "mana_uu.png", mask: "mask_hybrid.png") }
+	image font size: 145
+symbol:
+	code: I/B
+	image: { masked_blend(dark: "mana_ii.png", light: "mana_bb.png", mask: "mask_hybrid.png") }
+	image font size: 145
+symbol:
+	code: I/R
+	image: { masked_blend(dark: "mana_ii.png", light: "mana_rr.png", mask: "mask_hybrid.png") }
+	image font size: 145
+symbol:
+	code: I/G
+	image: { masked_blend(dark: "mana_ii.png", light: "mana_gg.png", mask: "mask_hybrid.png") }
+	image font size: 145
+symbol:
+	code: I
+	image: mana_i.png
 
 ###################################################################################### Prismatic Symbols
 symbol:
@@ -533,26 +576,34 @@ symbol:
 	code: C/G
 	image: { masked_blend(dark: "mana_cc.png", light: "mana_gg.png", mask: "mask_hybrid.png") }
 	image font size: 145
+symbol:
+	code: C/I
+	image: { masked_blend(dark: "mana_cc.png", light: "mana_ii.png", mask: "mask_hybrid.png") }
+	image font size: 145
 ###################################################################################### Phyrexian Mana Symbols
 symbol:
 	code: H/W
-	image: { masked_blend(light: "black_circle.png", dark: "mana_circle_w.png", mask: "mask_phyrexian.png") }
+	image: { masked_blend(light: "black_circle.png", dark: "mana_circle_phyw.png", mask: "mask_phyrexian.png") }
 	image font size: 117
 symbol:
 	code: H/U
-	image: { masked_blend(light: "black_circle.png", dark: "mana_circle_u.png", mask: "mask_phyrexian.png") }
+	image: { masked_blend(light: "black_circle.png", dark: "mana_circle_phyu.png", mask: "mask_phyrexian.png") }
 	image font size: 117
 symbol:
 	code: H/B
-	image: { masked_blend(light: "black_circle.png", dark: "mana_circle_b.png", mask: "mask_phyrexian.png") }
+	image: { masked_blend(light: "black_circle.png", dark: "mana_circle_phyb.png", mask: "mask_phyrexian.png") }
 	image font size: 117
 symbol:
 	code: H/R
-	image: { masked_blend(light: "black_circle.png", dark: "mana_circle_r.png", mask: "mask_phyrexian.png") }
+	image: { masked_blend(light: "black_circle.png", dark: "mana_circle_phyr.png", mask: "mask_phyrexian.png") }
 	image font size: 117
 symbol:
 	code: H/G
-	image: { masked_blend(light: "black_circle.png", dark: "mana_circle_g.png", mask: "mask_phyrexian.png") }
+	image: { masked_blend(light: "black_circle.png", dark: "mana_circle_phyg.png", mask: "mask_phyrexian.png") }
+	image font size: 117
+symbol:
+	code: H/I
+	image: { masked_blend(light: "black_circle.png", dark: "mana_circle_phyi.png", mask: "mask_phyrexian.png") }
 	image font size: 117
 symbol:
 	code: H
@@ -665,6 +716,9 @@ symbol:
 symbol:
 	code: 2/G
 	image: mana_2g.png
+symbol:
+	code: 2/I
+	image: mana_2i.png
 symbol:
 	code: 2/C
 	image: mana_2c.png
@@ -1007,6 +1061,7 @@ insert symbol menu:
 	item: B
 	item: R
 	item: G
+	item: I
 	item: C
 	item: S
 	item:
@@ -1025,6 +1080,13 @@ insert symbol menu:
 		item: B/G
 		item: R/W
 		item: G/U
+		item:
+			type: line
+		item: I/W
+		item: I/U
+		item: I/B
+		item: I/R
+		item: I/G
 		item:
 			type: line
 		item: C/W
@@ -1080,6 +1142,7 @@ insert symbol menu:
 		item: H/B
 		item: H/R
 		item: H/G
+		item: H/I
 	item:
 		name: phyrexian hybrid
 		item: H/W/U
@@ -1094,6 +1157,13 @@ insert symbol menu:
 		item: H/B/G
 		item: H/R/W
 		item: H/G/U
+		item:
+			type: line
+		item: H/I/W
+		item: H/I/U
+		item: H/I/B
+		item: H/I/R
+		item: H/I/G
 	item:
 		type: line
 	item:

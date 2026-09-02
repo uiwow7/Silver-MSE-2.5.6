@@ -1,11 +1,9 @@
-mse version:		2.6.0
-short name:			M15 Mystical Archive Mana
-icon:				mana_u.png
-position hint:		850202
-installer group:	magic/Mana Symbols/M15 Mystical Archive Mana
-
-
+﻿mse version: 2.0.0
+short name: M15 Mystical Archive Mana
+position hint: 202
+icon: mana_u.png
 version: 2021-06-01
+installer group: magic/Mana symbols/normal style with extra colors/M15
 # Symbol font in the normal, flat, style, used for text boxes and on old style cards
 # Note:
 #  Define  mana_t := {"new|old|older"} in the init script of the style
@@ -420,6 +418,9 @@ symbol:
 	code: G
 	image: mana_g.png
 symbol:
+	code: I
+	image: mana_i.png
+symbol:
 	code: P
 	image: mana_p.png
 symbol:
@@ -606,7 +607,7 @@ symbol:
 ###################################################################################### Colorless Mana Symbols
 symbol:
 	image: mana_circle.png
-	code: [0-9]+(?!/[WUBRGISTQ2])|.
+	code: [0-9]+(?!/[WUBRGSTQ2])|.
 	regex: yes
 	draw text: 0
 	text margin left:   .2

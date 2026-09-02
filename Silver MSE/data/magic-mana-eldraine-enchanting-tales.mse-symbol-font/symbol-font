@@ -281,7 +281,7 @@ symbol:
 	image: mana_nul_c.png
 
 symbol:
-	code: [0-9]+(?!/[WUBRGSTQ2])|.
+	code: [0-9]+(?!/[WUBRGISTQ2])|.
 	regex: yes
 	draw text: 0
 	text margin left:	-0.02

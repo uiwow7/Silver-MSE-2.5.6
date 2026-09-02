@@ -245,7 +245,7 @@ script:
 	       write_group(title: "Black",                  code:"D") +
 	       write_group(title: "Red",                    code:"E") +
 	       write_group(title: "Green",                  code:"F") +
-	       write_group(title: "Silver",                  code:"G") +
+	       write_group(title: "Silver",                 code:"G") +
 	       write_group(title: "Multicolor",             code:"H") +
 	       write_group(title: "Hybrids",                code:"I") +
 	       write_group(title: "Multicolor split",       code:"J") +

@@ -1028,7 +1028,7 @@ is_null_cost := { input == "" or input == "0" }
 is_multicolor := { chosen(choice: "multicolor") and input != "artifact, multicolor" }
 is_hybrid_cost := { 
 	casting_cost := card.casting_cost
-	contains(casting_cost, match: "W/") or contains(casting_cost, match: "U/") or contains(casting_cost, match: "B/") or contains(casting_cost, match: "R/") or contains(casting_cost, match: "G/")
+	contains(casting_cost, match: "W/") or contains(casting_cost, match: "U/") or contains(casting_cost, match: "B/") or contains(casting_cost, match: "R/") or contains(casting_cost, match: "G/") or contains(casting_cost, match:"I/")
 }
 basic_land_sort := {
 	name := card.name
@@ -1067,8 +1067,13 @@ multi_color_pair_sort := {
 	else if colors == "BG" then "GH"
 	else if colors == "WR" then "GI"
 	else if colors == "UG" then "GJ"
-	else if contains(card.casting_cost, match:"/") then "GL"
-	else "GK"
+	else if colors == "IW" then "GK"
+	else if colors == "IU" then "GL"
+	else if colors == "IB" then "GM"
+	else if colors == "IR" then "GN"
+	else if colors == "IG" then "GO"
+	else if contains(card.casting_cost, match:"/") then "GP"
+	else "GQ"
 }
 
 #### Sort the card into its rarity tier
@@ -6319,6 +6324,7 @@ alias_colors := {
 		b: rgb(39, 38, 36),
 		r: rgb(168, 88, 81),
 		g: rgb(6, 120, 69),
+		i: rgb(264, 27, 56),
 		a: rgb(239, 238, 236),
 		m: rgb(243, 210, 105),
 		c: rgb(173, 151, 137)
@@ -6647,6 +6653,12 @@ skeleton_shard_rares 		:= 0
 skeleton_wedge_commons 		:= 0
 skeleton_wedge_uncommons 	:= 0
 skeleton_wedge_rares 		:= 0
+skeleton_silver_shard_commons 		:= 0
+skeleton_silver_shard_uncommons 	:= 0
+skeleton_silver_shard_rares 		:= 0
+skeleton_silver_wedge_commons 		:= 0
+skeleton_silver_wedge_uncommons 	:= 0
+skeleton_silver_wedge_rares 		:= 0
 skeleton_artifact_commons 	:= 6
 skeleton_artifact_uncommons := 4  ## Previously 5
 skeleton_artifact_rares 	:= 0
@@ -6671,31 +6683,42 @@ skeleton_runner := {
 #### outside to make singleton scripts easier
 blank_list_5 := ["","","","",""]
 blank_list_10 := ["","","","","","","","","",""]
-mana_list_base := ["W", "U", "B", "R", "G"]
+blank_list_15 := blank_list_5 + blank_list_10
+mana_list_base := ["W", "U", "B", "R", "G","I"]
 mana_list_ally := ["WU","UB","BR","RG","GW"]
 mana_list_enemy := ["WB","UR","BG","RW","GU"]
+mana_list_silver := ["IW","IU","IB","IR","IG"]
 mana_list_ally_hybrid := ["W/U","U/B","B/R","R/G","G/W"]
 mana_list_enemy_hybrid := ["W/B","U/R","B/G","R/W","G/U"]
+mana_list_silver_hybrid := ["I/W","I/U","I/B","I/R","I/G"]
 mana_list_shard := ["WUB","UBR","BRG","RGW","GWU"]
 mana_list_wedge := ["WBG","URW","BGU","RWB","GUR"]
+mana_list_silver_shard := ["IWU","IUB","IBR","IRG","IGW"]
+mana_list_silver_wedge := ["IWB","IUR","IBG","IRW","IGU"]
 skeleton_script := {
 	cards := [];
 	cards := cards + skeleton_runner(count:skeleton_commons, mana_list:mana_list_base);
 	cards := cards + skeleton_runner(count:skeleton_uncommons, prefix:"U", rarity:"uncommon", mana_list:mana_list_base);
 	cards := cards + skeleton_runner(count:skeleton_rares, prefix:"R", rarity:"rare", mana_list:mana_list_base);
 	cards := cards + skeleton_runner(count:skeleton_mythics, prefix:"M", rarity:"mythic rare", mana_list:mana_list_base);
-	cards := cards + skeleton_runner(count:skeleton_gold_commons, prefix:"CM", rarity:"common", letter_list:blank_list_10, mana_list:mana_list_ally+mana_list_enemy);
-	cards := cards + skeleton_runner(count:skeleton_gold_uncommons, prefix:"UM", rarity:"uncommon", letter_list:blank_list_10, mana_list:mana_list_ally+mana_list_enemy);
-	cards := cards + skeleton_runner(count:skeleton_gold_rares, prefix:"RM", rarity:"rare", letter_list:blank_list_10, mana_list:mana_list_ally+mana_list_enemy);
-	cards := cards + skeleton_runner(count:skeleton_hybrid_commons, prefix:"CZ", rarity:"common", letter_list:blank_list_10, mana_list:mana_list_ally_hybrid+mana_list_enemy_hybrid);
-	cards := cards + skeleton_runner(count:skeleton_hybrid_uncommons, prefix:"UZ", rarity:"uncommon", letter_list:blank_list_10, mana_list:mana_list_ally_hybrid+mana_list_enemy_hybrid);
-	cards := cards + skeleton_runner(count:skeleton_hybrid_rares, prefix:"RZ", rarity:"rare", letter_list:blank_list_10, mana_list:mana_list_ally_hybrid+mana_list_enemy_hybrid);
+	cards := cards + skeleton_runner(count:skeleton_gold_commons, prefix:"CM", rarity:"common", letter_list:blank_list_15, mana_list:mana_list_ally+mana_list_enemy+mana_list_silver);
+	cards := cards + skeleton_runner(count:skeleton_gold_uncommons, prefix:"UM", rarity:"uncommon", letter_list:blank_list_15, mana_list:mana_list_ally+mana_list_enemy+mana_list_silver);
+	cards := cards + skeleton_runner(count:skeleton_gold_rares, prefix:"RM", rarity:"rare", letter_list:blank_list_15, mana_list:mana_list_ally+mana_list_enem+mana_list_silvery);
+	cards := cards + skeleton_runner(count:skeleton_hybrid_commons, prefix:"CZ", rarity:"common", letter_list:blank_list_15, mana_list:mana_list_ally_hybrid+mana_list_enemy_hybrid+mana_list_silver_hybrid);
+	cards := cards + skeleton_runner(count:skeleton_hybrid_uncommons, prefix:"UZ", rarity:"uncommon", letter_list:blank_list_15, mana_list:mana_list_ally_hybrid+mana_list_enemy_hybrid)+mana_list_silver_hybrid;
+	cards := cards + skeleton_runner(count:skeleton_hybrid_rares, prefix:"RZ", rarity:"rare", letter_list:blank_list_15, mana_list:mana_list_ally_hybrid+mana_list_enemy_hybrid+mana_list_silver_hybrid);
 	cards := cards + skeleton_runner(count:skeleton_shard_commons, prefix:"CM", rarity:"common", letter_list:blank_list_5, mana_list:mana_list_shard);
 	cards := cards + skeleton_runner(count:skeleton_shard_uncommons, prefix:"UM", rarity:"uncommon", letter_list:blank_list_5, mana_list:mana_list_shard);
 	cards := cards + skeleton_runner(count:skeleton_shard_rares, prefix:"RM", rarity:"rare", letter_list:blank_list_5, mana_list:mana_list_shard);
 	cards := cards + skeleton_runner(count:skeleton_wedge_commons, prefix:"CM", rarity:"common", letter_list:blank_list_5, mana_list:mana_list_wedge);
 	cards := cards + skeleton_runner(count:skeleton_wedge_uncommons, prefix:"UM", rarity:"uncommon", letter_list:blank_list_5, mana_list:mana_list_wedge);
 	cards := cards + skeleton_runner(count:skeleton_wedge_rares, prefix:"RM", rarity:"rare", letter_list:blank_list_5, mana_list:mana_list_wedge);
+	cards := cards + skeleton_runner(count:skeleton_silver_shard_commons, prefix:"CM", rarity:"common", letter_list:blank_list_5, mana_list:mana_list_shard);
+	cards := cards + skeleton_runner(count:skeleton_silver_shard_uncommons, prefix:"UM", rarity:"uncommon", letter_list:blank_list_5, mana_list:mana_list_shard);
+	cards := cards + skeleton_runner(count:skeleton_silver_shard_rares, prefix:"RM", rarity:"rare", letter_list:blank_list_5, mana_list:mana_list_shard);
+	cards := cards + skeleton_runner(count:skeleton_silver_wedge_commons, prefix:"CM", rarity:"common", letter_list:blank_list_5, mana_list:mana_list_wedge);
+	cards := cards + skeleton_runner(count:skeleton_silver_wedge_uncommons, prefix:"UM", rarity:"uncommon", letter_list:blank_list_5, mana_list:mana_list_wedge);
+	cards := cards + skeleton_runner(count:skeleton_silver_wedge_rares, prefix:"RM", rarity:"rare", letter_list:blank_list_5, mana_list:mana_list_wedge);
 	for i from 1 to skeleton_artifact_commons do cards := cards + [new_card([name:"CA"+fill_len(i, lead:"0"), rarity:"common", super_type:"Artifact"])];
 	for i from 1 to skeleton_artifact_uncommons do cards := cards + [new_card([name:"UA"+fill_len(i, lead:"0"), rarity:"uncommon", super_type:"Artifact"])];
 	for i from 1 to skeleton_artifact_rares do cards := cards + [new_card([name:"RA"+fill_len(i, lead:"0"), rarity:"rare", super_type:"Artifact"])];
@@ -6737,7 +6760,14 @@ skeleton_info := {
 	+"skeleton_shard_rares: " + skeleton_shard_rares + "\n"
 	+"skeleton_wedge_commons: " + skeleton_wedge_commons + "\n"
 	+"skeleton_wedge_uncommons: " + skeleton_wedge_uncommons + "\n"
-	+"skeleton_wedge_rares: " + skeleton_wedge_rares)
+	+"skeleton_wedge_rares: " + skeleton_wedge_rares
+	+"skeleton_blank_mythics: " + skeleton_blank_mythics + "\n"
+	+"skeleton_silver_shard_commons: " + skeleton_silver_shard_commons + "\n"
+	+"skeleton_silver_shard_uncommons: " + skeleton_silver_shard_uncommons + "\n"
+	+"skeleton_silver_shard_rares: " + skeleton_silver_shard_rares + "\n"
+	+"skeleton_silver_wedge_commons: " + skeleton_silver_wedge_commons + "\n"
+	+"skeleton_silver_wedge_uncommons: " + skeleton_silver_wedge_uncommons + "\n"
+	+"skeleton_silver_wedge_rares: " + skeleton_silver_wedge_rares)
 }
 ############################################################## Hashes
 #### return a new Hash

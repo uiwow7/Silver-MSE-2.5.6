@@ -1,12 +1,10 @@
-mse version:		2.6.0
-short name:			popup style
-icon:				mana_r.png
-position hint:		850001
-installer group:	magic/Mana Symbols/popup style
-
-
+﻿mse version: 0.3.9
 version: 2020-02-07
 # Symbol font in the 'popup' style, used for casting costs on modern cards
+short name: popup style
+installer group: magic/Mana symbols/popup style
+position hint: 002
+icon: mana_r.png
 depends on:
 	package: magic-mainframe-extras.mse-include
 	version: 2018-01-01
@@ -180,7 +178,7 @@ symbol:
 	image: mana_q.png
 symbol:
 	code: E
-	image: energy.png
+	image: Energy.png
 	image font size: 230
 symbol:
 	code: A-
@@ -193,47 +191,91 @@ symbol:
 	code: A
 	image: mana_chaos.png
 	image font size: 151.69
+
+###################################################################################### Silver Hybrid Symbols
+symbol:
+	code: I/W
+	image: { masked_blend(dark: "mana_ii.png", light: "mana_ww.png", mask: "mask_hybrid.png") }
+	image font size: 145
+symbol:
+	code: I/U
+	image: { masked_blend(dark: "mana_ii.png", light: "mana_uu.png", mask: "mask_hybrid.png") }
+symbol:
+	code: I/B
+	image: { masked_blend(dark: "mana_ii.png", light: "mana_bb.png", mask: "mask_hybrid.png") }
+	image font size: 145
+symbol:
+	code: I/R
+	image: { masked_blend(dark: "mana_ii.png", light: "mana_rr.png", mask: "mask_hybrid.png") }
+	image font size: 145
+symbol:
+	code: I/G
+	image: { masked_blend(dark: "mana_ii.png", light: "mana_gg.png", mask: "mask_hybrid.png") }
+
 ###################################################################################### Phy Hybrid
 symbol:
+	code: I
+	image: mana_i.png
+symbol:
 	code: H/W/U
-	image: mana_phywu.png
-	image font size: 75
+	image: { masked_blend(dark: "mana_phyww.png", light: "mana_phyuu.png", mask: "mask_hybrid.png") }
+	image font size: 145
 symbol:
 	code: H/W/B
-	image: mana_phywb.png
-	image font size: 75
+	image: { masked_blend(dark: "mana_phyww.png", light: "mana_phybb.png", mask: "mask_hybrid.png") }
+	image font size: 145
 symbol:
 	code: H/U/B
-	image: mana_phyub.png
-	image font size: 75
+	image: { masked_blend(dark: "mana_phyuu.png", light: "mana_phybb.png", mask: "mask_hybrid.png") }
+	image font size: 145
 symbol:
 	code: H/U/R
-	image: mana_phyur.png
-	image font size: 75
+	image: { masked_blend(dark: "mana_phyuu.png", light: "mana_phyrr.png", mask: "mask_hybrid.png") }
+	image font size: 145
 symbol:
 	code: H/B/R
-	image: mana_phybr.png
-	image font size: 75
+	image: { masked_blend(dark: "mana_phybb.png", light: "mana_phyrr.png", mask: "mask_hybrid.png") }
+	image font size: 145
 symbol:
 	code: H/B/G
-	image: mana_phybg.png
-	image font size: 75
+	image: { masked_blend(dark: "mana_phybb.png", light: "mana_phygg.png", mask: "mask_hybrid.png") }
+	image font size: 145
 symbol:
 	code: H/R/G
-	image: mana_phyrg.png
-	image font size: 75
+	image: { masked_blend(dark: "mana_phyrr.png", light: "mana_phygg.png", mask: "mask_hybrid.png") }
+	image font size: 145
 symbol:
 	code: H/R/W
-	image: mana_phyrw.png
-	image font size: 75
+	image: { masked_blend(dark: "mana_phyrr.png", light: "mana_phyww.png", mask: "mask_hybrid.png") }
+	image font size: 145
 symbol:
 	code: H/G/W
-	image: mana_phygw.png
-	image font size: 75
+	image: { masked_blend(dark: "mana_phygg.png", light: "mana_phyww.png", mask: "mask_hybrid.png") }
+	image font size: 145
 symbol:
 	code: H/G/U
-	image: mana_phygu.png
-	image font size: 75
+	image: { masked_blend(dark: "mana_phygg.png", light: "mana_phyuu.png", mask: "mask_hybrid.png") }
+	image font size: 145
+symbol:
+	code: H/I/W
+	image: { masked_blend(dark: "mana_phyii.png", light: "mana_phyww.png", mask: "mask_hybrid.png") }
+	image font size: 145
+symbol:
+	code: H/I/U
+	image: { masked_blend(dark: "mana_phyii.png", light: "mana_phyuu.png", mask: "mask_hybrid.png") }
+	image font size: 145
+symbol:
+	code: H/I/B
+	image: { masked_blend(dark: "mana_phyii.png", light: "mana_phybb.png", mask: "mask_hybrid.png") }
+	image font size: 145
+symbol:
+	code: H/I/R
+	image: { masked_blend(dark: "mana_phyii.png", light: "mana_phyrr.png", mask: "mask_hybrid.png") }
+	image font size: 145
+symbol:
+	code: H/I/G
+	image: { masked_blend(dark: "mana_phyii.png", light: "mana_phygg.png", mask: "mask_hybrid.png") }
+	image font size: 145
 
 ###################################################################################### Prismatic Symbols
 symbol:
@@ -390,6 +432,10 @@ symbol:
 	image: mana_cmc_cg.png
 	image font size: 145
 symbol:
+	code: C/I
+	image: { masked_blend(dark: "mana_cc.png", light: "mana_ii.png", mask: "mask_hybrid.png") }
+	image font size: 145
+symbol:
 	code: D/W
 	image: mana_dw.png
 	image font size: 120
@@ -479,6 +525,10 @@ symbol:
 symbol:
 	code: H/G
 	image: mana_phyg.png
+	image font size: 120
+symbol:
+	code: H/I
+	image: mana_phyi.png
 	image font size: 120
 symbol:
 	code: L/W
@@ -835,6 +885,10 @@ symbol:
 #	code: C/G
 #	image: { masked_blend(dark: "mana_cc.png", light: "mana_gg.png", mask: "mask_hybrid.png") }
 #	image font size: 145
+#symbol:
+#	code: C/I
+#	image: { masked_blend(dark: "mana_cc.png", light: "mana_ii.png", mask: "mask_hybrid.png") }
+#	image font size: 145
 ###################################################################################### #/C Hybrid Symbols
 
 
@@ -851,7 +905,6 @@ insert symbol menu:
 	item: X
 	item: Y
 	item: Z
-	item: I
 	item: C
 	item:
 		type: custom
@@ -863,6 +916,7 @@ insert symbol menu:
 	item: B
 	item: R
 	item: G
+	item: I
 	item: S
 	item:
 		type: line
@@ -889,6 +943,12 @@ insert symbol menu:
 		item: B/G
 		item: R/W
 		item: G/U
+			type: line
+		item: H/W
+		item: H/U
+		item: H/B
+		item: H/R
+		item: H/G
 	item:
 		name: colorless hybrid
 		item: C/W
@@ -896,6 +956,7 @@ insert symbol menu:
 		item: C/B
 		item: C/R
 		item: C/G
+		item: C/I
 	item:
 		name: phyrexian
 		item: H
@@ -904,6 +965,7 @@ insert symbol menu:
 		item: H/B
 		item: H/R
 		item: H/G
+		item: H/I
 	item:
 		name: hybrid 3
 		item: W/U/B

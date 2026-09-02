@@ -88,7 +88,7 @@ init script:
 		if styling.unsorted_casting_cost then
 			input
 		else
-			sort_text@(order: "XYZI[0123456789]HSCA(WUBRG)")()
+			sort_text@(order: "XYZ[0123456789]HSCA(WUBRGI)")()
 	}
 	ancestral_mana := { styling.ancestral_mana_symbols }
 	is_unsorted := {styling.remove_from_autocount}
