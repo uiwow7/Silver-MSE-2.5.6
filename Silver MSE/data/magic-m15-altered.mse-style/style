@@ -124,7 +124,6 @@ init script:
 			b: rgb(39, 38, 36),
 			r: rgb(233, 107, 48),
 			g: rgb(6, 120, 69),
-			i: rgb(264, 27, 56),
 			a: rgb(176, 150, 133),
 			m: rgb(229, 203, 106),
 			c: rgb(173, 151, 137)
@@ -2506,7 +2505,6 @@ extra card field:
 	choice: black
 	choice: red
 	choice: green
-	choice: silver
 	choice: colorless
 	choice: artifact
 
