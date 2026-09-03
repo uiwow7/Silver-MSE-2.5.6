@@ -125,33 +125,7 @@ styling field:
 	type: text
 	name: font cap
 	description: Caps the font size of all text boxes to allow consistent sizes. Default is 14.
-styling field:
-	type: choice
-	name: name color
-	choice: default
-	choice: black
-	choice: bevel black
-	choice: white
-	choice: shadowed white
-	description: The color of the name on the card.
-styling field:
-	type: choice
-	name: typeline color
-	choice: default
-	choice: black
-	choice: bevel black
-	choice: white
-	choice: shadowed white
-	description: The color of the typeline on the card.
-styling field:
-	type: choice
-	name: text color
-	choice: default
-	choice: black
-	choice: bevel black
-	choice: white
-	choice: shadowed white
-	description: The color of the text on the card.
+include file: /magic-modules.mse-include/fonts/styling_fields
 styling field:
 	type: info
 	name: DFC Options
@@ -265,6 +239,36 @@ styling field:
 	name: level mana symbols
 	match: magic-mana-*.mse-symbol-font
 	initial: magic-mana-large.mse-symbol-font
+styling field:
+	type: info
+	name: deprecated
+styling field:
+	type: choice
+	name: name color
+	choice: default
+	choice: black
+	choice: bevel black
+	choice: white
+	choice: shadowed white
+	description: The color of the name on the card.
+styling field:
+	type: choice
+	name: typeline color
+	choice: default
+	choice: black
+	choice: bevel black
+	choice: white
+	choice: shadowed white
+	description: The color of the typeline on the card.
+styling field:
+	type: choice
+	name: text color
+	choice: default
+	choice: black
+	choice: bevel black
+	choice: white
+	choice: shadowed white
+	description: The color of the text on the card.
 styling style:
 	use guild mana symbols:
 		choice images:

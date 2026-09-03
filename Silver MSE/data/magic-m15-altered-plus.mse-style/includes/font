@@ -1,0 +1,47 @@
+### Customize fonts
+swap_fonts_name_default := [
+    name: {if is_map() then "Beleren Small Caps" else "Beleren Bold"},
+    size: {if is_map() then 14.8 else 16},
+    color: {if white_name2() or is_fnm() or is_paradox() or is_back_face() then "white" else if black_name() or bevel_black_name() and not is_shifted() then "black" else if white_name() or is_shifted() and not is_fnm() or is_inverted() or black_name() then "white" else "black"},
+    vertical: {0},
+    italic: {""}
+]
+swap_fonts_type_default := [
+    name: {"Beleren Bold"},
+    size: {if is_map() then 12 else if use_porthole() then 14 else 13},
+    color: {if white_type2() or is_fnm() or is_frontier() or is_paradox() or is_back_face() then "white" else if black_type() or bevel_black_type() and not is_shifted() then "black" else if white_type() or is_full_art() or is_puma() or is_shifted() or black_type() or (is_inverted() and not use_wave()) then "white" else "black"},
+    vertical: {0},
+    italic: {""}
+]
+swap_fonts_body_default := [
+    name: {if use_porthole() then "MPlantin-bold" else "MPlantin"},
+    size: {if styling.font_cap != "" then to_number(styling.font_cap) else (if is_mutate() then 12 else 14)},
+    color: {if black_text() or bevel_black_text() then "black" else if is_full_art() or is_fnm() or is_inverted() or white_text() or white_text2() or is_fnm() and not black_text() then "white" else "black"},
+    vertical: {0},
+    italic: {"MPlantin-Italic"}
+]
+swap_fonts_body2_default := [
+    name: {"MPlantin"},
+    size: {15},
+    color: {if black_text() or bevel_black_text() then "black" else if white_text() or white_text2() and not black_text() then "white" else "black"},
+    vertical: {0},
+    italic: {"MPlantin-Italic"}
+]
+swap_fonts_pt_default := [
+    name: { if is_old() then "MPlantin-Bold" else "Beleren Bold"},
+    size: {if is_map() then 14 else if is_old() then 18 else if space_leveler() then 13 else 16},
+    color: {
+        if is_shifted() and not black_name() or is_fnm() or is_inverted() or space_leveler() or is_familiar() or is_familiarpt() or is_paradox() then "white" else if is_vehicle() and (not is_legend() or chosen(styling.other_options, choice:"brown legendary vehicle pt")) then "white" else if is_backdfc() or is_old() then "white" else "black"
+    },
+    vertical: {0},
+    italic: {""}
+]
+swap_fonts_pt2_default := [
+    name: {"Beleren Bold"},
+    size: {if is_map() or is_prototype() then 14 else if space_leveler() then 13 else 16},
+    color: {
+        if is_shifted() and not black_name() or is_fnm() or is_inverted() or space_leveler() or is_familiar() or is_paradox() or is_prototype() then "white" else if is_vehicle() and (not is_legend() or chosen(styling.other_options, choice:"brown legendary vehicle pt")) then "white" else "black"
+    },
+    vertical: {0},
+    italic: {""}
+]

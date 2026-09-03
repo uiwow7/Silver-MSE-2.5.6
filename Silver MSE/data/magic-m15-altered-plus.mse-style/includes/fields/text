@@ -4,11 +4,11 @@ text:
 	width: {width_of_textbox()}
 	bottom: {bottom_of_textbox()}
 	font:
-		name: { if use_porthole() then "MPlantin-bold" else "MPlantin"}
-		italic name: MPlantin-Italic
-		size: {if styling.font_cap != "" then to_number(styling.font_cap) else (if is_mutate() then 12 else 14)}
+		name: { body_font() }
+		italic name: { body_font_italic() }
+		size: { body_font_size() }
 		scale down to: 6
-		color: { if black_text() or bevel_black_text() then "black" else if is_full_art() or is_fnm() or is_inverted() or white_text() or white_text2() or is_fnm() and not black_text() then "white" else "black"}
+		color: { body_font_color() }
 		shadow color: {if is_full_art() or is_fnm() then rgb(0,0,0) else if white_text2() then "black" else if bevel_black_text() then "white" else if use_porthole() then rgb(222, 207, 171) else rgba(0,0,0,0)}
 		shadow displacement x: -1
 		shadow displacement y: 1
@@ -40,11 +40,11 @@ text 2:
 	width: {if is_adventure2() or is_adventure() then 157 else if is_focus2() or is_focus() then 158 else if is_omen2() or is_omen() then 153 else 0}
 	bottom: {bottom_of_textbox()}
 	font:
-		name: MPlantin
-		italic name: MPlantin-Italic
-		size: 15
+		name: { body2_font() }
+		italic name: { body2_font_italic() }
+		size: { body2_font_size() }
 		scale down to: 6
-		color: { if black_text() or bevel_black_text() then "black" else if white_text() or white_text2() and not black_text() then "white" else "black"}
+		color: { body2_font_color() }
 	symbol font:
 		name: { styling.text_box_mana_symbols }
 		size: 15

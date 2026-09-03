@@ -19,9 +19,10 @@ name:
 	padding top: 0
 	z index: 130
 	font:
-		name: { if is_map() then "Beleren Small Caps" else "Beleren Bold" }
-		size: { (if is_map() then 14.8 else 16) - shrink_name() }
-		color: {if white_name2() or is_fnm() or is_paradox() then "white" else if black_name() or bevel_black_name() and not is_shifted() then "black" else if white_name() or is_shifted() and not is_fnm() or is_inverted() or black_name() then "white" else "black"}
+		name: { name_font() }
+		italic name: { name_font_italic() }
+		size: { name_font_size() }
+		color: { name_font_color() }
 		shadow color: {if is_shifted() and not is_fnm() then rgb(0,0,0) else if white_name2() then rgb(0,0,0) else if bevel_black_name() then rgb(255,0,0) else if use_porthole() then rgb(222, 207, 171) else rgba(0,0,0,0)}
 		shadow displacement x: -1
 		shadow displacement y: 1

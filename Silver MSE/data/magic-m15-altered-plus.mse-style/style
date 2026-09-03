@@ -47,6 +47,8 @@ init script:
 	include file: includes/styling_scripts
 	# Textbox
 	include file: includes/textbox
+	# Font Options
+	include file: includes/font
 	# Saga
 	include file: includes/saga_script
 	#### Modules

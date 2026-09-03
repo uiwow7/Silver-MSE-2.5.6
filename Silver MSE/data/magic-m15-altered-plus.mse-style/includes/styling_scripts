@@ -33,9 +33,9 @@ is_stamped := {
 		or card.rarity == "mythic rare"
 	)
 }
-has_identity := {
-	styling.color_indicator_dot 
-}
+#has_identity := {
+#	styling.color_indicator_dot or is_linke
+#}
 has_identity2 := { 
 	styling.color_indicator_dot_2 
 }
@@ -275,7 +275,6 @@ bevel_black_type := {chosen(styling.typeline_color, choice:"bevel black")}
 bevel_black_text := {chosen(styling.text_color, choice:"bevel black")}
 use_box := { chosen(styling.additional_options, choice: "smallbox")}
 any_box := { chosen(styling.additional_options, choice: "anybox")}
-use_pins := { chosen(styling.additional_options, choice: "pinlines")}
 white_name := {chosen(styling.name_color, choice:"white")}
 white_name2 := {chosen(styling.name_color, choice:"shadowed white") or is_rem()}
 black_name := {chosen(styling.name_color, choice:"black")}
