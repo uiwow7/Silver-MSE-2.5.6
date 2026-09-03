@@ -28,32 +28,64 @@ space_prefix :=
 	B 		: "​​​​"
 	R 		: "​​​​​"
 	G 		: "​​​​​​"
-	WU		: "​​​​​​​"
-	WB		: "​​​​​​​​"
-	WR		: "​​​​​​​​​"
-	WG		: "​​​​​​​​​​"
-	UB		: "​​​​​​​​​​​"
-	UR		: "​​​​​​​​​​​​"
-	UG		: "​​​​​​​​​​​​​"
-	BR		: "​​​​​​​​​​​​​​"
-	BG		: "​​​​​​​​​​​​​​​"
-	RG		: "​​​​​​​​​​​​​​​​"
-	WUB		: "​​​​​​​​​​​​​​​​​"
-	WUR		: "​​​​​​​​​​​​​​​​​​"
-	WUG		: "​​​​​​​​​​​​​​​​​​​"
-	WBR		: "​​​​​​​​​​​​​​​​​​​​"
-	WBG		: "​​​​​​​​​​​​​​​​​​​​​"
-	WRG		: "​​​​​​​​​​​​​​​​​​​​​​"
-	UBR		: "​​​​​​​​​​​​​​​​​​​​​​​"
-	UBG		: "​​​​​​​​​​​​​​​​​​​​​​​​"
-	URG		: "​​​​​​​​​​​​​​​​​​​​​​​​​"
-	BRG		: "​​​​​​​​​​​​​​​​​​​​​​​​​​"
-	WUBR	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​"
-	WUBG	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
-	WURG	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
-	WBRG	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
-	UBRG	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
-	WUBRG	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	I 		: "​​​​​​​"
+	WU		: "​​​​​​​​"
+	WB		: "​​​​​​​​​"
+	WR		: "​​​​​​​​​​"
+	WG		: "​​​​​​​​​​​"
+	UB		: "​​​​​​​​​​​​"
+	UR		: "​​​​​​​​​​​​​"
+	UG		: "​​​​​​​​​​​​​​"
+	BR		: "​​​​​​​​​​​​​​​"
+	BG		: "​​​​​​​​​​​​​​​​"
+	RG		: "​​​​​​​​​​​​​​​​​"
+	WI 		: "​​​​​​​​​​​​​​​​​​"
+	UI 		: "​​​​​​​​​​​​​​​​​​​"
+	BI 		: "​​​​​​​​​​​​​​​​​​​​"
+	RI 		: "​​​​​​​​​​​​​​​​​​​​​"
+	GI 		: "​​​​​​​​​​​​​​​​​​​​​​"
+	WUB		: "​​​​​​​​​​​​​​​​​​​​​​​"
+	WUR		: "​​​​​​​​​​​​​​​​​​​​​​​​"
+	WUG		: "​​​​​​​​​​​​​​​​​​​​​​​​​"
+	WBR		: "​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	WBG		: "​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	WRG		: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	UBR		: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	UBG		: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	URG		: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	BRG		: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	WUI		: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	WBI		: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	WRI		: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	WGI		: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	UBI		: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	URI		: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	UGI		: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	BRI		: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	BGI		: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	RGI		: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	WUBR	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	WUBG	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	WURG	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	WBRG	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	UBRG	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	WUBI	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	WURI	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	WUGI	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	WBRI	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	WBGI	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	WRGI	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	UBRI	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
+	UBGI	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​" 
+	URGI	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​" 
+	BRGI	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​" 
+	WUBRG	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​" 
+	WUBRI	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​" 
+	WUBGI	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​" 
+	WURGI	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​" 
+	WBRGI	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​" 
+	UBRGI	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​" 
+	WUBRGI	: "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​" 
 ]
 
 # The casting cost
@@ -195,6 +227,7 @@ distil_color_words_statistic :=
 	if lang_setting("is_black")()		then colors := colors + "B"
 	if lang_setting("is_red")()			then colors := colors + "R"
 	if lang_setting("is_green")()		then colors := colors + "G"
+	if lang_setting("is_silver")()		then colors := colors + "I"
 	
 	if length(colors) > 1 and colors.0 == "C" then substring(colors, begin: 1) else colors
 }
@@ -207,6 +240,7 @@ distil_colors_statistic :=
 	if contains(match: "B")			then colors := colors + "B"
 	if contains(match: "R")			then colors := colors + "R"
 	if contains(match: "G")			then colors := colors + "G"
+	if contains(match: "I")			then colors := colors + "I"
 	
 	if length(colors) > 1 and colors.0 == "C" then substring(colors, begin: 1) else colors
 }
@@ -231,7 +265,7 @@ color_category_statistic :=
 face_color_category_statistic :=
 {
 	if input == "" then "" else (
-	artifact :=	chosen(choice:"artifact") and not (chosen(choice:"white") or chosen(choice:"blue") or chosen(choice:"black") or chosen(choice:"red") or chosen(choice:"green"))
+	artifact :=	chosen(choice:"artifact") and not (chosen(choice:"white") or chosen(choice:"blue") or chosen(choice:"black") or chosen(choice:"red") or chosen(choice:"green") or chosen(choice:"silver"))
 	land :=		chosen(choice:"land")
 	multi :=	chosen(choice:"multicolor")
 	hybrid :=	chosen(choice:"hybrid")
@@ -240,7 +274,8 @@ face_color_category_statistic :=
 	black :=	chosen(choice:"black")
 	red :=		chosen(choice:"red")
 	green :=	chosen(choice:"green")
-	count :=	count_chosen(choices:"white, blue, black, red, green")
+	silver :=	chosen(choice:"silver")
+	count :=	count_chosen(choices:"white, blue, black, red, green, silver")
 	if		land						then	all_en_space_statistic(lang_setting("land"))
 	else if	multi						then	all_en_space_statistic(lang_setting("multicolor"))
 	else if	count == 2
@@ -252,6 +287,7 @@ face_color_category_statistic :=
 	else if	black						then	all_en_space_statistic(lang_setting("black"))
 	else if	red							then	all_en_space_statistic(lang_setting("red"))
 	else if	green						then	all_en_space_statistic(lang_setting("green"))
+	else if	silver						then	all_en_space_statistic(lang_setting("silver"))
 	else										all_en_space_statistic(lang_setting("colorless")))
 }
 
@@ -266,7 +302,7 @@ face_omniverse_color_statistic :=
 {
 	if		chosen(choice: "land")											then	all_en_space_statistic(lang_setting("land"))
 	else if chosen(choice: "multicolor")									then	all_en_space_statistic(lang_setting("multicolor"))
-	else if count_chosen(choices: "white, blue, black, red, green, pink, purple, yellow, orange, brown") == 2
+	else if count_chosen(choices: "white, blue, black, red, green, silver, pink, purple, yellow, orange, brown") == 2
 		and	chosen(choice: "artifact")										then	all_en_space_statistic(lang_setting("hybrid"))		##hybrid artifacts would show as their first color
 	else if chosen(choice: "hybrid")										then	all_en_space_statistic(lang_setting("hybrid"))
 	else if (chosen(choice: "artifact")
@@ -275,6 +311,7 @@ face_omniverse_color_statistic :=
 					or	chosen(choice: "black")
 					or	chosen(choice: "red")
 					or	chosen(choice: "green")
+					or	chosen(choice: "silver")
 					or	chosen(choice: "pink")
 					or	chosen(choice: "purple")
 					or	chosen(choice: "yellow")
@@ -285,6 +322,7 @@ face_omniverse_color_statistic :=
 	else if chosen(choice: "black")											then	all_en_space_statistic(lang_setting("black"))
 	else if chosen(choice: "red")											then	all_en_space_statistic(lang_setting("red"))
 	else if chosen(choice: "green")											then	all_en_space_statistic(lang_setting("green"))
+	else if chosen(choice: "silver")										then	all_en_space_statistic(lang_setting("silver"))
 	else if chosen(choice: "pink")											then	all_en_space_statistic(lang_setting("pink"))
 	else if chosen(choice: "purple")										then	all_en_space_statistic(lang_setting("purple"))
 	else if chosen(choice: "yellow")										then	all_en_space_statistic(lang_setting("yellow"))
@@ -303,6 +341,7 @@ cc_colored_pips_statistic :=
 		symbol_aggregate_statistic(fields[x], symbol: "B") +
 		symbol_aggregate_statistic(fields[x], symbol: "R") +
 		symbol_aggregate_statistic(fields[x], symbol: "G") +
+		symbol_aggregate_statistic(fields[x], symbol: "I") +
 		symbol_aggregate_statistic(fields[x], symbol: "C")
 	)
 	clean_commas_statistic(result)
@@ -329,6 +368,7 @@ ability_colored_pips_statistic :=
 		symbol_aggregate_statistic(costs[x], symbol: "B") +
 		symbol_aggregate_statistic(costs[x], symbol: "R") +
 		symbol_aggregate_statistic(costs[x], symbol: "G") +
+		symbol_aggregate_statistic(costs[x], symbol: "I") +
 		symbol_aggregate_statistic(costs[x], symbol: "C")
 	)
 	clean_commas_statistic(result))
@@ -388,6 +428,7 @@ devotion_filters_statistic := [
 	B: filter_text@(match:"B")
 	R: filter_text@(match:"R")
 	G: filter_text@(match:"G")
+	I: filter_text@(match:"I")
 	C: filter_text@(match:"C")
 ]
 color_pip_break_statistic := break_text@(match:"([A-Z0-9]/|[|])*[WUBRGI]")
@@ -471,6 +512,7 @@ face_mana_production_list_statistic :=
 	(if lang_setting("is_swamp")(sub)		or contains_element(produced_symbols, element:"B")	then ",B" else "") +
 	(if lang_setting("is_mountain")(sub)	or contains_element(produced_symbols, element:"R")	then ",R" else "") +
 	(if lang_setting("is_forest")(sub)		or contains_element(produced_symbols, element:"G")	then ",G" else "") +
+	(if lang_setting("is_fault")(sub)		or contains_element(produced_symbols, element:"I")	then ",I" else "") +
 	(if lang_setting("is_wastes")(name)		or contains_element(produced_symbols, element:"C")	then ",C" else "") +
 	(if can_Any																					then ","+all_en_space_statistic(lang_setting("mana_any")) else "") +
 	(if can_Chosen																				then ","+all_en_space_statistic(lang_setting("mana_chosen")) else ""))

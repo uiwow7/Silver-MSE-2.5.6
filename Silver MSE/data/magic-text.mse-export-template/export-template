@@ -33,7 +33,7 @@ option field:
 
 script:
 	is_token := {contains(card.shape, match:"token") or contains(card.shape, match:"emblem") or contains(card.shape, match:"rulestip") }
-	is_basic_land := {card.name == "Plains" or card.name == "Island" or card.name == "Swamp" or card.name == "Mountain" or card.name == "Forest" or card.name == "Wastes"}
+	is_basic_land := {card.name == "Plains" or card.name == "Island" or card.name == "Swamp" or card.name == "Mountain" or card.name == "Forest" or card.name == "Fault" or card.name == "Wastes"}
 	
 	included := {
 		(is_token() and options.output_Tokens)

@@ -37,7 +37,7 @@ init script:
 	
 	# Check to decide if the card is a basic land.
 	# When this script is removed, update magic game file dependency to 2015-06-25.
-	is_basic := { card.rarity == "basic land" or contains(card.super_type, match:"Basic") or card.name == "Plains" or card.name == "Island" or card.name == "Swamp" or card.name == "Mountain" or card.name == "Forest" or card.name == "Snow-Covered Plains" or card.name == "Snow-Covered Island" or card.name == "Snow-Covered Swamp" or card.name == "Snow-Covered Mountain" or card.name == "Snow-Covered Forest" }
+	is_basic := { card.rarity == "basic land" or contains(card.super_type, match:"Basic") or card.name == "Plains" or card.name == "Island" or card.name == "Swamp" or card.name == "Mountain" or card.name == "Forest" or card.name == "Fault" or card.name == "Snow-Covered Plains" or card.name == "Snow-Covered Island" or card.name == "Snow-Covered Swamp" or card.name == "Snow-Covered Mountain" or card.name == "Snow-Covered Forest" or card.name == "Snow-Covered Fault" }
 	
 	# Alpha style lands?  Different blending for multicolored lands.
 	#Did it this way because was getting longer other way, due to redefining color_background parts.

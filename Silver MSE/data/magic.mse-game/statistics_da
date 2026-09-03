@@ -240,6 +240,7 @@ statistics dimension:
 		​Cave                           : rgb(103,64,35)		# There is a zero width space before land types so that they always appear after custom types.
 		​Desert                         : rgb(103,64,35)
 		​Forest                         : rgb(103,64,35)
+		Fault                         : rgb(103,64,35)
 		​Gate                           : rgb(103,64,35)
 		​Island                         : rgb(103,64,35)
 		​Lair                           : rgb(103,64,35)

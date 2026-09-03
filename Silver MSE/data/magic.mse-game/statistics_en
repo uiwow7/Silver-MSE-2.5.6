@@ -20,14 +20,16 @@ statistics dimension:
 	group: Black
 	group: Red
 	group: Green
+	group: Silver
 	group: Multicolor
 	group: Hybrid
 	colors:
 		White		: rgb(255,231,185)
 		Blue		: rgb(15,80,166)
 		Black		: rgb(33,33,33)
-		Red			: rgb(156,15,15)
+		Red		    : rgb(156,15,15)
 		Green		: rgb(68,144,15)
+		Silver		: rgb(142,92,184)
 		Colorless	: rgb(101,104,94)
 		Artifact	: rgb(109,132,158)
 		Multicolor	: rgb(244,177,10)
@@ -42,79 +44,152 @@ statistics dimension:
 	show empty: false
 	script: if exclude_from_statistic() then "" else prefixed_color_statistic()
 	colors:
-		​C		: rgb(101,104,94)					# There is a zero width space before the "C" so that it always appears first.
+		​​C		: rgb(101,104,94)					# There is a zero width space before the "C" so that it always appears first.
 		​​W		: rgb(255,231,185)					# There are two zero width spaces before the "W" so that it always appear after the "C".
-		​​​U		: rgb(15,80,166)					# There are three zero width spaces before the "U", etc...
-		​​​​B		: rgb(22,22,22)
-		​​​​​R		: rgb(156,15,15)
+		​​​U	: rgb(15,80,166)					# There are three zero width spaces before the "U", etc...
+		​​​​B	 : rgb(22,22,22)
+		​​​​​R	: rgb(156,15,15)
 		​​​​​​G		: rgb(68,144,15)
-		​​​​​​​WU		: rgb(254,192,80)
-		​​​​​​​​WB		: rgb(254,192,80)
-		​​​​​​​​​WR		: rgb(254,192,80)
-		​​​​​​​​​​WG		: rgb(254,192,80)
-		​​​​​​​​​​​UB		: rgb(254,192,80)
-		​​​​​​​​​​​​UR		: rgb(254,192,80)
-		​​​​​​​​​​​​​UG		: rgb(254,192,80)
-		​​​​​​​​​​​​​​BR		: rgb(254,192,80)
-		​​​​​​​​​​​​​​​BG		: rgb(254,192,80)
-		​​​​​​​​​​​​​​​​RG		: rgb(254,192,80)
-		​​​​​​​​​​​​​​​​​WUB		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​WUR		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​WUG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​WBR		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​WBG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​WRG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​UBR		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​​UBG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​​​URG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​BRG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBR	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBG	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WURG	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WBRG	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBRG	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBRG	: rgb(224,133,8)
+		​​​​​​​I	: rgb(142,92,184)
+		​​​​​​​​WU		: rgb(254,192,80)
+		​​​​​​​​​WB		: rgb(254,192,80)
+		​​​​​​​​​​WR		: rgb(254,192,80)
+		​​​​​​​​​​​WG		: rgb(254,192,80)
+		​​​​​​​​​​​​UB		: rgb(254,192,80)
+		​​​​​​​​​​​​​UR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​UG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​BR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​BG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​RG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​IW		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​IU		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​IB		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​IR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​IG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​WUB		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​WUR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​WUG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​WBR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​WBG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​WRG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​URG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​BRG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWU		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWB		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUB		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IBR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IBG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IRG		: rgb(254,192,80)	
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBR	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WURG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUB		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWBR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWBG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWRG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUBR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUBG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IURG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBR	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WURG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBRG	: rgb(224,133,8)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUBR	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUBG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWURG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUBRG	: rgb(224,133,8)
+
 
 statistics dimension:
 	name: color identity
 	position hint: 0020
 	icon: stats/color.png
-	description: The commander color identity as defined by the comprehensive rules. Always takes into account all sides and faces of the card.
+	description: The commander color identity as defined by the comprehensive rules. Takes into account all sides and faces of the card.
 	show empty: false
 	script: if exclude_from_statistic() then "" else prefixed_color_identity_statistic()
 	colors:
-		​C		: rgb(101,104,94)					# There is a zero width space before the "C" so that it always appears first.
+		​​C		: rgb(101,104,94)					# There is a zero width space before the "C" so that it always appears first.
 		​​W		: rgb(255,231,185)					# There are two zero width spaces before the "W" so that it always appear after the "C".
-		​​​U		: rgb(15,80,166)					# There are three zero width spaces before the "U", etc...
-		​​​​B		: rgb(22,22,22)
-		​​​​​R		: rgb(156,15,15)
+		​​​U	: rgb(15,80,166)					# There are three zero width spaces before the "U", etc...
+		​​​​B	 : rgb(22,22,22)
+		​​​​​R	: rgb(156,15,15)
 		​​​​​​G		: rgb(68,144,15)
-		​​​​​​​WU		: rgb(254,192,80)
-		​​​​​​​​WB		: rgb(254,192,80)
-		​​​​​​​​​WR		: rgb(254,192,80)
-		​​​​​​​​​​WG		: rgb(254,192,80)
-		​​​​​​​​​​​UB		: rgb(254,192,80)
-		​​​​​​​​​​​​UR		: rgb(254,192,80)
-		​​​​​​​​​​​​​UG		: rgb(254,192,80)
-		​​​​​​​​​​​​​​BR		: rgb(254,192,80)
-		​​​​​​​​​​​​​​​BG		: rgb(254,192,80)
-		​​​​​​​​​​​​​​​​RG		: rgb(254,192,80)
-		​​​​​​​​​​​​​​​​​WUB		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​WUR		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​WUG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​WBR		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​WBG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​WRG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​UBR		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​​UBG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​​​URG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​BRG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBR	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBG	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WURG	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WBRG	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBRG	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBRG	: rgb(224,133,8)
+		​​​​​​​I	: rgb(142,92,184)
+		​​​​​​​​WU		: rgb(254,192,80)
+		​​​​​​​​​WB		: rgb(254,192,80)
+		​​​​​​​​​​WR		: rgb(254,192,80)
+		​​​​​​​​​​​WG		: rgb(254,192,80)
+		​​​​​​​​​​​​UB		: rgb(254,192,80)
+		​​​​​​​​​​​​​UR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​UG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​BR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​BG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​RG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​IW		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​IU		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​IB		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​IR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​IG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​WUB		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​WUR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​WUG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​WBR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​WBG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​WRG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​URG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​BRG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWU		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWB		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUB		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IBR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IBG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IRG		: rgb(254,192,80)	
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBR	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WURG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUB		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWBR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWBG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWRG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUBR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUBG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IURG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBR	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WURG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBRG	: rgb(224,133,8)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUBR	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUBG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWURG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUBRG	: rgb(224,133,8)
 
 statistics dimension:
 	name: casting cost
@@ -129,13 +204,13 @@ statistics dimension:
 	name: mana value
 	position hint: 0110
 	icon: stats/mana_value.png
-	description: The mana value. Never takes into account the back side or secondary face, except for split cards and aftermath cards, for which it counts the sum of both faces.
+	description: The mana value. Counts each side/face separately if the option is checked in the Set info tab, except for split cards and aftermath cards, for which it counts the sum of all faces.
 	numeric: true
 	show empty: false
 	script: if exclude_from_statistic() then "" else mana_value_statistic()
 
 statistics dimension:
-	name: permanent / nonpermanent
+	name: permanent/non
 	position hint: 0200
 	icon: stats/type.png
 	dark icon: stats/type_dark.png
@@ -181,8 +256,7 @@ statistics dimension:
 	name: card type
 	position hint: 0220
 	icon: stats/type.png
-	dark icon: stats/type_dark.png
-	description: The card’s type, not including supertypes. Counts each side/face separately.
+	description: The card’s type, not including supertypes.
 	split list: true
 	show empty: false
 	script: if exclude_from_statistic() then "" else type_extended_statistic()
@@ -230,8 +304,7 @@ statistics dimension:
 	name: noncreature subtype
 	position hint: 0260
 	icon: stats/noncreature_subtype.png
-	dark icon: stats/noncreature_subtype_dark.png
-	description: Subtypes of all types except creature/tribal/kindred. Counts each side/face separately.
+	description: Subtypes of all types except creature/tribal/kindred.
 	split list: true
 	show empty: false
 	script: if exclude_from_statistic() then "" else noncreature_subtype_statistic()
@@ -239,6 +312,7 @@ statistics dimension:
 	#Land
 		​Cave                           : rgb(103,64,35)		# There is a zero width space before land types so that they always appear after custom types.
 		​Desert                         : rgb(103,64,35)
+		​Fault                          : rgb(103,64,35)
 		​Forest                         : rgb(103,64,35)
 		​Gate                           : rgb(103,64,35)
 		​Island                         : rgb(103,64,35)
@@ -476,8 +550,7 @@ statistics dimension:
 	name: creature race
 	position hint: 0271
 	icon: stats/creature_subtype.png
-	dark icon: stats/creature_subtype_dark.png
-	description: Subtypes of the creature/tribal/kindred type, that are races. Counts each side/face separately.
+	description: Subtypes of the creature/tribal/kindred type, that are races.
 	split list: true
 	show empty: false
 	script: if exclude_from_statistic() then "" else creature_race_statistic()
@@ -486,8 +559,7 @@ statistics dimension:
 	name: creature class
 	position hint: 0272
 	icon: stats/creature_subtype.png
-	dark icon: stats/creature_subtype_dark.png
-	description: Subtypes of the creature/tribal/kindred type, that are classes. Counts each side/face separately.
+	description: Subtypes of the creature/tribal/kindred type, that are classes.
 	split list: true
 	show empty: false
 	script: if exclude_from_statistic() then "" else creature_class_statistic()
@@ -657,8 +729,7 @@ statistics dimension:
 	name: rarity
 	position hint: 0400
 	icon: stats/rarity.png
-	dark icon: stats/rarity_dark.png
-	description: The rarity of the card. Assumed to be the same for all sides/faces.
+	description: The rarity of the card. Counts each side/face separately.
 	show empty: false
 	script: if exclude_from_statistic() then "" else rarity_statistic()
 	group: Basic Land
@@ -683,8 +754,7 @@ statistics dimension:
 	name: keywords
 	position hint: 0410
 	icon: stats/keywords.png
-	dark icon: stats/keywords_dark.png
-	description: The keywords of the card. Always counts all sides/faces.
+	description: The keywords of the card. Counts all sides/faces.
 	split list: true
 	show empty: false
 	script: if exclude_from_statistic() then "" else keyword_usage(unique: true)
@@ -701,9 +771,10 @@ statistics dimension:
 		Kept		: rgb(15,80,166)
 		Filtered		: rgb(156,15,15)
 
+
 statistics dimension:
-	name: mana production (All)
-	position hint: 0520
+	name: all mana production
+	position hint: 0500
 	icon: stats/land_production.png
 	description: Counts how many cards can produce white mana. Repeat for all other colors. Then counts how many cards can produce mana of any color, and mana of a chosen color.
 	split list: true
@@ -715,6 +786,7 @@ statistics dimension:
 	group: B
 	group: R
 	group: G
+	group: I
 	group: Any
 	group: Chosen
 	colors:
@@ -724,12 +796,13 @@ statistics dimension:
 		B			: rgb(33,33,33)
 		R			: rgb(156,15,15)
 		G			: rgb(68,144,15)
+		I		    : rgb(142,92,184)
 		Any	: rgb(112,38,128)
 		Chosen		: rgb(112,38,128)
 
 statistics dimension:
-	name: mana production (Lands)
-	position hint: 0500
+	name: land mana prod.
+	position hint: 0510
 	icon: stats/land_production.png
 	description: Counts how many lands can produce white mana. Repeat for all other colors. Then counts how many lands can produce mana of any color, and mana of a chosen color. If either side/face is a land, the card will be counted here.
 	split list: true
@@ -741,6 +814,7 @@ statistics dimension:
 	group: B
 	group: R
 	group: G
+	group: I
 	group: Any
 	group: Chosen
 	colors:
@@ -750,12 +824,13 @@ statistics dimension:
 		B			: rgb(33,33,33)
 		R			: rgb(156,15,15)
 		G			: rgb(68,144,15)
+		I		    : rgb(142,92,184)
 		Any	: rgb(112,38,128)
 		Chosen		: rgb(112,38,128)
 
 statistics dimension:
-	name: mana production (Nonlands)
-	position hint: 0510
+	name: nonland mana prod.
+	position hint: 0520
 	icon: stats/land_production.png
 	description: Counts how many non-land cards can produce white mana. Repeat for all other colors. Then counts how many non-land cards can produce mana of any color, and mana of a chosen color.
 	split list: true
@@ -767,6 +842,7 @@ statistics dimension:
 	group: B
 	group: R
 	group: G
+	group: I
 	group: Any
 	group: Chosen
 	colors:
@@ -776,11 +852,12 @@ statistics dimension:
 		B			: rgb(33,33,33)
 		R			: rgb(156,15,15)
 		G			: rgb(68,144,15)
+		I		    : rgb(142,92,184)
 		Any	: rgb(112,38,128)
 		Chosen		: rgb(112,38,128)
 
 statistics dimension:
-	name: pip count (Casting Costs)
+	name: pip count (Casting)
 	position hint: 0600
 	icon: stats/color_pips.png
 	description: Counts the number of casting costs that contain one colored pip. Repeat for all other amounts.
@@ -808,7 +885,7 @@ statistics dimension:
 		8+	: rgb(197,24,214)
 
 statistics dimension:
-	name: pip colors (Casting Costs)
+	name: pip colors (Casting)
 	position hint: 0630
 	icon: stats/color_pips.png
 	description: Counts how many cards have a single white pip in their casting cost. Repeat for two white pips. Then three, then four+, then for all other colors. Counts each side/face separately.
@@ -840,9 +917,13 @@ statistics dimension:
 		​​​​​​GG		: rgb(63,139,10)
 		​​​​​​GGG		: rgb(46,123,0)
 		​​​​​​GGGG+	: rgb(18,102,0)
+		​​​​​I		: rgb(95,170,48)
+		​​​​​​II		: rgb(63,139,10)
+		​​​​​​III		: rgb(46,123,0)
+		​​​​​​IIII+	: rgb(18,102,0)
 
 statistics dimension:
-	name: total pips (Casting Costs)
+	name: total pips (Casting)
 	position hint: 0660
 	icon: stats/color_pips.png
 	description: Counts the total number of white pips in all the casting costs. Repeat for all other colors.
@@ -855,6 +936,7 @@ statistics dimension:
 	group: B
 	group: R
 	group: G
+	group: I
 	colors:
 		C	: rgb(101,104,94)
 		W	: rgb(255,231,185)
@@ -862,9 +944,10 @@ statistics dimension:
 		B	: rgb(33,33,33)
 		R	: rgb(156,15,15)
 		G	: rgb(68,144,15)
+		I	: rgb(142,92,184)
 
 statistics dimension:
-	name: pip count (Ability Costs)
+	name: pip count (Ability)
 	position hint: 0610
 	icon: stats/color_pips.png
 	description: Counts the number of activated/triggered/keyworded ability costs that contain one colored pip. Repeat for all other amounts.
@@ -892,7 +975,7 @@ statistics dimension:
 		8+	: rgb(197,24,214)
 
 statistics dimension:
-	name: pip colors (Ability Costs)
+	name: pip colors (Ability)
 	position hint: 0640
 	icon: stats/color_pips.png
 	description: Counts how many activated/triggered/keyworded abilities have a single white pip in their cost. Repeat for two white pips. Then three, then four+, then for all other colors. Counts each ability on each side/face separately.
@@ -924,9 +1007,13 @@ statistics dimension:
 		​​​​​​GG		: rgb(63,139,10)
 		​​​​​​GGG		: rgb(46,123,0)
 		​​​​​​GGGG+	: rgb(18,102,0)
+		​​​​​I		: rgb(95,170,48)
+		​​​​​​II		: rgb(63,139,10)
+		​​​​​​III		: rgb(46,123,0)
+		​​​​​​IIII+	: rgb(18,102,0)
 
 statistics dimension:
-	name: total pips (Ability Costs)
+	name: total pips (Ability)
 	position hint: 0670
 	icon: stats/color_pips.png
 	description: Counts the total number of white pips in all the activated/triggered/keyworded ability costs. Repeat for all other colors.
@@ -939,6 +1026,7 @@ statistics dimension:
 	group: B
 	group: R
 	group: G
+	group: I
 	colors:
 		C	: rgb(101,104,94)
 		W	: rgb(255,231,185)
@@ -946,9 +1034,10 @@ statistics dimension:
 		B	: rgb(33,33,33)
 		R	: rgb(156,15,15)
 		G	: rgb(68,144,15)
+		I	: rgb(142,92,184)
 
 statistics dimension:
-	name: pip count (All Costs)
+	name: pip count (Combined)
 	position hint: 0620
 	icon: stats/color_pips.png
 	description: Counts the number of costs that contain one colored pip. Repeat for all other amounts.
@@ -976,7 +1065,7 @@ statistics dimension:
 		8+	: rgb(197,24,214)
 
 statistics dimension:
-	name: pip color (All Costs)
+	name: pip color (Combined)
 	position hint: 0650
 	icon: stats/color_pips.png
 	description: Counts how many costs contain a single white pip. Repeat for two white pips. Then three, then four+, then for all other colors. Counts each cost on each side/face separately.
@@ -1008,9 +1097,14 @@ statistics dimension:
 		​​​​​​GG		: rgb(63,139,10)
 		​​​​​​GGG		: rgb(46,123,0)
 		​​​​​​GGGG+	: rgb(18,102,0)
+		​​​​​I		: rgb(95,170,48)
+		​​​​​​II		: rgb(63,139,10)
+		​​​​​​III		: rgb(46,123,0)
+		​​​​​​IIII+	: rgb(18,102,0)
+
 
 statistics dimension:
-	name: total pips (All Costs)
+	name: total pips (Combined)
 	position hint: 0680
 	icon: stats/color_pips.png
 	description: Counts the total number of white pips in all the costs. Repeat for all other colors.
@@ -1023,6 +1117,7 @@ statistics dimension:
 	group: B
 	group: R
 	group: G
+	group: I
 	colors:
 		C	: rgb(101,104,94)
 		W	: rgb(255,231,185)
@@ -1030,6 +1125,7 @@ statistics dimension:
 		B	: rgb(33,33,33)
 		R	: rgb(156,15,15)
 		G	: rgb(68,144,15)
+		I	: rgb(142,92,184)
 
 statistics dimension:
 	name: word count
@@ -1070,7 +1166,7 @@ statistics dimension:
 	description: Counts all the words that appear in the card notes.
 	split list: true
 	show empty: false
-	script: if exclude_from_statistic() then "" else card_notes_words_statistic()
+	script: if exclude_from_statistic() then "" else split_notes_words_statistic(card.notes)
 
 statistics dimension:
 	name: card notes clauses
@@ -1080,7 +1176,7 @@ statistics dimension:
 	description: Cuts the card notes using the regex specified in the set info tab.
 	split list: true
 	show empty: false
-	script: if exclude_from_statistic() then "" else card_notes_clauses_statistic()
+	script: if exclude_from_statistic() then "" else split_notes_clauses_statistic()
 
 statistics dimension:
 	name: watermark
@@ -1111,6 +1207,7 @@ statistics dimension:
 	show empty: false
 	script: if exclude_from_statistic() then "" else symbol_statistic()
 
+
 statistics dimension:
 	name: illustrator
 	position hint: 0830
@@ -1128,21 +1225,19 @@ statistics dimension:
 	dark icon: stats/stylesheet_dark.png
 	description: The stylesheet used by the card.
 	show empty: false
-	script: if exclude_from_statistic() then "" else template_statistic()
+	show empty: false
 
 statistics dimension:
 	name: average opening hand
 	position hint: 1000
 	icon: stats/hand.png
-	dark icon: stats/hand_dark.png
-	description: If the set is a deck, how many cards of each type on average will be in an opening hand.
+	icon: stats/hand.png
 	split list: true
 	show empty: false
-	script: if exclude_from_draw_statistic() then "" else average_opening_hand_statistic()
-	global_script: average_opening_hand_global_statistic()
+	show empty: false
 
 statistics dimension:
-	name: land drop hit % (On The Play)
+statistics dimension:
 	position hint: 1100
 	icon: stats/land_drops.png
 	dark icon: stats/land_drops_dark.png
@@ -1152,7 +1247,7 @@ statistics dimension:
 	script: land_drop_hit_percentage_statistic(start: 6)
 
 statistics dimension:
-	name: land drop hit % (On The Draw)
+statistics dimension:
 	position hint: 1110
 	icon: stats/land_drops.png
 	dark icon: stats/land_drops_dark.png
@@ -1168,7 +1263,7 @@ statistics dimension:
 	description: How many cards have one color, how many have two, three, etc...
 	split list: true
 	show empty: false
-	script: if exclude_from_statistic() then "" else color_count_statistic()
+	show empty: false
 	group: 0
 	group: 1
 	group: 2
@@ -1190,7 +1285,7 @@ statistics dimension:
 	description: How many cards have one color in their color identity, how many have two, three, etc...
 	split list: true
 	show empty: false
-	script: if exclude_from_statistic() then "" else color_identity_count_statistic()
+	show empty: false
 	group: 0
 	group: 1
 	group: 2
@@ -1211,40 +1306,76 @@ statistics dimension:
 	icon: stats/color.png
 	description: Color of the back side or secondary face (like on adventures for example).
 	show empty: false
-	script: if exclude_from_statistic() then "" else prefixed_back_face_color_statistic()
+	show empty: false
 	colors:
-		​C		: rgb(101,104,94)					# There is a zero width space before the "C" so that it always appears first.
+	colors:
 		​​W		: rgb(255,231,185)					# There are two zero width spaces before the "W" so that it always appear after the "C".
-		​​​U		: rgb(15,80,166)					# There are three zero width spaces before the "U", etc...
-		​​​​B		: rgb(22,22,22)
-		​​​​​R		: rgb(156,15,15)
+		​​W		: rgb(255,231,185)					# There are two zero width spaces before the "W" so that it always appear after the "C".
+		​​​U	: rgb(15,80,166)					# There are three zero width spaces before the "U", etc...
+		​​​​B	 : rgb(22,22,22)
 		​​​​​​G		: rgb(68,144,15)
-		​​​​​​​WU		: rgb(254,192,80)
-		​​​​​​​​WB		: rgb(254,192,80)
-		​​​​​​​​​WR		: rgb(254,192,80)
-		​​​​​​​​​​WG		: rgb(254,192,80)
-		​​​​​​​​​​​UB		: rgb(254,192,80)
-		​​​​​​​​​​​​UR		: rgb(254,192,80)
-		​​​​​​​​​​​​​UG		: rgb(254,192,80)
-		​​​​​​​​​​​​​​BR		: rgb(254,192,80)
-		​​​​​​​​​​​​​​​BG		: rgb(254,192,80)
-		​​​​​​​​​​​​​​​​RG		: rgb(254,192,80)
-		​​​​​​​​​​​​​​​​​WUB		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​WUR		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​WUG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​WBR		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​WBG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​WRG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​UBR		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​​UBG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​​​URG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​BRG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBR	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBG	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WURG	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WBRG	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBRG	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBRG	: rgb(224,133,8)
+		​​​​​​G		: rgb(68,144,15)
+		​​​​​​​I	: rgb(142,92,184)
+		​​​​​​​​WU		: rgb(254,192,80)
+		​​​​​​​​​WB		: rgb(254,192,80)
+		​​​​​​​​​​WR		: rgb(254,192,80)
+		​​​​​​​​​​​WG		: rgb(254,192,80)
+		​​​​​​​​​​​​UB		: rgb(254,192,80)
+		​​​​​​​​​​​​​UR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​UG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​BR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​BG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​RG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​IW		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​IU		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​IB		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​IR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​IG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​WUB		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​WUR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​WUG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​WBR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​WBG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​WRG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​URG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​BRG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWU		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWB		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUB		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IBR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IBG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IRG		: rgb(254,192,80)	
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBR	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WURG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUB		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWBR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWBG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWRG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUBR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUBG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IURG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBR	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WURG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBRG	: rgb(224,133,8)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUBR	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUBG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWURG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUBRG	: rgb(232,154,9)
 
 statistics dimension:
 	name: color (All Faces)
@@ -1252,41 +1383,77 @@ statistics dimension:
 	icon: stats/color.png
 	description: Combined color of all the sides/faces.
 	show empty: false
-	script: if exclude_from_statistic() then "" else prefixed_all_faces_color_statistic()
+	show empty: false
 	colors:
-		​C		: rgb(101,104,94)					# There is a zero width space before the "C" so that it always appears first.
+	colors:
 		​​W		: rgb(255,231,185)					# There are two zero width spaces before the "W" so that it always appear after the "C".
-		​​​U		: rgb(15,80,166)					# There are three zero width spaces before the "U", etc...
-		​​​​B		: rgb(22,22,22)
-		​​​​​R		: rgb(156,15,15)
+		​​W		: rgb(255,231,185)					# There are two zero width spaces before the "W" so that it always appear after the "C".
+		​​​U	: rgb(15,80,166)					# There are three zero width spaces before the "U", etc...
+		​​​​B	 : rgb(22,22,22)
 		​​​​​​G		: rgb(68,144,15)
-		​​​​​​​WU		: rgb(254,192,80)
-		​​​​​​​​WB		: rgb(254,192,80)
-		​​​​​​​​​WR		: rgb(254,192,80)
-		​​​​​​​​​​WG		: rgb(254,192,80)
-		​​​​​​​​​​​UB		: rgb(254,192,80)
-		​​​​​​​​​​​​UR		: rgb(254,192,80)
-		​​​​​​​​​​​​​UG		: rgb(254,192,80)
-		​​​​​​​​​​​​​​BR		: rgb(254,192,80)
-		​​​​​​​​​​​​​​​BG		: rgb(254,192,80)
-		​​​​​​​​​​​​​​​​RG		: rgb(254,192,80)
-		​​​​​​​​​​​​​​​​​WUB		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​WUR		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​WUG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​WBR		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​WBG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​WRG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​UBR		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​​UBG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​​​URG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​BRG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBR	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBG	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WURG	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WBRG	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBRG	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBRG	: rgb(224,133,8)
-
+		​​​​​​G		: rgb(68,144,15)
+		​​​​​​​I	: rgb(142,92,184)
+		​​​​​​​​WU		: rgb(254,192,80)
+		​​​​​​​​​WB		: rgb(254,192,80)
+		​​​​​​​​​​WR		: rgb(254,192,80)
+		​​​​​​​​​​​WG		: rgb(254,192,80)
+		​​​​​​​​​​​​UB		: rgb(254,192,80)
+		​​​​​​​​​​​​​UR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​UG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​BR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​BG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​RG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​IW		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​IU		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​IB		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​IR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​IG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​WUB		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​WUR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​WUG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​WBR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​WBG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​WRG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​URG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​BRG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWU		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWB		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUB		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IBR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IBG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IRG		: rgb(254,192,80)	
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBR	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WURG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUB		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWBR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWBG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWRG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUBR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUBG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IURG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBR	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WURG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBRG	: rgb(224,133,8)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUBR	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUBG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWURG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUBRG	: rgb(224,133,8)
 statistics dimension:
 	name: color (Promos)
 	position hint: 1540
@@ -1295,39 +1462,75 @@ statistics dimension:
 	show empty: false
 	script: if card.rarity == "special" or card.rarity == "masterpiece" then prefixed_color_statistic() else ""
 	colors:
-		​C		: rgb(101,104,94)					# There is a zero width space before the "C" so that it always appears first.
+	colors:
 		​​W		: rgb(255,231,185)					# There are two zero width spaces before the "W" so that it always appear after the "C".
-		​​​U		: rgb(15,80,166)					# There are three zero width spaces before the "U", etc...
-		​​​​B		: rgb(22,22,22)
-		​​​​​R		: rgb(156,15,15)
+		​​W		: rgb(255,231,185)					# There are two zero width spaces before the "W" so that it always appear after the "C".
+		​​​U	: rgb(15,80,166)					# There are three zero width spaces before the "U", etc...
+		​​​​B	 : rgb(22,22,22)
 		​​​​​​G		: rgb(68,144,15)
-		​​​​​​​WU		: rgb(254,192,80)
-		​​​​​​​​WB		: rgb(254,192,80)
-		​​​​​​​​​WR		: rgb(254,192,80)
-		​​​​​​​​​​WG		: rgb(254,192,80)
-		​​​​​​​​​​​UB		: rgb(254,192,80)
-		​​​​​​​​​​​​UR		: rgb(254,192,80)
-		​​​​​​​​​​​​​UG		: rgb(254,192,80)
-		​​​​​​​​​​​​​​BR		: rgb(254,192,80)
-		​​​​​​​​​​​​​​​BG		: rgb(254,192,80)
-		​​​​​​​​​​​​​​​​RG		: rgb(254,192,80)
-		​​​​​​​​​​​​​​​​​WUB		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​WUR		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​WUG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​WBR		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​WBG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​WRG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​UBR		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​​UBG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​​​URG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​BRG		: rgb(244,177,10)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBR	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBG	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WURG	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WBRG	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBRG	: rgb(232,154,9)
-		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBRG	: rgb(224,133,8)
-
+		​​​​​​G		: rgb(68,144,15)
+		​​​​​​​I	: rgb(142,92,184)
+		​​​​​​​​WU		: rgb(254,192,80)
+		​​​​​​​​​WB		: rgb(254,192,80)
+		​​​​​​​​​​WR		: rgb(254,192,80)
+		​​​​​​​​​​​WG		: rgb(254,192,80)
+		​​​​​​​​​​​​UB		: rgb(254,192,80)
+		​​​​​​​​​​​​​UR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​UG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​BR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​BG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​RG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​IW		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​IU		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​IB		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​IR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​IG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​WUB		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​WUR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​WUG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​WBR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​WBG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​WRG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​URG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​BRG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWU		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWB		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUB		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IBR		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IBG		: rgb(254,192,80)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IRG		: rgb(254,192,80)	
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBR	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WURG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUB		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWBR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWBG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWRG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUBR		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUBG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IURG		: rgb(244,177,10)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBR	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WURG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​UBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​WUBRG	: rgb(224,133,8)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUBR	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUBG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWURG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IUBRG	: rgb(232,154,9)
+		​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​IWUBRG	: rgb(224,133,8)
 statistics dimension:
 	name: omniverse color
 	position hint: 1550
@@ -1335,7 +1538,7 @@ statistics dimension:
 	description: The color category of the card, taking into account omniverse colors (Purple, Pink, Yellow, Orange and Brown).
 	split list: true
 	show empty: false
-	script: if exclude_from_statistic() then "" else omniverse_color_statistic()
+	show empty: false
 	group: Land
 	group: Colorless
 	group: Artifact
@@ -1343,6 +1546,7 @@ statistics dimension:
 	group: Blue
 	group: Black
 	group: Red
+	group: Green
 	group: Green
 	group: Purple
 	group: Pink
@@ -1355,7 +1559,8 @@ statistics dimension:
 		White		: rgb(255,231,185)
 		Blue		: rgb(15,80,166)
 		Black		: rgb(33,33,33)
-		Red			: rgb(156,15,15)
+		Black		: rgb(33,33,33)
+		Green		: rgb(68,144,15)
 		Green		: rgb(68,144,15)
 		Purple		: rgb(150,100,160)
 		Pink		: rgb(255,175,200)

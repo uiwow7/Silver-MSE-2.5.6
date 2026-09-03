@@ -838,6 +838,7 @@ languages := [
 		is_swamp          : match@(match: "(?i)Swamp")
 		is_mountain       : match@(match: "(?i)Mountain")
 		is_forest         : match@(match: "(?i)Forest")
+		is_fault         : match@(match: "(?i)Fault")
 		is_wastes         : match@(match: "(?i)Wastes")
 
 		is_class		  : match@(match: "(?i)Class")

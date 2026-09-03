@@ -1037,6 +1037,7 @@ basic_land_sort := {
 	else if contains(name, match:"Swamp")    then "MD"      #### Swamps
 	else if contains(name, match:"Mountain") then "ME"      #### Mountains
 	else if contains(name, match:"Forest")   then "MF"      #### Forests
+	else if contains(name, match:"Fault")    then "MG"      #### Faults
 	else                                               "MA"      #### other basic lands
 }
 hybrid_color_pair_sort := {
